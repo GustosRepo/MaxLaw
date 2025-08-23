@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Head from "next/head";
+import Link from "next/link";
 
 // Drop this file in a Next.js App Router project as app/page.tsx
 // TailwindCSS recommended. Install: npm i framer-motion
@@ -59,18 +60,147 @@ const Section: React.FC<React.PropsWithChildren<{ id?: string; className?: strin
 };
 
 const Card: React.FC<React.PropsWithChildren<{ title: string; subtitle?: string }>> = ({ title, subtitle, children }) => (
-  <motion.div variants={fadeUp} className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent p-4 shadow-[0_12px_40px_rgba(0,0,0,0.6)] backdrop-blur-sm">
-    <div className="h-1 w-12 rounded-full bg-[#d4af37] mb-4" />
+  <motion.div variants={fadeUp} className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent p-4 shadow-[0_12px_40px_rgba(0,0,0,0.6)] backdrop-blur-sm transform-gpu transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_18px_64px_rgba(212,175,55,0.12)] group">
+    {/* subtle gold badge */}
+    <div className="absolute -top-3 -right-3 z-10 grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[#d4af37] to-[#c5a467] text-[#0e0e0e] text-sm font-bold border border-white/10 opacity-95">✦</div>
+    <div className="h-1 w-12 rounded-full bg-[#d4af37] mb-4 transition-all duration-300 group-hover:w-20" />
     <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
     {subtitle ? <p className="mt-1 text-sm text-white/70">{subtitle}</p> : null}
     <div className="mt-4 text-sm leading-relaxed text-white/80">{children}</div>
   </motion.div>
 );
 
+// Animated accent title with underline flourish
+const AccentTitle: React.FC<React.PropsWithChildren<{ className?: string }>> = ({ children, className }) => (
+  <motion.h2 variants={fadeUp} className={`inline-block ${className || ''}`}>
+    <span className="relative z-10">{children}</span>
+    <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="origin-left mt-3 h-1 rounded-full bg-gradient-to-r from-[#d4af37] to-[#c5a467] w-full" />
+  </motion.h2>
+);
+
+// helper to create URL-friendly slugs
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+
+// practice topics
+const PERSONAL_INJURY_TOPICS = [
+  'Car Accidents',
+  'Car Accident Statistics',
+  'Cell Phone-Related Accidents',
+  'Underinsured And Uninsured Accidents',
+  'Motorcycle Accidents',
+  'Truck Accidents',
+  'Commercial Vehicle Accidents',
+  'Crosswalk And Pedestrian Accidents',
+  'Premises Liability',
+  'Product Liability',
+  'Brain And Spine Injury',
+  'Excessive Force',
+  'Elder Abuse',
+  'Medical Malpractice',
+  'Wrongful Death',
+  'Insurance Settlements And Checks',
+];
+
+const CRIMINAL_DEFENSE_TOPICS = [
+  'DUI',
+  'Prostitution',
+  'Larceny',
+  'Domestic Violence',
+  'Drugs',
+  'Theft',
+  'Sexual Assault',
+  'Burglary',
+  'Forgery',
+  'Bad Checks',
+  'Murder',
+  'Juvenile Crimes',
+  'Record Sealing',
+];
+
+// small accordion component used inside Practice cards
+const TopicsAccordion: React.FC<{ title: string; topics: string[]; basePath?: string }> = ({ title, topics, basePath = '/practice' }) => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div className="mt-4">
+      <button
+        onClick={() => setOpen((s) => !s)}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between rounded-xl border border-white/8 bg-black/20 px-4 py-2 text-sm font-semibold hover:opacity-90"
+      >
+        <span>{open ? `Hide ${title} Topics` : `See ${title} Topics`}</span>
+        <span className={`transform transition-transform ${open ? 'rotate-180' : 'rotate-0'}`}>▾</span>
+      </button>
+
+      <motion.ul
+        initial={{ height: 0, opacity: 0 }}
+        animate={open ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+        transition={{ duration: 0.25 }}
+        className="overflow-hidden"
+      >
+        <div className="mt-3 grid grid-cols-1 gap-2">
+          {topics.map((t) => (
+            <li key={t} className="list-none">
+              <Link
+                href={`${basePath}/${slugify(t)}`}
+                className="block rounded-lg px-3 py-2 text-sm hover:bg-white/5"
+                aria-label={`Learn more about ${t}`}
+              >
+                {t}
+              </Link>
+            </li>
+          ))}
+        </div>
+      </motion.ul>
+    </div>
+  );
+};
+
 export default function MaxLawnVPrototype() {
+  // parallax scroll effect for elements with data-parallax-speed
+  React.useEffect(() => {
+    let raf: number | null = null;
+    const onScroll = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const scrolled = window.scrollY;
+        document.querySelectorAll<HTMLElement>('[data-parallax-speed]').forEach((el) => {
+          const speed = parseFloat(el.dataset.parallaxSpeed || '0');
+          el.style.transform = `translateY(${(scrolled * speed).toFixed(2)}px)`;
+        });
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf); };
+  }, []);
+
   return (
     <>
       <Head>
+        {/* UI flair styles: particles, modal, separators, micro-interactions */}
+        <style>{`
+          @keyframes floatY { 0% { transform: translateY(0);} 50% { transform: translateY(-10px);} 100% { transform: translateY(0);} }
+          .particle { animation: floatY 6s ease-in-out infinite; opacity: .85; }
+          .particle.small { width: 6px; height: 6px; border-radius: 999px; }
+          .particle.mid { width: 10px; height: 10px; border-radius: 999px; }
+          .particle.large { width: 18px; height: 18px; border-radius: 999px; }
+
+          .modal-backdrop { background: rgba(3,3,3,0.72); backdrop-filter: blur(6px); }
+          .modal-content { animation: pop 220ms cubic-bezier(.2,.9,.25,1); }
+          @keyframes pop { from { transform: translateY(8px) scale(.98); opacity: 0 } to { transform: translateY(0) scale(1); opacity: 1 } }
+
+          /* diagonal separator flourish */
+          .section-sep { height: 36px; overflow: visible; }
+          .section-sep svg { display: block; width: 100%; height: 36px; }
+
+          /* CTA micro-interaction */
+          .cta-glow { transition: box-shadow .28s, transform .22s; }
+          .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.01); }
+        `}</style>
         <title>Las Vegas Personal Injury & Criminal Defense Lawyer | Saggese & Associates</title>
         <meta name="description" content="Award-winning Las Vegas law firm specializing in personal injury and criminal defense. Free consultations. No fees unless we win. Call (702) 778-8883." />
         <meta name="keywords" content="Las Vegas lawyer, personal injury, criminal defense, attorney, law firm, Saggese, legal help, free consultation" />
@@ -137,136 +267,52 @@ export default function MaxLawnVPrototype() {
       </Head>
 
       <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#1a1a1a] text-white font-['Inter']">
-        {/* ===== Hero ===== */}
-        <Section id="home" className="relative overflow-hidden py-32 md:py-48">
-          {/* Luxury background effects */}
-          <div className="pointer-events-none absolute inset-0" aria-hidden>
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0e0e0e] via-[#1a1a1a] to-[#0e0e0e]" />
-            {/* Larger, softer gold vignette to avoid visible hard edges */}
-            <div
-              className="absolute left-1/2 top-0 h-[48rem] w-[140vw] -translate-x-1/2 rounded-full bg-[#d4af37]/6 blur-4xl opacity-80"
-              style={{ WebkitMaskImage: 'radial-gradient(ellipse at 50% 8%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.25) 60%, transparent 100%)' }}
-            />
-            <div
-              className="absolute right-0 top-1/2 h-[36rem] w-[90vw] -translate-y-1/2 rounded-full bg-[#c5a467]/6 blur-4xl opacity-60"
-              style={{ WebkitMaskImage: 'radial-gradient(ellipse at 95% 50%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 40%, transparent 100%)' }}
-            />
+  {/* ===== Hero (reskinned to match About hero, smaller) ===== */}
+  <Section id="home" className="relative overflow-hidden py-0 md:py-4">
+          <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6">
+            <div className="relative overflow-hidden rounded-3xl py-4 px-4 md:px-6 mb-2" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0))' }}>
+              <div className="absolute inset-0 opacity-8 pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0e0e0e] to-transparent" />
+              </div>
 
-            {/* very subtle overlay to mellow warm tones near edges */}
-            <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.0), rgba(0,0,0,0.25) 80%)', mixBlendMode: 'multiply' }} />
-          </div>
-          
-          <div className="relative grid grid-cols-1 items-center gap-20 md:grid-cols-2">
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} variants={stagger} className="space-y-8">
-              <motion.h1 variants={fadeUp} className="text-balance font-['Playfair_Display'] font-bold leading-[1.1]">
-                <span className="block text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-[0_2px_8px_rgba(212,175,55,0.3)]">
-                  Las Vegas
-                </span>
-                <span className="block text-4xl md:text-5xl lg:text-6xl text-[#d4af37] mt-2 drop-shadow-[0_4px_12px_rgba(212,175,55,0.4)]">
-                  Personal Injury
-                </span>
-                <span className="block text-3xl md:text-4xl lg:text-5xl text-white mt-1">
-                  &
-                </span>
-                <span className="block text-4xl md:text-5xl lg:text-6xl text-[#d4af37] mt-2 drop-shadow-[0_4px_12px_rgba(212,175,55,0.4)]">
-                  Criminal Defense
-                </span>
-              </motion.h1>
-              
-              <motion.p variants={fadeUp} className="text-xl md:text-2xl text-white/85 font-light leading-relaxed max-w-2xl font-['Inter']">
-                Trusted, experienced, and relentless. Start with a confidential, no‑obligation consultation.
-              </motion.p>
-              
-              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-start gap-6 pt-4">
-                <a 
-                  href="#contact" 
-                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-8 py-4 text-lg font-bold text-[#0e0e0e] shadow-[0_8px_32px_rgba(212,175,55,0.3)] transition-all duration-300 hover:shadow-[0_12px_48px_rgba(212,175,55,0.5)] hover:scale-105 border border-[#d4af37]/20"
-                >
-                  <span className="relative z-10">Request Consultation</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#e6c547] to-[#d4af37] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </a>
-                
-                <a 
-                  href="tel:17027788883" 
-                  className="group relative overflow-hidden rounded-2xl bg-[#0e0e0e] border-2 border-[#d4af37] px-8 py-4 text-lg font-bold text-white shadow-[0_4px_24px_rgba(0,0,0,0.3)] transition-all duration-300 hover:shadow-[0_8px_48px_rgba(212,175,55,0.4)] hover:bg-[#d4af37]/10"
-                >
-                  <span className="relative z-10">Call (702) 778‑8883</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 to-[#c5a467]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </a>
-              </motion.div>
-              
-              <motion.ul variants={fadeUp} className="grid max-w-2xl grid-cols-1 gap-4 text-lg text-white/80 md:grid-cols-2 pt-6 font-['Inter']">
-                <li className="flex items-center gap-3">
-                  <span className="h-2 w-2 rounded-full bg-[#d4af37]" />
-                  No fees unless we win (PI)
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="h-2 w-2 rounded-full bg-[#d4af37]" />
-                  1:1 attorney attention
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="h-2 w-2 rounded-full bg-[#d4af37]" />
-                  Same‑day appointments
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="h-2 w-2 rounded-full bg-[#d4af37]" />
-                  Español available
-                </li>
-              </motion.ul>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }} 
-              whileInView={{ opacity: 1, scale: 1 }} 
-              viewport={{ once: true, amount: 0.3 }} 
-              transition={{ duration: 0.8 }}
-              className="relative order-first md:order-none"
-            >
-              {/* Luxury glow effect behind attorney */}
-              <div className="absolute inset-0 -z-10">
-                <div
-                  className="absolute left-1/2 top-1/2 h-[140%] w-[140%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-4xl"
-                  style={{ background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.18), rgba(197,164,103,0.08) 40%, transparent 70%)' }}
-                />
-              </div>
-              
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-[0_16px_64px_rgba(0,0,0,0.4)] bg-black">
-                {/* Las Vegas background with fade effect */}
-                <div className="absolute inset-0" style={{ zIndex: 1 }}>
-                  <Image 
-                    src="/lvbg.jpg" 
-                    alt="Las Vegas at night" 
-                    fill 
-                    priority 
-                    className="object-cover w-full h-full"
-                    style={{ 
-                      maskImage: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0.1) 100%), linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.3) 85%, rgba(0,0,0,0.1) 100%)',
-                      WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0.1) 100%), linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.3) 85%, rgba(0,0,0,0.1) 100%)',
-                      maskComposite: 'intersect',
-                      WebkitMaskComposite: 'source-in'
-                    }}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white dark:from-black to-transparent"></div>
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+                <div className="order-2 md:order-1 flex items-center justify-center md:justify-start">
+                  <div className="relative w-44 md:w-[280px]">
+                    <div className="absolute inset-0 rounded-2xl blur-2xl" style={{ background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.12), transparent 30%)' }} />
+                    <Image src="/home-banner-attorney.png" alt="Attorney Marc A. Saggese" width={260} height={320} className="relative rounded-3xl shadow-[0_18px_48px_rgba(0,0,0,0.7)] object-cover" />
+                  </div>
                 </div>
-                
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/90 via-black/50 to-transparent" style={{ zIndex: 2 }} />
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#d4af37]/10 to-transparent" style={{ zIndex: 3 }} />
-                
-                {/* Attorney at full opacity */}
-                <Image 
-                  src="/home-banner-attorney.png" 
-                  alt="Attorney portrait" 
-                  width={340} 
-                  height={600} 
-                  className="relative z-10 object-contain h-[420px] md:h-[520px] w-auto drop-shadow-2xl mx-auto" 
-                  style={{ filter: 'drop-shadow(0 0 20px rgba(212,175,55,0.3))' }}
-                />
+
+                <div className="order-1 md:order-2 text-center md:text-left">
+                  <div className="relative inline-block">
+                    <motion.h1 variants={fadeUp} className="font-['Playfair_Display'] font-bold text-3xl md:text-5xl leading-[0.95] text-white tracking-tight">Marc A. Saggese</motion.h1>
+                    <div className="absolute -right-20 -top-6 text-[5rem] md:text-[8rem] font-black text-white/6 select-none pointer-events-none leading-none">Saggese</div>
+                  </div>
+
+                  <motion.p variants={fadeUp} className="mt-2 text-base md:text-lg text-white/80 max-w-2xl">Trusted legal counsel for individuals and businesses in Las Vegas. Experienced in personal injury and criminal defense — trial-ready and client-focused.</motion.p>
+
+                  <div className="mt-4 flex flex-col sm:flex-row items-center md:items-start gap-3 justify-center md:justify-start">
+                    <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-base font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.28)]">Schedule a Call</a>
+                    <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-4 py-2 text-base text-white/90">Request a Consultation</Link>
+                  </div>
+
+                  <div className="mt-4 flex flex-wrap gap-3 text-sm text-white/80">
+                    <div>Free consultation</div>
+                    <div>•</div>
+                    <div>1:1 attorney attention</div>
+                  </div>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </Section>
 
-        {/* ===== Awards Carousel ===== */}
+         {/* decorative diagonal separator */}
+         <div className="section-sep" aria-hidden>
+           <svg viewBox="0 0 1200 36" preserveAspectRatio="none"><path d="M0,36 L1200,0 L1200,36 Z" fill="#0f0f0f" opacity="0.6"/></svg>
+         </div>
+         
+         {/* ===== Awards Carousel ===== */}
         <Section id="awards" className="py-8 md:py-12">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
             <motion.h2 variants={fadeUp} className="text-center text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-6 drop-shadow-[0_4px_12px_rgba(212,175,55,0.3)]">
@@ -342,25 +388,28 @@ export default function MaxLawnVPrototype() {
 
         {/* ===== Practice Areas ===== */}
         <Section id="practice">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
-            <motion.h2 variants={fadeUp} className="text-3xl font-bold">Practice Areas</motion.h2>
-            <motion.p variants={fadeUp} className="mt-2 max-w-prose text-white/75">Focused on outcomes that matter. Here are the matters we handle most often.</motion.p>
-            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              <Card title="Personal Injury" subtitle="Car, Truck & Rideshare Accidents; Slip & Fall; Wrongful Death">
-                We help injured Nevadans pursue medical care and compensation. Free case evaluations. No fees unless we win.
-                <div className="mt-4">
-                  <a href="#contact" className="inline-block rounded-xl border px-4 py-2 text-sm font-semibold hover:bg-white/10" style={{ borderColor: BRAND.accent }}>Get a Free Case Review</a>
-                </div>
-              </Card>
-              <Card title="Criminal Defense" subtitle="DUI; Drug Charges; Domestic; Records Sealing">
+           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
+             <motion.h2 variants={fadeUp} className="text-3xl font-bold">Practice Areas</motion.h2>
+             <motion.p variants={fadeUp} className="mt-2 max-w-prose text-white/75">Focused on outcomes that matter. Here are the matters we handle most often.</motion.p>
+             <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+               <Card title="Seriously Hurt?" subtitle="Personal Injury — Experienced Legal Support">
+                 We help injured Nevadans pursue medical care and compensation. Free case evaluations. No fees unless we win.
+                <TopicsAccordion title="Personal Injury" topics={PERSONAL_INJURY_TOPICS} />
+                 <div className="mt-4">
+                   <a href="#contact" className="inline-block rounded-xl border px-4 py-2 text-sm font-semibold hover:bg-white/10" style={{ borderColor: BRAND.accent }}>Get a Free Case Review</a>
+                 </div>
+               </Card>
+
+               <Card title="Arrested?" subtitle="Criminal Defense — Protect your rights">
                 Strategic, trial‑tested defense from arraignment through resolution. Flat‑fee and payment options available.
-                <div className="mt-4">
-                  <a href="#contact" className="inline-block rounded-xl border px-4 py-2 text-sm font-semibold hover:bg-white/10" style={{ borderColor: BRAND.accent }}>Talk to a Defense Attorney</a>
-                </div>
-              </Card>
-            </div>
-          </motion.div>
-        </Section>
+                <TopicsAccordion title="Criminal Defense" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" />
+                 <div className="mt-4">
+                   <a href="#contact" className="inline-block rounded-xl border px-4 py-2 text-sm font-semibold hover:bg-white/10" style={{ borderColor: BRAND.accent }}>Talk to a Defense Attorney</a>
+                 </div>
+               </Card>
+             </div>
+           </motion.div>
+         </Section>
 
         {/* ===== Results / Social Proof ===== */}
         <Section id="results">

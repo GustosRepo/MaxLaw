@@ -1,94 +1,192 @@
-"use client";
+"use client"
 
-import React from "react";
-import Image from "next/image";
+import React from 'react'
+import Head from 'next/head'
+import Link from 'next/link'
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#181c23] to-[#23272e] text-white font-sans pb-16">
-      <section className="mx-auto w-full max-w-4xl px-4 md:px-8 py-16">
-        <div className="flex flex-col md:flex-row items-center gap-8 mb-10">
-          <div className="flex-shrink-0">
-            <Image src="/biopic.jpg" alt="Attorney Marc A. Saggese" width={220} height={400} className="rounded-2xl shadow-2xl border-2 border-[#bfa76a]/40 bg-[#181c23] object-contain" />
+    <>
+      <Head>
+        <title>About — Saggese & Associates</title>
+        <meta name="description" content="About The Law Offices of Saggese & Associates — firm history, biography, awards, and contact information." />
+        <style>{`
+          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
+          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
+          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
+          .gold-small { color:#d4af37 }
+
+          /* Staggered grid for about cards */
+          .stagger-grid { display:grid; grid-template-columns: 1fr; gap:1.25rem; }
+          .stagger-grid .card { will-change: transform; }
+          /* small-screen lift for even cards to reduce stacking feel */
+          .stagger-grid .card:nth-child(even) { padding-top: 0.5rem; }
+          @media (min-width:768px) {
+            .stagger-grid { grid-template-columns: repeat(2, 1fr); gap:1.5rem; }
+            .stagger-grid .card { transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease; }
+            .stagger-grid .card:nth-child(odd) { transform: translateY(0); }
+            .stagger-grid .card:nth-child(even) { transform: translateY(36px); }
+            .stagger-grid .card:hover { transform: translateY(calc(-6px + var(--stagger-offset,0))) scale(1.01); box-shadow:0 30px 80px rgba(0,0,0,0.6); }
+          }
+        `}</style>
+          <style>{`
+            /* Underline animation */
+            @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+            .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; border-radius:4px }
+
+            /* Page background texture + luxury tone */
+            .custom-bg { background-image: radial-gradient(circle at 8% 12%, rgba(191,167,106,0.03), transparent 6%), radial-gradient(circle at 90% 80%, rgba(255,255,255,0.02), transparent 22%), linear-gradient(180deg,#0e0e0e,#0f0f0f); background-size:cover }
+
+            /* Card hover / lift */
+            .card-hover { transition:transform .32s cubic-bezier(.2,.9,.3,1), box-shadow .28s ease, border-color .22s ease; will-change:transform }
+            .card-hover:hover { transform:translateY(-8px) scale(1.01); box-shadow:0 34px 90px rgba(0,0,0,0.65); border-color:rgba(212,175,55,0.12) }
+
+            /* Small decorative watermark handling */
+            .watermark { font-weight:900; color:rgba(255,255,255,0.06); letter-spacing:-2px; pointer-events:none }
+
+            /* Typography helpers */
+            .lead { color: rgba(233,230,224,0.92); font-size:1.02rem }
+            .muted { color: rgba(255,255,255,0.68) }
+
+            /* Staggered grid for about cards */
+            .stagger-grid { display:grid; grid-template-columns: 1fr; gap:1.25rem; }
+            .stagger-grid .card { will-change: transform; }
+            .stagger-grid .card:nth-child(even) { padding-top: 0.5rem; }
+            @media (min-width:768px) {
+              .stagger-grid { grid-template-columns: repeat(2, 1fr); gap:1.5rem; }
+              .stagger-grid .card { transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease; }
+              .stagger-grid .card:nth-child(odd) { transform: translateY(0); }
+              .stagger-grid .card:nth-child(even) { transform: translateY(36px); }
+              .stagger-grid .card:hover { transform: translateY(calc(-6px + var(--stagger-offset,0))) scale(1.01); box-shadow:0 30px 80px rgba(0,0,0,0.6); }
+            }
+
+            /* subtle micro animation for CTAs */
+            @keyframes pulseGold { 0% { box-shadow:0 8px 24px rgba(212,175,55,0.12)} 50% { box-shadow:0 10px 34px rgba(212,175,55,0.18)} 100% { box-shadow:0 8px 24px rgba(212,175,55,0.12)} }
+            .cta-pulse:hover { animation: pulseGold 1.6s infinite; }
+          `}</style>
+  </Head>
+
+  <main className="min-h-screen custom-bg bg-gradient-to-br from-[#0e0e0e] to-[#0f0f0f] text-white font-['Inter'] py-12">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          {/* Styled about header with subtle watermark and CTAs */}
+          <div className="mb-8">
+            <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg overflow-hidden">
+              <div className="absolute -right-12 -top-6 text-[5.5rem] md:text-[8rem] font-black text-white/6 select-none pointer-events-none leading-none hidden md:block">Saggese</div>
+              <div className="relative z-10">
+                <h1 className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#bfa76a]">About the Firm</h1>
+                <div className="mt-3 w-32"><span className="accent-underline" /></div>
+                <p className="mt-3 text-sm text-white/80 max-w-3xl">The Law Offices of Saggese & Associates provides experienced representation in personal injury and criminal defense. We focus on individualized service, trial readiness, and protecting client rights through every stage of a case.</p>
+
+                <div className="mt-4 flex items-center gap-3">
+                  <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.2)]">Call (702) 778‑8883</a>
+                  <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-4 py-2 text-sm text-white/90">Request Consultation</Link>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex-1">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-2 text-[#bfa76a]">About the Law Offices of Saggese & Associates</h1>
-            <p className="text-lg text-white/80 mb-4">Personal Injury · Criminal Defense<br />
-              <span className="font-semibold text-[#bfa76a]">Free Consultation: <a href="tel:17027788883" className="underline">702-778-8883</a></span>
-            </p>
+
+          {/* Main content columns: left content, right narrow aside on md+ */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <main className="md:col-span-2 space-y-6">
+              <article className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold text-white mb-3">Firm Overview</h2>
+                <p className="text-white/80 mb-3">The Law Offices of Saggese & Associates was founded by Attorney Marc Anthony Saggese, who has been practicing law in Las Vegas since 1999. The firm represents clients facing criminal charges and individuals who have suffered a personal injury in an accident.</p>
+                <p className="text-white/80 mb-3">Marc actively litigates cases, conducts jury trials, and has represented more than 2,500 clients. He has served as a pro tempore judge for the Las Vegas Municipal Court System and as a Traffic Court magistrate.</p>
+                <h3 className="mt-6 text-2xl font-semibold">Media & Publications</h3>
+                <p className="text-white/80 mb-3">Marc has appeared on Fox & Friends, On the Record with Greta Van Susteren, Court TV, and CBS’s 48 Hours to provide legal insight and analysis. He is a weekly contributing writer for the Las Vegas Review‑Journal and has been profiled in the Las Vegas Review‑Journal and Las Vegas Magazine.</p>
+                <p className="text-white/80"><Link href="/about/marc-a-saggese" className="underline text-[#d4af37]">Learn more about Marc: Marc A. Saggese, Esq.</Link></p>
+              </article>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
+                  <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-3">Biography (Selected)</h3>
+                  <p className="text-white/80">Originally from Utica, New York, Marc obtained his Bachelor of Arts in Political Science from the State University of New York in 1995, graduating cum laude. He earned his Juris Doctor from The Catholic University of America, Columbus School of Law in 1999.</p>
+                  <p className="text-white/80 mt-3">Marc was admitted to the Judge Advocate General (JAG) Corps in 2000, where he served as a Captain in the United States Army, undertaking litigation work for the Department of Justice. In 2003, after forming his own firm, Marc devoted his practice to civil and criminal matters.</p>
+                </div>
+
+                <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
+                  <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-3">Awards & Recognition</h3>
+                  <ul className="list-disc list-inside text-white/90">
+                    <li>American Institute of Personal Injury Attorneys – named among the “10 Best Attorneys.”</li>
+                    <li>Desert Companion Magazine – recognized among “the Valley’s Top Lawyers.”</li>
+                    <li>Best of Las Vegas – Silver & Bronze (2017) and Silver (2018) awards.</li>
+                  </ul>
+                  <p className="text-xs text-white/60 mt-3">Past results, awards, or recognitions do not guarantee similar outcomes. Each case is unique.</p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
+                <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-3">Education & Bar Admissions</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                  <div>
+                    <h4 className="font-semibold mb-2">Education</h4>
+                    <ul className="list-disc pl-5">
+                      <li>The Catholic University of America, Columbus School of Law — Juris Doctor, May 1999</li>
+                      <li>State University of New York, College at Cortland — B.A., cum laude, Political Science, August 1995</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Bar Admissions</h4>
+                    <ul className="list-disc pl-5">
+                      <li>The Supreme Court, State of Nevada — Attorney and Counselor at Law (1999)</li>
+                      <li>The United States Court of Military Appeals for the Armed Forces — Appellate Attorney (2000)</li>
+                      <li>Other federal and state admissions</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* FAQ */}
+              <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
+                <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-4">Frequently Asked Questions</h3>
+                <FAQ />
+              </div>
+            </main>
+
+            <aside className="md:col-span-1 space-y-6">
+              <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/8 shadow-lg text-center">
+                <div className="text-sm font-semibold text-white mb-2">Contact</div>
+                <div className="text-white/80 mb-4">Free consultation • Same‑day appointments</div>
+                <a href="tel:17027788883" className="block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-3 text-sm font-semibold text-[#0e0e0e] mb-3">Call (702) 778‑8883</a>
+                <Link href="/contact" className="block rounded-2xl border border-white/10 px-4 py-3 text-sm text-white/90">Request a consultation</Link>
+              </div>
+
+              <div className="rounded-2xl p-6 bg-gradient-to-br from-white/5 to-transparent border border-white/8 shadow-lg">
+                <div className="text-sm font-semibold text-white mb-2">Office</div>
+                <address className="not-italic text-white/80">
+                  <div>The Law Offices of Saggese & Associates</div>
+                  <div>732 S. 6th Street, Suite 201</div>
+                  <div>Las Vegas, NV 89101</div>
+                </address>
+              </div>
+            </aside>
           </div>
         </div>
-        <hr className="my-8 border-[#bfa76a]/30" />
-        <h2 className="text-2xl font-bold mb-2">Firm Overview</h2>
-        <p className="mb-4">The Law Offices of Saggese & Associates was founded by Attorney Marc Anthony Saggese, who has been practicing law in Las Vegas since 1999. The firm represents clients facing criminal charges and individuals who have suffered a personal injury in an accident.</p>
-        <p className="mb-4">Marc actively litigates cases, conducts jury trials, and has represented more than 2,500 clients. He has served as a pro tempore judge for the Las Vegas Municipal Court System and as a Traffic Court magistrate.</p>
-        <h3 className="text-xl font-semibold mt-8 mb-2">Media & Publications</h3>
-        <p className="mb-4">Marc has appeared on Fox & Friends, On the Record with Greta Van Susteren, Court TV, and CBS’s 48 Hours to provide legal insight and analysis. He is a weekly contributing writer for the Las Vegas Review‑Journal and has been profiled in the Las Vegas Review‑Journal and Las Vegas Magazine.</p>
-        <p className="mb-4">Learn more about Marc: <a href="/about/marc-a-saggese" className="underline text-[#bfa76a]">Marc A. Saggese, Esq.</a></p>
-        <hr className="my-8 border-[#bfa76a]/30" />
-        <h2 className="text-2xl font-bold mb-2">Biography (Selected)</h2>
-        <p className="mb-4">Originally from Utica, New York, Marc obtained his Bachelor of Arts in Political Science from the State University of New York in 1995, graduating cum laude. He earned his Juris Doctor from The Catholic University of America, Columbus School of Law in 1999.</p>
-        <p className="mb-4">Marc was admitted to the Judge Advocate General (JAG) Corps in 2000, where he served as a Captain in the United States Army, undertaking litigation work for the Department of Justice. In 2003, after forming his own firm, Marc devoted his practice to civil and criminal matters, finding that passionate defense work best served his community.</p>
-        <p className="mb-4">In 2010, following a string of notable trials—and known for his persuasive, tenacious courtroom style—Marc became the inspiration for the character Pete Kaczmarek (portrayed by Jerry O’Connell) in the CBS primetime television drama “The Defenders.” Marc worked with the show’s writers to provide legal authenticity; episodes were based on clients or issues he had previously litigated.</p>
-        <hr className="my-8 border-[#bfa76a]/30" />
-        <h2 className="text-2xl font-bold mb-2">Awards & Recognition (Selected)</h2>
-        <ul className="list-disc list-inside mb-4 text-white/90">
-          <li>American Institute of Personal Injury Attorneys – named among the “10 Best Attorneys.”</li>
-          <li>Desert Companion Magazine – recognized among “the Valley’s Top Lawyers.”</li>
-          <li>Best of Las Vegas – Silver & Bronze (2017) and Silver (2018) awards.</li>
-        </ul>
-        <p className="text-xs text-white/60 mb-4">Past results, awards, or recognitions do not guarantee similar outcomes. Each case is unique.</p>
-        <hr className="my-8 border-[#bfa76a]/30" />
-        <h2 className="text-2xl font-bold mb-2">Education</h2>
-        <ul className="list-disc list-inside mb-4 text-white/90">
-          <li>The Catholic University of America, Columbus School of Law, Washington, DC — Juris Doctor, May 1999</li>
-          <li>The Judge Advocate General’s School, U.S. Army, Charlottesville, VA — JAG Certification, April 2000</li>
-          <li>State University of New York, College at Cortland — B.A., cum laude, Political Science, August 1995</li>
-          <li>University of North London, Kentish Town, North London, England — British Politics and Government, January 1993</li>
-        </ul>
-        <h2 className="text-2xl font-bold mb-2">Bar Admissions</h2>
-        <ul className="list-disc list-inside mb-4 text-white/90">
-          <li>The Supreme Court, State of Nevada — Attorney and Counselor at Law (1999)</li>
-          <li>The United States Court of Military Appeals for the Armed Forces — Appellate Attorney (2000)</li>
-          <li>The United States Court of Appeals for the Fifth Circuit — Appellate Attorney (2001)</li>
-          <li>The Supreme Court, State of Georgia — Attorney and Counselor at Law (2003)</li>
-          <li>The United States Court of Appeals for the Third Circuit — Appellate Attorney (2006)</li>
-          <li>The United States Court of Appeals for the Ninth Circuit — Appellate Attorney (2010)</li>
-          <li>The Supreme Court, State of Texas — Attorney and Counselor at Law (2015)</li>
-        </ul>
-        <hr className="my-8 border-[#bfa76a]/30" />
-        <h2 className="text-2xl font-bold mb-2">Office Location</h2>
-        <address className="not-italic mb-4">
-          <div>The Law Offices of Saggese & Associates</div>
-          <div>732 S. 6th Street, Suite 201</div>
-          <div>Las Vegas, NV 89101</div>
-          <div>Phone: <a href="tel:17027788883" className="underline">702‑778‑8883</a></div>
-          <div>Fax: 702‑778‑8884</div>
-          <div><a href="#" className="underline text-[#bfa76a]">Map & Directions</a></div>
-        </address>
-        <hr className="my-8 border-[#bfa76a]/30" />
-        <h2 className="text-2xl font-bold mb-2">Schedule a Free Initial Consultation</h2>
-        <p className="mb-4">To learn more about The Law Offices of Saggese & Associates and the legal services offered, visit our Las Vegas office for a free initial consultation.<br />
-        Call <a href="tel:17027788883" className="underline">702‑778‑8883</a> or send us an <a href="mailto:marc@maxlawnv.com" className="underline text-[#bfa76a]">email</a> to schedule an appointment.</p>
-        <hr className="my-8 border-[#bfa76a]/30" />
-        <h2 className="text-2xl font-bold mb-2">Social Links</h2>
-        <ul className="flex flex-wrap gap-4 mb-8">
-          <li><a href="#" className="underline text-[#bfa76a]">Facebook</a></li>
-          <li><a href="#" className="underline text-[#bfa76a]">Twitter</a></li>
-          <li><a href="#" className="underline text-[#bfa76a]">LinkedIn</a></li>
-          <li><a href="#" className="underline text-[#bfa76a]">Avvo</a></li>
-          <li><a href="#" className="underline text-[#bfa76a]">Las Vegas Review‑Journal</a></li>
-          <li><a href="#" className="underline text-[#bfa76a]">Yelp</a></li>
-          <li><a href="mailto:marc@maxlawnv.com" className="underline text-[#bfa76a]">Email</a></li>
-        </ul>
-        <hr className="my-8 border-[#bfa76a]/30" />
-        <footer className="text-xs text-white/60 flex flex-col md:flex-row md:justify-between gap-2">
-          <span>© 2019 by The Law Offices of Saggese and Associates. All rights reserved.</span>
-          <span>
-            <a href="#" className="underline">Disclaimer</a> | <a href="#" className="underline">Site Map</a>
-          </span>
-        </footer>
-      </section>
-    </main>
+      </main>
+    </>
+  )
+}
+
+// Small FAQ component for the about page
+function FAQ() {
+  const faqs = [
+    { q: 'What types of cases do you handle?', a: 'We handle personal injury and criminal defense matters with trial-ready representation for serious cases.' },
+    { q: 'Do you offer free consultations?', a: 'Yes — we provide free initial consultations to discuss your case and options.' },
+    { q: 'How do I schedule a consultation?', a: 'Call our office at (702) 778‑8883 or use the contact form to request an appointment.' },
+  ];
+  const [open, setOpen] = React.useState<number | null>(0);
+  return (
+    <div className="space-y-3">
+      {faqs.map((f, i) => (
+        <div key={i} className="border border-white/6 rounded-lg overflow-hidden">
+          <button onClick={() => setOpen(open === i ? null : i)} className="w-full flex items-center justify-between px-4 py-3 text-left">
+            <span className="font-medium">{f.q}</span>
+            <span className={`ml-4 transition-transform ${open === i ? 'rotate-180' : 'rotate-0'}`}>▾</span>
+          </button>
+          {open === i && <div className="px-4 pb-4 text-white/80">{f.a}</div>}
+        </div>
+      ))}
+    </div>
   );
 }

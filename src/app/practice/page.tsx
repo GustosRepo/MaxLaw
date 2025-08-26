@@ -41,18 +41,20 @@ export default function PracticePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <main className="md:col-span-2 space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {[
-                  { title: 'Personal Injury', href: '/practice/personal-injury', desc: 'Car accidents, premises liability, and catastrophic injury representation.' },
-                  { title: 'Criminal Defense', href: '/criminal-defense', desc: 'DUI, assault, theft, drug offenses, and serious felony defense.' },
-                  { title: 'DUI Defense', href: '/criminal-defense/dui', desc: 'Field sobriety, breath tests, and DMV hearings.' },
-                  { title: 'Drug Crimes', href: '/criminal-defense/drugs', desc: 'Possession, distribution, and trafficking defense.' },
-                ].map((p) => (
-                  <Link key={p.title} href={p.href} className="block rounded-2xl p-5 bg-gradient-to-br from-white/3 to-transparent border border-white/8 card-hover">
-                    <h3 className="text-lg font-semibold text-white">{p.title}</h3>
-                    <p className="text-sm text-white/80 mt-2">{p.desc}</p>
-                    <div className="mt-4 text-xs text-white/70">Learn more →</div>
-                  </Link>
-                ))}
+{[
+  { title: 'Car Accidents', href: '/practice/car-accidents', desc: 'Car accidents, premises liability, and catastrophic injury representation.' },
+  { title: 'Brain & Spine Injury', href: '/practice/brain-and-spine-injury', desc: 'Serious injury, trauma, and long-term care cases.' },
+  { title: 'Wrongful Death', href: '/practice/wrongful-death', desc: 'Representation for families in fatal accident cases.' },
+  { title: 'Premises Liability', href: '/practice/premises-liability', desc: 'Slip and fall, unsafe property, and liability claims.' },
+].map((p) => (
+  <Link key={p.title} href={p.href}>
+    <div className="block rounded-2xl p-5 bg-gradient-to-br from-white/3 to-transparent border border-white/8 card-hover">
+      <h3 className="text-lg font-semibold text-white">{p.title}</h3>
+      <p className="text-sm text-white/80 mt-2">{p.desc}</p>
+      <div className="mt-4 text-xs text-white/70">Learn more →</div>
+    </div>
+  </Link>
+))}
               </div>
 
               <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">

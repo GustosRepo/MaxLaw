@@ -99,7 +99,7 @@ export default function HomeClient() {
   const [mapLoaded, setMapLoaded] = React.useState(false);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#1a1a1a] text-white font-['Inter']">
+    <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#1a1a1a] text-white font-[var(--font-inter)]">
       <Section id="home" className="relative overflow-hidden py-0 md:py-4 min-h-screen flex items-center">
         <motion.div
           className="relative z-10 mx-auto max-w-7xl px-4 md:px-6 w-full"
@@ -124,7 +124,7 @@ export default function HomeClient() {
                 </div>
               </motion.div>
               <motion.div variants={fadeUpSoft} className="order-1 md:order-2 text-center md:text-left">
-                <motion.h1 variants={fadeUpSoft} className="font-['Playfair_Display'] font-extrabold text-4xl md:text-6xl leading-[0.95] tracking-tight text-white">
+                <motion.h1 variants={fadeUpSoft} className="font-[var(--font-playfair)] font-extrabold text-4xl md:text-6xl leading-[0.95] tracking-tight text-white">
                   Las Vegas Personal Injury & Criminal Defense Lawyer
                   <span className="block text-[0.8em] mt-4 text-[#d4af37] font-serif tracking-tight">Marc A. Saggese</span>
                 </motion.h1>
@@ -333,16 +333,6 @@ export default function HomeClient() {
           </div>
         </motion.div>
       </Section>
-
-      <footer className="border-t border-white/10 py-10">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-6">
-          <p className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</p>
-          <div className="flex items-center gap-4 text-sm text-white/70">
-            <a href="#privacy" className="hover:text-white/90">Privacy</a>
-            <a href="#disclaimer" className="hover:text-white/90">Disclaimer</a>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

@@ -1,8 +1,84 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
+
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+  consent: boolean;
+}
+
+interface FormStatus {
+  type: 'idle' | 'loading' | 'success' | 'error';
+  message?: string;
+}
 
 export default function ContactPageClient() {
+  const [formData, setFormData] = useState<FormData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+    consent: false,
+  });
+
+  const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus({ type: 'loading' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus({ 
+          type: 'success', 
+          message: 'Thank you! We\'ll reach out to you shortly.' 
+        });
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          message: '',
+          consent: false,
+        });
+      } else {
+        setStatus({ 
+          type: 'error', 
+          message: result.error || 'Failed to send message. Please try again.' 
+        });
+      }
+    } catch (error) {
+      setStatus({ 
+        type: 'error', 
+        message: 'Failed to send message. Please try again.' 
+      });
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+    }));
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#0f0f0f] text-white font-['Inter'] py-12">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
@@ -15,30 +91,97 @@ export default function ContactPageClient() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="md:col-span-2">
-              <form onSubmit={(e) => { e.preventDefault(); alert("Thanks! We'll reach out shortly."); }} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <form onSubmit={handleSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                {status.type === 'success' && (
+                  <div className="mb-4 rounded-lg bg-green-900/20 border border-green-500/30 p-4 text-green-300">
+                    {status.message}
+                  </div>
+                )}
+                
+                {status.type === 'error' && (
+                  <div className="mb-4 rounded-lg bg-red-900/20 border border-red-500/30 p-4 text-red-300">
+                    {status.message}
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <label className="text-sm font-semibold">First name <span className="text-[#d4af37]">*</span>
-                    <input required className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm outline-none placeholder:text-white/40 focus:ring" placeholder="Jane" />
+                    <input 
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required 
+                      className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm outline-none placeholder:text-white/40 focus:ring" 
+                      placeholder="Jane" 
+                    />
                   </label>
 
                   <label className="text-sm font-semibold">Last name <span className="text-[#d4af37]">*</span>
-                    <input required className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm outline-none placeholder:text-white/40 focus:ring" placeholder="Doe" />
+                    <input 
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required 
+                      className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm outline-none placeholder:text-white/40 focus:ring" 
+                      placeholder="Doe" 
+                    />
                   </label>
 
                   <label className="text-sm font-semibold md:col-span-2">Email <span className="text-[#d4af37]">*</span>
-                    <input type="email" required className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm outline-none placeholder:text-white/40 focus:ring" placeholder="you@example.com" />
+                    <input 
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required 
+                      className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm outline-none placeholder:text-white/40 focus:ring" 
+                      placeholder="you@example.com" 
+                    />
                   </label>
 
                   <label className="text-sm font-semibold">Phone
-                    <input className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm outline-none placeholder:text-white/40 focus:ring" placeholder="(702) 555‑0123" />
+                    <input 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm outline-none placeholder:text-white/40 focus:ring" 
+                      placeholder="(702) 555‑0123" 
+                    />
                   </label>
 
                   <label className="text-sm font-semibold md:col-span-2">Brief description of your legal issue <span className="text-[#d4af37]">*</span>
-                    <textarea required rows={5} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm outline-none placeholder:text-white/40 focus:ring" placeholder="Briefly describe your matter" />
+                    <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required 
+                      rows={5} 
+                      className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm outline-none placeholder:text-white/40 focus:ring" 
+                      placeholder="Briefly describe your matter" 
+                    />
                   </label>
 
-                  <button type="submit" className="mt-4 rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-2.5 font-semibold text-[#0e0e0e] shadow-xl shadow-yellow-700/20 transition-all duration-300 hover:shadow-yellow-600/30 md:col-span-2">
-                    Send Message
+                  <div className="flex items-start gap-2 md:col-span-2">
+                    <input 
+                      id="consent" 
+                      name="consent" 
+                      type="checkbox" 
+                      checked={formData.consent}
+                      onChange={handleInputChange}
+                      className="mt-1" 
+                      required 
+                    />
+                    <label htmlFor="consent" className="text-sm">
+                      I have read the disclaimer. <span className="text-white/60">(Submitting does not create an attorney‑client relationship)</span>
+                    </label>
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    disabled={status.type === 'loading'}
+                    className="mt-4 rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-2.5 font-semibold text-[#0e0e0e] shadow-xl shadow-yellow-700/20 transition-all duration-300 hover:shadow-yellow-600/30 disabled:opacity-50 disabled:cursor-not-allowed md:col-span-2"
+                  >
+                    {status.type === 'loading' ? 'Sending...' : 'Send Message'}
                   </button>
                 </div>
               </form>

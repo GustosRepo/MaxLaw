@@ -80,6 +80,60 @@ const TopicsAccordion: React.FC<{ title: string; topics: string[]; basePath?: st
 };
 
 export default function HomeClient() {
+  const [mapLoaded, setMapLoaded] = React.useState(false);
+  const [formData, setFormData] = React.useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+    consent: false,
+  });
+  const [formStatus, setFormStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [formMessage, setFormMessage] = React.useState('');
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus('loading');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus('success');
+        setFormMessage('Thank you! We\'ll reach out to you shortly.');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          message: '',
+          consent: false,
+        });
+      } else {
+        setFormStatus('error');
+        setFormMessage(result.error || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      setFormStatus('error');
+      setFormMessage('Failed to send message. Please try again.');
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+    }));
+  };
+
   React.useEffect(() => {
     let raf: number | null = null;
     const onScroll = () => {
@@ -95,8 +149,6 @@ export default function HomeClient() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf); };
   }, []);
-  // Map load state for skeleton shimmer
-  const [mapLoaded, setMapLoaded] = React.useState(false);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#1a1a1a] text-white font-[var(--font-inter)]">
@@ -263,29 +315,43 @@ export default function HomeClient() {
           <motion.p variants={fadeUp} className="mt-3 text-center max-w-2xl mx-auto text-white/75">Learn how we help Nevada injury victims and defendants. Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: BRAND.accent }}>(702) 778‑8883</a>.</motion.p>
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
             <motion.div variants={fadeUp} className="md:col-span-2">
-              <motion.form variants={fadeUp} onSubmit={e => { e.preventDefault(); alert('Thanks! We\'ll reach out shortly.'); }} className="rounded-2xl border border-white/10 bg-white/5 p-6" aria-label="Free consultation form">
+              <motion.form variants={fadeUp} onSubmit={handleFormSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6" aria-label="Free consultation form">
+                {formStatus === 'success' && (
+                  <div className="mb-4 rounded-lg bg-green-900/20 border border-green-500/30 p-4 text-green-300">
+                    {formMessage}
+                  </div>
+                )}
+                
+                {formStatus === 'error' && (
+                  <div className="mb-4 rounded-lg bg-red-900/20 border border-red-500/30 p-4 text-red-300">
+                    {formMessage}
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <label className="text-sm font-semibold">First name <span className="text-[#d4af37]">*</span>
-                    <input name="firstName" autoComplete="given-name" aria-required required className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Jane" />
+                    <input name="firstName" value={formData.firstName} onChange={handleInputChange} autoComplete="given-name" aria-required required className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Jane" />
                   </label>
                   <label className="text-sm font-semibold">Last name <span className="text-[#d4af37]">*</span>
-                    <input name="lastName" autoComplete="family-name" aria-required required className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Doe" />
+                    <input name="lastName" value={formData.lastName} onChange={handleInputChange} autoComplete="family-name" aria-required required className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Doe" />
                   </label>
                   <label className="text-sm font-semibold md:col-span-2">Email <span className="text-[#d4af37]">*</span>
-                    <input type="email" name="email" autoComplete="email" aria-required required className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="you@example.com" />
+                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} autoComplete="email" aria-required required className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="you@example.com" />
                   </label>
                   <label className="text-sm font-semibold">Phone
-                    <input name="phone" autoComplete="tel" className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="(702) 555‑0123" />
+                    <input name="phone" value={formData.phone} onChange={handleInputChange} autoComplete="tel" className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="(702) 555‑0123" />
                   </label>
                   <label className="text-sm font-semibold md:col-span-2">Brief description <span className="text-[#d4af37]">*</span>
-                    <textarea name="message" aria-required required rows={5} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Briefly describe your matter" />
+                    <textarea name="message" value={formData.message} onChange={handleInputChange} aria-required required rows={5} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Briefly describe your matter" />
                   </label>
                   <div className="flex items-start gap-2 md:col-span-2">
-                    <input id="consent" name="consent" type="checkbox" className="mt-1" required />
+                    <input id="consent" name="consent" type="checkbox" checked={formData.consent} onChange={handleInputChange} className="mt-1" required />
                     <label htmlFor="consent" className="text-sm font-semibold">I have read the disclaimer. <span className="text-white/60">(Submitting does not create an attorney‑client relationship)</span></label>
                   </div>
                   <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden />
-                  <button type="submit" className="mt-2 w-full rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e]">Request a free consultation</button>
+                  <button type="submit" disabled={formStatus === 'loading'} className="mt-2 w-full rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] disabled:opacity-50 disabled:cursor-not-allowed">
+                    {formStatus === 'loading' ? 'Sending...' : 'Request a free consultation'}
+                  </button>
                 </div>
               </motion.form>
             </motion.div>

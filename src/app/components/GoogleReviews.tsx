@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface Review {
   author: string;
@@ -44,8 +45,8 @@ export default function GoogleReviews() {
         } else {
           setError(json.error || 'Failed to load reviews');
         }
-      } catch (e: any) {
-        if (active) setError(e.message || 'Network error');
+      } catch (e) {
+        if (active) setError(e instanceof Error ? e.message : 'Network error');
       } finally {
         if (active) setLoading(false);
       }
@@ -82,7 +83,7 @@ export default function GoogleReviews() {
           {data.reviews.map(r => (
             <motion.li variants={fade} key={r.time} className="relative rounded-2xl border border-white/10 bg-white/5 p-4 text-sm flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <img src={r.profilePhoto} alt="" className="h-10 w-10 rounded-full object-cover" />
+                <Image src={r.profilePhoto} alt="" width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
                 <div>
                   <p className="font-semibold text-white leading-tight">{r.author}</p>
                   <p className="text-[11px] uppercase tracking-wide text-white/50">{r.relativeTime}</p>

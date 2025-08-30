@@ -131,10 +131,10 @@ export default function HomeClient() {
         setFormStatus('error');
         setFormMessage(result.error || 'Failed to send message. Please try again.');
       }
-    } catch (error) {
-      setFormStatus('error');
-      setFormMessage('Failed to send message. Please try again.');
-    }
+      } catch {
+        setFormStatus('error');
+        setFormMessage('Failed to send message. Please try again.');
+      }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

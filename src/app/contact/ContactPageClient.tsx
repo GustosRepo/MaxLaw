@@ -70,7 +70,7 @@ export default function ContactPageClient() {
           message: result.error || 'Failed to send message. Please try again.' 
         });
       }
-    } catch (error) {
+    } catch {
       setStatus({ 
         type: 'error', 
         message: 'Failed to send message. Please try again.' 

@@ -1,7 +1,47 @@
 import { NextResponse } from 'next/server';
 
+interface RawReview {
+  author_name: string;
+  profile_photo_url: string;
+  rating: number;
+  text: string;
+  relative_time_description: string;
+  time: number;
+  language: string;
+  author_url?: string;
+}
+
+interface PlaceDetailsResult {
+  status: string;
+  error_message?: string;
+  result: {
+    rating: number;
+    user_ratings_total: number;
+    url?: string;
+    reviews?: RawReview[];
+  };
+}
+
 // Simple in-memory cache (resets on redeploy)
-let cached: { timestamp: number; data: any } | null = null;
+interface CachedPayload {
+  success: true;
+  rating: number;
+  total: number;
+  url?: string;
+  reviews: Array<{
+    author: string;
+    profilePhoto: string;
+    rating: number;
+    text: string;
+    relativeTime: string;
+    time: number;
+    language: string;
+    authorUrl?: string;
+  }>;
+  fetchedAt: string;
+}
+
+let cached: { timestamp: number; data: CachedPayload } | null = null;
 const CACHE_TTL_MS = 1000 * 60 * 30; // 30 minutes
 
 export async function GET() {
@@ -16,23 +56,23 @@ export async function GET() {
   }
 
   if (cached && (Date.now() - cached.timestamp) < CACHE_TTL_MS) {
-    return NextResponse.json({ success: true, source: 'cache', ...cached.data });
+    return NextResponse.json({ source: 'cache', ...cached.data });
   }
 
   try {
     const fields = 'reviews,rating,user_ratings_total,url';
     const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${encodeURIComponent(placeId)}&fields=${fields}&key=${apiKey}`;
     const res = await fetch(url, { next: { revalidate: 1800 } });
-    const json = await res.json();
+  const json: PlaceDetailsResult = await res.json();
 
     if (json.status !== 'OK') {
       return NextResponse.json({ success: false, error: json.status, details: json.error_message }, { status: 500 });
     }
 
     const reviews = (json.result.reviews || [])
-      .sort((a: any, b: any) => (b.time || 0) - (a.time || 0))
+      .sort((a, b) => (b.time || 0) - (a.time || 0))
       .slice(0, 6)
-      .map((r: any) => ({
+      .map(r => ({
         author: r.author_name,
         profilePhoto: r.profile_photo_url,
         rating: r.rating,
@@ -43,7 +83,7 @@ export async function GET() {
         authorUrl: r.author_url,
       }));
 
-    const payload = {
+    const payload: CachedPayload = {
       success: true,
       rating: json.result.rating,
       total: json.result.user_ratings_total,
@@ -53,7 +93,8 @@ export async function GET() {
     };
     cached = { timestamp: Date.now(), data: payload };
     return NextResponse.json(payload, { status: 200 });
-  } catch (e: any) {
-    return NextResponse.json({ success: false, error: 'FETCH_ERROR', details: e?.message }, { status: 500 });
+  } catch (e) {
+    const message = e instanceof Error ? e.message : 'Unknown error';
+    return NextResponse.json({ success: false, error: 'FETCH_ERROR', details: message }, { status: 500 });
   }
 }

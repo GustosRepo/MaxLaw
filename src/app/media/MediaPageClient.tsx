@@ -16,12 +16,7 @@ const stagger = {
 
 // Note: Metadata handled by layout since this is a client component
 export default function MediaPage() {
-  const media = [
-    { title: 'Court TV Interview', desc: 'Legal analysis on high-profile criminal case.', href: '#' },
-    { title: 'Fox & Friends Segment', desc: 'Discussion of trial strategy and public safety.', href: '#' },
-    { title: '48 Hours Feature', desc: 'Profile of a representative case and outcome.', href: '#' },
-    { title: 'Podcast: Legal Roundtable', desc: 'Episode on recent personal injury trends.', href: '#' },
-  ]
+  // Media list placeholder removed (unused).
 
   return (
     <>

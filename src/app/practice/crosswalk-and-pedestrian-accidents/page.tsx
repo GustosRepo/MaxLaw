@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export const metadata = {
   title: 'Crosswalk & Pedestrian Accidents | Saggese & Associates',

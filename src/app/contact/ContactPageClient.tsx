@@ -1,6 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
+import { 
+  FIRM_ADDRESS_LINE1, 
+  FIRM_ADDRESS_LINE2, 
+  FIRM_ADDRESS_FULL, 
+  FIRM_PHONE_DISPLAY, 
+  FIRM_PHONE_E164 
+} from '../../lib/constants';
 
 interface FormData {
   firstName: string;
@@ -191,15 +198,15 @@ export default function ContactPageClient() {
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-[#bfa76a]">Location</h3>
                 <div className="space-y-2 text-sm text-white/80">
-                  <p>702 S. 3rd Street</p>
-                  <p>Las Vegas, NV 89101</p>
+                  <p>{FIRM_ADDRESS_LINE1}</p>
+                  <p>{FIRM_ADDRESS_LINE2}</p>
                 </div>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-[#bfa76a]">Phone</h3>
                 <p className="text-sm">
-                  <a href="tel:17027788883" className="underline">(702) 778‑8883</a>
+                  <a href={`tel:${FIRM_PHONE_E164}`} className="underline">{FIRM_PHONE_DISPLAY}</a>
                 </p>
               </div>
 
@@ -226,7 +233,7 @@ export default function ContactPageClient() {
               <h2 className="mb-4 text-xl font-['Playfair_Display'] font-bold text-[#bfa76a]">Map & Directions</h2>
               <div className="aspect-video rounded-xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3218.7751874834147!2d-115.14485952464977!3d36.16885447295451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c41744e8c3b7%3A0x8e9a6a7b9b0f0c7d!2s702%20S%203rd%20St%2C%20Las%20Vegas%2C%20NV%2089101!5e0!3m2!1sen!2sus!4v1693245678901!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.7606809079157!2d-115.1462139236927!3d36.1608364724385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c37be7b8c0c7%3A0x3dc32c9f3e909fd4!2s732%20S%206th%20St%20%23200c%2C%20Las%20Vegas%2C%20NV%2089101!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -237,7 +244,7 @@ export default function ContactPageClient() {
                 ></iframe>
               </div>
               <div className="mt-4 text-sm text-white/80">
-                <p><strong>Address:</strong> 702 S. 3rd Street, Las Vegas, NV 89101</p>
+                <p><strong>Address:</strong> {FIRM_ADDRESS_FULL}</p>
                 <p><strong>Parking:</strong> Street parking and nearby public lots available</p>
                 <p><strong>Public Transit:</strong> Accessible via RTC transit routes</p>
                 <p><strong>Directions:</strong> Located in downtown Las Vegas, near the Las Vegas courthouse</p>

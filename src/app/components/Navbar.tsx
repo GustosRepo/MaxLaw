@@ -72,9 +72,10 @@ export default function Navbar() {
           ))}
         </div>
 
+        {/* Desktop call button (hidden on mobile) */}
         <a
           href="tel:17027788883"
-          className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] border-2 border-[#d4af37] px-6 py-3 text-base font-bold text-[#0e0e0e] shadow-[0_8px_32px_rgba(212,175,55,0.3)] transition-all duration-300 hover:shadow-[0_12px_48px_rgba(212,175,55,0.5)] hover:scale-105 font-['Inter']"
+          className="hidden md:inline-flex group relative overflow-hidden rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] border-2 border-[#d4af37] px-6 py-3 text-base font-bold text-[#0e0e0e] shadow-[0_8px_32px_rgba(212,175,55,0.3)] transition-all duration-300 hover:shadow-[0_12px_48px_rgba(212,175,55,0.5)] hover:scale-105 font-['Inter']"
         >
           <span className="relative z-10">(702) 778-8883</span>
           <div className="absolute inset-0 bg-gradient-to-r from-[#e6c547] to-[#d4af37] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -100,14 +101,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href="tel:17027788883"
-            className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] border-2 border-[#d4af37] px-8 py-4 text-xl font-bold text-[#0e0e0e] shadow-[0_8px_32px_rgba(212,175,55,0.3)] transition-all duration-300 hover:shadow-[0_12px_48px_rgba(212,175,55,0.5)] hover:scale-105 font-['Inter']"
-            onClick={() => setMenuOpen(false)}
-          >
-            <span className="relative z-10">(702) 778-8883</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#e6c547] to-[#d4af37] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          </a>
+          {/* Phone number removed on mobile as requested */}
         </div>
       </div>
     </header>

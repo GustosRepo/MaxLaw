@@ -3,6 +3,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import HeroMediaRotator from './HeroMediaRotator';
+import GoogleReviews from './GoogleReviews';
+import {
+  FIRM_ADDRESS_LINE1,
+  FIRM_ADDRESS_LINE2,
+  FIRM_ADDRESS_FULL,
+  FIRM_PHONE_DISPLAY,
+  FIRM_PHONE_E164,
+  FIRM_NAME
+} from '../../lib/constants';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -91,6 +101,7 @@ export default function HomeClient() {
   });
   const [formStatus, setFormStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [formMessage, setFormMessage] = React.useState('');
+  const [reviewSummary, setReviewSummary] = React.useState<{ rating: number; total: number } | null>(null);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -150,9 +161,24 @@ export default function HomeClient() {
     return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf); };
   }, []);
 
+  // Fetch limited review summary (rating + total) for hero credibility bar
+  React.useEffect(() => {
+    let active = true;
+    fetch('/api/reviews')
+      .then(r => r.json())
+      .then(j => {
+        if (!active) return;
+        if (j?.success && j?.rating && j?.total) {
+          setReviewSummary({ rating: j.rating, total: j.total });
+        }
+      })
+      .catch(() => {});
+    return () => { active = false; };
+  }, []);
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#1a1a1a] text-white font-[var(--font-inter)]">
-      <Section id="home" className="relative overflow-hidden py-0 md:py-4 min-h-screen flex items-center">
+  <Section id="home" className="relative overflow-hidden min-h-screen flex items-center py-12 md:py-16">
         <motion.div
           className="relative z-10 mx-auto max-w-7xl px-4 md:px-6 w-full"
           initial="hidden"
@@ -162,36 +188,51 @@ export default function HomeClient() {
         >
           <motion.div
             variants={fadeInScale}
-            className="relative overflow-hidden rounded-3xl py-10 px-6 md:px-12 mb-2 border border-white/10 bg-neutral-900/40 backdrop-blur-sm"
+            className="relative overflow-hidden rounded-3xl pt-10 md:pt-14 pb-0 px-6 md:px-12 mb-2 border border-white/10 bg-neutral-900/40 backdrop-blur-sm flex w-full"
           >
+            <HeroMediaRotator />
             <motion.div
               variants={heroStagger}
-              className="grid grid-cols-1 md:grid-cols-2 items-center gap-10"
+              className="grid grid-cols-1 md:grid-cols-2 gap-10 md:min-h-[520px] items-center md:items-stretch w-full"
             >
-              <motion.div variants={fadeUpSoft} className="order-2 md:order-1 flex items-center justify-center md:justify-start">
-                <div className="relative w-60 md:w-[430px]">
-                  <motion.div variants={fadeUpSoft}>
-                    <Image src="/home-banner-attorney.png" alt="Las Vegas attorney Marc A. Saggese – personal injury and criminal defense" width={400} height={500} priority className="relative rounded-2xl object-cover" />
+              <motion.div variants={fadeUpSoft} className="order-2 md:order-1 hidden md:flex justify-center md:justify-start items-end h-full">
+                <div className="relative w-60 md:w-[300px] h-full flex items-end">
+                  <motion.div variants={fadeUpSoft} className="w-full flex justify-center">
+                    <Image src="/home-banner-attorney.png" alt="Las Vegas attorney Marc A. Saggese – personal injury and criminal defense" width={400} height={500} priority className="relative rounded-2xl object-cover shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)]" />
                   </motion.div>
                 </div>
               </motion.div>
-              <motion.div variants={fadeUpSoft} className="order-1 md:order-2 text-center md:text-left">
+              <motion.div variants={fadeUpSoft} className="order-1 md:order-2 text-center md:text-center">
                 <motion.h1 variants={fadeUpSoft} className="font-[var(--font-playfair)] font-extrabold text-4xl md:text-6xl leading-[0.95] tracking-tight text-white">
-                  Las Vegas Personal Injury & Criminal Defense Lawyer
-                  <span className="block text-[0.8em] mt-4 text-[#d4af37] font-serif tracking-tight">Marc A. Saggese</span>
+                  {FIRM_NAME}
+                  <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif tracking-tight font-normal">Personal Injury & Criminal Defense</span>
                 </motion.h1>
                 <motion.p variants={fadeUpSoft} className="mt-6 text-base md:text-xl text-white/80 max-w-2xl">
                   Award‑winning trial lawyer defending the accused and advocating for the injured across Clark County. <strong className="text-[#d4af37] font-medium">Free consultation</strong>. No fee unless we win injury cases.
                 </motion.p>
-                <motion.div variants={fadeUpSoft} className="mt-8 flex flex-col sm:flex-row items-center md:items-start gap-5 justify-center md:justify-start">
-                  <a href="tel:17027788883" className="inline-flex items-center gap-2 rounded-2xl bg-[#d4af37] px-7 py-4 text-lg font-semibold text-[#0e0e0e] transition-colors hover:bg-[#c5a467] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#d4af37] focus:ring-offset-neutral-900">Call (702) 778‑8883</a>
+                <motion.div variants={fadeUpSoft} className="mt-8 flex flex-col sm:flex-row items-center gap-5 justify-center">
+                  <a href={`tel:${FIRM_PHONE_E164}`} className="inline-flex items-center gap-2 rounded-2xl bg-[#d4af37] px-7 py-4 text-lg font-semibold text-[#0e0e0e] transition-colors hover:bg-[#c5a467] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#d4af37] focus:ring-offset-neutral-900">Call {FIRM_PHONE_DISPLAY}</a>
                   <Link href="/contact" className="inline-flex items-center rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-lg text-white/90 transition hover:border-[#d4af37]/60 hover:bg-white/10">Request a Consultation</Link>
                 </motion.div>
-                <motion.ul variants={fadeUpSoft} className="mt-7 flex flex-wrap gap-4 text-sm text-white/70">
+                <motion.ul variants={fadeUpSoft} className="mt-7 flex flex-wrap gap-4 text-sm text-white/70 justify-center">
                   <li className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-[#d4af37]" />Free consultation</li>
                   <li className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-[#d4af37]" />Trial‑ready</li>
                   <li className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-[#d4af37]" />Spanish available</li>
                 </motion.ul>
+                <motion.div variants={fadeUpSoft} className="mt-8">
+                  <ul className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[11px] md:text-xs tracking-wide text-white/55 font-medium">
+                    <li className="flex items-center gap-2"><span className="text-white font-semibold">20+</span><span>Years Experience</span></li>
+                    <li className="flex items-center gap-2"><span className="text-white font-semibold">Millions</span><span>Recovered*</span></li>
+                    {reviewSummary && (
+                      <li className="flex items-center gap-2" aria-label={`Google rating ${reviewSummary.rating.toFixed(1)} out of 5`}>
+                        <span className="text-white font-semibold">{reviewSummary.rating.toFixed(1)}</span>
+                        <span>★ ({reviewSummary.total}+ reviews)</span>
+                      </li>
+                    )}
+                    <li className="flex items-center gap-2"><span className="text-white font-semibold">24/7</span><span>Message Us</span></li>
+                  </ul>
+                  <p className="mt-3 text-[10px] text-center text-white/30">*Past results do not guarantee future outcomes.</p>
+                </motion.div>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -242,6 +283,10 @@ export default function HomeClient() {
         </motion.div>
       </Section>
 
+      <Section id="reviews" className="py-8 md:py-12">
+        <GoogleReviews />
+      </Section>
+
       <Section id="practice">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
           <motion.h2 variants={fadeUp} className="text-3xl font-bold">Practice Areas</motion.h2>
@@ -277,7 +322,7 @@ export default function HomeClient() {
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
           <motion.h2 variants={fadeUp} className="text-3xl font-['Playfair_Display'] font-semibold text-center mb-4">Meet Your Lawyer</motion.h2>
           <motion.div variants={fadeUp} className="mt-6 grid grid-cols-1 items-center gap-8 md:grid-cols-[240px,1fr]">
-            <div className="flex justify-center items-center">
+            <div className="hidden md:flex justify-center items-center">
               <div className="relative aspect-[1/1] w-80 md:w-96 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-neutral-900 via-neutral-800 to-black shadow-lg">
                 <Image src="/meet-your.jpg" alt="Attorney Marc A. Saggese portrait" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -312,7 +357,7 @@ export default function HomeClient() {
       <Section id="contact">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
           <motion.h2 variants={fadeUp} className="text-3xl font-['Playfair_Display'] font-semibold text-center">Speak With an Experienced Lawyer Today</motion.h2>
-          <motion.p variants={fadeUp} className="mt-3 text-center max-w-2xl mx-auto text-white/75">Learn how we help Nevada injury victims and defendants. Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: BRAND.accent }}>(702) 778‑8883</a>.</motion.p>
+          <motion.p variants={fadeUp} className="mt-3 text-center max-w-2xl mx-auto text-white/75">Learn how we help Nevada injury victims and defendants. Call <a href={`tel:${FIRM_PHONE_E164}`} className="underline" style={{ textDecorationColor: BRAND.accent }}>{FIRM_PHONE_DISPLAY}</a>.</motion.p>
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
             <motion.div variants={fadeUp} className="md:col-span-2">
               <motion.form variants={fadeUp} onSubmit={handleFormSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6" aria-label="Free consultation form">
@@ -358,9 +403,9 @@ export default function HomeClient() {
             <motion.div variants={fadeUp} className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/80 flex flex-col gap-4">
               <h3 className="text-base font-semibold">Contact Information</h3>
               <address className="not-italic text-white/80">
-                The Law Offices of Saggese & Associates<br />732 S. 6th Street Suite 201<br />Las Vegas, NV 89101
+                The Law Offices of Saggese & Associates<br />{FIRM_ADDRESS_LINE1}<br />{FIRM_ADDRESS_LINE2}
               </address>
-              <p className="text-white/80">Phone: <a href="tel:17027788883" className="underline" style={{ textDecorationColor: BRAND.accent }}>(702) 778‑8883</a></p>
+              <p className="text-white/80">Phone: <a href={`tel:${FIRM_PHONE_E164}`} className="underline" style={{ textDecorationColor: BRAND.accent }}>{FIRM_PHONE_DISPLAY}</a></p>
               <p className="text-white/80">Fax: 702-778-8884</p>
               <div className="mt-2">
                 <h4 className="text-sm font-semibold text-white/75">Connect</h4>
@@ -385,12 +430,12 @@ export default function HomeClient() {
                 )}
                 <iframe
                   title="Office location map"
-                  aria-label="Google map showing office location"
+                  aria-label={`Google map showing office at ${FIRM_ADDRESS_FULL}`}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   onLoad={() => setMapLoaded(true)}
                   className={`w-full h-full transition-opacity duration-500 ${mapLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.7606809079157!2d-115.1462139236927!3d36.1608364724385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c37be7b8c0c7%3A0x3dc32c9f3e909fd4!2s732%20S%206th%20St%20Suite%20201%2C%20Las%20Vegas%2C%20NV%2089101!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(FIRM_ADDRESS_FULL)}&output=embed`}
                   allowFullScreen
                 />
               </div>

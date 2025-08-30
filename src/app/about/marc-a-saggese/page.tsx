@@ -90,7 +90,7 @@ export default function MarcSaggesePage() {
                 <h3 className="text-xl font-semibold mb-2">Contact & Office</h3>
                 <address className="not-italic text-sm text-white/80">
                   <div>The Law Offices of Saggese & Associates</div>
-                  <div>732 S. 6th Street Suite 201, Las Vegas, NV 89101</div>
+                  <div>732 S 6th St #200c, Las Vegas, NV 89101</div>
                   <div>Phone: <a href="tel:17027788883" className="underline">702-778-8883</a></div>
                   <div><a href="#" className="underline text-[#bfa76a]">Map & Directions</a></div>
                 </address>

@@ -145,7 +145,7 @@ export default function AboutPage() {
                 <div className="text-sm font-semibold text-white mb-2">Office</div>
                 <address className="not-italic text-white/80">
                   <div>The Law Offices of Saggese & Associates</div>
-                  <div>732 S. 6th Street, Suite 201</div>
+                  <div>732 S 6th St #200c</div>
                   <div>Las Vegas, NV 89101</div>
                 </address>
               </div>

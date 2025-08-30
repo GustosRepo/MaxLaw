@@ -180,7 +180,7 @@ export default function MediaPage() {
               <div className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-sm text-white/80">
                 <div className="font-semibold text-white mb-2">Contact Info</div>
                 <div>The Law Offices of Saggese & Associates</div>
-                <div>732 S. 6th Street Suite 201, Las Vegas, NV 89101</div>
+                <div>732 S 6th St #200c, Las Vegas, NV 89101</div>
                 <div>Phone: <a href="tel:17027788883" className="underline">702-778-8883</a></div>
                 <div className="mt-3 h-36 w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-900 grid place-items-center">Map Placeholder</div>
               </div>

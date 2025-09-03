@@ -96,9 +96,9 @@ export default function ContactPageClient() {
             </div>
           </section>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="md:col-span-2">
-              <form onSubmit={handleSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-stretch">
+            <div className="md:col-span-2 flex">
+              <form onSubmit={handleSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6 flex-1 flex flex-col">
                 {status.type === 'success' && (
                   <div className="mb-4 rounded-lg bg-green-900/20 border border-green-500/30 p-4 text-green-300">
                     {status.message}
@@ -194,7 +194,7 @@ export default function ContactPageClient() {
               </form>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 flex flex-col h-full">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-[#bfa76a]">Location</h3>
                 <div className="space-y-2 text-sm text-white/80">
@@ -225,6 +225,30 @@ export default function ContactPageClient() {
                   We offer a free initial consultation to discuss your case and legal options.
                 </p>
               </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h3 className="mb-3 text-lg font-semibold text-[#bfa76a]">Connect</h3>
+                <ul className="flex flex-wrap gap-3 text-sm">
+                  {[
+                    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/marc-saggese-4a84a34b/?original_referer=https%3A%2F%2Fwww.maxlawnv.com%2F' },
+                    { name: 'Avvo', href: 'https://www.avvo.com/attorneys/89101-nv-marc-saggese-563159.html' },
+                  ].map(s => (
+                    <li key={s.name} className="list-none">
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        aria-label={`Visit our ${s.name} profile (opens in new tab)`}
+                        className="inline-flex items-center gap-1 rounded-full bg-white/10 px-4 py-1.5 font-medium tracking-wide hover:bg-white/20 transition"
+                      >
+                        {s.name}
+                        <span aria-hidden className="text-[10px] opacity-60">↗</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex-1" aria-hidden />
             </div>
           </div>
 

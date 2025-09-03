@@ -399,15 +399,21 @@ export default function HomeClient() {
               <p className="text-white/80">Fax: 702-778-8884</p>
               <div className="mt-2">
                 <h4 className="text-sm font-semibold text-white/75">Connect</h4>
-    <ul className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-3" aria-label="Social links">
-                  {['facebook','twitter','linkedin','avvo','email'].map(s => (
-                    <li key={s} className="list-none">
+                <ul className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-3" aria-label="Social links">
+                  {[
+                    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/marc-saggese-4a84a34b/?original_referer=https%3A%2F%2Fwww.maxlawnv.com%2F' },
+                    { name: 'Avvo', href: 'https://www.avvo.com/attorneys/89101-nv-marc-saggese-563159.html' },
+                  ].map(s => (
+                    <li key={s.name} className="list-none">
                       <a
-                        href="#"
-                        aria-label={`Visit our ${s} page`}
-      className="rounded-full bg-white/6 px-3 py-1.5 text-xs font-medium tracking-wide capitalize hover:bg-white/10 transition min-w-[70px] text-center"
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        aria-label={`Visit our ${s.name} profile (opens in new tab)`}
+                        className="rounded-full bg-white/6 px-4 py-1.5 text-xs font-medium tracking-wide hover:bg-white/10 transition text-center inline-flex items-center gap-1"
                       >
-                        {s}
+                        {s.name}
+                        <span aria-hidden className="text-[10px] opacity-60">↗</span>
                       </a>
                     </li>
                   ))}

@@ -1,27 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'DUI Defense | Saggese & Associates',
-  description: 'Experienced Las Vegas DUI defense attorneys. We protect your rights and work to minimize penalties and consequences.'
+  title: 'Las Vegas DUI Defense Lawyer | Saggese & Associates',
+  description: 'Las Vegas DUI defense lawyer challenging stops, testing & DMV suspension. Free consultation (702) 778-8883.',
+  keywords: [
+    'las vegas dui lawyer',
+    'dui defense attorney nevada',
+    'dmv hearing dui las vegas'
+  ],
+  alternates: { canonical: `${SITE_URL}/criminal-defense/dui` },
+  openGraph: { title: 'Las Vegas DUI Defense Lawyer', description: 'Challenging stops, field tests & chemical testing.', url: `${SITE_URL}/criminal-defense/dui`, type: 'article' },
+  twitter: { card: 'summary', title: 'Las Vegas DUI Defense Lawyer', description: 'Field test & chemical test challenges – free case review.' }
 }
 
 export default function DUIPage() {
   return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        `}</style>
-      </Head>
+  <>
 
       {/* Content only — PracticeLayout provides the outer wrapper and sidebar */}
 
@@ -94,7 +91,17 @@ export default function DUIPage() {
         <p className="text-white/80 leading-relaxed">Call our office at <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or submit the contact form to request a consultation.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/criminal-defense/dui"
+        serviceType="Las Vegas DUI Defense Lawyer"
+        description="Las Vegas DUI defense lawyer challenging stops, testing & DMV suspension. Free consultation."
+        keywords={['las vegas dui lawyer','dui defense attorney nevada','dmv hearing dui las vegas']}
+        faqs={[
+          { question: 'How long do I have to request a DMV hearing?', answer: 'You typically have a very short window (often 7 days) after notice; act immediately to preserve driving rights.' },
+          { question: 'Can DUI charges be reduced?', answer: 'Yes—issues with stops, field sobriety, or testing can lead to reduction or dismissal.' }
+        ]}
+      />
     </>
   )
 }

@@ -1,29 +1,40 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 
 export const metadata = {
-  title: 'Cell Phone-Related Accidents | Saggese & Associates',
-  description: 'Accidents caused by distracted or cell phone use. Learn how we investigate liability and protect your claim.'
+  title: 'Las Vegas Distracted Driving Lawyer | Saggese & Associates',
+  description: 'Las Vegas distracted driving & cell phone accident lawyer preserving evidence to prove negligence. Free consultation (702) 778‑8883.',
+  keywords: [
+    'las vegas distracted driving lawyer',
+    'cell phone accident attorney nevada',
+    'texting and driving crash lawyer',
+    'distracted driver claim las vegas'
+  ],
+  alternates: { canonical: `${SITE_URL}/practice/cell-phone-related-accidents` },
+  openGraph: {
+    title: 'Las Vegas Distracted Driving Lawyer',
+    description: 'Cell phone & texting accident claims – free consultation.',
+    url: `${SITE_URL}/practice/cell-phone-related-accidents`,
+    type: 'article'
+  },
+  twitter: { card: 'summary', title: 'Distracted Driving Lawyer', description: 'Cell phone crash? Free consultation.' }
 }
 
 export default function CellPhoneAccidentsPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-          .cta-glow { transition:box-shadow .28s, transform .22s; }
-          .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-        `}</style>
-      </Head>
+      <style>{`
+        /* standardized practice page styles */
+        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
+        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
+        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
+        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
+        .cta-glow { transition:box-shadow .28s, transform .22s; }
+        .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
+      `}</style>
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
@@ -89,11 +100,21 @@ export default function CellPhoneAccidentsPage() {
       </section>
 
       {/* How we help section */}
-      <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mt-8">
+  <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mt-8">
         <h3 className="text-lg font-semibold text-white mb-3">How we help</h3>
         <p className="text-white/80 leading-relaxed mb-3">Saggese & Associates offers a free consultation to review distracted driving claims and to preserve cellphone and telematics evidence early in the process.</p>
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form to get started.</p>
       </section>
+      <PracticeStructuredData
+        slug="/practice/cell-phone-related-accidents"
+        serviceType="Las Vegas Distracted Driving Lawyer"
+        description="Las Vegas distracted driving & cell phone accident lawyer preserving evidence to prove negligence. Free consultation."
+        keywords={['las vegas distracted driving lawyer','cell phone accident attorney','texting and driving crash lawyer']}
+        faqs={[
+          { question: 'What evidence proves distracted driving?', answer: 'Cell phone logs, telematics, surveillance video, eyewitness statements, and vehicle data downloads.' },
+          { question: 'How fast should evidence be preserved?', answer: 'Immediately—some electronic logs and dash data overwrite within days.' }
+        ]}
+      />
     </>
   )
 }

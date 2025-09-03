@@ -1,26 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Juvenile Crimes Defense | Saggese & Associates',
-  description: 'Representation for juveniles facing criminal charges. Focused on rehabilitation and minimizing long-term consequences.'
+  title: 'Las Vegas Juvenile Defense Lawyer | Saggese & Associates',
+  description: 'Juvenile defense prioritizing rehabilitation, diversion & record sealing. Free consultation (702) 778-8883.',
+  keywords: [
+    'las vegas juvenile defense lawyer',
+    'juvenile diversion nevada',
+    'juvenile record sealing las vegas'
+  ],
+  alternates: { canonical: `${SITE_URL}/criminal-defense/juvenile-crimes` },
+  openGraph: { title: 'Las Vegas Juvenile Defense Lawyer', description: 'Rehabilitation & diversion focused juvenile defense.', url: `${SITE_URL}/criminal-defense/juvenile-crimes`, type: 'article' },
+  twitter: { card: 'summary', title: 'Juvenile Defense Lawyer', description: 'Diversion & rehabilitation strategies.' }
 }
 
 export default function JuvenileCrimesPage() {
   return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        `}</style>
-      </Head>
+  <>
 
       <header className="mb-6">
         <div className="relative inline-block">
@@ -44,8 +42,8 @@ export default function JuvenileCrimesPage() {
           <p className="text-white/80 leading-relaxed mb-3">Parents should preserve records, participate in recommended services, and follow counsel's guidance to maximize the likelihood of favorable outcomes for their child.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e]">Call (702) 778‑8883</a>
-            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90">Request a free consultation</Link>
+            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] cta-glow">Call (702) 778‑8883</a>
+            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90 cta-glow">Request a free consultation</Link>
           </div>
         </article>
 
@@ -76,7 +74,17 @@ export default function JuvenileCrimesPage() {
         <p className="text-white/80 leading-relaxed">Call our office or submit the contact form to schedule a consultation.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/criminal-defense/juvenile-crimes"
+        serviceType="Las Vegas Juvenile Defense Lawyer"
+        description="Juvenile defense prioritizing rehabilitation, diversion & record sealing. Free consultation."
+        keywords={['las vegas juvenile defense lawyer','juvenile diversion nevada']}
+        faqs={[
+          { question: 'Can juvenile records be sealed?', answer: 'Many juvenile adjudications can be sealed—timelines depend on the offense and completion of terms.' },
+          { question: 'Is diversion available?', answer: 'Frequently yes—counseling, education or informal supervision can replace formal adjudication.' }
+        ]}
+      />
     </>
   )
 }

@@ -1,26 +1,43 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import PracticeStructuredData from '../../practice/PracticeStructuredData'
+
+const title = 'Las Vegas Theft & Larceny Defense Lawyer | Saggese & Associates'
+const description = 'Experienced Las Vegas theft and larceny defense attorneys handling shoplifting, grand larceny, and financial theft allegations with strategic negotiation and trial readiness.'
+const keywords = [
+  'Las Vegas theft lawyer',
+  'larceny defense attorney',
+  'shoplifting defense lawyer',
+  'grand larceny attorney Nevada',
+  'property crime defense Las Vegas',
+  'theft charges lawyer',
+  'petty theft defense attorney'
+]
 
 export const metadata = {
-  title: 'Theft Defense | Saggese & Associates',
-  description: 'Skilled Las Vegas theft attorneys defending clients against shoplifting, larceny, and related theft charges.'
+  title,
+  description,
+  keywords,
+  alternates: { canonical: 'https://www.maxlawnv.com/criminal-defense/theft' },
+  openGraph: {
+    type: 'website',
+    url: 'https://www.maxlawnv.com/criminal-defense/theft',
+    title,
+    description
+  },
+  twitter: { card: 'summary_large_image', title, description }
 }
 
 export default function TheftPage() {
+  const faqs = [
+    { question: 'What determines the severity of a theft charge?', answer: 'Primarily the alleged value involved, prior record, and circumstances. Early review of valuation evidence can reduce exposure.' },
+    { question: 'Can theft charges be reduced or dismissed?', answer: 'Yes. Diversion, restitution, charge negotiation, or evidentiary challenges (intent, ownership, identity) can lead to reduced or dismissed counts.' },
+    { question: 'Should I talk to store security or police?', answer: 'Do not provide statements beyond basic identification before consulting counsel—statements are often used to establish intent.' },
+    { question: 'Is restitution helpful?', answer: 'Timely restitution in appropriate cases can support negotiation for reduced charges or dismissal pathways.' }
+  ]
+
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        `}</style>
-      </Head>
 
       <header className="mb-6">
         <div className="relative inline-block">
@@ -32,26 +49,27 @@ export default function TheftPage() {
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
-          <p className="mb-4 text-white/90 leading-relaxed">We defend clients across the spectrum of theft offenses, from shoplifting and petty theft to grand larceny. Our lawyers evaluate the evidence, ownership claims, and the role of intent to determine the strongest path forward.</p>
+          <p className="mb-4 text-white/90 leading-relaxed">We defend clients across the spectrum of theft offenses, from shoplifting and petty theft to grand larceny. We evaluate evidence, ownership claims, valuation, and intent to determine the strongest path forward.</p>
 
           <h3 className="mt-4 text-lg font-semibold text-white">Key defense strategies</h3>
           <ul className="list-disc pl-5 text-white/80 mb-4">
             <li>Demonstrate lack of intent or mistaken belief of ownership</li>
             <li>Challenge identification and witness reliability</li>
-            <li>Negotiate for diversion, restitution, or reduced charges where appropriate</li>
+            <li>Dispute valuation thresholds establishing felony levels</li>
+            <li>Negotiate diversion, restitution, or reduced charges where appropriate</li>
           </ul>
 
           <p className="text-white/80 leading-relaxed mb-4">In many lower-level theft cases, early negotiation and evidence review lead to favorable outcomes; for more serious allegations, we aggressively prepare for trial.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e]">Call (702) 778‑8883</a>
-            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90">Request a free consultation</Link>
+            <a href="tel:17027788883" className="cta-glow inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e]">Call (702) 778‑8883</a>
+            <Link href="/contact" className="cta-glow inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90">Request a free consultation</Link>
           </div>
         </article>
 
         <aside className="rounded-2xl border border-white/10 bg-white/4 p-4 shadow-lg">
           <div className="mb-3 text-sm font-semibold text-white">Quick facts</div>
-          <p className="text-sm text-white/80">From petty theft to grand larceny, charges depend on value and intent — early defense often reduces exposure.</p>
+          <p className="text-sm text-white/80">From petty theft to grand larceny, charges depend on value and intent—early defense often reduces exposure.</p>
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
@@ -76,7 +94,15 @@ export default function TheftPage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or submit the contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates.</footer>
+      <PracticeStructuredData
+        slug="criminal-defense/theft"
+        serviceType="Las Vegas Theft & Larceny Defense Lawyer"
+        description={description}
+        keywords={keywords}
+        faqs={faqs}
+      />
+
+  {/* Footer removed */}
     </>
   )
 }

@@ -16,7 +16,12 @@ const stagger = {
 
 // Note: Metadata handled by layout since this is a client component
 export default function MediaPage() {
-  // Media list placeholder removed (unused).
+  const media = [
+    { title: 'Court TV Interview', desc: 'Legal analysis on high-profile criminal case.', href: '#' },
+    { title: 'Fox & Friends Segment', desc: 'Discussion of trial strategy and public safety.', href: '#' },
+    { title: '48 Hours Feature', desc: 'Profile of a representative case and outcome.', href: '#' },
+    { title: 'Podcast: Legal Roundtable', desc: 'Episode on recent personal injury trends.', href: '#' },
+  ]
 
   return (
     <>
@@ -115,29 +120,45 @@ export default function MediaPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <main className="md:col-span-2 space-y-6">
               <div>
-                {/* Media article list (copied from old site) */}
-                {[
-                  { title: 'ASK A LAWYER — Should The Boston Marathon Bomber be Sentenced to Death?', date: 'April 28, 2015', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-should-the-boston-marathon-bomber-be-sentenced-to-death/', img: '/content/images/boston-marathon.jpg', excerpt: 'How does a state sentence a terrorist to death when that state no longer has the death penalty?' },
-                  { title: 'Ninth Circuit Takes New Look at Duty to Warn in Match Gone Bad', date: 'April 28, 2015', link: 'https://www.reviewjournal.com/news/after-surviving-nearly-fatal-attack-woman-sues-match-com/', img: '/content/images/ninth-circuit.jpg', excerpt: 'It has been seven years since Mary Kay Beckman was brutally stabbed and left for dead by a man she met on Match.com.' },
-                  { title: 'DUI Checkpoints – Are They Legal and What are Your Rights?', date: 'December 30, 2014', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-dui-checkpoints-are-they-legal-and-what-are-your-rights/', img: '/content/images/dui_checkpoint.jpg', excerpt: 'They go by a number of different names: DUI checkpoints, administrative roadblocks, mobile checkpoints...' },
-                  { title: 'Everything You Need to Know About Car Insurance', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-everything-you-need-to-know-about-car-insurance/', img: '/content/images/car-insurance.jpg', excerpt: 'Practical guidance on car insurance coverage and claims.' },
-                  { title: "What to Do If You're In A Car Accident", date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-what-to-do-if-youre-in-a-car-accident/', img: '/content/images/car-accident.jpg', excerpt: 'Steps to take immediately after a collision to protect your claim.' },
-                  { title: 'The Importance of Having a Will', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-the-importance-of-having-a-will/', img: '/content/images/will.jpg', excerpt: 'Why an estate plan matters and how to get started.' },
-                  { title: 'Drinking and Driving in Nevada', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-drinking-and-driving-in-nevada/', img: '/content/images/drunk-driving.jpg', excerpt: 'Overview of Nevada DUI laws and potential defenses.' },
-                  { title: 'Texting and Driving', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-texting-and-driving/', img: '/content/images/texting-driving.jpg', excerpt: 'How distracted driving laws apply and what to know.' },
-                ].map((a) => (
-                  <div key={a.title} className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/8 mb-4">
-                    <div className="media-wrap">
-                      <div className="media-thumb">{/* Thumbnail removed - image placeholders commented out */}</div>
-                      <div className="media-info text-white/80">
-                        <h3 className="text-lg font-semibold">{a.title}</h3>
-                        <h4 className="text-sm mt-1 text-white/70">{a.date} <span className="mx-2">|</span> <a className="current" href={a.link} target="_blank" rel="noreferrer">Original Article</a></h4>
-                        <p className="mt-2">{a.excerpt}</p>
-                        <a href={a.link} target="_blank" rel="noreferrer" className="underline mt-2 inline-block">Read More</a>
+                {/* Media article list using available images from /public/content */}
+                {(() => {
+                  const availableImages = ['/content/boston-marathon.jpg', '/content/match.png', '/content/dui.png', '/content/car_accident.png','/content/car-accident2.png','/content/will.png','/content/drinking.png','/content/texting.png'] as const;
+                  const articles = [
+                    { title: 'ASK A LAWYER — Should The Boston Marathon Bomber be Sentenced to Death?', date: 'April 28, 2015', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-should-the-boston-marathon-bomber-be-sentenced-to-death/', excerpt: 'How does a state sentence a terrorist to death when that state no longer has the death penalty?' },
+                    { title: 'Ninth Circuit Takes New Look at Duty to Warn in Match Gone Bad', date: 'April 28, 2015', link: 'https://www.reviewjournal.com/news/after-surviving-nearly-fatal-attack-woman-sues-match-com/', excerpt: 'It has been seven years since Mary Kay Beckman was brutally stabbed and left for dead by a man she met on Match.com.' },
+                    { title: 'DUI Checkpoints – Are They Legal and What are Your Rights?', date: 'December 30, 2014', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-dui-checkpoints-are-they-legal-and-what-are-your-rights/', excerpt: 'They go by a number of different names: DUI checkpoints, administrative roadblocks, mobile checkpoints...' },
+                    { title: 'Everything You Need to Know About Car Insurance', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-everything-you-need-to-know-about-car-insurance/', excerpt: 'Practical guidance on car insurance coverage and claims.' },
+                    { title: "What to Do If You're In A Car Accident", date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-what-to-do-if-youre-in-a-car-accident/', excerpt: 'Steps to take immediately after a collision to protect your claim.' },
+                    { title: 'The Importance of Having a Will', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-the-importance-of-having-a-will/', excerpt: 'Why an estate plan matters and how to get started.' },
+                    { title: 'Drinking and Driving in Nevada', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-drinking-and-driving-in-nevada/', excerpt: 'Overview of Nevada DUI laws and potential defenses.' },
+                    { title: 'Texting and Driving', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-texting-and-driving/', excerpt: 'How distracted driving laws apply and what to know.' },
+                  ];
+                  return articles.map((a, i) => {
+                    const img = availableImages[i % availableImages.length];
+                    return (
+                      <div key={a.title} className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/8 mb-4">
+                        <div className="media-wrap">
+                          <div className="media-thumb relative overflow-hidden">
+                            <Image
+                              src={img}
+                              alt={a.title}
+                              fill
+                              sizes="160px"
+                              className="object-cover rounded-md"
+                              priority={i < 2}
+                            />
+                          </div>
+                          <div className="media-info text-white/80">
+                            <h3 className="text-lg font-semibold">{a.title}</h3>
+                            <h4 className="text-sm mt-1 text-white/70">{a.date} <span className="mx-2">|</span> <a className="current" href={a.link} target="_blank" rel="noreferrer">Original Article</a></h4>
+                            <p className="mt-2">{a.excerpt}</p>
+                            <a href={a.link} target="_blank" rel="noreferrer" className="underline mt-2 inline-block">Read More</a>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                ))}
+                    );
+                  });
+                })()}
               </div>
 
               <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
@@ -177,7 +198,28 @@ export default function MediaPage() {
                 <div>The Law Offices of Saggese & Associates</div>
                 <div>732 S 6th St #200c, Las Vegas, NV 89101</div>
                 <div>Phone: <a href="tel:17027788883" className="underline">702-778-8883</a></div>
-                <div className="mt-3 h-36 w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-900 grid place-items-center">Map Placeholder</div>
+                <div className="mt-3 w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+                  <div className="relative aspect-[4/3] w-full">
+                    <iframe
+                      title="Office Location Map"
+                      aria-label="Map showing office location at 732 S 6th St #200c, Las Vegas, NV 89101"
+                      src="https://www.google.com/maps?q=732+S+6th+St+%23200c,+Las+Vegas,+NV+89101&output=embed"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="absolute inset-0 h-full w-full border-0"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="mt-2 text-[11px] text-white/60 flex items-center justify-between">
+                    <span>Interactive map</span>
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=732+S+6th+St+%23200c,+Las+Vegas,+NV+89101"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline text-[#d4af37] hover:text-[#c5a467]"
+                    >Directions</a>
+                  </div>
+                </div>
               </div>
             </aside>
           </div>

@@ -1,29 +1,44 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 
 export const metadata = {
-  title: 'Underinsured & Uninsured Accidents | Saggese & Associates',
-  description: 'When the at-fault driver lacks adequate insurance, we help you pursue available sources of recovery including UM/UIM and other parties.'
+  title: 'Las Vegas Uninsured Motorist Lawyer | Saggese & Associates',
+  description: 'Las Vegas uninsured & underinsured motorist (UM/UIM) accident lawyer helping maximize recovery when coverage is limited. Free consultation (702) 778‑8883.',
+  keywords: [
+    'las vegas uninsured motorist lawyer',
+    'underinsured accident attorney nevada',
+    'um uim claim lawyer',
+    'insurance coverage gap attorney'
+  ],
+  alternates: { canonical: `${SITE_URL}/practice/underinsured-and-uninsured-accidents` },
+  openGraph: {
+    title: 'Las Vegas Uninsured Motorist Lawyer',
+    description: 'UM/UIM & coverage gap claims – free consultation.',
+    url: `${SITE_URL}/practice/underinsured-and-uninsured-accidents`,
+    type: 'article'
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Las Vegas Uninsured Motorist Lawyer',
+    description: 'Hit by an uninsured driver? Free consultation (702) 778‑8883.'
+  }
 }
 
 export default function UnderinsuredAccidentsPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-          .cta-glow { transition:box-shadow .28s, transform .22s; }
-          .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-        `}</style>
-      </Head>
+      <style>{`
+        /* standardized practice page styles */
+        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
+        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
+        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
+        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
+        .cta-glow { transition:box-shadow .28s, transform .22s; }
+        .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
+      `}</style>
 
       {/* Content only — provided by PracticeLayout */}
       <header className="mb-6">
@@ -89,7 +104,17 @@ export default function UnderinsuredAccidentsPage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed: global <Footer /> is rendered in root layout */}
+      <PracticeStructuredData
+        slug="/practice/underinsured-and-uninsured-accidents"
+        serviceType="Las Vegas Uninsured Motorist Lawyer"
+        description="Las Vegas uninsured & underinsured motorist accident lawyer helping maximize recovery when coverage is limited. Free consultation."
+        keywords={['las vegas uninsured motorist lawyer','underinsured accident attorney','um uim lawyer nevada']}
+        faqs={[
+          { question: 'What is UM/UIM coverage?', answer: 'Uninsured/Underinsured Motorist coverage pays when an at-fault driver has no insurance or insufficient limits.' },
+          { question: 'Can I stack policies?', answer: 'Depending on policy language and Nevada law, multiple policies or coverages may apply; an attorney can evaluate stacking potential.' }
+        ]}
+      />
     </>
   )
 }

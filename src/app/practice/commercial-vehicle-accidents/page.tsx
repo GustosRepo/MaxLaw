@@ -1,29 +1,40 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 
 export const metadata = {
-  title: 'Commercial Vehicle Accidents | Saggese & Associates',
-  description: 'Accidents involving buses, delivery vans, and other commercial vehicles — liability often extends beyond the driver.'
+  title: 'Las Vegas Commercial Vehicle Accident Lawyer | Saggese & Associates',
+  description: 'Las Vegas commercial vehicle accident lawyer handling bus, van & fleet crashes with multi-party liability. Free consultation (702) 778‑8883.',
+  keywords: [
+    'las vegas commercial vehicle accident lawyer',
+    'bus crash attorney nevada',
+    'delivery van accident lawyer',
+    'fleet liability attorney las vegas'
+  ],
+  alternates: { canonical: `${SITE_URL}/practice/commercial-vehicle-accidents` },
+  openGraph: {
+    title: 'Las Vegas Commercial Vehicle Accident Lawyer',
+    description: 'Bus, fleet & commercial vehicle crash claims – free consultation.',
+    url: `${SITE_URL}/practice/commercial-vehicle-accidents`,
+    type: 'article'
+  },
+  twitter: { card: 'summary', title: 'Commercial Vehicle Accident Lawyer', description: 'Fleet or bus crash? Free consultation.' }
 }
 
 export default function CommercialVehicleAccidentsPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-          .cta-glow { transition:box-shadow .28s, transform .22s; }
-          .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-        `}</style>
-      </Head>
+      <style>{`
+        /* standardized practice page styles */
+        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
+        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
+        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
+        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
+        .cta-glow { transition:box-shadow .28s, transform .22s; }
+        .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
+      `}</style>
 
       {/* Content only — PracticeLayout supplies the outer main/container */}
 
@@ -90,7 +101,17 @@ export default function CommercialVehicleAccidentsPage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/practice/commercial-vehicle-accidents"
+        serviceType="Las Vegas Commercial Vehicle Accident Lawyer"
+        description="Las Vegas commercial vehicle accident lawyer handling bus, van & fleet crashes with multi-party liability. Free consultation."
+        keywords={['las vegas commercial vehicle accident lawyer','bus crash attorney','delivery van accident lawyer']}
+        faqs={[
+          { question: 'Who may be liable in a commercial vehicle accident?', answer: 'Driver, employer, maintenance provider, parts manufacturer, or contractor dispatching the vehicle.' },
+          { question: 'What evidence is critical?', answer: 'Maintenance logs, driver qualification file, telematics, hours-of-service, and corporate policies.' }
+        ]}
+      />
     </>
   )
 }

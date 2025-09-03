@@ -1,26 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Homicide & Murder Defense | Saggese & Associates',
-  description: 'Aggressive defense for homicide and murder charges. Experienced trial attorneys prepared for serious felony cases.'
+  title: 'Las Vegas Homicide & Murder Defense Lawyer | Saggese & Associates',
+  description: 'Homicide & murder defense—strategic forensic review & trial-focused advocacy. Free consult (702) 778-8883.',
+  keywords: [
+    'las vegas murder defense lawyer',
+    'homicide defense attorney nevada',
+    'forensic evidence criminal defense'
+  ],
+  alternates: { canonical: `${SITE_URL}/criminal-defense/murder` },
+  openGraph: { title: 'Las Vegas Homicide & Murder Defense Lawyer', description: 'Forensic & investigative focused defense.', url: `${SITE_URL}/criminal-defense/murder`, type: 'article' },
+  twitter: { card: 'summary', title: 'Homicide Defense Lawyer', description: 'Strategic forensic review—free consult.' }
 }
 
 export default function MurderPage() {
   return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        `}</style>
-      </Head>
+  <>
 
       <header className="mb-6">
         <div className="relative inline-block">
@@ -44,8 +42,8 @@ export default function MurderPage() {
           <p className="text-white/80 leading-relaxed mb-3">Given the stakes, timely counsel is critical. We will preserve evidence, develop defenses, and coordinate a multidisciplinary strategy designed to protect your rights at every stage.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e]">Call (702) 778‑8883</a>
-            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90">Request a free consultation</Link>
+            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] cta-glow">Call (702) 778‑8883</a>
+            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90 cta-glow">Request a free consultation</Link>
           </div>
         </article>
 
@@ -76,7 +74,17 @@ export default function MurderPage() {
         <p className="text-white/80 leading-relaxed">Call our office at <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or submit the contact form to request a consultation.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/criminal-defense/murder"
+        serviceType="Las Vegas Homicide & Murder Defense Lawyer"
+        description="Homicide & murder defense—strategic forensic review & trial-focused advocacy. Free consultation."
+        keywords={['las vegas murder defense lawyer','homicide defense attorney nevada']}
+        faqs={[
+          { question: 'When should a defense team get experts?', answer: 'Immediately—early forensic consultation preserves evidence and shapes strategy.' },
+          { question: 'Can homicide charges be reduced?', answer: 'Yes—issues with intent, causation or evidence can reduce charges (e.g., to manslaughter).' }
+        ]}
+      />
     </>
   )
 }

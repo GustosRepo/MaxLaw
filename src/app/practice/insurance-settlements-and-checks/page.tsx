@@ -1,29 +1,35 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 
 export const metadata = {
-  title: 'Insurance Settlements & Checks | Saggese & Associates',
-  description: 'Understanding insurance settlements and checks — we protect clients from insurer pitfalls and ensure funds are properly disbursed.'
+  title: 'Las Vegas Insurance Settlement Lawyer | Saggese & Associates',
+  description: 'Las Vegas insurance settlement lawyer negotiating fair payouts, lien reduction & proper disbursement. Free consultation (702) 778‑8883.',
+  keywords: [
+    'las vegas insurance settlement lawyer',
+    'personal injury settlement process nevada',
+    'lien reduction attorney',
+    'injury settlement timeline'
+  ],
+  alternates: { canonical: `${SITE_URL}/practice/insurance-settlements-and-checks` },
+  openGraph: { title: 'Las Vegas Insurance Settlement Lawyer', description: 'Negotiating payouts, lien reductions & structured settlements.', url: `${SITE_URL}/practice/insurance-settlements-and-checks`, type: 'article' },
+  twitter: { card: 'summary', title: 'Insurance Settlement Lawyer', description: 'Need help with a settlement? Free consultation.' }
 }
 
 export default function InsuranceSettlementsPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-          .cta-glow { transition:box-shadow .28s, transform .22s; }
-          .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-        `}</style>
-      </Head>
+      <style>{`
+        /* standardized practice page styles */
+        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
+        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
+        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
+        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
+        .cta-glow { transition:box-shadow .28s, transform .22s; }
+        .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
+      `}</style>
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
@@ -85,11 +91,21 @@ export default function InsuranceSettlementsPage() {
       </section>
 
       {/* How we help section */}
-      <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mt-8">
+  <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mt-8">
         <h3 className="text-lg font-semibold text-white mb-3">How we help</h3>
         <p className="text-white/80 leading-relaxed mb-3">We review offers, negotiate lien reductions, and ensure settlement proceeds are properly disbursed to cover medical care and future needs.</p>
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
+      <PracticeStructuredData
+        slug="/practice/insurance-settlements-and-checks"
+        serviceType="Las Vegas Insurance Settlement Lawyer"
+        description="Las Vegas insurance settlement lawyer negotiating fair payouts, lien reduction & proper disbursement. Free consultation."
+        keywords={['las vegas insurance settlement lawyer','lien reduction attorney','injury settlement timeline']}
+        faqs={[
+          { question: 'How long does a settlement take?', answer: 'Many personal injury settlements disburse within 3–6 months after agreement, depending on lien negotiations and insurer processing.' },
+          { question: 'Can medical liens be reduced?', answer: 'Yes—providers and lienholders often accept reductions negotiated by counsel, increasing net recovery.' }
+        ]}
+      />
     </>
   )
 }

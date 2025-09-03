@@ -1,29 +1,44 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 
 export const metadata = {
-  title: 'Product Liability | Saggese & Associates',
-  description: 'Defective product claims — we pursue manufacturers and suppliers for dangerous or unreasonably dangerous products.'
+  title: 'Las Vegas Product Liability Lawyer | Saggese & Associates',
+  description: 'Las Vegas product liability lawyer handling defective product, design, manufacturing & warning defect claims. Free consultation (702) 778‑8883.',
+  keywords: [
+    'las vegas product liability lawyer',
+    'defective product attorney nevada',
+    'dangerous product claim',
+    'design defect lawyer las vegas'
+  ],
+  alternates: { canonical: `${SITE_URL}/practice/product-liability` },
+  openGraph: {
+    title: 'Las Vegas Product Liability Lawyer',
+    description: 'Defective product & design defect claims – free consultation.',
+    url: `${SITE_URL}/practice/product-liability`,
+    type: 'article'
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Las Vegas Product Liability Lawyer',
+    description: 'Injured by a defective product? Free consultation (702) 778‑8883.'
+  }
 }
 
 export default function ProductLiabilityPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-          .cta-glow { transition:box-shadow .28s, transform .22s; }
-          .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-        `}</style>
-      </Head>
+      <style>{`
+        /* standardized practice page styles */
+        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
+        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
+        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
+        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
+        .cta-glow { transition:box-shadow .28s, transform .22s; }
+        .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
+      `}</style>
 
       {/* Content only — PracticeLayout provides main/container */}
       <header className="mb-6">
@@ -89,7 +104,17 @@ export default function ProductLiabilityPage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/practice/product-liability"
+        serviceType="Las Vegas Product Liability Lawyer"
+        description="Las Vegas product liability lawyer handling defective product, design, manufacturing & warning defect claims. Free consultation."
+        keywords={['las vegas product liability lawyer','defective product attorney','design defect lawyer nevada']}
+        faqs={[
+          { question: 'What is a product defect?', answer: 'A defect may arise from unsafe design, manufacturing errors, or inadequate warnings/instructions making the product unreasonably dangerous.' },
+          { question: 'Who can be liable?', answer: 'Manufacturers, component makers, distributors, and retailers across the supply chain may share liability.' }
+        ]}
+      />
     </>
   )
 }

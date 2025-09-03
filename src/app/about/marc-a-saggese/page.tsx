@@ -113,12 +113,7 @@ export default function MarcSaggesePage() {
           </aside>
         </section>
 
-        <footer className="text-xs text-white/60 flex flex-col md:flex-row md:justify-between gap-2 border-t border-[#bfa76a]/20 pt-6 mt-10">
-          <span>© 2019 by The Law Offices of Saggese and Associates. All rights reserved.</span>
-          <span>
-            <a href="#" className="underline">Disclaimer</a> | <a href="#" className="underline">Site Map</a>
-          </span>
-        </footer>
+  {/* Removed inline footer; global <Footer /> handles site-wide footer content */}
       </div>
     </main>
   );

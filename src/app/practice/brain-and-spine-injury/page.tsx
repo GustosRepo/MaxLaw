@@ -1,29 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
+// Removed <Head>; using Next.js metadata & structured data component
+import PracticeStructuredData from '../PracticeStructuredData'
+import { SITE_URL } from '@/lib/constants'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Brain & Spine Injury | Saggese & Associates',
-  description: 'Traumatic brain and spinal cord injuries require specialized legal and medical advocacy. We pursue comprehensive compensation for life-changing injuries.'
+  title: 'Las Vegas Brain & Spine Injury Lawyer | Saggese & Associates',
+  description: 'Traumatic brain & spinal cord injury attorneys in Las Vegas — life‑care planning, medical experts & full compensation pursuit. Free consultation.',
+  alternates: { canonical: `${SITE_URL}/practice/brain-and-spine-injury` },
+  openGraph: {
+    title: 'Las Vegas Brain & Spine Injury Lawyer',
+    description: 'Life‑changing TBI & spinal injury advocacy. Free consultation.',
+    url: `${SITE_URL}/practice/brain-and-spine-injury`,
+    type: 'article'
+  }
 }
 
 export default function BrainSpineInjuryPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-          .cta-glow { transition:box-shadow .28s, transform .22s; }
-          .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-        `}</style>
-      </Head>
 
       {/* Content only — PracticeLayout provides the outer main/container */}
       <header className="mb-6">
@@ -89,7 +84,13 @@ export default function BrainSpineInjuryPage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/practice/brain-and-spine-injury"
+        serviceType="Las Vegas Brain and Spine Injury Lawyer"
+        description="Traumatic brain & spinal cord injury attorneys in Las Vegas — life‑care planning, medical experts & full compensation pursuit. Free consultation."
+        keywords={['las vegas brain injury lawyer','spinal cord injury attorney','tbi lawyer nevada']}
+      />
     </>
   )
 }

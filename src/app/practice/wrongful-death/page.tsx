@@ -1,18 +1,25 @@
 import React from 'react'
-import Head from 'next/head'
+// Removed Head; relying on exported metadata & structured data
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Wrongful Death | Saggese & Associates',
-  description: 'Representation for families after a wrongful death — compassionate advocacy to pursue justice and compensation.'
+  title: 'Las Vegas Wrongful Death Lawyer | Saggese & Associates',
+  description: 'Compassionate Las Vegas wrongful death attorneys pursuing justice & financial security for families. Free consultation – call (702) 778‑8883.',
+  alternates: { canonical: `${SITE_URL}/practice/wrongful-death` },
+  openGraph: {
+    title: 'Las Vegas Wrongful Death Lawyer',
+    description: 'Justice & compensation for Nevada families — free consultation.',
+    url: `${SITE_URL}/practice/wrongful-death`,
+    type: 'article'
+  }
 }
 
 export default function WrongfulDeathPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+  <>
         <style>{`
           /* standardized practice page styles */
           @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -23,7 +30,7 @@ export default function WrongfulDeathPage() {
           .cta-glow { transition:box-shadow .28s, transform .22s; }
           .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
         `}</style>
-      </Head>
+  </>
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
@@ -90,6 +97,12 @@ export default function WrongfulDeathPage() {
         <p className="text-white/80 leading-relaxed mb-3">We manage wrongful death claims and fight for compensation for losses and future needs of surviving family members, while handling administrative burdens with care.</p>
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
+      <PracticeStructuredData
+        slug="/practice/wrongful-death"
+        serviceType="Las Vegas Wrongful Death Lawyer"
+        description="Compassionate Las Vegas wrongful death attorneys pursuing justice & financial security for families. Free consultation – call (702) 778‑8883."
+        keywords={['las vegas wrongful death lawyer','nevada wrongful death attorney','fatal accident claim']}
+      />
     </>
   )
 }

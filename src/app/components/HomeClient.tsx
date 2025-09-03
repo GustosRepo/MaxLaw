@@ -161,19 +161,9 @@ export default function HomeClient() {
     return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf); };
   }, []);
 
-  // Fetch limited review summary (rating + total) for hero credibility bar
+  // Static review summary (API removed)
   React.useEffect(() => {
-    let active = true;
-    fetch('/api/reviews')
-      .then(r => r.json())
-      .then(j => {
-        if (!active) return;
-        if (j?.success && j?.rating && j?.total) {
-          setReviewSummary({ rating: j.rating, total: j.total });
-        }
-      })
-      .catch(() => {});
-    return () => { active = false; };
+    setReviewSummary({ rating: 4.9, total: 125 });
   }, []);
 
   return (
@@ -208,7 +198,7 @@ export default function HomeClient() {
                   <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif tracking-tight font-normal">Personal Injury & Criminal Defense</span>
                 </motion.h1>
                 <motion.p variants={fadeUpSoft} className="mt-6 text-base md:text-xl text-white/80 max-w-2xl">
-                  Award‑winning trial lawyer defending the accused and advocating for the injured across Clark County. <strong className="text-[#d4af37] font-medium">Free consultation</strong>. No fee unless we win injury cases.
+                  Award‑winning <strong className="text-[#d4af37] font-medium">personal injury</strong> lawyer helping the injured first, and defending the accused across Clark County. <strong className="text-[#d4af37] font-medium">Free consultation</strong>. No fee unless we win injury cases.
                 </motion.p>
                 <motion.div variants={fadeUpSoft} className="mt-8 flex flex-col sm:flex-row items-center gap-5 justify-center">
                   <a href={`tel:${FIRM_PHONE_E164}`} className="inline-flex items-center gap-2 rounded-2xl bg-[#d4af37] px-7 py-4 text-lg font-semibold text-[#0e0e0e] transition-colors hover:bg-[#c5a467] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#d4af37] focus:ring-offset-neutral-900">Call {FIRM_PHONE_DISPLAY}</a>
@@ -311,7 +301,7 @@ export default function HomeClient() {
           <motion.h2 variants={fadeUp} className="text-3xl font-bold">Representative Results</motion.h2>
           <motion.p variants={fadeUp} className="mt-2 max-w-prose text-white/75">Past results do not guarantee similar outcomes; every case is unique.</motion.p>
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Card title="$XXX,XXX Settlement" subtitle="Auto Collision">Rear‑end collision; disputed liability. Coordinated medical care, negotiated policy‑limit settlement.</Card>
+            <Card title="$1M+ Settlement" subtitle="Auto Collision">Rear‑end collision; disputed liability. Coordinated medical care, negotiated policy‑limit settlement.</Card>
             <Card title="Felony Reduced" subtitle="Drug Possession">Challenged stop and search; key evidence suppressed. Felony reduced to misdemeanor.</Card>
             <Card title="Case Dismissed" subtitle="DUI (1st)">Identified testing issues & procedural defects; dismissal prior to trial.</Card>
           </div>

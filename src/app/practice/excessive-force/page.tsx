@@ -1,29 +1,34 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 
 export const metadata = {
-  title: 'Excessive Force | Saggese & Associates',
-  description: 'Representation for victims of excessive force by law enforcement or security — civil rights and personal injury claims.'
+  title: 'Las Vegas Excessive Force Injury Lawyer | Saggese & Associates',
+  description: 'Injured by excessive force? We investigate, preserve evidence & pursue accountability. Free consultation (702) 778-8883.',
+  keywords: [
+    'las vegas excessive force lawyer',
+    'excessive force injury attorney',
+    'civil rights injury lawyer las vegas'
+  ],
+  alternates: { canonical: `${SITE_URL}/practice/excessive-force` },
+  openGraph: { title: 'Las Vegas Excessive Force Injury Lawyer', description: 'We pursue accountability for injuries from excessive force.', url: `${SITE_URL}/practice/excessive-force`, type: 'article' },
+  twitter: { card: 'summary', title: 'Excessive Force Injury Lawyer', description: 'Free case evaluation today.' }
 }
 
 export default function ExcessiveForcePage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-          .cta-glow { transition:box-shadow .28s, transform .22s; }
-          .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-        `}</style>
-      </Head>
+      <style>{`
+        /* standardized practice page styles */
+        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
+        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
+        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
+        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
+        .cta-glow { transition:box-shadow .28s, transform .22s; }
+        .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
+      `}</style>
 
       {/* Content only — PracticeLayout provides the outer main/container */}
       <header className="mb-6">
@@ -89,7 +94,17 @@ export default function ExcessiveForcePage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/practice/excessive-force"
+        serviceType="Las Vegas Excessive Force Injury Lawyer"
+        description="Injured by excessive force? We investigate, preserve evidence & pursue accountability. Free consultation."
+        keywords={['las vegas excessive force lawyer','civil rights injury lawyer las vegas']}
+        faqs={[
+          { question: 'What counts as excessive force?', answer: 'Force that is unreasonable or disproportionate to the situation, causing unnecessary injury.' },
+          { question: 'How soon should I act?', answer: 'Immediately—evidence such as video, witness statements, and medical findings should be preserved early.' }
+        ]}
+      />
     </>
   )
 }

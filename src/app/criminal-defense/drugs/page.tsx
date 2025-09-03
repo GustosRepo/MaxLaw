@@ -1,28 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Drug Crimes Defense | Saggese & Associates',
-  description: 'Defense for possession, distribution, and trafficking charges. Protect your rights with experienced counsel.'
+  title: 'Las Vegas Drug Crimes Defense Lawyer | Saggese & Associates',
+  description: 'Defense for possession, distribution & trafficking—search, seizure & lab challenges. Free consult (702) 778-8883.',
+  keywords: [
+    'las vegas drug crimes lawyer',
+    'drug possession defense nevada',
+    'trafficking defense attorney las vegas'
+  ],
+  alternates: { canonical: `${SITE_URL}/criminal-defense/drugs` },
+  openGraph: { title: 'Las Vegas Drug Crimes Defense Lawyer', description: 'Search & lab testing challenges—defense strategies.', url: `${SITE_URL}/criminal-defense/drugs`, type: 'article' },
+  twitter: { card: 'summary', title: 'Drug Crimes Defense Lawyer', description: 'Suppression & diversion strategies—free consult.' }
 }
 
 export default function DrugsPage() {
   return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        `}</style>
-      </Head>
-
+  <>
       {/* Content only — PracticeLayout provides the outer wrapper and sidebar */}
 
       <header className="mb-6">
@@ -54,8 +50,8 @@ export default function DrugsPage() {
           <p className="text-white/80 leading-relaxed mb-3">Do not consent to searches without counsel, preserve communications and notes, and contact an attorney immediately to preserve suppression issues and other defenses.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-md">Call (702) 778‑8883</a>
-            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90 text-center">Request a free consultation</Link>
+            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-md cta-glow">Call (702) 778‑8883</a>
+            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90 text-center cta-glow">Request a free consultation</Link>
           </div>
         </article>
 
@@ -86,7 +82,17 @@ export default function DrugsPage() {
         <p className="text-white/80 leading-relaxed">Call our office at <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or submit the contact form to request a consultation.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/criminal-defense/drugs"
+        serviceType="Las Vegas Drug Crimes Defense Lawyer"
+        description="Defense for possession, distribution & trafficking—search, seizure & lab challenges. Free consultation."
+        keywords={['las vegas drug crimes lawyer','drug possession defense nevada']}
+        faqs={[
+          { question: 'Can drug charges be dismissed?', answer: 'Yes—illegal searches, lab issues or weak possession evidence may lead to dismissal or reduction.' },
+          { question: 'Are diversion programs available?', answer: 'Many first-time offenders may qualify for diversion or treatment alternatives.' }
+        ]}
+      />
     </>
   )
 }

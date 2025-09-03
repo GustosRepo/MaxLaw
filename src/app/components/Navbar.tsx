@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/practice", label: "Practice Areas" },
+  { href: "/service-areas", label: "Service Areas" },
   { href: "/results", label: "Results" },
   { href: "/media", label: "Media" },
   { href: "/contact", label: "Contact" },
@@ -20,8 +21,8 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-[#2d2d2d] bg-[#0e0e0e]/95 backdrop-blur-xl shadow-2xl">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
         <Link href="/" className="inline-flex items-center gap-3" prefetch={false}>
-          <span className="inline-flex items-center justify-center rounded-xl bg-white shadow-2xl px-4 py-2 border-2 border-[#d4af37]/60">
-            <Image src="/home-logo.png" alt="The Law Offices of Saggese & Associates" width={180} height={48} priority />
+          <span className="inline-flex items-center justify-center rounded-xl px-4 py-2 border-2 border-[#d4af37]/60 bg-transparent shadow-[0_4px_18px_rgba(212,175,55,0.25)]">
+            <Image src="/home-logo.png" alt="The Law Offices of Saggese & Associates" width={240} height={48} priority />
           </span>
           <span className="sr-only">The Law Offices of Saggese & Associates</span>
         </Link>

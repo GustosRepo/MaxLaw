@@ -1,57 +1,25 @@
 import { MetadataRoute } from 'next'
+import fs from 'fs'
+import path from 'path'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.maxlawnv.com'
-  
-  // Main pages
-  const mainPages = [
-    '',
-    '/about',
-    '/practice',
-    '/results',
-    '/media',
-    '/contact',
-    '/about/marc-a-saggese',
-  ]
+  const mainPages = ['', '/about', '/practice', '/results', '/media', '/contact', '/about/marc-a-saggese', '/service-areas'];
 
-  // Personal injury practice areas
-  const personalInjuryAreas = [
-    '/practice/car-accidents',
-    '/practice/car-accident-statistics',
-    '/practice/cell-phone-related-accidents',
-    '/practice/underinsured-and-uninsured-accidents',
-    '/practice/motorcycle-accidents',
-    '/practice/truck-accidents',
-    '/practice/commercial-vehicle-accidents',
-    '/practice/crosswalk-and-pedestrian-accidents',
-    '/practice/premises-liability',
-    '/practice/product-liability',
-    '/practice/brain-and-spine-injury',
-    '/practice/excessive-force',
-    '/practice/elder-abuse',
-    '/practice/medical-malpractice',
-    '/practice/wrongful-death',
-    '/practice/insurance-settlements-and-checks',
-  ]
+  const discover = (segment: string) => {
+    const root = path.join(process.cwd(), 'src', 'app', segment);
+    if (!fs.existsSync(root)) return [] as string[];
+    return fs.readdirSync(root)
+      .filter(name => {
+        const full = path.join(root, name);
+        return fs.statSync(full).isDirectory() && fs.existsSync(path.join(full, 'page.tsx'));
+      })
+      .map(name => `/${segment}/${name}`);
+  };
 
-  // Criminal defense practice areas
-  const criminalDefenseAreas = [
-    '/criminal-defense/dui',
-    '/criminal-defense/prostitution',
-    '/criminal-defense/larceny',
-    '/criminal-defense/domestic-violence',
-    '/criminal-defense/drugs',
-    '/criminal-defense/theft',
-    '/criminal-defense/sexual-assault',
-    '/criminal-defense/burglary',
-    '/criminal-defense/forgery',
-    '/criminal-defense/bad-checks',
-    '/criminal-defense/murder',
-    '/criminal-defense/juvenile-crimes',
-    '/criminal-defense/record-sealing',
-  ]
-
-  const allPages = [...mainPages, ...personalInjuryAreas, ...criminalDefenseAreas]
+  const personalInjuryAreas = discover('practice');
+  const criminalDefenseAreas = discover('criminal-defense');
+  const allPages = [...mainPages, ...personalInjuryAreas, ...criminalDefenseAreas];
 
   return allPages.map((path) => ({
     url: `${baseUrl}${path}`,

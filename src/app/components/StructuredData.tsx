@@ -108,7 +108,7 @@ export const organizationData = {
   name: 'The Law Offices of Saggese & Associates',
   description: 'Premier Las Vegas law firm providing expert legal representation in personal injury and criminal defense matters',
   url: 'https://www.maxlawnv.com',
-  logo: 'https://www.maxlawnv.com/logo.png',
+  logo: 'https://www.maxlawnv.com/home-logo.png',
   telephone: '+1-702-778-8883',
   email: 'info@maxlawnv.com',
   address: {

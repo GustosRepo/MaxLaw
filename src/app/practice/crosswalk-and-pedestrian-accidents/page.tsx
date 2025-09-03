@@ -1,29 +1,44 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 
 export const metadata = {
-  title: 'Crosswalk & Pedestrian Accidents | Saggese & Associates',
-  description: 'Pedestrian collisions and crosswalk incidents — we protect the rights of pedestrians harmed by negligent drivers.'
+  title: 'Las Vegas Pedestrian Accident Lawyer | Saggese & Associates',
+  description: 'Las Vegas pedestrian & crosswalk accident lawyer protecting injured pedestrians. Free consultation (702) 778‑8883.',
+  keywords: [
+    'las vegas pedestrian accident lawyer',
+    'crosswalk injury attorney nevada',
+    'pedestrian hit by car claim',
+    'las vegas crosswalk accident attorney'
+  ],
+  alternates: { canonical: `${SITE_URL}/practice/crosswalk-and-pedestrian-accidents` },
+  openGraph: {
+    title: 'Las Vegas Pedestrian Accident Lawyer',
+    description: 'Crosswalk & pedestrian injury claims – free consultation.',
+    url: `${SITE_URL}/practice/crosswalk-and-pedestrian-accidents`,
+    type: 'article'
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Las Vegas Pedestrian Accident Lawyer',
+    description: 'Injured in a crosswalk? Free consultation (702) 778‑8883.'
+  }
 }
 
 export default function PedestrianAccidentsPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-          .cta-glow { transition:box-shadow .28s, transform .22s; }
-          .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-        `}</style>
-      </Head>
+      <style>{`
+        /* standardized practice page styles */
+        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
+        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
+        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
+        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
+        .cta-glow { transition:box-shadow .28s, transform .22s; }
+        .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
+      `}</style>
 
       {/* Content only — provided by PracticeLayout */}
       <header className="mb-6">
@@ -89,7 +104,17 @@ export default function PedestrianAccidentsPage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/practice/crosswalk-and-pedestrian-accidents"
+        serviceType="Las Vegas Pedestrian Accident Lawyer"
+        description="Las Vegas pedestrian & crosswalk accident lawyer protecting injured pedestrians. Free consultation."
+        keywords={['las vegas pedestrian accident lawyer','crosswalk injury attorney','pedestrian hit by car claim las vegas']}
+        faqs={[
+          { question: 'Who is at fault in a pedestrian accident?', answer: 'Fault can involve the driver, comparative negligence, or unsafe roadway design depending on evidence.' },
+          { question: 'What evidence helps my claim?', answer: 'Scene photos, witness statements, police reports, traffic or surveillance video, and medical documentation.' }
+        ]}
+      />
     </>
   )
 }

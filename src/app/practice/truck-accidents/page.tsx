@@ -1,18 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Truck Accidents | Saggese & Associates',
-  description: 'Complex truck collision claims — multivehicle, commercial carriers, and catastrophic injury. We handle federal rules and large insurers.'
+  title: 'Las Vegas Truck Accident Lawyer | Saggese & Associates',
+  description: 'Complex commercial truck & 18-wheeler collision claims. Federal regs, multiple parties, catastrophic injuries. Free consultation (702) 778‑8883.',
+  alternates: { canonical: `${SITE_URL}/practice/truck-accidents` },
+  openGraph: {
+    title: 'Las Vegas Truck Accident Lawyer',
+    description: 'Catastrophic commercial vehicle collisions — we handle federal regulations & carriers.',
+    url: `${SITE_URL}/practice/truck-accidents`,
+    type: 'article'
+  }
 }
 
 export default function TruckAccidentsPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+  <>
         <style>{`
           /* standardized practice page styles */
           @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -23,7 +29,7 @@ export default function TruckAccidentsPage() {
           .cta-glow { transition:box-shadow .28s, transform .22s; }
           .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
         `}</style>
-      </Head>
+  </>
 
       {/* Content only — provided by PracticeLayout */}
       <header className="mb-6">
@@ -89,7 +95,17 @@ export default function TruckAccidentsPage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/practice/truck-accidents"
+        serviceType="Las Vegas Truck Accident Lawyer"
+        description="Complex commercial truck & 18-wheeler collision claims. Federal regs, multiple parties, catastrophic injuries. Free consultation."
+        keywords={['las vegas truck accident lawyer','commercial vehicle collision attorney','18 wheeler crash nevada']}
+        faqs={[
+          { question: 'Who can be liable in a truck accident?', answer: 'Driver, carrier, maintenance provider, cargo loader, or parts manufacturer may share liability.' },
+          { question: 'What evidence is critical?', answer: 'Driver logs, ELD/ECM data, maintenance & inspection records, and reconstruction analyses.' }
+        ]}
+      />
     </>
   )
 }

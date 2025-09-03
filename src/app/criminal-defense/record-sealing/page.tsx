@@ -1,26 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Record Sealing & Expungement | Saggese & Associates',
-  description: 'Assistance with record sealing, expungement, and clearing your criminal history when eligible.'
+  title: 'Las Vegas Record Sealing Lawyer | Saggese & Associates',
+  description: 'Record sealing & expungement guidance—eligibility analysis & petition filing. Free consultation (702) 778-8883.',
+  keywords: [
+    'las vegas record sealing lawyer',
+    'expungement attorney nevada',
+    'seal criminal record las vegas'
+  ],
+  alternates: { canonical: `${SITE_URL}/criminal-defense/record-sealing` },
+  openGraph: { title: 'Las Vegas Record Sealing Lawyer', description: 'Eligibility review & petition filing.', url: `${SITE_URL}/criminal-defense/record-sealing`, type: 'article' },
+  twitter: { card: 'summary', title: 'Record Sealing Lawyer', description: 'Clear your record—free eligibility review.' }
 }
 
 export default function RecordSealingPage() {
   return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        `}</style>
-      </Head>
+  <>
 
       <header className="mb-6">
         <div className="relative inline-block">
@@ -44,8 +42,8 @@ export default function RecordSealingPage() {
           <p className="text-white/80 leading-relaxed mb-3">We aim to streamline the process and clearly explain timelines and likely outcomes so clients know what to expect at each step.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e]">Call (702) 778‑8883</a>
-            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90">Request a free consultation</Link>
+            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] cta-glow">Call (702) 778‑8883</a>
+            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90 cta-glow">Request a free consultation</Link>
           </div>
         </article>
 
@@ -76,7 +74,17 @@ export default function RecordSealingPage() {
         <p className="text-white/80 leading-relaxed">Call our office at <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or submit the contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/criminal-defense/record-sealing"
+        serviceType="Las Vegas Record Sealing Lawyer"
+        description="Record sealing & expungement guidance—eligibility analysis & petition filing. Free consultation."
+        keywords={['las vegas record sealing lawyer','expungement attorney nevada']}
+        faqs={[
+          { question: 'How long before I can seal a record?', answer: 'Waiting periods depend on the offense and disposition—misdemeanors often shorter than felonies.' },
+          { question: 'Does sealing erase my record?', answer: 'Sealed records are hidden from most public checks but remain accessible to certain agencies.' }
+        ]}
+      />
     </>
   )
 }

@@ -45,6 +45,7 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
 
   const [menuOpen, setMenuOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement | null>(null)
+  const buttonRef = useRef<HTMLButtonElement | null>(null)
   const current = allLinks.find((l) => l.href === pathname) || allLinks[0]
 
   useEffect(() => {
@@ -53,36 +54,75 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
         setMenuOpen(false)
       }
     }
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        setMenuOpen(false)
+        buttonRef.current?.focus()
+      }
+    }
     document.addEventListener('click', onDoc)
-    return () => document.removeEventListener('click', onDoc)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('click', onDoc)
+      document.removeEventListener('keydown', onKey)
+    }
   }, [])
 
   return (
-    <div className={className}>
-      <div className="relative max-w-sm" ref={dropdownRef}>
-        <button onClick={() => setMenuOpen(!menuOpen)} className="w-full flex justify-between items-center p-3 rounded-lg bg-white/4 text-left">
-          <span className="font-semibold">{current.label}</span>
-          <span className="ml-2 text-white/80">▾</span>
+    <div className={className + ' w-full flex justify-center'}>
+      <div className="relative" ref={dropdownRef}>
+        <button
+          ref={buttonRef}
+          aria-haspopup="true"
+            aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="min-w-[240px] flex justify-between items-center px-4 py-3 rounded-xl bg-white/5 backdrop-blur border border-white/10 hover:bg-white/10 transition"
+        >
+          <span className="font-semibold text-sm tracking-wide">{current.label}</span>
+          <span className={`ml-2 text-white/70 transition-transform ${menuOpen ? 'rotate-180' : ''}`}>▾</span>
         </button>
 
         {menuOpen && (
-          <div className="mt-2 rounded-lg border border-white/8 bg-white/5 shadow-lg overflow-hidden z-40">
-            <div className="px-3 py-2 text-xs font-semibold text-[#d4af37] border-b border-white/10">
-              Personal Injury
+          <div
+            role="menu"
+            className="absolute left-1/2 top-full -translate-x-1/2 mt-3 w-screen max-w-xl rounded-2xl border border-white/10 bg-[#121212]/95 backdrop-blur-xl shadow-[0_10px_50px_-10px_rgba(0,0,0,0.6)] overflow-hidden z-50 ring-1 ring-black/40"
+          >
+            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
+              <div className="p-4">
+                <div className="text-xs font-semibold text-[#d4af37] tracking-wide mb-2">Personal Injury</div>
+                <ul className="space-y-1">
+                  {personalInjuryLinks.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        role="menuitem"
+                        className={`block px-3 py-2 rounded-md text-sm hover:bg-white/10 hover:text-white/90 transition ${(pathname === l.href) ? 'bg-white/10 text-white' : 'text-white/80'}`}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="p-4">
+                <div className="text-xs font-semibold text-[#d4af37] tracking-wide mb-2">Criminal Defense</div>
+                <ul className="space-y-1">
+                  {criminalDefenseLinks.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        role="menuitem"
+                        className={`block px-3 py-2 rounded-md text-sm hover:bg-white/10 hover:text-white/90 transition ${(pathname === l.href) ? 'bg-white/10 text-white' : 'text-white/80'}`}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            {personalInjuryLinks.map((l) => (
-              <Link key={l.href} href={l.href} className="block px-4 py-3 text-sm hover:bg-white/6" onClick={() => setMenuOpen(false)}>
-                {l.label}
-              </Link>
-            ))}
-            <div className="px-3 py-2 text-xs font-semibold text-[#d4af37] border-b border-white/10 border-t border-white/10 mt-2">
-              Criminal Defense
-            </div>
-            {criminalDefenseLinks.map((l) => (
-              <Link key={l.href} href={l.href} className="block px-4 py-3 text-sm hover:bg-white/6" onClick={() => setMenuOpen(false)}>
-                {l.label}
-              </Link>
-            ))}
           </div>
         )}
       </div>

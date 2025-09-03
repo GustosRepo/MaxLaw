@@ -1,27 +1,38 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 
 export const metadata = {
-  title: 'Car Accident Statistics | Saggese & Associates',
-  description: 'Statistics and facts about car accidents — learn why early legal help matters and how Saggese & Associates can support injured clients in Las Vegas.'
+  title: 'Las Vegas Car Accident Statistics | Saggese & Associates',
+  description: 'Key Las Vegas & national car accident statistics and why early legal counsel matters. Free consultation (702) 778‑8883.',
+  keywords: [
+    'las vegas car accident statistics',
+    'nevada crash data',
+    'car accident injury lawyer las vegas',
+    'auto collision stats nevada'
+  ],
+  alternates: { canonical: `${SITE_URL}/practice/car-accident-statistics` },
+  openGraph: {
+    title: 'Las Vegas Car Accident Statistics',
+    description: 'Crash data insights & why quick evidence preservation matters.',
+    url: `${SITE_URL}/practice/car-accident-statistics`,
+    type: 'article'
+  },
+  twitter: { card: 'summary', title: 'Las Vegas Car Accident Stats', description: 'Crash data insights & legal guidance.' }
 }
 
 export default function CarAccidentStatsPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* small page-level flair consistent with site */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        `}</style>
-      </Head>
+      <style>{`
+        /* small page-level flair consistent with site */
+        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
+        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
+        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
+        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
+      `}</style>
 
       {/* Content only — PracticeLayout provides the outer wrapper and sidebar */}
 
@@ -91,7 +102,17 @@ export default function CarAccidentStatsPage() {
         <p className="text-white/80 leading-relaxed">Call our law office at <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> to speak with an attorney, or fill out our contact form to email us.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed: global footer handles copyright */}
+      <PracticeStructuredData
+        slug="/practice/car-accident-statistics"
+        serviceType="Las Vegas Car Accident Lawyer"
+        description="Key Las Vegas & national car accident statistics and why early legal counsel matters. Free consultation."
+        keywords={['las vegas car accident statistics','nevada crash data','auto injury lawyer las vegas']}
+        faqs={[
+          { question: 'Why do car accident statistics matter?', answer: 'They highlight common causes and support early evidence preservation to strengthen claims.' },
+          { question: 'How soon should I contact a lawyer?', answer: 'Immediately—critical scene, vehicle, and electronic data can be lost within days.' }
+        ]}
+      />
     </>
   )
 }

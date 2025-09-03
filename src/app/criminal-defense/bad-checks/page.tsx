@@ -1,28 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Bad Checks Defense | Saggese & Associates',
-  description: 'Defense for bad check and negotiable instrument charges. Protect your financial and criminal exposure.'
+  title: 'Las Vegas Bad Check Defense Lawyer | Saggese & Associates',
+  description: 'Defense for bad check & negotiable instrument charges. Mitigate criminal exposure & pursue restitution solutions.',
+  keywords: [
+    'las vegas bad check lawyer',
+    'check fraud attorney nevada',
+    'negotiable instrument charge defense'
+  ],
+  alternates: { canonical: `${SITE_URL}/criminal-defense/bad-checks` },
+  openGraph: { title: 'Las Vegas Bad Check Defense Lawyer', description: 'Defense for alleged bad checks & financial offenses.', url: `${SITE_URL}/criminal-defense/bad-checks`, type: 'article' },
+  twitter: { card: 'summary', title: 'Bad Check Defense Lawyer', description: 'Restitution strategies & defense—free consult.' }
 }
 
 export default function BadChecksPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        `}</style>
-      </Head>
-
       {/* Content only — PracticeLayout provides the outer wrapper and sidebar */}
 
       <header className="mb-6">
@@ -62,8 +58,8 @@ export default function BadChecksPage() {
           <p className="mt-4 text-white/80 leading-relaxed">If you’ve been contacted about an alleged bad check, preserve bank records and communications and call promptly so we can assess options and protect your interests.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-md">Call (702) 778‑8883</a>
-            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90 text-center">Request a free consultation</Link>
+            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-md cta-glow">Call (702) 778‑8883</a>
+            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90 text-center cta-glow">Request a free consultation</Link>
           </div>
         </article>
 
@@ -94,7 +90,17 @@ export default function BadChecksPage() {
         <p className="text-white/80 leading-relaxed">Call our office at <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or submit the contact form to request a consultation.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/criminal-defense/bad-checks"
+        serviceType="Las Vegas Bad Check Defense Lawyer"
+        description="Defense for bad check & negotiable instrument charges. Mitigate criminal exposure & pursue restitution solutions."
+        keywords={['las vegas bad check lawyer','check fraud attorney nevada']}
+        faqs={[
+          { question: 'Will I face jail for a bad check?', answer: 'Many cases resolve via restitution or diversion—early legal intervention improves outcomes.' },
+          { question: 'Is restitution enough to dismiss?', answer: 'Often restitution plus negotiation can reduce or dismiss charges depending on history and facts.' }
+        ]}
+      />
     </>
   )
 }

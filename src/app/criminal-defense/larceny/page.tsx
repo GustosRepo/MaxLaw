@@ -1,26 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Larceny & Theft Defense | Saggese & Associates',
-  description: 'Defense for larceny and theft-related charges. Skilled representation for misdemeanors and felonies.'
+  title: 'Las Vegas Larceny & Theft Defense Lawyer | Saggese & Associates',
+  description: 'Larceny & theft defense—challenge intent, value & identification. Free consultation (702) 778-8883.',
+  keywords: [
+    'las vegas theft lawyer',
+    'larceny defense attorney nevada',
+    'shoplifting lawyer las vegas'
+  ],
+  alternates: { canonical: `${SITE_URL}/criminal-defense/larceny` },
+  openGraph: { title: 'Las Vegas Larceny & Theft Defense Lawyer', description: 'Intent & valuation focused defense.', url: `${SITE_URL}/criminal-defense/larceny`, type: 'article' },
+  twitter: { card: 'summary', title: 'Theft Defense Lawyer', description: 'Value & intent challenges—free consult.' }
 }
 
 export default function LarcenyPage() {
   return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        `}</style>
-      </Head>
+  <>
 
       <header className="mb-6">
         <div className="relative inline-block">
@@ -41,8 +39,8 @@ export default function LarcenyPage() {
           </ul>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e]">Call (702) 778‑8883</a>
-            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90">Request a free consultation</Link>
+            <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] cta-glow">Call (702) 778‑8883</a>
+            <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-5 py-3 text-sm text-white/90 cta-glow">Request a free consultation</Link>
           </div>
         </article>
 
@@ -73,7 +71,17 @@ export default function LarcenyPage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use the contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/criminal-defense/larceny"
+        serviceType="Las Vegas Larceny & Theft Defense Lawyer"
+        description="Larceny & theft defense—challenge intent, value & identification. Free consultation."
+        keywords={['las vegas theft lawyer','larceny defense attorney nevada']}
+        faqs={[
+          { question: 'Can theft charges be reduced?', answer: 'Yes—value disputes, restitution or weak intent evidence can support reduction.' },
+          { question: 'What if property was returned?', answer: 'Return can mitigate penalties and aid negotiation, though it does not erase the charge automatically.' }
+        ]}
+      />
     </>
   )
 }

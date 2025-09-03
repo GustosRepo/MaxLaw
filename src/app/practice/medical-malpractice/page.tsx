@@ -1,18 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Medical Malpractice | Saggese & Associates',
-  description: 'Medical negligence claims — surgical errors, misdiagnosis, and hospital negligence. We represent patients and families seeking compensation.'
+  title: 'Las Vegas Medical Malpractice Lawyer | Saggese & Associates',
+  description: 'Surgical errors, misdiagnosis & hospital negligence — Las Vegas medical malpractice attorneys pursuing full compensation. Free consultation (702) 778‑8883.',
+  alternates: { canonical: `${SITE_URL}/practice/medical-malpractice` },
+  openGraph: {
+    title: 'Las Vegas Medical Malpractice Lawyer',
+    description: 'Misdiagnosis, surgical & hospital negligence claims — free consultation.',
+    url: `${SITE_URL}/practice/medical-malpractice`,
+    type: 'article'
+  }
 }
 
 export default function MedicalMalpracticePage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+  <>
         <style>{`
           /* standardized practice page styles */
           @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -23,7 +29,7 @@ export default function MedicalMalpracticePage() {
           .cta-glow { transition:box-shadow .28s, transform .22s; }
           .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
         `}</style>
-      </Head>
+  </>
 
       {/* Content only — PracticeLayout provides outer main/container */}
       <header className="mb-6">
@@ -89,7 +95,17 @@ export default function MedicalMalpracticePage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/practice/medical-malpractice"
+        serviceType="Las Vegas Medical Malpractice Lawyer"
+        description="Surgical errors, misdiagnosis & hospital negligence — Las Vegas medical malpractice attorneys pursuing full compensation. Free consultation."
+        keywords={['las vegas medical malpractice lawyer','nevada misdiagnosis attorney','surgical error lawyer']}
+        faqs={[
+          { question: 'How long do I have to file a malpractice claim in Nevada?', answer: 'Generally 1 year from discovery and no more than 3 years from the act, with limited exceptions.' },
+          { question: 'Do I need an expert affidavit?', answer: 'Yes, Nevada typically requires an expert affidavit to support the allegations of negligence.' }
+        ]}
+      />
     </>
   )
 }

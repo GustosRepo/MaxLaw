@@ -1,26 +1,35 @@
-"use client"
-
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from './PracticeStructuredData'
+
+export const metadata = {
+  title: 'Las Vegas Injury & Criminal Defense Lawyers | Practice Areas',
+  description: 'Las Vegas personal injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, record sealing & more. Free consultation.',
+  keywords: [
+    'las vegas personal injury lawyer',
+    'las vegas criminal defense lawyer',
+    'dui defense las vegas',
+    'record sealing lawyer las vegas'
+  ],
+  alternates: { canonical: `${SITE_URL}/practice` },
+  openGraph: { title: 'Las Vegas Injury & Criminal Defense Lawyers', description: 'Explore our core personal injury and criminal defense practice areas.', url: `${SITE_URL}/practice`, type: 'website' },
+  twitter: { card: 'summary', title: 'Las Vegas Law Firm Practice Areas', description: 'Injury & criminal defense representation.' }
+}
 
 export default function PracticePage() {
   return (
     <>
-      <Head>
-        <title>Practice Areas — Saggese & Associates</title>
-        <meta name="description" content="Practice areas: Personal Injury, Criminal Defense, DUI, and more — Saggese & Associates." />
-        <style>{`
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; border-radius:4px }
-          .card-hover { transition:transform .32s cubic-bezier(.2,.9,.3,1), box-shadow .28s ease, border-color .22s ease; will-change:transform }
-          .card-hover:hover { transform:translateY(-8px) scale(1.01); box-shadow:0 34px 90px rgba(0,0,0,0.65); border-color:rgba(212,175,55,0.12) }
-          .watermark { font-weight:900; color:rgba(255,255,255,0.04); letter-spacing:-2px; pointer-events:none }
-          .custom-bg { background-image: radial-gradient(circle at 8% 12%, rgba(191,167,106,0.03), transparent 6%), radial-gradient(circle at 90% 80%, rgba(255,255,255,0.02), transparent 22%), linear-gradient(180deg,#0e0e0e,#0f0f0f); }
-        `}</style>
-      </Head>
+      <style>{`
+        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; border-radius:4px }
+        .card-hover { transition:transform .32s cubic-bezier(.2,.9,.3,1), box-shadow .28s ease, border-color .22s ease; will-change:transform }
+        .card-hover:hover { transform:translateY(-8px) scale(1.01); box-shadow:0 34px 90px rgba(0,0,0,0.65); border-color:rgba(212,175,55,0.12) }
+        .watermark { font-weight:900; color:rgba(255,255,255,0.04); letter-spacing:-2px; pointer-events:none }
+        .custom-bg { background-image: radial-gradient(circle at 8% 12%, rgba(191,167,106,0.03), transparent 6%), radial-gradient(circle at 90% 80%, rgba(255,255,255,0.02), transparent 22%), linear-gradient(180deg,#0e0e0e,#0f0f0f); }
+      `}</style>
 
-      <main className="min-h-screen custom-bg bg-gradient-to-br from-[#0e0e0e] to-[#0f0f0f] text-white font-['Inter'] py-12">
+  <main className="min-h-screen custom-bg bg-gradient-to-br from-[#0e0e0e] to-[#0f0f0f] text-white font-['Inter'] py-12">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <section className="mb-8">
             <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg overflow-hidden">
@@ -83,6 +92,16 @@ export default function PracticePage() {
           </div>
         </div>
       </main>
+      <PracticeStructuredData
+        slug="/practice"
+        serviceType="Las Vegas Personal Injury & Criminal Defense Lawyers"
+        description="Las Vegas personal injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, record sealing & more. Free consultation."
+        keywords={['las vegas personal injury lawyer','las vegas criminal defense lawyer','dui defense las vegas','record sealing lawyer las vegas']}
+        faqs={[
+          { question: 'Do you offer free consultations?', answer: 'Yes. We provide free, no‑obligation consultations for injury and criminal matters.' },
+          { question: 'What types of injury cases do you handle?', answer: 'Car, truck, motorcycle, premises liability, catastrophic injury, wrongful death and more.' }
+        ]}
+      />
     </>
   )
 }

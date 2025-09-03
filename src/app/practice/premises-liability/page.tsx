@@ -1,29 +1,44 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
+import PracticeStructuredData from '../PracticeStructuredData'
 
 export const metadata = {
-  title: 'Premises Liability | Saggese & Associates',
-  description: 'Slip-and-fall, negligent security, and dangerous property conditions — we hold property owners accountable for unsafe premises.'
+  title: 'Las Vegas Premises Liability Lawyer | Saggese & Associates',
+  description: 'Las Vegas premises liability lawyer for slip-and-fall, negligent security & dangerous property conditions. Free consultation (702) 778‑8883.',
+  keywords: [
+    'las vegas premises liability lawyer',
+    'negligent security attorney nevada',
+    'slip and fall lawyer las vegas',
+    'dangerous property condition claim'
+  ],
+  alternates: { canonical: `${SITE_URL}/practice/premises-liability` },
+  openGraph: {
+    title: 'Las Vegas Premises Liability Lawyer',
+    description: 'Slip-and-fall & negligent security claims – free consultation.',
+    url: `${SITE_URL}/practice/premises-liability`,
+    type: 'article'
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Las Vegas Premises Liability Lawyer',
+    description: 'Injured on unsafe property? Free consultation (702) 778‑8883.'
+  }
 }
 
 export default function PremisesLiabilityPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <style>{`
-          /* standardized practice page styles */
-          @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-          .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-          .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-          .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-          .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-          .cta-glow { transition:box-shadow .28s, transform .22s; }
-          .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-        `}</style>
-      </Head>
+      <style>{`
+        /* standardized practice page styles */
+        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
+        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
+        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
+        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
+        .cta-glow { transition:box-shadow .28s, transform .22s; }
+        .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
+      `}</style>
 
       {/* Content only — PracticeLayout provides outer main/container */}
       <header className="mb-6">
@@ -89,7 +104,17 @@ export default function PremisesLiabilityPage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or use our contact form.</p>
       </section>
 
-      <footer className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</footer>
+  {/* Footer removed */}
+      <PracticeStructuredData
+        slug="/practice/premises-liability"
+        serviceType="Las Vegas Premises Liability Lawyer"
+        description="Las Vegas premises liability lawyer for slip-and-fall, negligent security & dangerous property conditions. Free consultation."
+        keywords={['las vegas premises liability lawyer','negligent security attorney','slip and fall lawyer las vegas']}
+        faqs={[
+          { question: 'What is premises liability?', answer: 'It is the responsibility of property owners to maintain safe conditions; injuries from hazards can create legal liability.' },
+          { question: 'Do I need to prove the owner knew?', answer: 'You must show the owner knew or should have known about the dangerous condition and failed to fix or warn.' }
+        ]}
+      />
     </>
   )
 }

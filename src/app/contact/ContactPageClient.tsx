@@ -16,6 +16,18 @@ interface FormData {
   phone: string;
   message: string;
   consent: boolean;
+  caseType?: string;
+  injurySeverity?: string;
+  medicalEstimate?: string;
+  chargeName?: string;
+  piSubtype?: string;
+  atFault?: string;
+  otherDriverInsurance?: string;
+  wereYouInjured?: string;
+  injuryList?: string;
+  passengers?: string;
+  vehicleDamageSeverity?: string;
+  financialAbility?: string;
 }
 
 interface FormStatus {
@@ -31,16 +43,35 @@ export default function ContactPageClient() {
     phone: '',
     message: '',
     consent: false,
+  caseType: '',
+  injurySeverity: '',
+  medicalEstimate: '',
+  chargeName: '',
+  piSubtype: '',
+  atFault: '',
+  otherDriverInsurance: '',
+  wereYouInjured: '',
+  injuryList: '',
+  passengers: '',
+  vehicleDamageSeverity: '',
+  financialAbility: '',
   });
+
+  const ACCEPTED_CASE_TYPES = ['Personal Injury', 'Criminal Defense'];
 
   const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // block unsupported case types client-side with referral prompt
+    if (!ACCEPTED_CASE_TYPES.includes(formData.caseType || '')) {
+      setStatus({ type: 'error', message: 'We do not handle that matter. Please call for a referral or check our practice areas.' });
+      return;
+    }
     setStatus({ type: 'loading' });
 
     try {
-      const response = await fetch('/api/contact', {
+  const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,6 +94,18 @@ export default function ContactPageClient() {
           phone: '',
           message: '',
           consent: false,
+          caseType: '',
+          injurySeverity: '',
+          medicalEstimate: '',
+          chargeName: '',
+          piSubtype: '',
+          atFault: '',
+          otherDriverInsurance: '',
+          wereYouInjured: '',
+          injuryList: '',
+          passengers: '',
+          vehicleDamageSeverity: '',
+          financialAbility: '',
         });
       } else {
         setStatus({ 
@@ -108,6 +151,103 @@ export default function ContactPageClient() {
                 {status.type === 'error' && (
                   <div className="mb-4 rounded-lg bg-red-900/20 border border-red-500/30 p-4 text-red-300">
                     {status.message}
+                  </div>
+                )}
+
+                <div className="mb-4">
+                  <label className="text-sm font-semibold block mb-2">What type of matter is this? <span className="text-[#d4af37]">*</span></label>
+                  <select
+                    value={formData.caseType}
+                    onChange={(e) => setFormData(prev => ({ ...prev, caseType: e.target.value }))}
+                    required
+                    className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm"
+                  >
+                    <option value="">Select a case type</option>
+                    <option>Personal Injury</option>
+                    <option>Criminal Defense</option>
+                    <option>Family Law</option>
+                    <option>Immigration</option>
+                    <option>Business / Contract</option>
+                    <option>Other</option>
+                  </select>
+                  {!ACCEPTED_CASE_TYPES.includes(formData.caseType || '') && formData.caseType !== '' && (
+                    <div className="mt-2 text-sm text-yellow-300">We do not handle this matter. Please call for a referral.</div>
+                  )}
+                </div>
+
+                {/* Conditional helper fields (moved to appear directly after case type like homepage) */}
+                {formData.caseType === 'Personal Injury' && (
+                  <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <label className="text-sm">Personal injury type
+                      <select value={formData.piSubtype} onChange={(e) => setFormData(prev => ({ ...prev, piSubtype: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                        <option value="">Select</option>
+                        <option value="Car Accident">Car Accident</option>
+                        <option value="Slip and Fall">Slip and Fall</option>
+                        <option value="Premises Liability">Premises Liability</option>
+                        <option value="Medical Malpractice">Medical Malpractice</option>
+                        <option value="Product Liability">Product Liability</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </label>
+                    <label className="text-sm">Injury severity
+                      <select onChange={(e) => setFormData(prev => ({ ...prev, injurySeverity: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                        <option value="">Select</option>
+                        <option value="minor">Minor (no hospitalization)</option>
+                        <option value="moderate">Moderate (medical treatment)</option>
+                        <option value="severe">Severe (hospitalization, long-term)</option>
+                      </select>
+                    </label>
+                    <label className="text-sm">Estimated medical bills
+                      <input name="medicalEstimate" onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Estimated bills or 'unknown'" />
+                    </label>
+                    <label className="text-sm">Who was at-fault?
+                      <input name="atFault" value={formData.atFault} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Driver / Other party" />
+                    </label>
+                    <label className="text-sm">Did the other driver have insurance and do you have insurance?
+                      <input name="otherDriverInsurance" value={formData.otherDriverInsurance} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Other driver: yes/no/unknown; Yours: yes/no" />
+                    </label>
+                    <label className="text-sm">Were you injured during the accident?
+                      <select value={formData.wereYouInjured} onChange={(e) => setFormData(prev => ({ ...prev, wereYouInjured: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                      </select>
+                    </label>
+                    <label className="text-sm">What are the injuries that you have that you are currently aware of?
+                      <input name="injuryList" value={formData.injuryList} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="List injuries" />
+                    </label>
+                    <label className="text-sm">Were there other passengers in your car? How many? Were they injured?
+                      <input name="passengers" value={formData.passengers} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="e.g. 2; one injured" />
+                    </label>
+                    <label className="text-sm">How much damage was done to your vehicle? Minor, moderate or severe?
+                      <select value={formData.vehicleDamageSeverity} onChange={(e) => setFormData(prev => ({ ...prev, vehicleDamageSeverity: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                        <option value="">Select</option>
+                        <option value="minor">Minor</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="severe">Severe</option>
+                      </select>
+                    </label>
+                  </div>
+                )}
+
+                {formData.caseType === 'Criminal Defense' && (
+                  <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <label className="text-sm">Were you arrested?
+                      <select value={formData.chargeName ? 'yes' : 'no'} onChange={(e) => setFormData(prev => ({ ...prev, chargeName: e.target.value === 'yes' ? prev.chargeName || '' : '' }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                      </select>
+                    </label>
+                    <label className="text-sm">Charge (if known)
+                      <input name="chargeName" value={formData.chargeName} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="e.g. DUI, theft" />
+                    </label>
+                    <label className="text-sm">Do you have the financial ability to retain private counsel?
+                      <select value={formData.financialAbility} onChange={(e) => setFormData(prev => ({ ...prev, financialAbility: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                      </select>
+                    </label>
                   </div>
                 )}
 
@@ -167,6 +307,82 @@ export default function ContactPageClient() {
                       placeholder="Briefly describe your matter" 
                     />
                   </label>
+
+                  {/* Conditional helper fields */}
+                  {formData.caseType === 'Personal Injury' && (
+                    <>
+                      <label className="text-sm">Personal injury type
+                        <select value={formData.piSubtype} onChange={(e) => setFormData(prev => ({ ...prev, piSubtype: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="">Select</option>
+                          <option value="Car Accident">Car Accident</option>
+                          <option value="Slip and Fall">Slip and Fall</option>
+                          <option value="Premises Liability">Premises Liability</option>
+                          <option value="Medical Malpractice">Medical Malpractice</option>
+                          <option value="Product Liability">Product Liability</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </label>
+                      <label className="text-sm">Injury severity
+                        <select onChange={(e) => setFormData(prev => ({ ...prev, injurySeverity: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="">Select</option>
+                          <option value="minor">Minor (no hospitalization)</option>
+                          <option value="moderate">Moderate (medical treatment)</option>
+                          <option value="severe">Severe (hospitalization, long-term)</option>
+                        </select>
+                      </label>
+                      <label className="text-sm">Estimated medical bills
+                        <input name="medicalEstimate" onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Estimated bills or 'unknown'" />
+                      </label>
+                      <label className="text-sm">Who was at-fault?
+                        <input name="atFault" value={formData.atFault} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Driver / Other party" />
+                      </label>
+                      <label className="text-sm">Did the other driver have insurance and do you have insurance?
+                        <input name="otherDriverInsurance" value={formData.otherDriverInsurance} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Other driver: yes/no/unknown; Yours: yes/no" />
+                      </label>
+                      <label className="text-sm">Were you injured during the accident?
+                        <select value={formData.wereYouInjured} onChange={(e) => setFormData(prev => ({ ...prev, wereYouInjured: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="">Select</option>
+                          <option value="yes">Yes</option>
+                          <option value="no">No</option>
+                        </select>
+                      </label>
+                      <label className="text-sm">What are the injuries that you have that you are currently aware of?
+                        <input name="injuryList" value={formData.injuryList} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="List injuries" />
+                      </label>
+                      <label className="text-sm">Were there other passengers in your car? How many? Were they injured?
+                        <input name="passengers" value={formData.passengers} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="e.g. 2; one injured" />
+                      </label>
+                      <label className="text-sm">How much damage was done to your vehicle? Minor, moderate or severe?
+                        <select value={formData.vehicleDamageSeverity} onChange={(e) => setFormData(prev => ({ ...prev, vehicleDamageSeverity: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="">Select</option>
+                          <option value="minor">Minor</option>
+                          <option value="moderate">Moderate</option>
+                          <option value="severe">Severe</option>
+                        </select>
+                      </label>
+                    </>
+                  )}
+
+                  {formData.caseType === 'Criminal Defense' && (
+                    <>
+                      <label className="text-sm">Were you arrested?
+                        <select value={formData.chargeName ? 'yes' : 'no'} onChange={(e) => setFormData(prev => ({ ...prev, chargeName: e.target.value === 'yes' ? prev.chargeName || '' : '' }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="no">No</option>
+                          <option value="yes">Yes</option>
+                        </select>
+                      </label>
+                      <label className="text-sm">Charge (if known)
+                        <input name="chargeName" value={formData.chargeName} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="e.g. DUI, theft" />
+                      </label>
+                      <label className="text-sm">Do you have the financial ability to retain private counsel?
+                        <select value={formData.financialAbility} onChange={(e) => setFormData(prev => ({ ...prev, financialAbility: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="">Select</option>
+                          <option value="yes">Yes</option>
+                          <option value="no">No</option>
+                        </select>
+                      </label>
+                    </>
+                  )}
 
                   <div className="flex items-start gap-2 md:col-span-2">
                     <input 

@@ -47,6 +47,15 @@ const Section: React.FC<React.PropsWithChildren<{ id?: string; className?: strin
   const shadeClass = id && id !== 'home'
     ? 'rounded-3xl p-4 backdrop-blur-sm border border-white/6 shadow-[0_10px_30px_rgba(0,0,0,0.55)] bg-white/5'
     : '';
+  // For the home section we want a full-bleed layout (no centered max width container)
+  if (id === 'home') {
+    return (
+      <section id={id} className={`w-full ${className || defaultPadding} relative`}>
+        {children}
+      </section>
+    );
+  }
+
   return (
     <section id={id} className={`mx-auto w-full max-w-7xl px-4 md:px-6 ${className || defaultPadding} relative`}>
       <div className={`relative ${shadeClass}`}>{children}</div>
@@ -98,17 +107,37 @@ export default function HomeClient() {
     phone: '',
     message: '',
     consent: false,
+  caseType: '',
+  injurySeverity: '',
+  medicalEstimate: '',
+  chargeName: '',
+  arrested: '',
+  piSubtype: '',
+  atFault: '',
+  otherDriverInsurance: '',
+  wereYouInjured: '',
+  injuryList: '',
+  passengers: '',
+  vehicleDamageSeverity: '',
+  financialAbility: '',
   });
+  const ACCEPTED_CASE_TYPES = ['Personal Injury', 'Criminal Defense'];
   const [formStatus, setFormStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [formMessage, setFormMessage] = React.useState('');
   const [reviewSummary, setReviewSummary] = React.useState<{ rating: number; total: number } | null>(null);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Block unsupported case types client-side
+    if (!ACCEPTED_CASE_TYPES.includes(formData.caseType || '')) {
+      setFormStatus('error');
+      setFormMessage('We do not handle that matter. Please call for a referral or check our practice areas.');
+      return;
+    }
     setFormStatus('loading');
 
     try {
-      const response = await fetch('/api/contact', {
+  const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -126,6 +155,19 @@ export default function HomeClient() {
           phone: '',
           message: '',
           consent: false,
+          caseType: '',
+          injurySeverity: '',
+          medicalEstimate: '',
+          chargeName: '',
+          arrested: '',
+          piSubtype: '',
+          atFault: '',
+          otherDriverInsurance: '',
+          wereYouInjured: '',
+          injuryList: '',
+          passengers: '',
+          vehicleDamageSeverity: '',
+          financialAbility: '',
         });
       } else {
         setFormStatus('error');
@@ -178,12 +220,16 @@ export default function HomeClient() {
         >
           <motion.div
             variants={fadeInScale}
-            className="relative overflow-hidden rounded-3xl pt-10 md:pt-14 pb-0 px-6 md:px-12 mb-2 border border-white/10 bg-neutral-900/40 backdrop-blur-sm flex w-full"
+            className="relative w-full mb-2"
           >
-            <HeroMediaRotator />
+            {/* Full-bleed background */}
+            <div className="absolute inset-0 -z-10">
+              <HeroMediaRotator />
+              <div className="absolute inset-0 bg-black/45 md:bg-black/40" aria-hidden />
+            </div>
             <motion.div
               variants={heroStagger}
-              className="grid grid-cols-1 md:grid-cols-2 gap-10 md:min-h-[520px] items-center md:items-stretch w-full"
+              className="grid grid-cols-1 md:grid-cols-2 gap-10 md:min-h-[520px] items-center md:items-stretch w-full px-6 md:px-12 pt-10 md:pt-14 pb-0"
             >
               <motion.div variants={fadeUpSoft} className="order-2 md:order-1 hidden md:flex justify-center md:justify-start items-end h-full">
                 <div className="relative w-60 md:w-[300px] h-full flex items-end">
@@ -364,6 +410,102 @@ export default function HomeClient() {
                 )}
 
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div className="md:col-span-2">
+                    <label className="text-sm font-semibold block mb-2">What type of matter is this? <span className="text-[#d4af37]">*</span></label>
+                    <select
+                      value={formData.caseType}
+                      onChange={(e) => setFormData(prev => ({ ...prev, caseType: e.target.value }))}
+                      required
+                      className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm"
+                    >
+                      <option value="">Select a case type</option>
+                      <option>Personal Injury</option>
+                      <option>Criminal Defense</option>
+                      <option>Family Law</option>
+                      <option>Immigration</option>
+                      <option>Business / Contract</option>
+                      <option>Other</option>
+                    </select>
+                    {!ACCEPTED_CASE_TYPES.includes(formData.caseType || '') && formData.caseType !== '' && (
+                      <div className="mt-2 text-sm text-yellow-300">We do not handle this matter. Please call for a referral.</div>
+                    )}
+                  </div>
+
+                  {/* Conditional helper fields */}
+                  {formData.caseType === 'Personal Injury' && (
+                    <>
+                      <label className="text-sm">Personal injury type
+                        <select value={formData.piSubtype} onChange={(e) => setFormData(prev => ({ ...prev, piSubtype: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="">Select</option>
+                          <option value="Car Accident">Car Accident</option>
+                          <option value="Slip and Fall">Slip and Fall</option>
+                          <option value="Premises Liability">Premises Liability</option>
+                          <option value="Medical Malpractice">Medical Malpractice</option>
+                          <option value="Product Liability">Product Liability</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </label>
+                      <label className="text-sm">Injury severity
+                        <select onChange={(e) => setFormData(prev => ({ ...prev, injurySeverity: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="">Select</option>
+                          <option value="minor">Minor (no hospitalization)</option>
+                          <option value="moderate">Moderate (medical treatment)</option>
+                          <option value="severe">Severe (hospitalization, long-term)</option>
+                        </select>
+                      </label>
+                      <label className="text-sm">Estimated medical bills
+                        <input name="medicalEstimate" value={formData.medicalEstimate} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Estimated bills or 'unknown'" />
+                      </label>
+                      <label className="text-sm">Who was at-fault?
+                        <input name="atFault" value={formData.atFault} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Driver / Other party" />
+                      </label>
+                      <label className="text-sm">Did the other driver have insurance and do you have insurance?
+                        <input name="otherDriverInsurance" value={formData.otherDriverInsurance} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Other driver: yes/no/unknown; Yours: yes/no" />
+                      </label>
+                      <label className="text-sm">Were you injured during the accident?
+                        <select value={formData.wereYouInjured} onChange={(e) => setFormData(prev => ({ ...prev, wereYouInjured: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="">Select</option>
+                          <option value="yes">Yes</option>
+                          <option value="no">No</option>
+                        </select>
+                      </label>
+                      <label className="text-sm">What are the injuries that you have that you are currently aware of?
+                        <input name="injuryList" value={formData.injuryList} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="List injuries" />
+                      </label>
+                      <label className="text-sm">Were there other passengers in your car? How many? Were they injured?
+                        <input name="passengers" value={formData.passengers} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="e.g. 2; one injured" />
+                      </label>
+                      <label className="text-sm">How much damage was done to your vehicle? Minor, moderate or severe?
+                        <select value={formData.vehicleDamageSeverity} onChange={(e) => setFormData(prev => ({ ...prev, vehicleDamageSeverity: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="">Select</option>
+                          <option value="minor">Minor</option>
+                          <option value="moderate">Moderate</option>
+                          <option value="severe">Severe</option>
+                        </select>
+                      </label>
+                    </>
+                  )}
+
+                  {formData.caseType === 'Criminal Defense' && (
+                    <>
+                      <label className="text-sm">Were you arrested?
+                        <select value={formData.arrested} onChange={(e) => setFormData(prev => ({ ...prev, arrested: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="no">No</option>
+                          <option value="yes">Yes</option>
+                        </select>
+                      </label>
+                      <label className="text-sm">Charge (if known)
+                        <input name="chargeName" value={formData.chargeName} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="e.g. DUI, theft" />
+                      </label>
+                      <label className="text-sm">Do you have the financial ability to retain private counsel?
+                        <select value={formData.financialAbility} onChange={(e) => setFormData(prev => ({ ...prev, financialAbility: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                          <option value="">Select</option>
+                          <option value="yes">Yes</option>
+                          <option value="no">No</option>
+                        </select>
+                      </label>
+                    </>
+                  )}
                   <label className="text-sm font-semibold">First name <span className="text-[#d4af37]">*</span>
                     <input name="firstName" value={formData.firstName} onChange={handleInputChange} autoComplete="given-name" aria-required required className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Jane" />
                   </label>

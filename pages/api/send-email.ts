@@ -1,13 +1,35 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
+import type { SentMessageInfo } from 'nodemailer';
 
-type Success = { success: true; info: any };
+interface FormPayload {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  message: string;
+  caseType?: string;
+  piSubtype?: string;
+  injurySeverity?: string;
+  medicalEstimate?: string;
+  atFault?: string;
+  otherDriverInsurance?: string;
+  wereYouInjured?: string;
+  injuryList?: string;
+  passengers?: string;
+  vehicleDamageSeverity?: string;
+  chargeName?: string;
+  arrested?: string;
+  financialAbility?: string;
+}
+
+type Success = { success: true; info: SentMessageInfo | { preview: string | null; raw: SentMessageInfo } };
 type Failure = { success: false; error: string };
 type Data = Success | Failure;
 
 const ACCEPTED_CASE_TYPES = ['Personal Injury', 'Criminal Defense'];
 
-function buildPlainText(form: any) {
+function buildPlainText(form: FormPayload) {
   const lines: string[] = [];
   lines.push(`Name: ${form.firstName || ''} ${form.lastName || ''}`);
   lines.push(`Email: ${form.email || ''}`);
@@ -31,7 +53,7 @@ function buildPlainText(form: any) {
   return lines.join('\n');
 }
 
-function buildHtml(form: any) {
+function buildHtml(form: FormPayload) {
   const rows = (label: string, value?: string) => value ? `<tr><td style="padding:6px 8px;border:1px solid #eee;font-weight:600">${label}</td><td style="padding:6px 8px;border:1px solid #eee">${value}</td></tr>` : '';
   return `
     <div style="font-family:Arial,Helvetica,sans-serif;color:#111">
@@ -108,9 +130,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const info = await transporter.sendMail({ from, to, subject, text, html });
 
     return res.status(200).json({ success: true, info });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('send-email error:', err);
-    return res.status(500).json({ success: false, error: err?.message || String(err) });
+    const message = err instanceof Error ? err.message : String(err);
+    return res.status(500).json({ success: false, error: message });
   }
 }
 

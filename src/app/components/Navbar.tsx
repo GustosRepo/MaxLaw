@@ -22,7 +22,7 @@ export default function Navbar() {
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
         <Link href="/" className="inline-flex items-center gap-3" prefetch={false}>
           <span className="inline-flex items-center justify-center rounded-xl px-4 py-2 border-2 border-[#d4af37]/60 bg-transparent shadow-[0_4px_18px_rgba(212,175,55,0.25)]">
-            <Image src="/home-logo.png" alt="The Law Offices of Saggese & Associates" width={240} height={48} priority />
+            <Image src="/home-logo.png" alt="The Law Offices of Saggese & Associates" width={240} height={48} priority className="w-auto h-auto" />
           </span>
           <span className="sr-only">The Law Offices of Saggese & Associates</span>
         </Link>

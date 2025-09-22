@@ -45,3 +45,8 @@ body {
 .hover\:pause-animation:hover {
   animation-play-state: paused;
 }
+
+/* Hint for parallax/transformed elements to improve performance */
+[data-parallax-speed] {
+  will-change: transform;
+}

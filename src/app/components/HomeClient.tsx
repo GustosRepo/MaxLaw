@@ -188,6 +188,12 @@ export default function HomeClient() {
   };
 
   React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const isSmallScreen = window.innerWidth < 768;
+    const prefersReducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    // Disable parallax on small screens or when reduced motion is requested
+    if (isSmallScreen || prefersReducedMotion) return;
+
     let raf: number | null = null;
     const onScroll = () => {
       if (raf) cancelAnimationFrame(raf);
@@ -195,7 +201,8 @@ export default function HomeClient() {
         const scrolled = window.scrollY;
         document.querySelectorAll<HTMLElement>('[data-parallax-speed]').forEach(el => {
           const speed = parseFloat(el.dataset.parallaxSpeed || '0');
-          el.style.transform = `translateY(${(scrolled * speed).toFixed(2)}px)`;
+          // use translate3d for GPU acceleration
+          el.style.transform = `translate3d(0, ${(scrolled * speed).toFixed(2)}px, 0)`;
         });
       });
     };
@@ -311,10 +318,10 @@ export default function HomeClient() {
           <motion.h2 variants={fadeUp} className="text-2xl md:text-3xl font-['Playfair_Display'] font-semibold text-white mb-4">As Seen On</motion.h2>
           <motion.p variants={fadeUp} className="text-white/75 max-w-2xl mx-auto mb-6">Media appearances discussing high‑profile Nevada legal issues.</motion.p>
           <motion.div variants={fadeUp} className="mx-auto flex w-full max-w-4xl items-center justify-center gap-8 flex-wrap" aria-label="Media outlets">
-            <Image src="/shows/insideeditions.png" alt="Inside Edition appearance" width={160} height={48} className="object-contain" />
-            <Image src="/shows/Face-to-Face-o.jpg" alt="Face to Face interview" width={160} height={48} className="object-contain" />
-            <Image src="/shows/The-Defenders-o.jpg" alt="The Defenders TV segment" width={160} height={48} className="object-contain" />
-            <Image src="/shows/Review-Journal-o.jpg" alt="Las Vegas Review-Journal coverage" width={160} height={48} className="object-contain" />
+            <Image src="/shows/insideeditions.png" alt="Inside Edition appearance" width={160} height={48} className="object-contain w-auto h-auto" />
+            <Image src="/shows/Face-to-Face-o.jpg" alt="Face to Face interview" width={160} height={48} className="object-contain w-auto h-auto" />
+            <Image src="/shows/The-Defenders-o.jpg" alt="The Defenders TV segment" width={160} height={48} className="object-contain w-auto h-auto" />
+            <Image src="/shows/Review-Journal-o.jpg" alt="Las Vegas Review-Journal coverage" width={160} height={48} className="object-contain w-auto h-auto" />
           </motion.div>
         </motion.div>
       </Section>

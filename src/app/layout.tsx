@@ -95,7 +95,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-    <Analytics />
+  {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   );

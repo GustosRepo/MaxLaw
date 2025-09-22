@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Breadcrumbs from '../components/Breadcrumbs'
 import StructuredData from '../components/StructuredData'
 import GoogleReviews from '../components/GoogleReviews';
@@ -188,9 +189,11 @@ export default function AboutPage() {
                 <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-center">
                   <h3 className="text-2xl font-[var(--font-playfair)] font-bold mb-3">Your Attorney</h3>
                   <div className="flex items-center gap-4 justify-center">
-                    <img
+                    <Image
                       src="/biopic.jpg"
                       alt="Marc A. Saggese"
+                      width={80}
+                      height={80}
                       className="w-20 h-20 rounded-xl object-cover border border-white/10"
                     />
                     <div>
@@ -271,36 +274,5 @@ function FAQ() {
         ))}
       </div>
     </>
-  );
-}
-
-function Testimonials() {
-  const quotes = [
-    { name: 'A.M.', text: 'Professional, transparent, and effective. They kept me informed and delivered results.' },
-    { name: 'J.R.', text: 'Patient, proactive, and aggressive when it mattered. Highly recommend.' },
-    { name: 'T.S.', text: 'Marc took my call the same day and gave me a clear plan. Case dismissed.' },
-  ];
-  const [index, setIndex] = React.useState(0);
-
-  React.useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % quotes.length), 4500);
-    return () => clearInterval(id);
-  }, [quotes.length]);
-
-  return (
-    <div className="carousel">
-      {quotes.map((q, i) => (
-        <div key={i} className="carousel-item absolute inset-0 px-1" style={{opacity: index === i ? 1 : 0}}>
-          <p className="quote">{q.text}</p>
-          <div className="mt-2 text-white/70 text-sm">— {q.name}</div>
-        </div>
-      ))}
-      <div className="h-20" />
-      <div className="mt-4 flex gap-2">
-        {quotes.map((_, i) => (
-          <button key={i} aria-label={`Go to quote ${i+1}`} onClick={() => setIndex(i)} className={`h-2 w-6 rounded-full ${index===i ? 'bg-white/80' : 'bg-white/20'}`} />
-        ))}
-      </div>
-    </div>
   );
 }

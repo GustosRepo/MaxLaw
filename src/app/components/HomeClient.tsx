@@ -210,7 +210,7 @@ export default function HomeClient() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#1a1a1a] text-white font-[var(--font-inter)]">
-  <Section id="home" className="relative overflow-hidden min-h-screen flex items-center py-12 md:py-16">
+  <Section id="home" className="relative overflow-hidden min-h-[100dvh] md:min-h-screen flex items-center py-8 md:py-16">
         <motion.div
           className="relative z-10 mx-auto max-w-7xl px-4 md:px-6 w-full"
           initial="hidden"

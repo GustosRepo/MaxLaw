@@ -35,7 +35,14 @@ export default function HomeClient(){
   const [diagLogs,setDiagLogs]=React.useState<string[]>([]);
   const pushLog=React.useCallback((msg:string)=>{ if(!diag) return; setDiagLogs(l=>{ const entry=`${Date.now()%100000}:${msg}`; return [...l.slice(-40), entry];});},[diag]);
   const reviewSummary={rating:4.9,total:125};
-  React.useEffect(()=>{try{const sp=new URLSearchParams(window.location.search);if(sp.get('safe')) setSafe(true); if(sp.get('diag')) setDiag(true);}catch{}},[]);
+  React.useEffect(()=>{
+    try{
+      const sp=new URLSearchParams(window.location.search);
+      if(sp.has('safe')) setSafe(true);
+      if(sp.has('diag')) { setDiag(true); try { localStorage.setItem('diag','1'); } catch {} }
+      else { try { if(localStorage.getItem('diag')==='1') setDiag(true); } catch {} }
+    }catch{}
+  },[]);
   React.useEffect(()=>{if(typeof window==='undefined')return; if(window.innerWidth>=768){setDefer(false);return;} let done=false; const show=()=>{if(!done){done=true;setDefer(false);pushLog('below-fold-mounted');}}; const to=setTimeout(()=>{pushLog('timeout->mount');show();},3000); if(sentinelRef.current&&'IntersectionObserver'in window){const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){pushLog('sentinel-intersect');show();obs.disconnect();}})},{rootMargin:'140px 0px 0px 0px'}); obs.observe(sentinelRef.current);} return()=>clearTimeout(to);},[pushLog]);
   // Diagnostic instrumentation
   React.useEffect(()=>{ if(!diag) return; pushLog('diag-start');

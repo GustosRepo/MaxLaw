@@ -27,12 +27,24 @@ const Card: React.FC<React.PropsWithChildren<{ title: string; subtitle?: string;
 );
 const TopicsAccordion: React.FC<{ title: string; topics: string[]; basePath?: string }> = ({ title, topics, basePath='/practice' }) => { const [open,setOpen]=React.useState(false); return (<div className="mt-4"><button onClick={()=>setOpen(o=>!o)} className="flex w-full items-center justify-between rounded-xl border border-white/10 bg-black/30 px-4 py-2 text-sm font-semibold"><span>{open?`Hide ${title}`:`See ${title}`}</span><span className={`transition-transform ${open?'rotate-180':''}`}>▾</span></button>{open && (<ul className="mt-3 grid grid-cols-1 gap-2">{topics.map(t=> <li key={t}><Link href={`${basePath}/${slugify(t)}`} className="block rounded-lg px-3 py-2 text-sm hover:bg-white/5">{t}</Link></li>)}</ul>)}</div>); };
 
+type SkipConfig = {
+  results: boolean;
+  awards: boolean;
+  media: boolean;
+  mission: boolean;
+  reviews: boolean;
+  about: boolean;
+  contact: boolean;
+};
+
 export default function HomeClient(){
   const [safe,setSafe]=React.useState(false);
   const [diag,setDiag]=React.useState(false);
   const [defer,setDefer]=React.useState(true);
   const sentinelRef=React.useRef<HTMLDivElement|null>(null);
   const [diagLogs,setDiagLogs]=React.useState<string[]>([]);
+  const [skipSections,setSkipSections]=React.useState<SkipConfig>({results:false,awards:false,media:false,mission:false,reviews:false,about:false,contact:false});
+  const [visibleSections,setVisibleSections]=React.useState(0);
   const pushLog=React.useCallback((msg:string)=>{ if(!diag) return; setDiagLogs(l=>{ const entry=`${Date.now()%100000}:${msg}`; return [...l.slice(-40), entry];});},[diag]);
   const reviewSummary={rating:4.9,total:125};
   React.useEffect(()=>{
@@ -41,8 +53,19 @@ export default function HomeClient(){
       if(sp.has('safe')) setSafe(true);
       if(sp.has('diag')) { setDiag(true); try { localStorage.setItem('diag','1'); } catch {} }
       else { try { if(localStorage.getItem('diag')==='1') setDiag(true); } catch {} }
+      const nextSkip={
+        results: sp.has('skipresults')||sp.has('skipResults'),
+        awards: sp.has('skipawards')||sp.has('skipAwards'),
+        media: sp.has('skipmedia')||sp.has('skipMedia'),
+        mission: sp.has('skipmission')||sp.has('skipMission'),
+        reviews: sp.has('skipreviews')||sp.has('skipReviews'),
+        about: sp.has('skipabout')||sp.has('skipAbout'),
+        contact: sp.has('skipcontact')||sp.has('skipContact'),
+      };
+      setSkipSections(nextSkip);
+      Object.entries(nextSkip).forEach(([key,val])=>{ if(val) pushLog(`flag:${key}`); });
     }catch{}
-  },[]);
+  },[pushLog]);
   React.useEffect(()=>{if(typeof window==='undefined')return; if(window.innerWidth>=768){setDefer(false);return;} let done=false; const show=()=>{if(!done){done=true;setDefer(false);pushLog('below-fold-mounted');}}; const to=setTimeout(()=>{pushLog('timeout->mount');show();},3000); if(sentinelRef.current&&'IntersectionObserver'in window){const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){pushLog('sentinel-intersect');show();obs.disconnect();}})},{rootMargin:'140px 0px 0px 0px'}); obs.observe(sentinelRef.current);} return()=>clearTimeout(to);},[pushLog]);
   // Diagnostic instrumentation
   React.useEffect(()=>{ if(!diag) return; pushLog('diag-start');
@@ -71,6 +94,110 @@ export default function HomeClient(){
       if(memInterval) clearInterval(memInterval);
     };
   },[diag,pushLog]);
+
+  const sectionQueue = React.useMemo(() => {
+    const list: Array<{ key: string; node: React.ReactNode }> = [];
+    if (!skipSections.results) list.push({ key: 'results', node: <ResultsSection /> });
+    if (!skipSections.awards) list.push({ key: 'awards', node: <AwardsSection /> });
+    if (!skipSections.media) list.push({ key: 'media', node: <MediaSection /> });
+    if (!skipSections.mission) {
+      list.push({
+        key: 'mission',
+        node: (
+          <Section id="mission" className="py-12">
+            <div className="max-w-5xl text-center mx-auto">
+              <Card title="Our Mission" subtitle="Client‑first representation">
+                <MissionSection />
+              </Card>
+            </div>
+          </Section>
+        ),
+      });
+    }
+    if (!skipSections.reviews) {
+      list.push({
+        key: 'reviews',
+        node: (
+          <Section id="reviews" className="py-12">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
+              <h2 className="text-3xl font-bold text-center mb-6">Reviews</h2>
+              <GoogleReviews />
+            </div>
+          </Section>
+        ),
+      });
+    }
+    if (!skipSections.about) {
+      list.push({
+        key: 'about',
+        node: (
+          <Section id="about" className="py-12">
+            <div className="max-w-5xl mx-auto">
+              <Card title="Meet Your Lawyer" subtitle="" titleClassName="text-2xl md:text-3xl text-center" bodyClassName="text-center">
+                <div className="flex flex-col items-center">
+                  <div className="relative w-72 h-96 md:w-80 md:h-[28rem]">
+                    <Image src="/meet-your.jpg" alt="Attorney Marc A. Saggese" fill className="object-cover rounded-2xl border border-white/10 shadow-xl" />
+                  </div>
+                  <h4 className="mt-6 text-xl font-semibold">Marc A. Saggese</h4>
+                  <p className="mt-3 max-w-2xl mx-auto text-white/75 leading-relaxed">Las Vegas attorney focusing on <strong className="text-[#d4af37]">personal injury</strong> and <strong className="text-[#d4af37]">criminal defense</strong>, blending decades of courtroom experience with client‑first strategy.</p>
+                  <ul className="mt-6 flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm">
+                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Free consultations</li>
+                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Same-day when available</li>
+                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Evening/weekend by appt.</li>
+                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Se habla Español</li>
+                  </ul>
+                </div>
+              </Card>
+            </div>
+          </Section>
+        ),
+      });
+    }
+    if (!skipSections.contact) {
+      list.push({
+        key: 'contact',
+        node: (
+          <Section id="contact" className="py-12">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-8 md:p-10 max-w-5xl mx-auto">
+              <h2 className="text-3xl font-bold text-center mb-6">Speak With an Experienced Lawyer Today</h2>
+              <p className="text-center max-w-2xl mx-auto text-white/70">Call <a href={`tel:${FIRM_PHONE_E164}`} className="underline" style={{textDecorationColor:'#d4af37'}}>{FIRM_PHONE_DISPLAY}</a> or send a confidential message below.</p>
+              <div className="mt-8"><ContactSectionClient /></div>
+              <p className="mt-6 text-center text-xs text-white/30">Office: {FIRM_ADDRESS_LINE1}, {FIRM_ADDRESS_LINE2}</p>
+            </div>
+          </Section>
+        ),
+      });
+    }
+    return list;
+  }, [skipSections]);
+
+  React.useEffect(() => {
+    if (defer) {
+      setVisibleSections(0);
+      return;
+    }
+    if (!sectionQueue.length) {
+      setVisibleSections(0);
+      return;
+    }
+    let cancelled = false;
+    let timeout: number | undefined;
+    const reveal = (index: number) => {
+      if (cancelled || index >= sectionQueue.length) return;
+      const key = sectionQueue[index]?.key;
+      if (key) pushLog(`mount:${key}`);
+      setVisibleSections(prev => (prev > index ? prev : index + 1));
+      if (index + 1 < sectionQueue.length) {
+        timeout = window.setTimeout(() => reveal(index + 1), 260);
+      }
+    };
+    const raf = window.requestAnimationFrame(() => reveal(0));
+    return () => {
+      cancelled = true;
+      if (timeout) window.clearTimeout(timeout as number);
+      window.cancelAnimationFrame(raf);
+    };
+  }, [defer, sectionQueue, pushLog]);
   if(safe){return (<main className="min-h-screen bg-neutral-950 text-white"><section className="min-h-[90vh] relative flex items-center justify-center"><div className="absolute inset-0 -z-10"><HeroMediaRotator/><div className="absolute inset-0 bg-black/55"/></div><div className="px-6 max-w-2xl text-center"><h1 className="font-[var(--font-playfair)] text-4xl font-extrabold">{FIRM_NAME}</h1><p className="mt-4 text-white/70">Safe mode – below fold disabled.</p><a href={`tel:${FIRM_PHONE_E164}`} className="mt-6 inline-block rounded-xl bg-[#d4af37] px-6 py-3 font-semibold text-black">Call {FIRM_PHONE_DISPLAY}</a></div></section></main>);} 
 
   return (
@@ -128,52 +255,9 @@ export default function HomeClient(){
             </div>
           </Section>
 
-          <ResultsSection />
-          <AwardsSection />
-          <MediaSection />
-          <Section id="mission" className="py-12">
-            <div className="max-w-5xl text-center mx-auto">
-              <Card title="Our Mission" subtitle="Client‑first representation">
-                <MissionSection />
-              </Card>
-            </div>
-          </Section>
-
-          <Section id="reviews" className="py-12">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-6">Reviews</h2>
-              <GoogleReviews />
-            </div>
-          </Section>
-
-          <Section id="about" className="py-12">
-            <div className="max-w-5xl mx-auto">
-              <Card title="Meet Your Lawyer" subtitle="" titleClassName="text-2xl md:text-3xl text-center" bodyClassName="text-center">
-                <div className="flex flex-col items-center">
-                  <div className="relative w-72 h-96 md:w-80 md:h-[28rem]">
-                    <Image src="/meet-your.jpg" alt="Attorney Marc A. Saggese" fill className="object-cover rounded-2xl border border-white/10 shadow-xl" />
-                  </div>
-                  <h4 className="mt-6 text-xl font-semibold">Marc A. Saggese</h4>
-                  <p className="mt-3 max-w-2xl mx-auto text-white/75 leading-relaxed">Las Vegas attorney focusing on <strong className="text-[#d4af37]">personal injury</strong> and <strong className="text-[#d4af37]">criminal defense</strong>, blending decades of courtroom experience with client‑first strategy.</p>
-                  <ul className="mt-6 flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm">
-                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Free consultations</li>
-                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Same-day when available</li>
-                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Evening/weekend by appt.</li>
-                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Se habla Español</li>
-                  </ul>
-                </div>
-              </Card>
-            </div>
-          </Section>
-
-          <Section id="contact" className="py-12">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-8 md:p-10 max-w-5xl mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-6">Speak With an Experienced Lawyer Today</h2>
-              <p className="text-center max-w-2xl mx-auto text-white/70">Call <a href={`tel:${FIRM_PHONE_E164}`} className="underline" style={{textDecorationColor:'#d4af37'}}>{FIRM_PHONE_DISPLAY}</a> or send a confidential message below.</p>
-              <div className="mt-8"><ContactSectionClient /></div>
-              <p className="mt-6 text-center text-xs text-white/30">Office: {FIRM_ADDRESS_LINE1}, {FIRM_ADDRESS_LINE2}</p>
-            </div>
-          </Section>
+          {sectionQueue.slice(0, visibleSections).map(item => (
+            <React.Fragment key={item.key}>{item.node}</React.Fragment>
+          ))}
         </>
       )}
       {diag && (

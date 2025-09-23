@@ -12,9 +12,9 @@ const results = [
 
 export default function ResultsSection(){
   return (
-    <section id="results" className="py-12">
+    <section id="results" className="py-12 px-4 sm:px-6">
       <h2 className="text-3xl font-bold text-center mb-8">Selected Case Results</h2>
-      <ul className="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <ul className="mx-auto max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {results.map(r => (
           <li key={r.label} className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] p-4 text-center">
             <div className="text-xl font-bold text-[#d4af37]">{r.amount}</div>

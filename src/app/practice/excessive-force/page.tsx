@@ -33,7 +33,7 @@ export default function ExcessiveForcePage() {
       {/* Content only — PracticeLayout provides the outer main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Excessive Force</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Excessive Force</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">When force used by officers or security exceeds legal bounds, victims deserve justice. We bring claims to hold responsible parties accountable.</p>

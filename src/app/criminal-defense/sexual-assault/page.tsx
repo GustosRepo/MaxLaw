@@ -57,7 +57,7 @@ export default function SexualAssaultPage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Sexual Assault Defense</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Sexual Assault Defense</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Allegations of sexual assault demand a precise, discreet, and immediate defense response—our team acts quickly to safeguard your rights and future.</p>

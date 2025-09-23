@@ -23,7 +23,7 @@ export default function BadChecksPage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Bad Checks & Financial Offenses</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Bad Checks & Financial Offenses</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Allegations involving bad checks can lead to criminal charges and civil exposure; swift, experienced counsel matters.</p>

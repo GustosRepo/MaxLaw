@@ -101,7 +101,7 @@ export default function AboutPage() {
           {/* Main content unified centered column */}
           <div className="space-y-10 max-w-4xl mx-auto">
             <main className="space-y-8">
-              <section className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6 text-center">
+              <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6 text-center">
                 <div className="kpi"><b>2,500+</b><span className="text-white/70 text-sm">Clients represented</span></div>
                 <div className="kpi"><b>1999</b><span className="text-white/70 text-sm">Practicing since</span></div>
                 <div className="kpi"><b>24/7</b><span className="text-white/70 text-sm">Case intake</span></div>

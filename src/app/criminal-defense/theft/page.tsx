@@ -41,7 +41,7 @@ export default function TheftPage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Theft & Larceny Defense</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Theft & Larceny Defense</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Charges for theft can have long-lasting consequences — we provide aggressive defense and case-specific strategies.</p>

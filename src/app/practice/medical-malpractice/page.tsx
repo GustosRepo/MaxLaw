@@ -34,7 +34,7 @@ export default function MedicalMalpracticePage() {
       {/* Content only — PracticeLayout provides outer main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Medical Malpractice</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Medical Malpractice</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Negligent medical treatment can have devastating consequences. We coordinate with medical experts to prove standards of care were breached.</p>

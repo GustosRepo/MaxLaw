@@ -69,14 +69,14 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
   }, [])
 
   return (
-    <div className={className + ' w-full flex justify-center'}>
+    <div className={className + ' w-full flex justify-center px-4 md:px-0'}>
       <div className="relative" ref={dropdownRef}>
         <button
           ref={buttonRef}
           aria-haspopup="true"
             aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
-          className="min-w-[240px] flex justify-between items-center px-4 py-3 rounded-xl bg-white/5 backdrop-blur border border-white/10 hover:bg-white/10 transition"
+          className="w-full sm:min-w-[240px] flex justify-between items-center px-4 py-3 rounded-xl bg-white/5 backdrop-blur border border-white/10 hover:bg-white/10 transition"
         >
           <span className="font-semibold text-sm tracking-wide">{current.label}</span>
           <span className={`ml-2 text-white/70 transition-transform ${menuOpen ? 'rotate-180' : ''}`}>▾</span>
@@ -85,7 +85,7 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
         {menuOpen && (
           <div
             role="menu"
-            className="absolute left-1/2 top-full -translate-x-1/2 mt-3 w-screen max-w-xl rounded-2xl border border-white/10 bg-[#121212]/95 backdrop-blur-xl shadow-[0_10px_50px_-10px_rgba(0,0,0,0.6)] overflow-hidden z-50 ring-1 ring-black/40"
+            className="absolute left-1/2 top-full -translate-x-1/2 mt-3 w-screen max-w-xl rounded-2xl border border-white/10 bg-[#121212]/95 backdrop-blur-xl shadow-[0_10px_50px_-10px_rgba(0,0,0,0.6)] overflow-hidden z-50 ring-1 ring-black/40 max-h-[70vh] overflow-y-auto"
           >
             <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
               <div className="p-4">

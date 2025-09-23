@@ -23,7 +23,7 @@ export default function BrainSpineInjuryPage() {
       {/* Content only — PracticeLayout provides the outer main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Brain & Spine Injury</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Brain & Spine Injury</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Catastrophic brain and spinal injuries change lives. We coordinate medical experts, rehabilitation planning, and long-term recovery strategies to protect your future.</p>

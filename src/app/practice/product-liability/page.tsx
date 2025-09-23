@@ -43,7 +43,7 @@ export default function ProductLiabilityPage() {
       {/* Content only — PracticeLayout provides main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Product Liability</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Product Liability</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Defective products can cause catastrophic injuries. We hold manufacturers accountable for design, manufacturing, and warning defects.</p>

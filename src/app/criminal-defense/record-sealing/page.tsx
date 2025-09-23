@@ -22,7 +22,7 @@ export default function RecordSealingPage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Record Sealing & Expungement</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Record Sealing & Expungement</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">We help eligible clients clear or seal their records to reduce long-term barriers to employment, housing, and more.</p>

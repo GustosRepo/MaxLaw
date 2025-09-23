@@ -35,6 +35,12 @@ export default function MediaPage() {
         .media-info a.current { color:#d4af37; text-decoration:underline }
         .short-form-wrap { margin-top:24px }
         .short-contact-btn { display:inline-block; background:linear-gradient(90deg,#d4af37,#c5a467); color:#0e0e0e; padding:10px 14px; border-radius:12px; font-weight:600 }
+        @media (max-width: 768px) {
+          .media-wrap { flex-direction: column; }
+          .media-thumb { width:100%; height:180px; }
+          .media-info { text-align:left; }
+          .badges-track { gap:16px; }
+        }
       `}</style>
 
       <main className="min-h-screen custom-bg bg-gradient-to-br from-[#0e0e0e] to-[#0f0f0f] text-white font-[var(--font-inter)] py-12">
@@ -53,10 +59,10 @@ export default function MediaPage() {
           {/* Awards & Recognition (copied) */}
           <div id="awards" className="py-8 md:py-12">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
-              <motion.h2 variants={fadeUp} className="text-center text-4xl md:text-5xl font-[var(--font-playfair)] font-bold text-[#d4af37] mb-6 drop-shadow-[0_4px_12px_rgba(212,175,55,0.3)]">
+              <motion.h2 variants={fadeUp} className="text-center text-3xl md:text-5xl font-[var(--font-playfair)] font-bold text-[#d4af37] mb-6 drop-shadow-[0_4px_12px_rgba(212,175,55,0.3)]">
                 Awards & Recognition
               </motion.h2>
-              <motion.p variants={fadeUp} className="text-center max-w-3xl mx-auto text-xl text-white/80 mb-12 font-[var(--font-inter)] leading-relaxed">
+              <motion.p variants={fadeUp} className="text-center max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/80 mb-12 font-[var(--font-inter)] leading-relaxed">
                 Recognized by peers and industry organizations for excellence in legal representation and client advocacy.
               </motion.p>
               <motion.div variants={fadeUp} className="relative overflow-hidden">

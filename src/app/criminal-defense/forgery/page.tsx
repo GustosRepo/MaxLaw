@@ -22,7 +22,7 @@ export default function ForgeryPage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Forgery & Fraud Defense</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Forgery & Fraud Defense</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">We defend allegations of forgery, identity theft, and related fraud offenses with careful investigation and strategic representation.</p>

@@ -43,7 +43,7 @@ export default function ElderAbusePage() {
       {/* Content only — PracticeLayout provides the outer main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Elder Abuse</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Elder Abuse</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Abuse or neglect of seniors is unacceptable. We represent families seeking accountability for physical, emotional, or financial abuse.</p>

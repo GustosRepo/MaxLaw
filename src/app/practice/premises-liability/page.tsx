@@ -43,7 +43,7 @@ export default function PremisesLiabilityPage() {
       {/* Content only — PracticeLayout provides outer main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Premises Liability</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Premises Liability</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Property owners must keep visitors safe. We pursue claims for slips, falls, negligent security, and other dangerous conditions.</p>

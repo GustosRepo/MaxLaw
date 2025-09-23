@@ -34,7 +34,7 @@ export default function ServiceAreasPage() {
 
         <section className="rounded-2xl p-6 md:p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 shadow-lg">
           <h2 className="text-xl font-semibold mb-4">Primary Coverage</h2>
-          <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-sm">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
             {AREAS.map(a => (
               <li key={a} className="px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white/85 hover:bg-white/10 transition">{a}</li>
             ))}
@@ -42,7 +42,7 @@ export default function ServiceAreasPage() {
           <p className="mt-6 text-xs text-white/50">Listing for SEO/service disclosure purposes – we handle cases statewide as permitted by admission.</p>
         </section>
 
-        <section className="mt-10 grid md:grid-cols-2 gap-6">
+        <section className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/10">
             <h3 className="text-lg font-semibold mb-3">Injury Representation</h3>
             <ul className="text-sm list-disc list-inside text-white/80 space-y-1">

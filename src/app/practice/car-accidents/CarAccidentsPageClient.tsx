@@ -57,7 +57,7 @@ export default function CarAccidentsPageClient() {
             </ul>
 
             <h3 className="text-lg font-semibold mb-3">Nevada Car Accident Statistics</h3>
-            <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               <div className="bg-white/5 p-4 rounded-lg">
                 <div className="stat-number">15,000+</div>
                 <div className="text-sm text-white/70">Annual crashes in Clark County</div>

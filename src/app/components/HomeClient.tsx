@@ -75,10 +75,10 @@ export default function HomeClient(){
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#161616] text-white font-[var(--font-inter)]">
-      <Section id="home" className="relative overflow-hidden min-h-[100dvh] flex items-center py-10">
+      <Section id="home" className="relative overflow-hidden min-h-[90dvh] flex items-center py-12 sm:py-16">
         <div className="absolute inset-0"><HeroMediaRotator/><div className="absolute inset-0 bg-black/45"/></div>
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center md:items-end gap-10 md:gap-14">
+          <div className="flex flex-col md:flex-row items-center md:items-end gap-8 md:gap-14">
             {/* Figure (desktop only) */}
             <div className="hidden md:block relative w-56 lg:w-64 xl:w-72 2xl:w-80 aspect-[365/815] self-end -mb-12 md:-mb-16">
               <Image
@@ -92,14 +92,14 @@ export default function HomeClient(){
             </div>
             {/* Hero copy */}
             <div className="text-center md:text-left flex-1">
-              <h1 className="font-[var(--font-playfair)] text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
+              <h1 className="font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
                 {FIRM_NAME}
                 <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Personal Injury & Criminal Defense</span>
               </h1>
-              <p className="mt-6 text-base md:text-xl text-white/80 max-w-2xl md:max-w-xl mx-auto md:mx-0">Award‑winning representation. Free consultation. No fee unless we win injury cases.</p>
+              <p className="mt-6 text-base sm:text-lg md:text-xl text-white/80 max-w-2xl md:max-w-xl mx-auto md:mx-0">Award‑winning representation. Free consultation. No fee unless we win injury cases.</p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 md:justify-start justify-center">
-                <a href={`tel:${FIRM_PHONE_E164}`} className="rounded-2xl bg-[#d4af37] px-7 py-4 text-lg font-semibold text-[#0e0e0e]">Call {FIRM_PHONE_DISPLAY}</a>
-                <Link href="/contact" className="rounded-2xl border border-white/20 bg-white/5 px-7 py-4 text-lg text-white/90">Request Consultation</Link>
+                <a href={`tel:${FIRM_PHONE_E164}`} className="rounded-2xl bg-[#d4af37] px-7 py-4 text-base sm:text-lg font-semibold text-[#0e0e0e]">Call {FIRM_PHONE_DISPLAY}</a>
+                <Link href="/contact" className="rounded-2xl border border-white/20 bg-white/5 px-7 py-4 text-base sm:text-lg text-white/90">Request Consultation</Link>
               </div>
               <ul className="mt-8 flex flex-wrap md:justify-start justify-center gap-4 text-xs text-white/60"><li>20+ Years Experience</li><li>Millions Recovered*</li><li>{reviewSummary.rating.toFixed(1)}★ ({reviewSummary.total}+ reviews)</li><li>24/7 Message Us</li></ul>
               <p className="mt-2 text-[10px] text-white/30">*Past results don’t guarantee future outcomes.</p>
@@ -112,7 +112,7 @@ export default function HomeClient(){
       {defer && (
         <div className="mx-auto w-full max-w-7xl px-4 md:px-6 py-10 space-y-8" aria-label="Loading below-fold content">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-sm text-white/60">Loading additional content…</div>
-          <div className="grid grid-cols-3 gap-3" aria-hidden>{Array.from({length:6}).map((_,i)=><div key={i} className="aspect-[5/6] animate-pulse rounded-xl border border-white/10 bg-white/[0.07]"/> )}</div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3" aria-hidden>{Array.from({length:6}).map((_,i)=><div key={i} className="aspect-[5/6] animate-pulse rounded-xl border border-white/10 bg-white/[0.07]"/> )}</div>
         </div>
       )}
 

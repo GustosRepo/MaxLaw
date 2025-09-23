@@ -22,7 +22,7 @@ export default function JuvenileCrimesPage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Juvenile Crimes Defense</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Juvenile Crimes Defense</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">We represent juveniles with an emphasis on rehabilitation and protecting futures while providing strong legal advocacy.</p>

@@ -40,7 +40,7 @@ export default function CommercialVehicleAccidentsPage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Commercial Vehicle Accidents</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Commercial Vehicle Accidents</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">When a commercial vehicle is involved in a crash, liability can include the employer, dispatcher, or vehicle maintainer. We investigate corporate responsibility and safety practices.</p>

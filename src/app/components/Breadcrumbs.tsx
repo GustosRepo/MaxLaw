@@ -24,7 +24,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     <>
       <StructuredData type="BreadcrumbList" data={breadcrumbData} />
       <nav aria-label="Breadcrumb" className="mb-6">
-        <ol className="flex items-center space-x-2 text-sm text-white/60">
+        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-white/60">
           {items.map((item, index) => (
             <li key={item.href} className="flex items-center">
               {index > 0 && (

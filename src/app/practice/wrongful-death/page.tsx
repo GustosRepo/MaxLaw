@@ -36,7 +36,7 @@ export default function WrongfulDeathPage() {
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
           <header className="mb-6">
             <div className="relative inline-block">
-              <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Wrongful Death</h1>
+              <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Wrongful Death</h1>
               <span className="accent-underline w-full rounded-full" aria-hidden />
             </div>
             <p className="text-white/75 mt-3">Our firm provides compassionate representation for families who have lost a loved one due to another's negligence or wrongful act.</p>

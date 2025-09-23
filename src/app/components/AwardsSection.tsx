@@ -20,9 +20,9 @@ const awards = [
 
 export default function AwardsSection() {
   return (
-    <section id="awards" className="py-12">
+    <section id="awards" className="py-12 px-4 sm:px-6">
       <h2 className="text-3xl font-bold text-center mb-8">Awards & Recognitions</h2>
-      <ul className="mx-auto max-w-5xl grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+      <ul className="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
         {awards.map((file, i) => (
           <li
             key={file}

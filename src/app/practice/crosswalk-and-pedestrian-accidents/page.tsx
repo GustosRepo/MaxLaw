@@ -43,7 +43,7 @@ export default function PedestrianAccidentsPage() {
       {/* Content only — provided by PracticeLayout */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Crosswalk & Pedestrian Accidents</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Crosswalk & Pedestrian Accidents</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Pedestrians are vulnerable. We investigate visibility, right-of-way, signage, and driver behavior to establish liability and protect your recovery.</p>

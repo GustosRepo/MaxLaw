@@ -19,6 +19,16 @@ body {
   overflow-x: hidden;
 }
 
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  section[id] {
+    scroll-margin-top: 7.5rem;
+  }
+}
+
 /* Shared practice & criminal-defense UI styles */
 @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }

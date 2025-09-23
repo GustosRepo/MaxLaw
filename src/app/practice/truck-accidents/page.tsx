@@ -34,7 +34,7 @@ export default function TruckAccidentsPage() {
       {/* Content only — provided by PracticeLayout */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Truck Accidents</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Truck Accidents</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Large trucks and commercial vehicles cause devastating injuries. We investigate hours-of-service, maintenance, and carrier liability to hold negligent parties accountable.</p>

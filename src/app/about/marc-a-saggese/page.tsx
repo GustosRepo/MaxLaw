@@ -53,7 +53,7 @@ export default function MarcSaggesePage() {
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.2)]">Call (702) 778‑8883</a>
                 <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-4 py-2 text-sm text-white/90">Request Consultation</Link>
-                <span className="ml-3 text-xs text-white/70">Free consultation • 1:1 attorney attention</span>
+                <span className="w-full text-center text-xs text-white/70 md:w-auto md:ml-3">Free consultation • 1:1 attorney attention</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

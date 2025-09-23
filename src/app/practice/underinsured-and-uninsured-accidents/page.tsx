@@ -43,7 +43,7 @@ export default function UnderinsuredAccidentsPage() {
       {/* Content only — provided by PracticeLayout */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Underinsured & Uninsured Accidents</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Underinsured & Uninsured Accidents</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">We represent clients when the responsible party has insufficient insurance or no insurance at all. Explore your recovery options, including uninsured/underinsured motorist coverage.</p>

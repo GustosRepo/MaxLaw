@@ -12,9 +12,9 @@ const mediaItems: { src: string; alt: string; href?: string }[] = [
 
 export default function MediaSection() {
   return (
-    <section id="media" className="py-12">
+    <section id="media" className="py-12 px-4 sm:px-6">
       <h2 className="text-3xl font-bold text-center mb-8">In The Media</h2>
-      <ul className="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-4 gap-6">
+      <ul className="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
         {mediaItems.map(item => (
           <li key={item.src} className="relative aspect-[4/3] rounded-xl border border-white/10 bg-white/5 overflow-hidden">
             <Image

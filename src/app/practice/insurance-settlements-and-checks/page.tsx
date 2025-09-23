@@ -35,7 +35,7 @@ export default function InsuranceSettlementsPage() {
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
           <header className="mb-6">
             <div className="relative inline-block">
-              <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Insurance Settlements & Checks</h1>
+              <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Insurance Settlements & Checks</h1>
               <span className="accent-underline w-full rounded-full" aria-hidden />
             </div>
             <p className="text-white/75 mt-3">Insurer settlement processes can be confusing. We ensure settlements are fair and checks are properly structured to cover medical liens and future needs.</p>

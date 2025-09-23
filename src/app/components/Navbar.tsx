@@ -21,8 +21,15 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-[#2d2d2d] bg-[#0e0e0e]/95 backdrop-blur-xl shadow-2xl">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
         <Link href="/" className="inline-flex items-center gap-2 md:gap-3" prefetch={false}>
-          <span className="inline-flex items-center justify-center rounded-xl px-3 py-1.5 md:px-4 md:py-2 border-2 border-[#d4af37]/60 bg-transparent shadow-[0_4px_18px_rgba(212,175,55,0.25)]">
-            <Image src="/home-logo.png" alt="The Law Offices of Saggese & Associates" width={200} height={42} priority className="w-auto h-auto max-w-[160px] md:max-w-none" />
+          <span className="inline-flex items-center justify-center rounded-xl px-2.5 py-1 md:px-3.5 md:py-1.5 border border-[#d4af37]/60 bg-transparent shadow-[0_3px_12px_rgba(212,175,55,0.2)]">
+            <Image
+              src="/home-logo.png"
+              alt="The Law Offices of Saggese & Associates"
+              width={160}
+              height={36}
+              priority
+              className="h-8 w-auto md:h-10"
+            />
           </span>
           <span className="sr-only">The Law Offices of Saggese & Associates</span>
         </Link>

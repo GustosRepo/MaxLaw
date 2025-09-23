@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import HeroMediaRotator from './HeroMediaRotator';
 import GoogleReviews from './GoogleReviews';
+import LazyMap from './LazyMap';
 import {
   FIRM_ADDRESS_LINE1,
   FIRM_ADDRESS_LINE2,
@@ -99,7 +100,6 @@ const TopicsAccordion: React.FC<{ title: string; topics: string[]; basePath?: st
 };
 
 export default function HomeClient() {
-  const [mapLoaded, setMapLoaded] = React.useState(false);
   const [formData, setFormData] = React.useState({
     firstName: '',
     lastName: '',
@@ -577,22 +577,8 @@ export default function HomeClient() {
                 </ul>
               </div>
               <div className="mt-4 text-sm text-white/60">Office hours: Mon–Fri 8:00–5:00 • Sat–Sun Closed</div>
-              <div className="mt-4 relative w-full h-40 md:h-48 rounded-xl overflow-hidden border border-white/10" aria-label="Office location on map">
-                {!mapLoaded && (
-                  <div className="absolute inset-0 animate-pulse bg-[linear-gradient(110deg,#2a2a2a,45%,#3a3a3a,55%,#2a2a2a)] bg-[length:200%_100%]" aria-hidden />
-                )}
-                <iframe
-                  title="Office location map"
-                  aria-label={`Google map showing office at ${FIRM_ADDRESS_FULL}`}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  onLoad={() => setMapLoaded(true)}
-                  className={`w-full h-full transition-opacity duration-500 ${mapLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(FIRM_ADDRESS_FULL)}&output=embed`}
-                  allowFullScreen
-                />
-              </div>
-              <div className="mt-2 text-[10px] tracking-wide uppercase text-white/30">Map data © {new Date().getFullYear()} Google</div>
+              <LazyMap />
+                <div className="mt-2 text-[10px] tracking-wide uppercase text-white/30">Map data © {new Date().getFullYear()} Google</div>
             </motion.div>
           </div>
         </motion.div>

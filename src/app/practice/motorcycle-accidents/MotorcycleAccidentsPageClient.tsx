@@ -23,18 +23,7 @@ export default function MotorcycleAccidentsPageClient() {
 
   return (
     <>
-      <StructuredData type="LegalService" data={motorcycleServiceData} />
-      
-      <style jsx>{`
-        /* standardized practice page styles */
-        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        .cta-glow { transition:box-shadow .28s, transform .22s; }
-        .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-      `}</style>
+  <StructuredData type="LegalService" data={motorcycleServiceData} />
 
       <Breadcrumbs items={breadcrumbItems} />
 
@@ -42,7 +31,7 @@ export default function MotorcycleAccidentsPageClient() {
       <header className="mb-6">
         <div className="rounded-3xl p-6 md:p-8 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
           <h1 className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#bfa76a]">Motorcycle Accidents</h1>
-          <div className="mt-3 w-32"><span className="accent-underline" /></div>
+          <div className="mt-3 w-32 h-[6px] bg-gradient-to-r from-[#d4af37] to-[#c5a467] rounded-full" />
           <p className="mt-3 text-white/80">Dedicated representation for motorcycle accident victims throughout Nevada.</p>
         </div>
       </header>
@@ -99,7 +88,7 @@ export default function MotorcycleAccidentsPageClient() {
           <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
             <h3 className="text-lg font-semibold mb-4 text-[#bfa76a]">Get Help Today</h3>
             <div className="space-y-3">
-              <Link href="/contact" className="block w-full text-center rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-3 font-semibold text-[#0e0e0e] cta-glow">
+              <Link href="/contact" className="block w-full text-center rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-3 font-semibold text-[#0e0e0e] transition-all duration-200 hover:shadow-[0_18px_48px_rgba(212,175,55,0.18)] hover:-translate-y-1 hover:scale-[1.02]">
                 Free Consultation
               </Link>
               <a href="tel:17027788883" className="block w-full text-center rounded-2xl border border-[#d4af37] px-4 py-3 font-semibold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0e0e0e] transition-colors">
@@ -122,3 +111,5 @@ export default function MotorcycleAccidentsPageClient() {
     </>
   );
 }
+
+// NOTE: styled-jsx removed; component is now server-safe (no client-only features). Consider renaming without `Client` and importing statically.

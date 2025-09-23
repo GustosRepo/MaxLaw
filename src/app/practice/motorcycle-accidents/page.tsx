@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import dynamic from 'next/dynamic'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
-
-const MotorcycleAccidentsPageClient = dynamic(() => import('./MotorcycleAccidentsPageClient'))
+import MotorcycleAccidentsPageClient from './MotorcycleAccidentsPageClient'
 
 export const metadata: Metadata = {
   title: 'Las Vegas Motorcycle Accident Lawyer | Saggese & Associates',

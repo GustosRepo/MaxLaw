@@ -20,9 +20,9 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#2d2d2d] bg-[#0e0e0e]/95 backdrop-blur-xl shadow-2xl">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
-        <Link href="/" className="inline-flex items-center gap-3" prefetch={false}>
-          <span className="inline-flex items-center justify-center rounded-xl px-4 py-2 border-2 border-[#d4af37]/60 bg-transparent shadow-[0_4px_18px_rgba(212,175,55,0.25)]">
-            <Image src="/home-logo.png" alt="The Law Offices of Saggese & Associates" width={240} height={48} priority className="w-auto h-auto" />
+        <Link href="/" className="inline-flex items-center gap-2 md:gap-3" prefetch={false}>
+          <span className="inline-flex items-center justify-center rounded-xl px-3 py-1.5 md:px-4 md:py-2 border-2 border-[#d4af37]/60 bg-transparent shadow-[0_4px_18px_rgba(212,175,55,0.25)]">
+            <Image src="/home-logo.png" alt="The Law Offices of Saggese & Associates" width={200} height={42} priority className="w-auto h-auto max-w-[160px] md:max-w-none" />
           </span>
           <span className="sr-only">The Law Offices of Saggese & Associates</span>
         </Link>

@@ -4,9 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import HeroMediaRotator from './HeroMediaRotator';
-import dynamic from 'next/dynamic';
-// Lazy load reviews (they are below the fold and heavy with motion)
-const GoogleReviews = dynamic(() => import('./GoogleReviews'), { ssr: false, loading: () => <div className="h-40 flex items-center justify-center text-white/50 text-sm">Loading reviews…</div> });
+import GoogleReviews from './GoogleReviews';
 import {
   FIRM_ADDRESS_LINE1,
   FIRM_ADDRESS_LINE2,

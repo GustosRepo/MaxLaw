@@ -1,8 +1,27 @@
-"use client";
-
-import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Marc A. Saggese, Esq. | Las Vegas Trial Attorney",
+  description: "Profile of Marc A. Saggese — Las Vegas personal injury & criminal defense attorney with decades of trial experience. Free consultations.",
+  alternates: { canonical: "https://www.maxlawnv.com/about/marc-a-saggese" },
+  openGraph: {
+    title: "Marc A. Saggese, Esq. | Las Vegas Trial Attorney",
+    description: "Las Vegas personal injury & criminal defense lawyer with decades of courtroom experience.",
+    type: "profile",
+    url: "https://www.maxlawnv.com/about/marc-a-saggese",
+    images: [
+      { url: "https://www.maxlawnv.com/marcpage.jpg", width: 800, height: 1200, alt: "Attorney Marc A. Saggese" }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marc A. Saggese, Esq. | Las Vegas Trial Attorney",
+    description: "Las Vegas personal injury & criminal defense lawyer. Free consultation.",
+    images: ["https://www.maxlawnv.com/marcpage.jpg"],
+  },
+};
 
 export default function MarcSaggesePage() {
   return (

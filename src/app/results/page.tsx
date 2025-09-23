@@ -1,16 +1,27 @@
-"use client"
-
-import React from 'react'
-import Head from 'next/head'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Results — Saggese & Associates',
+  description: 'Representative results and outcomes for The Law Offices of Saggese & Associates. Past results do not guarantee future outcomes.',
+  alternates: { canonical: 'https://www.maxlawnv.com/results' },
+  openGraph: {
+    title: 'Representative Results',
+    description: 'Sample outcomes from Saggese & Associates (not a guarantee).',
+    url: 'https://www.maxlawnv.com/results',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Results — Saggese & Associates',
+    description: 'Sample outcomes (not a guarantee).'
+  }
+};
 
 export default function ResultsPage() {
   return (
     <>
-      <Head>
-        <title>Results — Saggese & Associates</title>
-        <meta name="description" content="Representative results and outcomes for The Law Offices of Saggese & Associates." />
-        <style>{`
+      <style>{`
           @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
           .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; border-radius:4px }
           .card-hover { transition:transform .32s cubic-bezier(.2,.9,.3,1), box-shadow .28s ease, border-color .22s ease; will-change:transform }
@@ -18,7 +29,6 @@ export default function ResultsPage() {
           .watermark { font-weight:900; color:rgba(255,255,255,0.04); letter-spacing:-2px; pointer-events:none }
           .custom-bg { background-image: radial-gradient(circle at 8% 12%, rgba(191,167,106,0.03), transparent 6%), radial-gradient(circle at 90% 80%, rgba(255,255,255,0.02), transparent 22%), linear-gradient(180deg,#0e0e0e,#0f0f0f); }
         `}</style>
-      </Head>
 
       <main className="min-h-screen custom-bg bg-gradient-to-br from-[#0e0e0e] to-[#0f0f0f] text-white font-['Inter'] py-12">
         <div className="mx-auto max-w-7xl px-4 md:px-6">

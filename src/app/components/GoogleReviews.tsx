@@ -114,6 +114,8 @@ const REVIEWS: Review[] = [
   },
 ];
 
+// Client component with Framer Motion animations for staggered fade-in.
+
 const fade = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
@@ -128,14 +130,23 @@ export default function GoogleReviews() {
           <span>Client Reviews</span>
           <span className="inline-flex items-center gap-1 text-sm font-normal text-white/70">
             <svg aria-hidden width="18" height="18" viewBox="0 0 24 24" fill="#d4af37"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.548 8.279L12 18.896l-7.484 4.517 1.548-8.279L0 9.306l8.332-1.151z"/></svg>
-      <span>{data.rating.toFixed(1)} / 5</span>
+            <span>{data.rating.toFixed(1)} / 5</span>
           </span>
         </h2>
-    <div className="text-white/60 text-sm">{data.total}+ client reviews</div>
+        <div className="text-white/60 text-sm">{data.total}+ client reviews</div>
       </div>
-      <motion.ul initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid gap-6 md:grid-cols-3">
+      <motion.ul
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="grid gap-6 md:grid-cols-3"
+      >
         {data.reviews.map(r => (
-          <motion.li variants={fade} key={r.id} className="relative rounded-2xl border border-white/10 bg-white/5 p-4 text-sm flex flex-col gap-3">
+          <motion.li
+            key={r.id}
+            variants={fade}
+            className="relative rounded-2xl border border-white/10 bg-white/5 p-4 text-sm flex flex-col gap-3"
+          >
             <div className="flex items-center gap-3">
               <Image src={r.profilePhoto} alt="" width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
               <div>
@@ -145,7 +156,17 @@ export default function GoogleReviews() {
             </div>
             <div className="flex items-center gap-1" aria-label={`Rated ${r.rating} out of 5`}>
               {Array.from({ length: 5 }).map((_, i) => (
-                <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill={i < r.rating ? '#d4af37' : 'none'} stroke="#d4af37" strokeWidth="1.5"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.548 8.279L12 18.896l-7.484 4.517 1.548-8.279L0 9.306l8.332-1.151z"/></svg>
+                <svg
+                  key={i}
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill={i < r.rating ? '#d4af37' : 'none'}
+                  stroke="#d4af37"
+                  strokeWidth="1.5"
+                >
+                  <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.548 8.279L12 18.896l-7.484 4.517 1.548-8.279L0 9.306l8.332-1.151z" />
+                </svg>
               ))}
             </div>
             <p className="text-white/70 line-clamp-6 leading-relaxed">{r.text}</p>

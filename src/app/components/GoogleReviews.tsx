@@ -133,11 +133,21 @@ const StarIcon = ({ filled }: { filled: boolean }) => (
 export default function GoogleReviews() {
   const data = { rating: REVIEW_SUMMARY.rating, total: REVIEW_SUMMARY.total, reviews: REVIEWS };
   const [motionEnabled, setMotionEnabled] = React.useState(false);
+  const [inView, setInView] = React.useState(false);
+  const rootRef = React.useRef<HTMLDivElement | null>(null);
   React.useEffect(() => {
     try { if (window.matchMedia('(min-width: 768px)').matches) setMotionEnabled(true); } catch { /* ignore */ }
   }, []);
+  React.useEffect(() => {
+    if (!rootRef.current || inView) return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } });
+    }, { rootMargin: '120px' });
+    obs.observe(rootRef.current);
+    return () => obs.disconnect();
+  }, [inView]);
   return (
-    <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent p-6 md:p-8 backdrop-blur-sm">
+  <div ref={rootRef} className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent p-6 md:p-8 backdrop-blur-sm min-h-[200px]">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <h2 className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#d4af37] flex items-center gap-3">
           <span>Client Reviews</span>
@@ -148,36 +158,40 @@ export default function GoogleReviews() {
         </h2>
         <div className="text-white/60 text-sm">{data.total}+ client reviews</div>
       </div>
-      <motion.ul
-        initial={motionEnabled ? 'hidden' : undefined}
-        whileInView={motionEnabled ? 'show' : undefined}
-        viewport={motionEnabled ? { once: true, amount: 0.25 } : undefined}
-        variants={motionEnabled ? containerVariants : undefined}
-        className="grid gap-6 md:grid-cols-3"
-        aria-label="Client reviews list"
-      >
-        {data.reviews.map(r => (
-          <motion.li
-            key={r.id}
-            variants={motionEnabled ? itemVariants : undefined}
-            className="relative rounded-2xl border border-white/10 bg-white/5 p-4 text-sm flex flex-col gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]/60"
-            tabIndex={0}
-            aria-labelledby={`review-${r.id}-author`}
-          >
-            <div className="flex items-center gap-3">
-              <Image src={r.profilePhoto} alt={r.author} width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
-              <div>
-                <p id={`review-${r.id}-author`} className="font-semibold text-white leading-tight">{r.author}</p>
-                <p className="text-[11px] uppercase tracking-wide text-white/50">{r.relativeTime}</p>
+      {inView ? (
+        <motion.ul
+          initial={motionEnabled ? 'hidden' : undefined}
+          whileInView={motionEnabled ? 'show' : undefined}
+          viewport={motionEnabled ? { once: true, amount: 0.25 } : undefined}
+          variants={motionEnabled ? containerVariants : undefined}
+          className="grid gap-6 md:grid-cols-3"
+          aria-label="Client reviews list"
+        >
+          {data.reviews.map(r => (
+            <motion.li
+              key={r.id}
+              variants={motionEnabled ? itemVariants : undefined}
+              className="relative rounded-2xl border border-white/10 bg-white/5 p-4 text-sm flex flex-col gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]/60"
+              tabIndex={0}
+              aria-labelledby={`review-${r.id}-author`}
+            >
+              <div className="flex items-center gap-3">
+                <Image src={r.profilePhoto} alt={r.author} width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
+                <div>
+                  <p id={`review-${r.id}-author`} className="font-semibold text-white leading-tight">{r.author}</p>
+                  <p className="text-[11px] uppercase tracking-wide text-white/50">{r.relativeTime}</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-1" aria-label={`Rated ${r.rating} out of 5`}>
-              {[0,1,2,3,4].map(i => <StarIcon key={i} filled={i < r.rating} />)}
-            </div>
-            <p className="text-white/70 line-clamp-6 leading-relaxed">{r.text}</p>
-          </motion.li>
-        ))}
-      </motion.ul>
+              <div className="flex items-center gap-1" aria-label={`Rated ${r.rating} out of 5`}>
+                {[0,1,2,3,4].map(i => <StarIcon key={i} filled={i < r.rating} />)}
+              </div>
+              <p className="text-white/70 line-clamp-6 leading-relaxed">{r.text}</p>
+            </motion.li>
+          ))}
+        </motion.ul>
+      ) : (
+        <div className="h-24 flex items-center justify-center text-xs text-white/40">Loading reviews…</div>
+      )}
       <p className="mt-6 text-[11px] tracking-wide text-white/40">
         Testimonials reflect individual experiences; results vary. Not a guarantee of outcome.
       </p>

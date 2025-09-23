@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   },
 };
 
+// Accept searchParams to enable a lightweight "safe mode" for crash isolation: /?safe=1
+// App Router passes searchParams as a plain object of string | string[] values.
+// Relax the type to avoid constraint issues with Next's internal PageProps generic.
 export default function HomePage() {
   return (
     <>

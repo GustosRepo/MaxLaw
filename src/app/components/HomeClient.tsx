@@ -63,8 +63,11 @@ const Section: React.FC<React.PropsWithChildren<{ id?: string; className?: strin
   );
 };
 
-const Card: React.FC<React.PropsWithChildren<{ title: string; subtitle?: string }>> = ({ title, subtitle, children }) => (
-  <motion.div variants={fadeUp} className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent p-4 shadow-[0_12px_40px_rgba(0,0,0,0.6)] backdrop-blur-sm">
+type MotionVariants = Record<string, unknown> | undefined;
+const Card: React.FC<React.PropsWithChildren<{ title: string; subtitle?: string; variantsOverride?: MotionVariants }>> = ({ title, subtitle, children, variantsOverride }) => (
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error: Allow loose variants object when animations disabled
+  <motion.div variants={variantsOverride} className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent p-4 shadow-[0_12px_40px_rgba(0,0,0,0.6)] backdrop-blur-sm">
     <div className="h-1 w-12 rounded-full bg-[#d4af37] mb-4" />
     <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
     {subtitle ? <p className="mt-1 text-sm text-white/70">{subtitle}</p> : null}
@@ -204,36 +207,8 @@ export default function HomeClient() {
     }));
   };
 
-  React.useEffect(() => {
-    // Defensive: wrap in try to avoid runtime errors causing reload loops on iOS
-    try {
-      if (typeof window === 'undefined') return;
-      const isSmallScreen = window.innerWidth < 768;
-      const prefersReducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-      if (isSmallScreen || prefersReducedMotion) return; // skip on mobile / reduced motion
-
-      let ticking = false;
-      const elements = Array.from(document.querySelectorAll<HTMLElement>('[data-parallax-speed]'));
-      if (!elements.length) return;
-
-      const onScroll = () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          const scrolled = window.scrollY;
-          for (const el of elements) {
-            const speed = parseFloat(el.dataset.parallaxSpeed || '0');
-            el.style.transform = `translate3d(0, ${(scrolled * speed).toFixed(1)}px, 0)`;
-          }
-          ticking = false;
-        });
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      return () => window.removeEventListener('scroll', onScroll);
-    } catch {
-      // silently ignore
-    }
-  }, []);
+  // Temporarily fully disable parallax logic (suspected mobile crash source)
+  React.useEffect(() => { /* disabled for debugging */ }, []);
 
   // Static review summary (API removed)
   React.useEffect(() => {
@@ -316,7 +291,7 @@ export default function HomeClient() {
           <motion.h2 variants={variantsOr(fadeUp)} className="text-center text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-6">Awards & Recognition</motion.h2>
           <motion.p variants={variantsOr(fadeUp)} className="text-center max-w-3xl mx-auto text-lg md:text-xl text-white/80 mb-10">Industry and peer distinctions highlighting commitment to client advocacy and ethical excellence.</motion.p>
           <motion.div variants={variantsOr(fadeUp)} className="relative overflow-hidden" aria-label="Legal industry awards">
-            <div className="flex animate-scroll gap-8">
+            <div className="flex gap-8 md:animate-scroll">
               <div className="flex gap-8 min-w-max" aria-hidden={false}>
                 <Image src="/awards/Client-Champion.png" alt="Client Champion award badge" width={120} height={150} className="object-contain rounded-xl p-3 border border-[#d4af37]/25 bg-white/5" />
                 <Image src="/awards/Lawyers-badge.png" alt="Lawyers top rating badge" width={120} height={150} className="object-contain rounded-xl p-3 border border-[#d4af37]/25 bg-white/5" />
@@ -360,12 +335,12 @@ export default function HomeClient() {
           <motion.h2 variants={variantsOr(fadeUp)} className="text-3xl font-bold">Practice Areas</motion.h2>
           <motion.p variants={variantsOr(fadeUp)} className="mt-2 max-w-prose text-white/75">Focused on outcomes that matter. Explore key Nevada personal injury and criminal defense matters we handle.</motion.p>
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card title="Seriously Hurt?" subtitle="Personal Injury — Experienced Legal Support">
+            <Card title="Seriously Hurt?" subtitle="Personal Injury — Experienced Legal Support" variantsOverride={variantsOr(fadeUp)}>
               We help injured Nevadans pursue medical care and compensation. Free case evaluations. No fees unless we win.
               <TopicsAccordion title="Personal Injury" topics={PERSONAL_INJURY_TOPICS} />
               <div className="mt-4"><a href="#contact" className="inline-block rounded-xl border px-4 py-2 text-sm font-semibold hover:bg-white/10" style={{ borderColor: BRAND.accent }}>Get a Free Case Review</a></div>
             </Card>
-            <Card title="Arrested?" subtitle="Criminal Defense — Protect your rights">
+            <Card title="Arrested?" subtitle="Criminal Defense — Protect your rights" variantsOverride={variantsOr(fadeUp)}>
               Strategic, trial‑tested defense from arraignment through resolution. Flat‑fee and payment options available.
               <TopicsAccordion title="Criminal Defense" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" />
               <div className="mt-4"><a href="#contact" className="inline-block rounded-xl border px-4 py-2 text-sm font-semibold hover:bg-white/10" style={{ borderColor: BRAND.accent }}>Talk to a Defense Attorney</a></div>
@@ -379,9 +354,9 @@ export default function HomeClient() {
           <motion.h2 variants={variantsOr(fadeUp)} className="text-3xl font-bold">Representative Results</motion.h2>
           <motion.p variants={variantsOr(fadeUp)} className="mt-2 max-w-prose text-white/75">Past results do not guarantee similar outcomes; every case is unique.</motion.p>
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Card title="$1M+ Settlement" subtitle="Auto Collision">Rear‑end collision; disputed liability. Coordinated medical care, negotiated policy‑limit settlement.</Card>
-            <Card title="Felony Reduced" subtitle="Drug Possession">Challenged stop and search; key evidence suppressed. Felony reduced to misdemeanor.</Card>
-            <Card title="Case Dismissed" subtitle="DUI (1st)">Identified testing issues & procedural defects; dismissal prior to trial.</Card>
+            <Card title="$1M+ Settlement" subtitle="Auto Collision" variantsOverride={variantsOr(fadeUp)}>Rear‑end collision; disputed liability. Coordinated medical care, negotiated policy‑limit settlement.</Card>
+            <Card title="Felony Reduced" subtitle="Drug Possession" variantsOverride={variantsOr(fadeUp)}>Challenged stop and search; key evidence suppressed. Felony reduced to misdemeanor.</Card>
+            <Card title="Case Dismissed" subtitle="DUI (1st)" variantsOverride={variantsOr(fadeUp)}>Identified testing issues & procedural defects; dismissal prior to trial.</Card>
           </div>
         </motion.div>
       </Section>

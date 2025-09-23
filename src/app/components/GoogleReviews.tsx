@@ -132,6 +132,10 @@ const StarIcon = ({ filled }: { filled: boolean }) => (
 
 export default function GoogleReviews() {
   const data = { rating: REVIEW_SUMMARY.rating, total: REVIEW_SUMMARY.total, reviews: REVIEWS };
+  const [motionEnabled, setMotionEnabled] = React.useState(false);
+  React.useEffect(() => {
+    try { if (window.matchMedia('(min-width: 768px)').matches) setMotionEnabled(true); } catch { /* ignore */ }
+  }, []);
   return (
     <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent p-6 md:p-8 backdrop-blur-sm">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
@@ -145,17 +149,17 @@ export default function GoogleReviews() {
         <div className="text-white/60 text-sm">{data.total}+ client reviews</div>
       </div>
       <motion.ul
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
-        variants={containerVariants}
+        initial={motionEnabled ? 'hidden' : undefined}
+        whileInView={motionEnabled ? 'show' : undefined}
+        viewport={motionEnabled ? { once: true, amount: 0.25 } : undefined}
+        variants={motionEnabled ? containerVariants : undefined}
         className="grid gap-6 md:grid-cols-3"
         aria-label="Client reviews list"
       >
         {data.reviews.map(r => (
           <motion.li
             key={r.id}
-            variants={itemVariants}
+            variants={motionEnabled ? itemVariants : undefined}
             className="relative rounded-2xl border border-white/10 bg-white/5 p-4 text-sm flex flex-col gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]/60"
             tabIndex={0}
             aria-labelledby={`review-${r.id}-author`}

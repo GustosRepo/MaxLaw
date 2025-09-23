@@ -9,7 +9,6 @@ import LazyMap from './LazyMap';
 import {
   FIRM_ADDRESS_LINE1,
   FIRM_ADDRESS_LINE2,
-  FIRM_ADDRESS_FULL,
   FIRM_PHONE_DISPLAY,
   FIRM_PHONE_E164,
   FIRM_NAME
@@ -100,6 +99,24 @@ const TopicsAccordion: React.FC<{ title: string; topics: string[]; basePath?: st
 };
 
 export default function HomeClient() {
+  // Disable expensive motion & intersection observers on small screens (iOS crash mitigation)
+  const [motionEnabled, setMotionEnabled] = React.useState(false);
+  React.useEffect(() => {
+    try {
+      if (typeof window === 'undefined') return;
+      const mql = window.matchMedia('(min-width: 768px)');
+      if (mql.matches) setMotionEnabled(true);
+    } catch { /* ignore */ }
+  }, []);
+
+  // Helpers so we don't repeat ternaries everywhere
+  const initialStd = motionEnabled ? 'hidden' : undefined;
+  const whileInViewStd = motionEnabled ? 'show' : undefined;
+  const viewportHero = motionEnabled ? { once: true, amount: 0.5 } : undefined;
+  const viewportStd = motionEnabled ? { once: true, amount: 0.2 } : undefined;
+  // Helper: conditionally return variants object while keeping typing loose but not 'any'
+  // Framer Motion Variants type is structural; using unknown avoids explicit any lint rule.
+  const variantsOr = <T extends object>(v: T): T | undefined => (motionEnabled ? v : undefined);
   const [formData, setFormData] = React.useState({
     firstName: '',
     lastName: '',
@@ -228,13 +245,13 @@ export default function HomeClient() {
   <Section id="home" className="relative overflow-hidden min-h-[100dvh] md:min-h-screen flex items-center py-8 md:py-16">
         <motion.div
           className="relative z-10 mx-auto max-w-7xl px-4 md:px-6 w-full"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={fadeInScale}
+          initial={initialStd}
+          whileInView={whileInViewStd}
+          viewport={viewportHero}
+          variants={variantsOr(fadeInScale)}
         >
           <motion.div
-            variants={fadeInScale}
+            variants={variantsOr(fadeInScale)}
             className="relative w-full mb-2"
           >
             {/* Full-bleed background */}
@@ -243,34 +260,34 @@ export default function HomeClient() {
               <div className="absolute inset-0 bg-black/45 md:bg-black/40" aria-hidden />
             </div>
             <motion.div
-              variants={heroStagger}
+              variants={variantsOr(heroStagger)}
               className="grid grid-cols-1 md:grid-cols-2 gap-10 md:min-h-[520px] items-center md:items-stretch w-full px-6 md:px-12 pt-10 md:pt-14 pb-0"
             >
-              <motion.div variants={fadeUpSoft} className="order-2 md:order-1 hidden md:flex justify-center md:justify-start items-end h-full">
+              <motion.div variants={variantsOr(fadeUpSoft)} className="order-2 md:order-1 hidden md:flex justify-center md:justify-start items-end h-full">
                 <div className="relative w-60 md:w-[300px] h-full flex items-end">
-                  <motion.div variants={fadeUpSoft} className="w-full flex justify-center">
+                  <motion.div variants={variantsOr(fadeUpSoft)} className="w-full flex justify-center">
                     <Image src="/home-banner-attorney.png" alt="Las Vegas attorney Marc A. Saggese – personal injury and criminal defense" width={400} height={500} priority className="relative rounded-2xl object-cover shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)]" />
                   </motion.div>
                 </div>
               </motion.div>
-              <motion.div variants={fadeUpSoft} className="order-1 md:order-2 text-center md:text-center">
-                <motion.h1 variants={fadeUpSoft} className="font-[var(--font-playfair)] font-extrabold text-4xl md:text-6xl leading-[0.95] tracking-tight text-white">
+              <motion.div variants={variantsOr(fadeUpSoft)} className="order-1 md:order-2 text-center md:text-center">
+                <motion.h1 variants={variantsOr(fadeUpSoft)} className="font-[var(--font-playfair)] font-extrabold text-4xl md:text-6xl leading-[0.95] tracking-tight text-white">
                   {FIRM_NAME}
                   <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif tracking-tight font-normal">Personal Injury & Criminal Defense</span>
                 </motion.h1>
-                <motion.p variants={fadeUpSoft} className="mt-6 text-base md:text-xl text-white/80 max-w-2xl">
+                <motion.p variants={variantsOr(fadeUpSoft)} className="mt-6 text-base md:text-xl text-white/80 max-w-2xl">
                   Award‑winning <strong className="text-[#d4af37] font-medium">personal injury</strong> lawyer helping the injured first, and defending the accused across Clark County. <strong className="text-[#d4af37] font-medium">Free consultation</strong>. No fee unless we win injury cases.
                 </motion.p>
-                <motion.div variants={fadeUpSoft} className="mt-8 flex flex-col sm:flex-row items-center gap-5 justify-center">
+                <motion.div variants={variantsOr(fadeUpSoft)} className="mt-8 flex flex-col sm:flex-row items-center gap-5 justify-center">
                   <a href={`tel:${FIRM_PHONE_E164}`} className="inline-flex items-center gap-2 rounded-2xl bg-[#d4af37] px-7 py-4 text-lg font-semibold text-[#0e0e0e] transition-colors hover:bg-[#c5a467] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#d4af37] focus:ring-offset-neutral-900">Call {FIRM_PHONE_DISPLAY}</a>
                   <Link href="/contact" className="inline-flex items-center rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-lg text-white/90 transition hover:border-[#d4af37]/60 hover:bg-white/10">Request a Consultation</Link>
                 </motion.div>
-                <motion.ul variants={fadeUpSoft} className="mt-7 flex flex-wrap gap-4 text-sm text-white/70 justify-center">
+                <motion.ul variants={variantsOr(fadeUpSoft)} className="mt-7 flex flex-wrap gap-4 text-sm text-white/70 justify-center">
                   <li className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-[#d4af37]" />Free consultation</li>
                   <li className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-[#d4af37]" />Trial‑ready</li>
                   <li className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-[#d4af37]" />Spanish available</li>
                 </motion.ul>
-                <motion.div variants={fadeUpSoft} className="mt-8">
+                <motion.div variants={variantsOr(fadeUpSoft)} className="mt-8">
                   <ul className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[11px] md:text-xs tracking-wide text-white/55 font-medium">
                     <li className="flex items-center gap-2"><span className="text-white font-semibold">20+</span><span>Years Experience</span></li>
                     <li className="flex items-center gap-2"><span className="text-white font-semibold">Millions</span><span>Recovered*</span></li>
@@ -295,10 +312,10 @@ export default function HomeClient() {
       </div>
 
       <Section id="awards" className="py-8 md:py-12">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
-          <motion.h2 variants={fadeUp} className="text-center text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-6">Awards & Recognition</motion.h2>
-          <motion.p variants={fadeUp} className="text-center max-w-3xl mx-auto text-lg md:text-xl text-white/80 mb-10">Industry and peer distinctions highlighting commitment to client advocacy and ethical excellence.</motion.p>
-          <motion.div variants={fadeUp} className="relative overflow-hidden" aria-label="Legal industry awards">
+        <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)}>
+          <motion.h2 variants={variantsOr(fadeUp)} className="text-center text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-6">Awards & Recognition</motion.h2>
+          <motion.p variants={variantsOr(fadeUp)} className="text-center max-w-3xl mx-auto text-lg md:text-xl text-white/80 mb-10">Industry and peer distinctions highlighting commitment to client advocacy and ethical excellence.</motion.p>
+          <motion.div variants={variantsOr(fadeUp)} className="relative overflow-hidden" aria-label="Legal industry awards">
             <div className="flex animate-scroll gap-8">
               <div className="flex gap-8 min-w-max" aria-hidden={false}>
                 <Image src="/awards/Client-Champion.png" alt="Client Champion award badge" width={120} height={150} className="object-contain rounded-xl p-3 border border-[#d4af37]/25 bg-white/5" />
@@ -322,10 +339,10 @@ export default function HomeClient() {
       </Section>
 
       <Section id="media" className="py-6 md:py-8">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger} className="text-center">
-          <motion.h2 variants={fadeUp} className="text-2xl md:text-3xl font-['Playfair_Display'] font-semibold text-white mb-4">As Seen On</motion.h2>
-          <motion.p variants={fadeUp} className="text-white/75 max-w-2xl mx-auto mb-6">Media appearances discussing high‑profile Nevada legal issues.</motion.p>
-          <motion.div variants={fadeUp} className="mx-auto flex w-full max-w-4xl items-center justify-center gap-8 flex-wrap" aria-label="Media outlets">
+        <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)} className="text-center">
+          <motion.h2 variants={variantsOr(fadeUp)} className="text-2xl md:text-3xl font-['Playfair_Display'] font-semibold text-white mb-4">As Seen On</motion.h2>
+          <motion.p variants={variantsOr(fadeUp)} className="text-white/75 max-w-2xl mx-auto mb-6">Media appearances discussing high‑profile Nevada legal issues.</motion.p>
+          <motion.div variants={variantsOr(fadeUp)} className="mx-auto flex w-full max-w-4xl items-center justify-center gap-8 flex-wrap" aria-label="Media outlets">
             <Image src="/shows/insideeditions.png" alt="Inside Edition appearance" width={160} height={48} className="object-contain w-auto h-auto" />
             <Image src="/shows/Face-to-Face-o.jpg" alt="Face to Face interview" width={160} height={48} className="object-contain w-auto h-auto" />
             <Image src="/shows/The-Defenders-o.jpg" alt="The Defenders TV segment" width={160} height={48} className="object-contain w-auto h-auto" />
@@ -339,9 +356,9 @@ export default function HomeClient() {
       </Section>
 
       <Section id="practice">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold">Practice Areas</motion.h2>
-          <motion.p variants={fadeUp} className="mt-2 max-w-prose text-white/75">Focused on outcomes that matter. Explore key Nevada personal injury and criminal defense matters we handle.</motion.p>
+        <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)}>
+          <motion.h2 variants={variantsOr(fadeUp)} className="text-3xl font-bold">Practice Areas</motion.h2>
+          <motion.p variants={variantsOr(fadeUp)} className="mt-2 max-w-prose text-white/75">Focused on outcomes that matter. Explore key Nevada personal injury and criminal defense matters we handle.</motion.p>
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card title="Seriously Hurt?" subtitle="Personal Injury — Experienced Legal Support">
               We help injured Nevadans pursue medical care and compensation. Free case evaluations. No fees unless we win.
@@ -358,9 +375,9 @@ export default function HomeClient() {
       </Section>
 
       <Section id="results">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold">Representative Results</motion.h2>
-          <motion.p variants={fadeUp} className="mt-2 max-w-prose text-white/75">Past results do not guarantee similar outcomes; every case is unique.</motion.p>
+        <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)}>
+          <motion.h2 variants={variantsOr(fadeUp)} className="text-3xl font-bold">Representative Results</motion.h2>
+          <motion.p variants={variantsOr(fadeUp)} className="mt-2 max-w-prose text-white/75">Past results do not guarantee similar outcomes; every case is unique.</motion.p>
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
             <Card title="$1M+ Settlement" subtitle="Auto Collision">Rear‑end collision; disputed liability. Coordinated medical care, negotiated policy‑limit settlement.</Card>
             <Card title="Felony Reduced" subtitle="Drug Possession">Challenged stop and search; key evidence suppressed. Felony reduced to misdemeanor.</Card>
@@ -370,9 +387,9 @@ export default function HomeClient() {
       </Section>
 
       <Section id="about">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
-          <motion.h2 variants={fadeUp} className="text-3xl font-['Playfair_Display'] font-semibold text-center mb-4">Meet Your Lawyer</motion.h2>
-          <motion.div variants={fadeUp} className="mt-6 grid grid-cols-1 items-center gap-8 md:grid-cols-[240px,1fr]">
+        <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)}>
+          <motion.h2 variants={variantsOr(fadeUp)} className="text-3xl font-['Playfair_Display'] font-semibold text-center mb-4">Meet Your Lawyer</motion.h2>
+          <motion.div variants={variantsOr(fadeUp)} className="mt-6 grid grid-cols-1 items-center gap-8 md:grid-cols-[240px,1fr]">
             <div className="hidden md:flex justify-center items-center">
               <div className="relative aspect-[1/1] w-80 md:w-96 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-neutral-900 via-neutral-800 to-black shadow-lg">
                 <Image src="/meet-your.jpg" alt="Attorney Marc A. Saggese portrait" fill className="object-cover" />
@@ -394,12 +411,12 @@ export default function HomeClient() {
       </Section>
 
       <Section id="mission">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
-          <motion.h2 variants={fadeUp} className="text-center text-sm font-semibold tracking-widest text-[#d4af37] mb-2">GETTING THE RESULTS YOU WANT</motion.h2>
-          <motion.p variants={fadeUp} className="mt-4 text-center text-white/75 max-w-2xl mx-auto">Our practice rests on these principles:</motion.p>
+        <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)}>
+          <motion.h2 variants={variantsOr(fadeUp)} className="text-center text-sm font-semibold tracking-widest text-[#d4af37] mb-2">GETTING THE RESULTS YOU WANT</motion.h2>
+          <motion.p variants={variantsOr(fadeUp)} className="mt-4 text-center text-white/75 max-w-2xl mx-auto">Our practice rests on these principles:</motion.p>
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3 max-w-3xl mx-auto">
             {['Integrity','Compassion','Service'].map(p => (
-              <motion.div key={p} variants={fadeUp} className="rounded-xl bg-white/3 p-6 text-center shadow-lg"><h5 className="text-lg font-semibold text-white">{p}</h5></motion.div>
+              <motion.div key={p} variants={variantsOr(fadeUp)} className="rounded-xl bg-white/3 p-6 text-center shadow-lg"><h5 className="text-lg font-semibold text-white">{p}</h5></motion.div>
             ))}
           </div>
         </motion.div>

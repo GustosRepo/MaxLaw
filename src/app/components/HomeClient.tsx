@@ -114,12 +114,25 @@ export default function HomeClient() {
   const [deferBelowFold, setDeferBelowFold] = React.useState(true);
   const sentinelRef = React.useRef<HTMLDivElement | null>(null);
   const isMobileRef = React.useRef(false);
+  // New: isolation & stagger diagnostics
+  const [isolateSection, setIsolateSection] = React.useState<string | null>(null);
+  const [staggerMount, setStaggerMount] = React.useState(false);
+  const SECTION_ORDER = React.useRef<string[]>(['awards','media','reviews','practice','results','about','mission','contact']);
+  const [mountedSet, setMountedSet] = React.useState<Set<string>>(new Set());
+  const staggerStartedRef = React.useRef(false);
 
   React.useEffect(() => {
     try {
       const sp = new URLSearchParams(window.location.search);
       const v = sp.get('safe');
       if (v !== null && v !== '0') setSafeMode(true);
+      const sect = sp.get('sect');
+      if (sect) {
+        setIsolateSection(sect);
+        setDeferBelowFold(false); // ensure immediate render of isolated section
+      }
+      const stagger = sp.get('stagger');
+      if (stagger && stagger !== '0') setStaggerMount(true);
     } catch { /* ignore */ }
   }, []);
   // Disable expensive motion & intersection observers on small screens (iOS crash mitigation)
@@ -131,6 +144,48 @@ export default function HomeClient() {
       if (mql.matches) setMotionEnabled(true);
     } catch { /* ignore */ }
   }, []);
+
+  // Manage mounted sections for stagger/isolation once below-fold is revealed
+  React.useEffect(() => {
+    if (safeMode) return; // safe mode already early returns
+    if (deferBelowFold) return; // not yet revealed
+    // If isolating a single section, just mount that one
+    if (isolateSection) {
+      setMountedSet(new Set([isolateSection]));
+      // eslint-disable-next-line no-console
+      console.log('[isolate] active – rendering only section:', isolateSection);
+      return;
+    }
+    // If not staggering, mount all immediately
+    if (!staggerMount) {
+      setMountedSet(new Set(SECTION_ORDER.current));
+      return;
+    }
+    // Staggered mount (one every 450ms) to spot which triggers crash
+    if (staggerStartedRef.current) return;
+    staggerStartedRef.current = true;
+    let idx = 0;
+    const addNext = () => {
+      setMountedSet(prev => {
+        const next = new Set(prev);
+        if (SECTION_ORDER.current[idx]) next.add(SECTION_ORDER.current[idx]);
+        return next;
+      });
+      idx++;
+      if (idx < SECTION_ORDER.current.length) {
+        setTimeout(addNext, 450);
+      }
+    };
+    addNext();
+  }, [deferBelowFold, isolateSection, staggerMount, safeMode]);
+
+  const shouldRender = (id: string) => {
+    if (isolateSection) return isolateSection === id;
+    if (safeMode) return false;
+    if (deferBelowFold) return false;
+    if (!staggerMount) return true;
+    return mountedSet.has(id);
+  };
 
   React.useEffect(() => {
     try {
@@ -433,7 +488,8 @@ export default function HomeClient() {
 
       {!safeMode && !deferBelowFold && (
         <>
-          {/* Awards Section (unchanged inside) */}
+          {/* Awards Section */}
+          {shouldRender('awards') && (
           <Section id="awards" className="py-8 md:py-12">
             {/* Wrap root with conditional: no motion on mobile */}
             {motionEnabled ? (
@@ -526,7 +582,9 @@ export default function HomeClient() {
               </div>
             )}
           </Section>
+          )}
 
+          {shouldRender('media') && (
           <Section id="media" className="py-6 md:py-8">
             {motionEnabled ? (
               <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)} className="text-center">
@@ -578,12 +636,16 @@ export default function HomeClient() {
               </div>
             )}
           </Section>
+          )}
 
+          {shouldRender('reviews') && (
           <Section id="reviews" className="py-8 md:py-12">
             {/* GoogleReviews already guarded internally */}
             <GoogleReviews />
           </Section>
+          )}
 
+          {shouldRender('practice') && (
           <Section id="practice">
             {motionEnabled ? (
               <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)}>
@@ -621,7 +683,9 @@ export default function HomeClient() {
               </div>
             )}
           </Section>
+          )}
 
+          {shouldRender('results') && (
           <Section id="results">
             {motionEnabled ? (
               <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)}>
@@ -645,7 +709,9 @@ export default function HomeClient() {
               </div>
             )}
           </Section>
+          )}
 
+          {shouldRender('about') && (
           <Section id="about">
             {motionEnabled ? (
               <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)}>
@@ -693,7 +759,9 @@ export default function HomeClient() {
               </div>
             )}
           </Section>
+          )}
 
+          {shouldRender('mission') && (
           <Section id="mission">
             {motionEnabled ? (
               <motion.div initial={initialStd} whileInView={whileInViewStd} viewport={viewportStd} variants={variantsOr(stagger)}>
@@ -717,7 +785,9 @@ export default function HomeClient() {
               </div>
             )}
           </Section>
+          )}
 
+          {shouldRender('contact') && (
           <Section id="contact">
             {/* Contact form keeps motion only if enabled */}
             {motionEnabled ? (
@@ -1087,6 +1157,7 @@ export default function HomeClient() {
               </div>
             )}
           </Section>
+          )}
         </>
       )}
     </main>

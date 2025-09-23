@@ -26,8 +26,8 @@ export default function DiagnosticsClient(){
         document.documentElement.classList.add('lite');
         document.body.classList.add('lite');
       }
-      const pos = sp.get('diagpos');
-      if(pos && ['bl','br','tl','tr'].includes(pos)) setPosition(pos as any);
+  const pos = sp.get('diagpos');
+  if(pos === 'bl' || pos === 'br' || pos === 'tl' || pos === 'tr') setPosition(pos);
     }catch{}
   },[]);
 

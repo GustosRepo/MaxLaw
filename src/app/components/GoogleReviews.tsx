@@ -147,7 +147,7 @@ export default function GoogleReviews() {
     return () => obs.disconnect();
   }, [inView]);
   return (
-  <div ref={rootRef} className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent p-6 md:p-8 backdrop-blur-sm min-h-[200px]">
+  <div ref={rootRef} className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent p-6 md:p-8 md:backdrop-blur-sm min-h-[200px]">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <h2 className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#d4af37] flex items-center gap-3">
           <span>Client Reviews</span>

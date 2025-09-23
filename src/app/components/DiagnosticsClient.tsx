@@ -70,7 +70,7 @@ export default function DiagnosticsClient(){
     tr: 'top-2 right-2'
   }[position];
   return (
-    <div className={`fixed ${basePosClasses} z-[9999] w-[260px] max-h-[50vh] overflow-auto rounded-lg border border-white/20 bg-black/80 p-2 text-[10px] font-mono text-white/70 backdrop-blur-sm`}> 
+    <div className={`fixed ${basePosClasses} z-[9999] w-[260px] max-h-[50vh] overflow-auto rounded-lg border border-white/20 bg-black/85 p-2 text-[10px] font-mono text-white/70`}> 
       <div className="mb-1 flex justify-between"><span className="font-semibold text-white">GLOBAL</span><button onClick={()=>setLogs([])} className="underline">clear</button></div>
       {logs.slice().reverse().map(l=> <div key={l}>{l}</div>)}
     </div>

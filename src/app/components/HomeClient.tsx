@@ -17,7 +17,11 @@ const slugify = (s: string) => s.toLowerCase().replace(/&/g,'and').replace(/[^a-
 const PERSONAL_INJURY_TOPICS = ['Car Accidents','Brain And Spine Injury','Wrongful Death'];
 const CRIMINAL_DEFENSE_TOPICS = ['DUI','Domestic Violence','Record Sealing'];
 
-const Section: React.FC<React.PropsWithChildren<{ id?: string; className?: string }>> = ({ id, className, children }) => <section id={id} className={`mx-auto w-full max-w-7xl px-4 md:px-6 ${className||''}`}>{children}</section>;
+const Section: React.FC<React.PropsWithChildren<{ id?: string; className?: string }>> = ({ id, className, children }) => (
+  <section id={id} data-mobile-chunk className={`mx-auto w-full max-w-7xl px-4 md:px-6 ${className||''}`}>
+    {children}
+  </section>
+);
 const Card: React.FC<React.PropsWithChildren<{ title: string; subtitle?: string; titleClassName?: string; bodyClassName?: string }>> = ({ title, subtitle, titleClassName, bodyClassName, children }) => (
   <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 shadow-md">
     <h3 className={`text-lg font-semibold tracking-tight ${titleClassName||''}`}>{title}</h3>
@@ -119,7 +123,7 @@ export default function HomeClient(){
         key: 'reviews',
         node: (
           <Section id="reviews" className="py-12">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
               <h2 className="text-3xl font-bold text-center mb-6">Reviews</h2>
               <GoogleReviews />
             </div>
@@ -158,7 +162,7 @@ export default function HomeClient(){
         key: 'contact',
         node: (
           <Section id="contact" className="py-12">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-8 md:p-10 max-w-5xl mx-auto">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-5xl mx-auto">
               <h2 className="text-3xl font-bold text-center mb-6">Speak With an Experienced Lawyer Today</h2>
               <p className="text-center max-w-2xl mx-auto text-white/70">Call <a href={`tel:${FIRM_PHONE_E164}`} className="underline" style={{textDecorationColor:'#d4af37'}}>{FIRM_PHONE_DISPLAY}</a> or send a confidential message below.</p>
               <div className="mt-8"><ContactSectionClient /></div>
@@ -194,7 +198,7 @@ export default function HomeClient(){
     const raf = window.requestAnimationFrame(() => reveal(0));
     return () => {
       cancelled = true;
-      if (timeout) window.clearTimeout(timeout as number);
+      if (timeout) window.clearTimeout(timeout);
       window.cancelAnimationFrame(raf);
     };
   }, [defer, sectionQueue, pushLog]);
@@ -246,7 +250,7 @@ export default function HomeClient(){
       {!defer && (
         <>
           <Section id="practice" className="py-12">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
               <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
               <div className="grid gap-6 md:grid-cols-2">
                 <Card title="Seriously Hurt?" subtitle="Personal Injury">We help injured Nevadans pursue medical care and compensation.<TopicsAccordion title="Injury Topics" topics={PERSONAL_INJURY_TOPICS} /></Card>

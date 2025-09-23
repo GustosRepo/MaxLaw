@@ -18,7 +18,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#2d2d2d] bg-[#0e0e0e]/95 backdrop-blur-xl shadow-2xl">
+    <header className="sticky top-0 z-50 border-b border-[#2d2d2d] bg-[#0e0e0e]/95 md:backdrop-blur-xl shadow-2xl">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
         <Link href="/" className="inline-flex items-center gap-2 md:gap-3" prefetch={false}>
           <span className="inline-flex items-center justify-center rounded-xl px-2.5 py-1 md:px-3.5 md:py-1.5 border border-[#d4af37]/60 bg-transparent shadow-[0_3px_12px_rgba(212,175,55,0.2)]">
@@ -95,7 +95,7 @@ export default function Navbar() {
         id="mobile-nav"
         aria-hidden={!menuOpen}
         hidden={!menuOpen}
-        className={`md:hidden w-full overflow-hidden bg-[#0e0e0e]/95 backdrop-blur-xl transition-[max-height,opacity,padding] duration-300 ease-in-out ${
+        className={`md:hidden w-full overflow-hidden bg-[#0e0e0e]/95 transition-[max-height,opacity,padding] duration-300 ease-in-out ${
           menuOpen ? "max-h-screen opacity-100 py-8" : "max-h-0 opacity-0 py-0"
         }`}
         style={{ pointerEvents: menuOpen ? "auto" : "none" }}

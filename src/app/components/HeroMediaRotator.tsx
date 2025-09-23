@@ -11,7 +11,7 @@ export default function HeroMediaRotator(){
         fill
         priority
         sizes="100vw"
-        quality={70}
+        quality={58}
         className="object-cover object-center"
       />
       <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/70 to-black/85 md:from-black/75 md:via-black/55 md:to-black/70" />

@@ -3,6 +3,8 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import dynamic from 'next/dynamic';
+const DiagnosticsClient = dynamic(()=>import('./components/DiagnosticsClient'),{ssr:false});
 import { Analytics } from "@vercel/analytics/react";
 
 const playfairDisplay = Playfair_Display({
@@ -95,6 +97,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <DiagnosticsClient />
   {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

@@ -3,8 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import dynamic from 'next/dynamic';
-const DiagnosticsClient = dynamic(()=>import('./components/DiagnosticsClient'),{ssr:false});
+import DiagnosticsClient from './components/DiagnosticsClient';
 import { Analytics } from "@vercel/analytics/react";
 
 const playfairDisplay = Playfair_Display({

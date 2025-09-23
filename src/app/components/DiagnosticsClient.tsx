@@ -24,12 +24,21 @@ export default function DiagnosticsClient(){
   React.useEffect(()=>{ if(!diag) return; push('global-diag-start');
     const onScroll=()=>{ if(window.scrollY%250<2) push('scroll:'+window.scrollY); };
     const onError=(e:ErrorEvent)=> push('error:'+ (e.message||'unknown'));
-    const onRej=(e:PromiseRejectionEvent)=> push('rejection:'+(e.reason?.message||'unknown'));
+    const onRej=(e:PromiseRejectionEvent)=> push('rejection:'+(e.reason && (e.reason as { message?: string }).message || 'unknown'));
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('error',onError);
     window.addEventListener('unhandledrejection',onRej);
-    let memInterval: any;
-    try { const perf:any = performance; if(perf && perf.memory){ memInterval=setInterval(()=>{ const m=perf.memory; push(`mem:${Math.round(m.usedJSHeapSize/1024/1024)}MB/${Math.round(m.totalJSHeapSize/1024/1024)}MB`); },5000);} } catch{}
+    type PerfWithMemory = Performance & { memory?: { usedJSHeapSize:number; totalJSHeapSize:number; jsHeapSizeLimit:number } };
+    let memInterval: ReturnType<typeof setInterval> | undefined;
+    try {
+      const perf: PerfWithMemory = performance as PerfWithMemory;
+      if(perf && perf.memory){
+        memInterval = setInterval(()=>{
+          const m = perf.memory!;
+          push(`mem:${Math.round(m.usedJSHeapSize/1048576)}MB/${Math.round(m.totalJSHeapSize/1048576)}MB`);
+        },5000);
+      }
+    } catch {}
     return ()=>{window.removeEventListener('scroll',onScroll);window.removeEventListener('error',onError);window.removeEventListener('unhandledrejection',onRej); if(memInterval) clearInterval(memInterval); };
   },[diag]);
 

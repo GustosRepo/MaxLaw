@@ -41,12 +41,28 @@ export default function HomeClient(){
   React.useEffect(()=>{ if(!diag) return; pushLog('diag-start');
     const onScroll=()=>{ if(!diag) return; if(window.scrollY%200<2){ pushLog(`scroll:${window.scrollY}`);} };
     const onError=(e:ErrorEvent)=>{ pushLog('error:'+ (e.message||'unknown')); };
-    const onRejection=(e:PromiseRejectionEvent)=>{ pushLog('promise-rejection:'+ (e.reason?.message||'unknown')); };
+    const onRejection=(e:PromiseRejectionEvent)=>{ pushLog('promise-rejection:'+ (e.reason && (e.reason as { message?: string }).message || 'unknown')); };
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('error',onError);
     window.addEventListener('unhandledrejection',onRejection);
-    try { if((performance as any).memory){ const memInterval=setInterval(()=>{ const m=(performance as any).memory; pushLog(`mem:${Math.round(m.usedJSHeapSize/1024/1024)}MB/${Math.round(m.totalJSHeapSize/1024/1024)}MB`); },4000); return ()=>{window.removeEventListener('scroll',onScroll);window.removeEventListener('error',onError);window.removeEventListener('unhandledrejection',onRejection);clearInterval(memInterval);} } } catch {}
-    return ()=>{window.removeEventListener('scroll',onScroll);window.removeEventListener('error',onError);window.removeEventListener('unhandledrejection',onRejection);};
+    // Attempt memory sampling (Chromium only; Safari iOS lacks performance.memory)
+    type PerfWithMemory = Performance & { memory?: { usedJSHeapSize:number; totalJSHeapSize:number; jsHeapSizeLimit:number } };
+    let memInterval: ReturnType<typeof setInterval> | undefined;
+    try {
+      const perf: PerfWithMemory = performance as PerfWithMemory;
+      if(perf.memory){
+        memInterval = setInterval(()=>{
+          const m = perf.memory!;
+            pushLog(`mem:${Math.round(m.usedJSHeapSize/1048576)}MB/${Math.round(m.totalJSHeapSize/1048576)}MB`);
+        },4000);
+      }
+    } catch {}
+    return ()=>{
+      window.removeEventListener('scroll',onScroll);
+      window.removeEventListener('error',onError);
+      window.removeEventListener('unhandledrejection',onRejection);
+      if(memInterval) clearInterval(memInterval);
+    };
   },[diag,pushLog]);
   if(safe){return (<main className="min-h-screen bg-neutral-950 text-white"><section className="min-h-[90vh] relative flex items-center justify-center"><div className="absolute inset-0 -z-10"><HeroMediaRotator/><div className="absolute inset-0 bg-black/55"/></div><div className="px-6 max-w-2xl text-center"><h1 className="font-[var(--font-playfair)] text-4xl font-extrabold">{FIRM_NAME}</h1><p className="mt-4 text-white/70">Safe mode – below fold disabled.</p><a href={`tel:${FIRM_PHONE_E164}`} className="mt-6 inline-block rounded-xl bg-[#d4af37] px-6 py-3 font-semibold text-black">Call {FIRM_PHONE_DISPLAY}</a></div></section></main>);} 
 

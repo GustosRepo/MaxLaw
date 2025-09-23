@@ -4,7 +4,9 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import HeroMediaRotator from './HeroMediaRotator';
-import GoogleReviews from './GoogleReviews';
+import dynamic from 'next/dynamic';
+// Lazy load reviews (they are below the fold and heavy with motion)
+const GoogleReviews = dynamic(() => import('./GoogleReviews'), { ssr: false, loading: () => <div className="h-40 flex items-center justify-center text-white/50 text-sm">Loading reviews…</div> });
 import {
   FIRM_ADDRESS_LINE1,
   FIRM_ADDRESS_LINE2,
@@ -188,26 +190,34 @@ export default function HomeClient() {
   };
 
   React.useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const isSmallScreen = window.innerWidth < 768;
-    const prefersReducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-    // Disable parallax on small screens or when reduced motion is requested
-    if (isSmallScreen || prefersReducedMotion) return;
+    // Defensive: wrap in try to avoid runtime errors causing reload loops on iOS
+    try {
+      if (typeof window === 'undefined') return;
+      const isSmallScreen = window.innerWidth < 768;
+      const prefersReducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      if (isSmallScreen || prefersReducedMotion) return; // skip on mobile / reduced motion
 
-    let raf: number | null = null;
-    const onScroll = () => {
-      if (raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const scrolled = window.scrollY;
-        document.querySelectorAll<HTMLElement>('[data-parallax-speed]').forEach(el => {
-          const speed = parseFloat(el.dataset.parallaxSpeed || '0');
-          // use translate3d for GPU acceleration
-          el.style.transform = `translate3d(0, ${(scrolled * speed).toFixed(2)}px, 0)`;
+      let ticking = false;
+      const elements = Array.from(document.querySelectorAll<HTMLElement>('[data-parallax-speed]'));
+      if (!elements.length) return;
+
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const scrolled = window.scrollY;
+          for (const el of elements) {
+            const speed = parseFloat(el.dataset.parallaxSpeed || '0');
+            el.style.transform = `translate3d(0, ${(scrolled * speed).toFixed(1)}px, 0)`;
+          }
+          ticking = false;
         });
-      });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf); };
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      return () => window.removeEventListener('scroll', onScroll);
+    } catch {
+      // silently ignore
+    }
   }, []);
 
   // Static review summary (API removed)

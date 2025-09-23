@@ -92,6 +92,9 @@ export default function Navbar() {
 
       {/* Mobile Menu — now in flow so it pushes content down instead of overlapping */}
       <div
+        id="mobile-nav"
+        aria-hidden={!menuOpen}
+        hidden={!menuOpen}
         className={`md:hidden w-full overflow-hidden bg-[#0e0e0e]/95 backdrop-blur-xl transition-[max-height,opacity,padding] duration-300 ease-in-out ${
           menuOpen ? "max-h-screen opacity-100 py-8" : "max-h-0 opacity-0 py-0"
         }`}

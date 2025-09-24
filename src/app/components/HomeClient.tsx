@@ -44,6 +44,8 @@ type SkipConfig = {
 export default function HomeClient(){
   const [safe,setSafe]=React.useState(false);
   const [diag,setDiag]=React.useState(false);
+  const [liteMode,setLiteMode]=React.useState(false);
+  const [isMobile,setIsMobile]=React.useState(false);
   const [defer,setDefer]=React.useState(true);
   const sentinelRef=React.useRef<HTMLDivElement|null>(null);
   const [diagLogs,setDiagLogs]=React.useState<string[]>([]);
@@ -55,6 +57,12 @@ export default function HomeClient(){
     try{
       const sp=new URLSearchParams(window.location.search);
       if(sp.has('safe')) setSafe(true);
+      if(sp.has('lite')) {
+        setLiteMode(true);
+        try { localStorage.setItem('lite','1'); } catch {}
+      } else {
+        try { if(localStorage.getItem('lite')==='1') setLiteMode(true); } catch {}
+      }
       if(sp.has('diag')) { setDiag(true); try { localStorage.setItem('diag','1'); } catch {} }
       else { try { if(localStorage.getItem('diag')==='1') setDiag(true); } catch {} }
       const nextSkip={
@@ -70,7 +78,14 @@ export default function HomeClient(){
       Object.entries(nextSkip).forEach(([key,val])=>{ if(val) pushLog(`flag:${key}`); });
     }catch{}
   },[pushLog]);
-  React.useEffect(()=>{if(typeof window==='undefined')return; if(window.innerWidth>=768){setDefer(false);return;} let done=false; const show=()=>{if(!done){done=true;setDefer(false);pushLog('below-fold-mounted');}}; const to=setTimeout(()=>{pushLog('timeout->mount');show();},3000); if(sentinelRef.current&&'IntersectionObserver'in window){const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){pushLog('sentinel-intersect');show();obs.disconnect();}})},{rootMargin:'140px 0px 0px 0px'}); obs.observe(sentinelRef.current);} return()=>clearTimeout(to);},[pushLog]);
+  React.useEffect(()=>{
+    if(typeof window==='undefined')return;
+    const checkViewport = () => setIsMobile(window.innerWidth < 768);
+    checkViewport();
+    const resizeHandler = () => checkViewport();
+    window.addEventListener('resize',resizeHandler);
+    if(window.innerWidth>=768){setDefer(false);return ()=>window.removeEventListener('resize',resizeHandler);} let done=false; const show=()=>{if(!done){done=true;setDefer(false);pushLog('below-fold-mounted');}}; const to=setTimeout(()=>{pushLog('timeout->mount');show();},3000); if(sentinelRef.current&&'IntersectionObserver'in window){const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){pushLog('sentinel-intersect');show();obs.disconnect();}})},{rootMargin:'140px 0px 0px 0px'}); obs.observe(sentinelRef.current);} return()=>{clearTimeout(to); window.removeEventListener('resize',resizeHandler);};
+  },[pushLog]);
   // Diagnostic instrumentation
   React.useEffect(()=>{ if(!diag) return; pushLog('diag-start');
     const onScroll=()=>{ if(!diag) return; if(window.scrollY%200<2){ pushLog(`scroll:${window.scrollY}`);} };
@@ -235,7 +250,16 @@ export default function HomeClient(){
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#161616] text-white font-[var(--font-inter)]">
       <Section id="home" className="relative overflow-hidden min-h-[90dvh] flex items-center py-12 sm:py-16">
-        <div className="absolute inset-0"><HeroMediaRotator/><div className="absolute inset-0 bg-black/45"/></div>
+        <div className="absolute inset-0">
+          {liteMode || isMobile ? (
+            <div className="absolute inset-0 bg-[#050505]" />
+          ) : (
+            <>
+              <HeroMediaRotator />
+              <div className="absolute inset-0 bg-black/45" />
+            </>
+          )}
+        </div>
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center md:items-end gap-8 md:gap-14">
             {/* Figure (desktop only) */}

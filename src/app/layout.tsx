@@ -65,10 +65,10 @@ export const metadata: Metadata = {
     description: 'Award-winning Las Vegas law firm specializing in personal injury and criminal defense. Free consultations available.',
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'The Law Offices of Saggese & Associates - Las Vegas Lawyers',
+        url: '/home-logo.png',
+        width: 14400,
+        height: 7200,
+        alt: 'The Law Offices of Saggese & Associates logo',
       },
     ],
   },
@@ -76,7 +76,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Las Vegas Personal Injury & Criminal Defense Lawyer',
     description: 'Award-winning law firm. Free consultations. Call (702) 778-8883.',
-    images: ['/og-image.jpg'],
+    images: ['/home-logo.png'],
+  },
+  icons: {
+  icon: '/icon.svg',
+  shortcut: '/icon.svg',
+  apple: '/icon.svg',
   },
   alternates: {
     canonical: 'https://www.maxlawnv.com',

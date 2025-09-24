@@ -23,7 +23,7 @@ const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { s
 
 const slugify = (s: string) => s.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
 const PERSONAL_INJURY_TOPICS = ['Car Accidents','Brain And Spine Injury','Wrongful Death'];
-const CRIMINAL_DEFENSE_TOPICS = ['DUI','Domestic Violence','Record Sealing'];
+const CRIMINAL_DEFENSE_TOPICS = ['DUI','Domestic Violence','Drug offenses'];
 
 const Section: React.FC<React.PropsWithChildren<{ id?: string; className?: string }>> = ({ id, className, children }) => (
   <section id={id} data-mobile-chunk className={`mx-auto w-full max-w-7xl px-4 md:px-6 ${className||''}`}>

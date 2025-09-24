@@ -39,7 +39,7 @@ export default function WrongfulDeathPage() {
 
           <h3 className="mt-4 text-lg font-semibold text-white">Understanding Wrongful Death Claims</h3>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> Common causes include medical malpractice, car accidents, workplace incidents, and defective products.</li>
+            <li><span className="stat-number">•</span> Common causes include serious vehicle crashes, workplace incidents, and defective products.</li>
             <li><span className="stat-number">•</span> Nevada allows <strong className="text-[#d4af37]">2-4 years</strong> statute of limitations for wrongful death claims.</li>
             <li><span className="stat-number">•</span> Average settlements often exceed <strong className="text-[#d4af37]">$1M+</strong> for wrongful death cases.</li>
             <li><span className="stat-number">•</span> We handle administrative burdens with care and sensitivity.</li>

@@ -21,7 +21,6 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
     { href: '/practice/brain-and-spine-injury', label: 'Brain & Spine Injury' },
     { href: '/practice/excessive-force', label: 'Excessive Force' },
     { href: '/practice/elder-abuse', label: 'Elder Abuse' },
-    { href: '/practice/medical-malpractice', label: 'Medical Malpractice' },
     { href: '/practice/wrongful-death', label: 'Wrongful Death' },
     { href: '/practice/insurance-settlements-and-checks', label: 'Insurance Settlements & Checks' },
   ]

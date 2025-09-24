@@ -128,7 +128,6 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
                 <option value="Car Accident">Car Accident</option>
                 <option value="Slip and Fall">Slip and Fall</option>
                 <option value="Premises Liability">Premises Liability</option>
-                <option value="Medical Malpractice">Medical Malpractice</option>
                 <option value="Product Liability">Product Liability</option>
                 <option value="Other">Other</option>
               </select>

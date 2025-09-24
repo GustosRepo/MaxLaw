@@ -3,7 +3,7 @@
 import Link from 'next/link';
 
 const PERSONAL_INJURY_TOPICS = ['Car Accidents', 'Brain & Spine Injury', 'Wrongful Death'];
-const CRIMINAL_DEFENSE_TOPICS = ['DUI', 'Domestic Violence', 'Record Sealing'];
+const CRIMINAL_DEFENSE_TOPICS = ['DUI', 'Domestic Violence', 'Drug offenses'];
 
 export default function PracticeCardsLite() {
   const renderList = (title: string, topics: string[], basePath: string) => (

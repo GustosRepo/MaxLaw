@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Simple, legible scales-of-justice favicon: gold on transparent -->
+  <g fill="#d4af37">
+    <!-- base -->
+    <rect x="216" y="416" width="80" height="24" rx="6"/>
+    <rect x="176" y="440" width="160" height="24" rx="8"/>
+    <!-- pillar -->
+    <rect x="244" y="144" width="24" height="272" rx="12"/>
+    <!-- crossbar -->
+    <rect x="136" y="144" width="240" height="24" rx="12"/>
+    <!-- left chain and pan -->
+    <rect x="168" y="168" width="8" height="120" rx="4"/>
+    <rect x="208" y="168" width="8" height="120" rx="4"/>
+    <path d="M128 304h128c-6 34-32 64-64 64s-58-30-64-64z"/>
+    <!-- right chain and pan -->
+    <rect x="296" y="168" width="8" height="120" rx="4"/>
+    <rect x="336" y="168" width="8" height="120" rx="4"/>
+    <path d="M256 304h128c-6 34-32 64-64 64s-58-30-64-64z"/>
+    <!-- finial -->
+    <path d="M256 64c18 0 32 14 32 32h-64c0-18 14-32 32-32z"/>
+  </g>
+</svg>

@@ -4,16 +4,16 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Record Sealing Lawyer | Saggese & Associates',
-  description: 'Record sealing & expungement guidance—eligibility analysis & petition filing. Free consultation (702) 778-8883.',
+  title: 'Las Vegas Drug offenses Lawyer | Saggese & Associates',
+  description: 'Drug offenses & expungement guidance—eligibility analysis & petition filing. Free consultation (702) 778-8883.',
   keywords: [
-    'las vegas record sealing lawyer',
+    'las vegas Drug offenses lawyer',
     'expungement attorney nevada',
     'seal criminal record las vegas'
   ],
   alternates: { canonical: `${SITE_URL}/criminal-defense/record-sealing` },
-  openGraph: { title: 'Las Vegas Record Sealing Lawyer', description: 'Eligibility review & petition filing.', url: `${SITE_URL}/criminal-defense/record-sealing`, type: 'article' },
-  twitter: { card: 'summary', title: 'Record Sealing Lawyer', description: 'Clear your record—free eligibility review.' }
+  openGraph: { title: 'Las Vegas Drug offenses Lawyer', description: 'Eligibility review & petition filing.', url: `${SITE_URL}/criminal-defense/record-sealing`, type: 'article' },
+  twitter: { card: 'summary', title: 'Drug offenses Lawyer', description: 'Clear your record—free eligibility review.' }
 }
 
 export default function RecordSealingPage() {
@@ -22,7 +22,7 @@ export default function RecordSealingPage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Record Sealing & Expungement</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Drug offenses & Expungement</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">We help eligible clients clear or seal their records to reduce long-term barriers to employment, housing, and more.</p>
@@ -77,9 +77,9 @@ export default function RecordSealingPage() {
   {/* Footer removed */}
       <PracticeStructuredData
         slug="/criminal-defense/record-sealing"
-        serviceType="Las Vegas Record Sealing Lawyer"
-        description="Record sealing & expungement guidance—eligibility analysis & petition filing. Free consultation."
-        keywords={['las vegas record sealing lawyer','expungement attorney nevada']}
+        serviceType="Las Vegas Drug offenses Lawyer"
+        description="Drug offenses & expungement guidance—eligibility analysis & petition filing. Free consultation."
+        keywords={['las vegas Drug offenses lawyer','expungement attorney nevada']}
         faqs={[
           { question: 'How long before I can seal a record?', answer: 'Waiting periods depend on the offense and disposition—misdemeanors often shorter than felonies.' },
           { question: 'Does sealing erase my record?', answer: 'Sealed records are hidden from most public checks but remain accessible to certain agencies.' }

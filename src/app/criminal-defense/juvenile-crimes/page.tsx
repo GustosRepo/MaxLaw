@@ -5,11 +5,11 @@ import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
   title: 'Las Vegas Juvenile Defense Lawyer | Saggese & Associates',
-  description: 'Juvenile defense prioritizing rehabilitation, diversion & record sealing. Free consultation (702) 778-8883.',
+  description: 'Juvenile defense prioritizing rehabilitation, diversion & Drug offenses. Free consultation (702) 778-8883.',
   keywords: [
     'las vegas juvenile defense lawyer',
     'juvenile diversion nevada',
-    'juvenile record sealing las vegas'
+    'juvenile Drug offenses las vegas'
   ],
   alternates: { canonical: `${SITE_URL}/criminal-defense/juvenile-crimes` },
   openGraph: { title: 'Las Vegas Juvenile Defense Lawyer', description: 'Rehabilitation & diversion focused juvenile defense.', url: `${SITE_URL}/criminal-defense/juvenile-crimes`, type: 'article' },
@@ -78,7 +78,7 @@ export default function JuvenileCrimesPage() {
       <PracticeStructuredData
         slug="/criminal-defense/juvenile-crimes"
         serviceType="Las Vegas Juvenile Defense Lawyer"
-        description="Juvenile defense prioritizing rehabilitation, diversion & record sealing. Free consultation."
+        description="Juvenile defense prioritizing rehabilitation, diversion & Drug offenses. Free consultation."
         keywords={['las vegas juvenile defense lawyer','juvenile diversion nevada']}
         faqs={[
           { question: 'Can juvenile records be sealed?', answer: 'Many juvenile adjudications can be sealed—timelines depend on the offense and completion of terms.' },

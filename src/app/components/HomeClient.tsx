@@ -302,13 +302,41 @@ export default function HomeClient(){
       {!defer && (
         <>
           <Section id="practice" className="py-12">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
-              <div className="grid gap-6 md:grid-cols-2">
-                <Card title="Seriously Hurt?" subtitle="Personal Injury">We help injured Nevadans pursue medical care and compensation.<TopicsAccordion title="Injury Topics" topics={PERSONAL_INJURY_TOPICS} /></Card>
-                <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" /></Card>
+            {liteMode || isMobile ? (
+              <div className="mx-auto w-full max-w-5xl space-y-6 rounded-2xl border border-white/12 bg-black/45 p-6">
+                <div className="space-y-2 text-center">
+                  <h2 className="text-2xl font-semibold text-white">Practice Areas</h2>
+                  <p className="text-sm text-white/65">Focused teams for serious injury and criminal defense matters across Nevada.</p>
+                </div>
+                <ul className="space-y-3 text-left text-sm text-white/80">
+                  <li className="rounded-xl border border-white/15 bg-black/30 p-4">
+                    <div className="font-semibold text-white">Seriously Hurt?</div>
+                    <p className="mt-1 text-white/70">Personal injury intake, medical coordination, and settlement planning.</p>
+                  </li>
+                  <li className="rounded-xl border border-white/15 bg-black/30 p-4">
+                    <div className="font-semibold text-white">Facing Charges?</div>
+                    <p className="mt-1 text-white/70">Criminal defense from arraignment through trial with proactive negotiation.</p>
+                  </li>
+                  <li className="rounded-xl border border-white/15 bg-black/30 p-4">
+                    <div className="font-semibold text-white">Injury Topics</div>
+                    <p className="mt-1 text-white/70">Car accidents, brain & spine injury, wrongful death, more.</p>
+                  </li>
+                  <li className="rounded-xl border border-white/15 bg-black/30 p-4">
+                    <div className="font-semibold text-white">Defense Topics</div>
+                    <p className="mt-1 text-white/70">DUI, domestic violence, record sealing, and complex felonies.</p>
+                  </li>
+                </ul>
+                <Link href="/practice" className="block text-center text-sm text-[#d4af37] underline underline-offset-2">View detailed practice areas</Link>
               </div>
-            </div>
+            ) : (
+              <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
+                <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <Card title="Seriously Hurt?" subtitle="Personal Injury">We help injured Nevadans pursue medical care and compensation.<TopicsAccordion title="Injury Topics" topics={PERSONAL_INJURY_TOPICS} /></Card>
+                  <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" /></Card>
+                </div>
+              </div>
+            )}
           </Section>
 
           {sectionQueue.slice(0, visibleSections).map(item => (

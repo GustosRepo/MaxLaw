@@ -52,21 +52,16 @@ type SkipConfig = {
 export default function HomeClient(){
   const { lite } = useLiteMode();
   const [safe,setSafe]=React.useState(false);
-  const [diag,setDiag]=React.useState(false);
   const [isMobile,setIsMobile]=React.useState(false);
   const [defer,setDefer]=React.useState(true);
   const sentinelRef=React.useRef<HTMLDivElement|null>(null);
-  const [diagLogs,setDiagLogs]=React.useState<string[]>([]);
   const [skipSections,setSkipSections]=React.useState<SkipConfig>({results:false,awards:false,media:false,mission:false,reviews:false,about:false,contact:false});
   const [visibleSections,setVisibleSections]=React.useState(0);
-  const pushLog=React.useCallback((msg:string)=>{ if(!diag) return; setDiagLogs(l=>{ const entry=`${Date.now()%100000}:${msg}`; return [...l.slice(-40), entry];});},[diag]);
   const reviewSummary={rating:4.9,total:125};
   React.useEffect(()=>{
     try{
       const sp=new URLSearchParams(window.location.search);
       if(sp.has('safe')) setSafe(true);
-      if(sp.has('diag')) { setDiag(true); try { localStorage.setItem('diag','1'); } catch {} }
-      else { try { if(localStorage.getItem('diag')==='1') setDiag(true); } catch {} }
       const nextSkip={
         results: sp.has('skipresults')||sp.has('skipResults'),
         awards: sp.has('skipawards')||sp.has('skipAwards'),
@@ -77,9 +72,8 @@ export default function HomeClient(){
         contact: sp.has('skipcontact')||sp.has('skipContact'),
       };
       setSkipSections(nextSkip);
-      Object.entries(nextSkip).forEach(([key,val])=>{ if(val) pushLog(`flag:${key}`); });
     }catch{}
-  },[pushLog]);
+  },[]);
   React.useEffect(()=>{
     if(typeof window==='undefined')return;
     const updateViewport = () => setIsMobile(window.innerWidth < 768);
@@ -100,45 +94,18 @@ export default function HomeClient(){
       return;
     }
     let done=false;
-    const show=()=>{if(!done){done=true;setDefer(false);pushLog('below-fold-mounted');}};
-    const to=setTimeout(()=>{pushLog('timeout->mount');show();},3000);
+    const show=()=>{if(!done){done=true;setDefer(false);}};
+    const to=setTimeout(()=>{show();},3000);
     let obs: IntersectionObserver | undefined;
     if(sentinelRef.current&&'IntersectionObserver'in window){
-      obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){pushLog('sentinel-intersect');show();obs?.disconnect();}})},{rootMargin:'140px 0px 0px 0px'});
+      obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){show();obs?.disconnect();}})},{rootMargin:'140px 0px 0px 0px'});
       obs.observe(sentinelRef.current);
     }
     return()=>{
       clearTimeout(to);
       obs?.disconnect();
     };
-  },[pushLog,lite,isMobile]);
-  // Diagnostic instrumentation
-  React.useEffect(()=>{ if(!diag) return; pushLog('diag-start');
-    const onScroll=()=>{ if(!diag) return; if(window.scrollY%200<2){ pushLog(`scroll:${window.scrollY}`);} };
-    const onError=(e:ErrorEvent)=>{ pushLog('error:'+ (e.message||'unknown')); };
-    const onRejection=(e:PromiseRejectionEvent)=>{ pushLog('promise-rejection:'+ (e.reason && (e.reason as { message?: string }).message || 'unknown')); };
-    window.addEventListener('scroll',onScroll,{passive:true});
-    window.addEventListener('error',onError);
-    window.addEventListener('unhandledrejection',onRejection);
-    // Attempt memory sampling (Chromium only; Safari iOS lacks performance.memory)
-    type PerfWithMemory = Performance & { memory?: { usedJSHeapSize:number; totalJSHeapSize:number; jsHeapSizeLimit:number } };
-    let memInterval: ReturnType<typeof setInterval> | undefined;
-    try {
-      const perf: PerfWithMemory = performance as PerfWithMemory;
-      if(perf.memory){
-        memInterval = setInterval(()=>{
-          const m = perf.memory!;
-            pushLog(`mem:${Math.round(m.usedJSHeapSize/1048576)}MB/${Math.round(m.totalJSHeapSize/1048576)}MB`);
-        },4000);
-      }
-    } catch {}
-    return ()=>{
-      window.removeEventListener('scroll',onScroll);
-      window.removeEventListener('error',onError);
-      window.removeEventListener('unhandledrejection',onRejection);
-      if(memInterval) clearInterval(memInterval);
-    };
-  },[diag,pushLog]);
+  },[lite,isMobile]);
 
   const sectionQueue = React.useMemo(() => {
     if(lite || isMobile) return [];
@@ -234,8 +201,6 @@ export default function HomeClient(){
     let timeout: number | undefined;
     const reveal = (index: number) => {
       if (cancelled || index >= sectionQueue.length) return;
-      const key = sectionQueue[index]?.key;
-      if (key) pushLog(`mount:${key}`);
       setVisibleSections(prev => (prev > index ? prev : index + 1));
       if (index + 1 < sectionQueue.length) {
         timeout = window.setTimeout(() => reveal(index + 1), 260);
@@ -247,7 +212,7 @@ export default function HomeClient(){
       if (timeout) window.clearTimeout(timeout);
       window.cancelAnimationFrame(raf);
     };
-  }, [defer, sectionQueue, pushLog, lite, isMobile]);
+  }, [defer, sectionQueue, lite, isMobile]);
   const isLite = lite || isMobile;
   if (safe) {
     return (
@@ -281,7 +246,7 @@ export default function HomeClient(){
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#161616] text-white font-[var(--font-inter)]">
-      <Section id="home" className="relative overflow-hidden min-h-[90dvh] flex items-center py-12 sm:py-16">
+      <Section id="home" className="relative overflow-hidden min-h-[90dvh] flex items-center pt-12 sm:pt-16 pb-0">
         <div className="absolute inset-0">
           {isLite ? (
             <HeroMediaLite />
@@ -292,10 +257,10 @@ export default function HomeClient(){
             </>
           )}
         </div>
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 min-h-[90dvh] flex items-end">
           <div className="flex flex-col md:flex-row items-center md:items-end gap-8 md:gap-14">
             {/* Figure (desktop only) */}
-            <div className="hidden md:block relative w-56 lg:w-64 xl:w-72 2xl:w-80 aspect-[365/815] self-end -mb-12 md:-mb-16">
+            <div className="hidden md:block relative w-56 lg:w-64 xl:w-72 2xl:w-80 aspect-[365/815] self-end md:mb-0">
               <Image
                 src="/attorney-figure.png"
                 alt="Lead attorney"
@@ -387,12 +352,6 @@ export default function HomeClient(){
             <React.Fragment key={item.key}>{item.node}</React.Fragment>
           ))}
         </>
-      )}
-      {diag && (
-        <div className="fixed bottom-2 right-2 z-[9999] max-h-[45vh] w-[260px] overflow-auto rounded-lg border border-white/20 bg-black/80 p-2 text-[10px] leading-snug font-mono text-white/70">
-          <div className="mb-1 flex justify-between"><span className="font-semibold text-white/90">DIAG</span><button onClick={()=>setDiagLogs([])} className="text-[9px] underline">clear</button></div>
-          {diagLogs.slice().reverse().map(l=> <div key={l}>{l}</div>)}
-        </div>
       )}
     </main>
   );

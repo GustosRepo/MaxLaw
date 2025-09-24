@@ -11,6 +11,7 @@ import ResultsSection from './ResultsSection';
 import MissionSection from './MissionSection';
 import { FIRM_PHONE_E164, FIRM_PHONE_DISPLAY, FIRM_NAME, FIRM_ADDRESS_LINE1, FIRM_ADDRESS_LINE2 } from '../../lib/constants';
 import { useLiteMode } from './LiteModeContext';
+import PracticeCardsLite from './PracticeCardsLite';
 
 const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { ssr: false, loading: () => <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-white/60">Loading…</div> });
 
@@ -327,13 +328,17 @@ export default function HomeClient(){
       {!defer && !isLite && (
         <>
           <Section id="practice" className="py-12">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
-              <div className="grid gap-6 md:grid-cols-2">
-                <Card title="Seriously Hurt?" subtitle="Personal Injury">We help injured Nevadans pursue medical care and compensation.<TopicsAccordion title="Injury Topics" topics={PERSONAL_INJURY_TOPICS} /></Card>
-                <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" /></Card>
+            {isLite ? (
+              <PracticeCardsLite />
+            ) : (
+              <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
+                <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <Card title="Seriously Hurt?" subtitle="Personal Injury">We help injured Nevadans pursue medical care and compensation.<TopicsAccordion title="Injury Topics" topics={PERSONAL_INJURY_TOPICS} /></Card>
+                  <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" /></Card>
+                </div>
               </div>
-            </div>
+            )}
           </Section>
 
           {sectionQueue.slice(0, visibleSections).map(item => (

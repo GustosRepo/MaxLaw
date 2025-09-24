@@ -14,6 +14,8 @@ import { useLiteMode } from './LiteModeContext';
 import PracticeCardsLite from './PracticeCardsLite';
 import ResultsSectionLite from './ResultsSectionLite';
 import AwardsSectionLite from './AwardsSectionLite';
+import ReviewsSectionLite from './ReviewsSectionLite';
+import AboutSectionLite from './AboutSectionLite';
 
 const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { ssr: false, loading: () => <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-white/60">Loading…</div> });
 
@@ -342,6 +344,18 @@ export default function HomeClient(){
       {isLite && (
         <Section id="awards-lite" className="py-10">
           <AwardsSectionLite />
+        </Section>
+      )}
+
+      {isLite && (
+        <Section id="reviews-lite" className="py-10">
+          <ReviewsSectionLite />
+        </Section>
+      )}
+
+      {isLite && (
+        <Section id="about-lite" className="py-10">
+          <AboutSectionLite />
         </Section>
       )}
 

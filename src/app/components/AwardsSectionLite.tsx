@@ -17,18 +17,20 @@ export default function AwardsSectionLite() {
         <h2 className="text-2xl font-semibold text-white">Awards &amp; Recognition</h2>
         <p className="text-sm text-white/70">Select professional honors.</p>
       </div>
-      <div className="grid grid-cols-3 gap-3">
-        {awards.map(file => (
-          <div key={file} className="relative aspect-square rounded-xl border border-white/15 bg-black/35">
-            <Image
-              src={`/awards/${file}`}
-              alt={file.replace(/[-_]/g, ' ').replace(/\.[a-z]+$/i, '')}
-              fill
-              className="object-contain p-4"
-              sizes="(max-width: 768px) 30vw, 120px"
-            />
-          </div>
-        ))}
+      <div className="overflow-hidden">
+        <div className="flex min-w-max gap-6 animate-scroll hover:pause-animation">
+          {[...awards, ...awards].map((file, idx) => (
+            <div key={`${file}-${idx}`} className="relative h-20 w-20 rounded-xl border border-white/12 bg-black/35">
+              <Image
+                src={`/awards/${file}`}
+                alt={file.replace(/[-_]/g, ' ').replace(/\.[a-z]+$/i, '')}
+                fill
+                className="object-contain p-3"
+                sizes="80px"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

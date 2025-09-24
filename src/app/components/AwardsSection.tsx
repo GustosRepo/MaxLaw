@@ -22,24 +22,26 @@ export default function AwardsSection() {
   return (
     <section id="awards" className="py-12 px-4 sm:px-6">
       <h2 className="text-3xl font-bold text-center mb-8">Awards & Recognitions</h2>
-      <ul className="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-        {awards.map((file, i) => (
-          <li
-            key={file}
-            className={`relative aspect-square rounded-xl border border-white/10 bg-white/5 p-2 flex items-center justify-center overflow-hidden ${i>5 ? 'hidden md:flex' : ''}`}
-          >
-            <Image
-              src={`/awards/${file}`}
-              alt={file.replace(/[-_]/g,' ').replace(/\.[a-z]+$/i,'')}
-              fill
-              sizes="(max-width:640px) 30vw, (max-width:1024px) 12vw, 160px"
-              className="object-contain drop-shadow"
-              loading="lazy"
-            />
-          </li>
-        ))}
-      </ul>
-      <p className="mt-6 text-center text-xs text-white/40 max-w-md mx-auto">Logos are for recognition only and do not imply endorsement. Mobile trimmed for speed.</p>
+      <div className="mx-auto max-w-5xl overflow-hidden">
+        <div className="flex min-w-max gap-8 animate-scroll hover:pause-animation">
+          {[...awards, ...awards].map((file, idx) => (
+            <div
+              key={`${file}-${idx}`}
+              className="relative h-24 w-24 sm:h-28 sm:w-28 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center overflow-hidden"
+            >
+              <Image
+                src={`/awards/${file}`}
+                alt={file.replace(/[-_]/g,' ').replace(/\.[a-z]+$/i,'')}
+                fill
+                sizes="96px"
+                className="object-contain drop-shadow"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <p className="mt-6 text-center text-xs text-white/40 max-w-md mx-auto">Logos are for recognition only and do not imply endorsement.</p>
     </section>
   );
 }

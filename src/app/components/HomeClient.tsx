@@ -16,6 +16,7 @@ import ResultsSectionLite from './ResultsSectionLite';
 import AwardsSectionLite from './AwardsSectionLite';
 import ReviewsSectionLite from './ReviewsSectionLite';
 import AboutSectionLite from './AboutSectionLite';
+import HeroMediaLite from './HeroMediaLite';
 import ContactSectionLite from './ContactSectionLite';
 
 const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { ssr: false, loading: () => <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-white/60">Loading…</div> });
@@ -283,7 +284,7 @@ export default function HomeClient(){
       <Section id="home" className="relative overflow-hidden min-h-[90dvh] flex items-center py-12 sm:py-16">
         <div className="absolute inset-0">
           {isLite ? (
-            <div className="absolute inset-0 bg-[#050505]" />
+            <HeroMediaLite />
           ) : (
             <>
               <HeroMediaRotator />

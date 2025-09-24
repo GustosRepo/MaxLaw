@@ -325,6 +325,12 @@ export default function HomeClient(){
         </div>
       )}
 
+      {isLite && (
+        <Section id="practice" className="py-10">
+          <PracticeCardsLite />
+        </Section>
+      )}
+
       {!defer && !isLite && (
         <>
           <Section id="practice" className="py-12">

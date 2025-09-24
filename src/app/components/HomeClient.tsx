@@ -10,6 +10,7 @@ import MediaSection from './MediaSection';
 import ResultsSection from './ResultsSection';
 import MissionSection from './MissionSection';
 import { FIRM_PHONE_E164, FIRM_PHONE_DISPLAY, FIRM_NAME, FIRM_ADDRESS_LINE1, FIRM_ADDRESS_LINE2 } from '../../lib/constants';
+import { useLiteMode } from './LiteModeContext';
 
 const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { ssr: false, loading: () => <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-white/60">Loading…</div> });
 
@@ -42,9 +43,9 @@ type SkipConfig = {
 };
 
 export default function HomeClient(){
+  const { lite } = useLiteMode();
   const [safe,setSafe]=React.useState(false);
   const [diag,setDiag]=React.useState(false);
-  const [liteMode,setLiteMode]=React.useState(false);
   const [isMobile,setIsMobile]=React.useState(false);
   const [defer,setDefer]=React.useState(true);
   const sentinelRef=React.useRef<HTMLDivElement|null>(null);
@@ -57,12 +58,6 @@ export default function HomeClient(){
     try{
       const sp=new URLSearchParams(window.location.search);
       if(sp.has('safe')) setSafe(true);
-      if(sp.has('lite')) {
-        setLiteMode(true);
-        try { localStorage.setItem('lite','1'); } catch {}
-      } else {
-        try { if(localStorage.getItem('lite')==='1') setLiteMode(true); } catch {}
-      }
       if(sp.has('diag')) { setDiag(true); try { localStorage.setItem('diag','1'); } catch {} }
       else { try { if(localStorage.getItem('diag')==='1') setDiag(true); } catch {} }
       const nextSkip={
@@ -88,7 +83,7 @@ export default function HomeClient(){
 
   React.useEffect(()=>{
     if(typeof window==='undefined')return;
-    if(liteMode || isMobile){
+    if(lite || isMobile){
       setDefer(true);
       setVisibleSections(0);
       return;
@@ -109,7 +104,7 @@ export default function HomeClient(){
       clearTimeout(to);
       obs?.disconnect();
     };
-  },[pushLog,liteMode,isMobile]);
+  },[pushLog,lite,isMobile]);
   // Diagnostic instrumentation
   React.useEffect(()=>{ if(!diag) return; pushLog('diag-start');
     const onScroll=()=>{ if(!diag) return; if(window.scrollY%200<2){ pushLog(`scroll:${window.scrollY}`);} };
@@ -139,7 +134,7 @@ export default function HomeClient(){
   },[diag,pushLog]);
 
   const sectionQueue = React.useMemo(() => {
-    if(liteMode || isMobile) return [];
+    if(lite || isMobile) return [];
     const list: Array<{ key: string; node: React.ReactNode }> = [];
     if (!skipSections.results) list.push({ key: 'results', node: <ResultsSection /> });
     if (!skipSections.awards) list.push({ key: 'awards', node: <AwardsSection /> });
@@ -213,10 +208,10 @@ export default function HomeClient(){
       });
     }
     return list;
-  }, [skipSections,liteMode,isMobile]);
+  }, [skipSections,lite,isMobile]);
 
   React.useEffect(() => {
-    if(liteMode || isMobile){
+    if(lite || isMobile){
       setVisibleSections(0);
       return;
     }
@@ -245,8 +240,8 @@ export default function HomeClient(){
       if (timeout) window.clearTimeout(timeout);
       window.cancelAnimationFrame(raf);
     };
-  }, [defer, sectionQueue, pushLog, liteMode, isMobile]);
-  const isLite = liteMode || isMobile;
+  }, [defer, sectionQueue, pushLog, lite, isMobile]);
+  const isLite = lite || isMobile;
   if (safe) {
     return (
       <main className="min-h-screen bg-[#080808] text-white flex items-center justify-center px-6">

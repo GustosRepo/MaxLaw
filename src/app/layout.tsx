@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import DiagnosticsClient from './components/DiagnosticsClient';
-import { Analytics } from "@vercel/analytics/react";
+import LayoutShell from './components/LayoutShell';
+import { LiteModeProvider } from './components/LiteModeContext';
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -93,11 +91,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfairDisplay.variable} ${inter.variable}`}>
       <body className="antialiased">
-        <Navbar />
-        {children}
-        <Footer />
-        <DiagnosticsClient />
-  {process.env.NODE_ENV === 'production' && <Analytics />}
+        <LiteModeProvider>
+          <LayoutShell>
+            {children}
+          </LayoutShell>
+        </LiteModeProvider>
       </body>
     </html>
   );

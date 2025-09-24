@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   FIRM_NAME,
   FIRM_ADDRESS_LINE1,

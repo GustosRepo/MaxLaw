@@ -80,12 +80,36 @@ export default function HomeClient(){
   },[pushLog]);
   React.useEffect(()=>{
     if(typeof window==='undefined')return;
-    const checkViewport = () => setIsMobile(window.innerWidth < 768);
-    checkViewport();
-    const resizeHandler = () => checkViewport();
-    window.addEventListener('resize',resizeHandler);
-    if(window.innerWidth>=768){setDefer(false);return ()=>window.removeEventListener('resize',resizeHandler);} let done=false; const show=()=>{if(!done){done=true;setDefer(false);pushLog('below-fold-mounted');}}; const to=setTimeout(()=>{pushLog('timeout->mount');show();},3000); if(sentinelRef.current&&'IntersectionObserver'in window){const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){pushLog('sentinel-intersect');show();obs.disconnect();}})},{rootMargin:'140px 0px 0px 0px'}); obs.observe(sentinelRef.current);} return()=>{clearTimeout(to); window.removeEventListener('resize',resizeHandler);};
-  },[pushLog]);
+    const updateViewport = () => setIsMobile(window.innerWidth < 768);
+    updateViewport();
+    window.addEventListener('resize',updateViewport);
+    return () => window.removeEventListener('resize',updateViewport);
+  },[]);
+
+  React.useEffect(()=>{
+    if(typeof window==='undefined')return;
+    if(liteMode || isMobile){
+      setDefer(true);
+      setVisibleSections(0);
+      return;
+    }
+    if(window.innerWidth>=768){
+      setDefer(false);
+      return;
+    }
+    let done=false;
+    const show=()=>{if(!done){done=true;setDefer(false);pushLog('below-fold-mounted');}};
+    const to=setTimeout(()=>{pushLog('timeout->mount');show();},3000);
+    let obs: IntersectionObserver | undefined;
+    if(sentinelRef.current&&'IntersectionObserver'in window){
+      obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){pushLog('sentinel-intersect');show();obs?.disconnect();}})},{rootMargin:'140px 0px 0px 0px'});
+      obs.observe(sentinelRef.current);
+    }
+    return()=>{
+      clearTimeout(to);
+      obs?.disconnect();
+    };
+  },[pushLog,liteMode,isMobile]);
   // Diagnostic instrumentation
   React.useEffect(()=>{ if(!diag) return; pushLog('diag-start');
     const onScroll=()=>{ if(!diag) return; if(window.scrollY%200<2){ pushLog(`scroll:${window.scrollY}`);} };
@@ -115,6 +139,7 @@ export default function HomeClient(){
   },[diag,pushLog]);
 
   const sectionQueue = React.useMemo(() => {
+    if(liteMode || isMobile) return [];
     const list: Array<{ key: string; node: React.ReactNode }> = [];
     if (!skipSections.results) list.push({ key: 'results', node: <ResultsSection /> });
     if (!skipSections.awards) list.push({ key: 'awards', node: <AwardsSection /> });
@@ -188,9 +213,13 @@ export default function HomeClient(){
       });
     }
     return list;
-  }, [skipSections]);
+  }, [skipSections,liteMode,isMobile]);
 
   React.useEffect(() => {
+    if(liteMode || isMobile){
+      setVisibleSections(0);
+      return;
+    }
     if (defer) {
       setVisibleSections(0);
       return;
@@ -216,7 +245,8 @@ export default function HomeClient(){
       if (timeout) window.clearTimeout(timeout);
       window.cancelAnimationFrame(raf);
     };
-  }, [defer, sectionQueue, pushLog]);
+  }, [defer, sectionQueue, pushLog, liteMode, isMobile]);
+  const isLite = liteMode || isMobile;
   if (safe) {
     return (
       <main className="min-h-screen bg-[#080808] text-white flex items-center justify-center px-6">
@@ -251,7 +281,7 @@ export default function HomeClient(){
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#161616] text-white font-[var(--font-inter)]">
       <Section id="home" className="relative overflow-hidden min-h-[90dvh] flex items-center py-12 sm:py-16">
         <div className="absolute inset-0">
-          {liteMode || isMobile ? (
+          {isLite ? (
             <div className="absolute inset-0 bg-[#050505]" />
           ) : (
             <>
@@ -290,53 +320,25 @@ export default function HomeClient(){
           </div>
         </div>
       </Section>
-      <div ref={sentinelRef} className="h-1" aria-hidden />
+      {!isLite && <div ref={sentinelRef} className="h-1" aria-hidden />}
 
-      {defer && (
+      {defer && !isLite && (
         <div className="mx-auto w-full max-w-7xl px-4 md:px-6 py-10 space-y-8" aria-label="Loading below-fold content">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-sm text-white/60">Loading additional content…</div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3" aria-hidden>{Array.from({length:6}).map((_,i)=><div key={i} className="aspect-[5/6] animate-pulse rounded-xl border border-white/10 bg-white/[0.07]"/> )}</div>
         </div>
       )}
 
-      {!defer && (
+      {!defer && !isLite && (
         <>
           <Section id="practice" className="py-12">
-            {liteMode || isMobile ? (
-              <div className="mx-auto w-full max-w-5xl space-y-6 rounded-2xl border border-white/12 bg-black/45 p-6">
-                <div className="space-y-2 text-center">
-                  <h2 className="text-2xl font-semibold text-white">Practice Areas</h2>
-                  <p className="text-sm text-white/65">Focused teams for serious injury and criminal defense matters across Nevada.</p>
-                </div>
-                <ul className="space-y-3 text-left text-sm text-white/80">
-                  <li className="rounded-xl border border-white/15 bg-black/30 p-4">
-                    <div className="font-semibold text-white">Seriously Hurt?</div>
-                    <p className="mt-1 text-white/70">Personal injury intake, medical coordination, and settlement planning.</p>
-                  </li>
-                  <li className="rounded-xl border border-white/15 bg-black/30 p-4">
-                    <div className="font-semibold text-white">Facing Charges?</div>
-                    <p className="mt-1 text-white/70">Criminal defense from arraignment through trial with proactive negotiation.</p>
-                  </li>
-                  <li className="rounded-xl border border-white/15 bg-black/30 p-4">
-                    <div className="font-semibold text-white">Injury Topics</div>
-                    <p className="mt-1 text-white/70">Car accidents, brain & spine injury, wrongful death, more.</p>
-                  </li>
-                  <li className="rounded-xl border border-white/15 bg-black/30 p-4">
-                    <div className="font-semibold text-white">Defense Topics</div>
-                    <p className="mt-1 text-white/70">DUI, domestic violence, record sealing, and complex felonies.</p>
-                  </li>
-                </ul>
-                <Link href="/practice" className="block text-center text-sm text-[#d4af37] underline underline-offset-2">View detailed practice areas</Link>
+            <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
+              <div className="grid gap-6 md:grid-cols-2">
+                <Card title="Seriously Hurt?" subtitle="Personal Injury">We help injured Nevadans pursue medical care and compensation.<TopicsAccordion title="Injury Topics" topics={PERSONAL_INJURY_TOPICS} /></Card>
+                <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" /></Card>
               </div>
-            ) : (
-              <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
-                <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
-                <div className="grid gap-6 md:grid-cols-2">
-                  <Card title="Seriously Hurt?" subtitle="Personal Injury">We help injured Nevadans pursue medical care and compensation.<TopicsAccordion title="Injury Topics" topics={PERSONAL_INJURY_TOPICS} /></Card>
-                  <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" /></Card>
-                </div>
-              </div>
-            )}
+            </div>
           </Section>
 
           {sectionQueue.slice(0, visibleSections).map(item => (

@@ -226,9 +226,7 @@ export default function HomeClient(){
               Send a secure message
             </Link>
           </div>
-          <p className="text-[11px] text-white/40">
-            To view the full experience, open this page on a desktop browser.
-          </p>
+          <p className="text-[11px] text-white/40">Lite mode active. For the full experience visit on desktop.</p>
         </div>
       </main>
     );

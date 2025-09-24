@@ -23,7 +23,7 @@ export default function MotorcycleAccidentsPageClient() {
 
   return (
     <>
-  <StructuredData type="LegalService" data={motorcycleServiceData} />
+      <StructuredData type="LegalService" data={motorcycleServiceData} />
 
       <Breadcrumbs items={breadcrumbItems} />
 

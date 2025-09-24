@@ -25,14 +25,6 @@ export const metadata = {
 export default function CarAccidentStatsPage() {
   return (
     <>
-      <style>{`
-        /* small page-level flair consistent with site */
-        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-      `}</style>
 
       {/* Content only — PracticeLayout provides the outer wrapper and sidebar */}
 

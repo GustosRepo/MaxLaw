@@ -20,16 +20,7 @@ export const metadata = {
 export default function PracticePage() {
   return (
     <>
-      <style>{`
-        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; border-radius:4px }
-        .card-hover { transition:transform .32s cubic-bezier(.2,.9,.3,1), box-shadow .28s ease, border-color .22s ease; will-change:transform }
-        .card-hover:hover { transform:translateY(-8px) scale(1.01); box-shadow:0 34px 90px rgba(0,0,0,0.65); border-color:rgba(212,175,55,0.12) }
-        .watermark { font-weight:900; color:rgba(255,255,255,0.04); letter-spacing:-2px; pointer-events:none }
-        .custom-bg { background-image: radial-gradient(circle at 8% 12%, rgba(191,167,106,0.03), transparent 6%), radial-gradient(circle at 90% 80%, rgba(255,255,255,0.02), transparent 22%), linear-gradient(180deg,#0e0e0e,#0f0f0f); }
-      `}</style>
-
-  <main className="min-h-screen custom-bg bg-gradient-to-br from-[#0e0e0e] to-[#0f0f0f] text-white font-['Inter'] py-12">
+  <main className="min-h-screen custom-bg text-white font-['Inter'] py-12">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <section className="mb-8">
             <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg overflow-hidden">

@@ -19,6 +19,22 @@ body {
   overflow-x: hidden;
 }
 
+.custom-bg {
+  background-image: radial-gradient(circle at 8% 12%, rgba(191,167,106,0.05), transparent 6%),
+    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.04), transparent 22%),
+    linear-gradient(180deg,#0e0e0e,#0f0f0f);
+}
+
+.practice-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 20% 20%, rgba(212,175,55,0.04) 0, transparent 10%),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.02) 0, transparent 8%);
+  mix-blend-mode: overlay;
+  opacity: 0.9;
+}
+
 section[id] {
   scroll-margin-top: 5.5rem;
 }
@@ -29,14 +45,22 @@ section[id] {
   }
 }
 
-@media (max-width: 767px) {
-  main section {
-    content-visibility: auto;
-    contain-intrinsic-size: 560px;
+@supports (content-visibility: auto) {
+  @media (max-width: 767px) {
+    main section {
+      content-visibility: auto;
+      contain-intrinsic-size: 560px;
+    }
   }
+}
 
+@media (max-width: 767px) {
   .custom-bg {
     background-image: linear-gradient(180deg,#0e0e0e,#121212) !important;
+  }
+
+  .practice-bg {
+    display: none;
   }
 }
 

@@ -14,8 +14,8 @@ export default function HeroMediaRotator(){
         quality={58}
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/70 to-black/85 md:from-black/75 md:via-black/55 md:to-black/70" />
-      <div className="hidden md:block absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(212,175,55,0.25),transparent_65%)] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[rgba(0,0,0,0.68)] md:bg-gradient-to-br md:from-black/75 md:via-black/55 md:to-black/70" />
+      <div className="hidden md:block absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(212,175,55,0.25),transparent_65%)] pointer-events-none" />
     </div>
   );
 }

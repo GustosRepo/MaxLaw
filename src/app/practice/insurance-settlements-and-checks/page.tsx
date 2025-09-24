@@ -20,16 +20,6 @@ export const metadata = {
 export default function InsuranceSettlementsPage() {
   return (
     <>
-      <style>{`
-        /* standardized practice page styles */
-        @keyframes underlineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-        .accent-underline { display:block; height:6px; background:linear-gradient(90deg,#d4af37,#c5a467); transform-origin:left; animation:underlineIn .6s ease forwards; }
-        .stat-number { color:#d4af37; font-weight:700; font-size:1.25rem; }
-        .card-hover { transition:transform .26s ease, box-shadow .26s ease; }
-        .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
-        .cta-glow { transition:box-shadow .28s, transform .22s; }
-        .cta-glow:hover { box-shadow: 0 18px 48px rgba(212,175,55,0.18); transform: translateY(-3px) scale(1.02); }
-      `}</style>
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">

@@ -7,7 +7,7 @@ export default function AboutSectionLite() {
   return (
     <section className="mx-auto w-full max-w-5xl space-y-6 px-4">
       <div className="space-y-3 rounded-2xl border border-white/12 bg-black/40 p-6 text-center text-white/80">
-        <div className="mx-auto h-32 w-32 overflow-hidden rounded-full border border-white/15 bg-black/50">
+        <div className="mx-auto h-32 w-32 overflow-hidden rounded border border-white/15 bg-black/50">
           <Image
             src="/meet-your.jpg"
             alt="Marc A. Saggese"

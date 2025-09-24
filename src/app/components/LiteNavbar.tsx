@@ -11,9 +11,9 @@ export default function LiteNavbar() {
           Saggese &amp; Associates
         </Link>
         <nav className="flex items-center gap-4 text-xs text-white/70">
+          <Link href="/about" className="hover:text-[#d4af37]">About</Link>
           <Link href="/practice" className="hover:text-[#d4af37]">Practice</Link>
           <Link href="/results" className="hover:text-[#d4af37]">Results</Link>
-          <Link href="/about" className="hover:text-[#d4af37]">About</Link>
           <Link href="/contact" className="hover:text-[#d4af37]">Contact</Link>
           <a href="tel:17027788883" className="rounded-xl bg-[#d4af37] px-3 py-2 font-semibold text-black">
             Call (702) 778-8883

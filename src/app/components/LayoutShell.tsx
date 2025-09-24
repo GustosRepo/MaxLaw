@@ -4,6 +4,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import LiteNavbar from './LiteNavbar';
 import Footer from './Footer';
+import LiteFooter from './LiteFooter';
 import DiagnosticsClient from './DiagnosticsClient';
 import { Analytics } from '@vercel/analytics/react';
 import { useLiteMode } from './LiteModeContext';
@@ -19,7 +20,7 @@ export default function LayoutShell({ children }: LayoutShellProps) {
     <>
       {lite ? (nav ? <LiteNavbar /> : null) : <Navbar />}
       {children}
-      {!lite && <Footer />}
+      {lite ? <LiteFooter /> : <Footer />}
       {!lite && <DiagnosticsClient />}
       {!lite && process.env.NODE_ENV === 'production' && <Analytics />}
     </>

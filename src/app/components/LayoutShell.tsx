@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Navbar from './Navbar';
+import LiteNavbar from './LiteNavbar';
 import Footer from './Footer';
 import DiagnosticsClient from './DiagnosticsClient';
 import { Analytics } from '@vercel/analytics/react';
@@ -16,7 +17,7 @@ export default function LayoutShell({ children }: LayoutShellProps) {
 
   return (
     <>
-      {(!lite || nav) && <Navbar />}
+      {lite ? (nav ? <LiteNavbar /> : null) : <Navbar />}
       {children}
       {!lite && <Footer />}
       {!lite && <DiagnosticsClient />}

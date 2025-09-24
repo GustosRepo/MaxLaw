@@ -12,11 +12,11 @@ interface LayoutShellProps {
 }
 
 export default function LayoutShell({ children }: LayoutShellProps) {
-  const { lite } = useLiteMode();
+  const { lite, nav } = useLiteMode();
 
   return (
     <>
-      {!lite && <Navbar />}
+      {(!lite || nav) && <Navbar />}
       {children}
       {!lite && <Footer />}
       {!lite && <DiagnosticsClient />}

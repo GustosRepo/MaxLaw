@@ -12,6 +12,8 @@ import MissionSection from './MissionSection';
 import { FIRM_PHONE_E164, FIRM_PHONE_DISPLAY, FIRM_NAME, FIRM_ADDRESS_LINE1, FIRM_ADDRESS_LINE2 } from '../../lib/constants';
 import { useLiteMode } from './LiteModeContext';
 import PracticeCardsLite from './PracticeCardsLite';
+import ResultsSectionLite from './ResultsSectionLite';
+import AwardsSectionLite from './AwardsSectionLite';
 
 const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { ssr: false, loading: () => <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-white/60">Loading…</div> });
 
@@ -328,6 +330,18 @@ export default function HomeClient(){
       {isLite && (
         <Section id="practice" className="py-10">
           <PracticeCardsLite />
+        </Section>
+      )}
+
+      {isLite && (
+        <Section id="results-lite" className="py-10">
+          <ResultsSectionLite />
+        </Section>
+      )}
+
+      {isLite && (
+        <Section id="awards-lite" className="py-10">
+          <AwardsSectionLite />
         </Section>
       )}
 

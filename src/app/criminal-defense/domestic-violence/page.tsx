@@ -4,16 +4,16 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Domestic Violence Defense Lawyer | Saggese & Associates',
-  description: 'Domestic violence defense focusing on protection orders, credibility & evidence review. Free consult (702) 778-8883.',
+  title: 'Las Vegas Battery Domestic Violence Defense Lawyer | Saggese & Associates',
+  description: 'Battery Domestic Violence defense focusing on protection orders, credibility & evidence review. Free consult (702) 778-8883.',
   keywords: [
-    'las vegas domestic violence lawyer',
+    'las vegas Battery Domestic Violence lawyer',
     'dv defense attorney nevada',
     'protection order hearing representation'
   ],
   alternates: { canonical: `${SITE_URL}/criminal-defense/domestic-violence` },
-  openGraph: { title: 'Las Vegas Domestic Violence Defense Lawyer', description: 'Defense for protection orders & criminal allegations.', url: `${SITE_URL}/criminal-defense/domestic-violence`, type: 'article' },
-  twitter: { card: 'summary', title: 'Domestic Violence Defense Lawyer', description: 'Credibility & evidence focused defense.' }
+  openGraph: { title: 'Las Vegas Battery Domestic Violence Defense Lawyer', description: 'Defense for protection orders & criminal allegations.', url: `${SITE_URL}/criminal-defense/domestic-violence`, type: 'article' },
+  twitter: { card: 'summary', title: 'Battery Domestic Violence Defense Lawyer', description: 'Credibility & evidence focused defense.' }
 }
 
 export default function DomesticViolencePage() {
@@ -23,16 +23,16 @@ export default function DomesticViolencePage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Domestic Violence Defense</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Battery Domestic Violence Defense</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
-        <p className="text-white/75 mt-3">Domestic violence allegations can impact family, employment, and freedom. We approach these cases with sensitivity and strong advocacy.</p>
+        <p className="text-white/75 mt-3">Battery Domestic Violence allegations can impact family, employment, and freedom. We approach these cases with sensitivity and strong advocacy.</p>
       </header>
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
           <p className="mb-4 text-white/90 leading-relaxed">
-            Allegations of domestic violence often carry significant collateral consequences beyond the criminal case, including protection orders, custody complications, and employment issues. We approach these matters with both strategic defense work and sensitivity to family dynamics.
+            Allegations of Battery Domestic Violence often carry significant collateral consequences beyond the criminal case, including protection orders, custody complications, and employment issues. We approach these matters with both strategic defense work and sensitivity to family dynamics.
           </p>
 
           <p className="mb-4 text-white/90 leading-relaxed">
@@ -90,9 +90,9 @@ export default function DomesticViolencePage() {
   {/* Footer removed */}
       <PracticeStructuredData
         slug="/criminal-defense/domestic-violence"
-        serviceType="Las Vegas Domestic Violence Defense Lawyer"
-        description="Domestic violence defense focusing on protection orders, credibility & evidence review. Free consultation."
-        keywords={['las vegas domestic violence lawyer','protection order hearing representation']}
+        serviceType="Las Vegas Battery Domestic Violence Defense Lawyer"
+        description="Battery Domestic Violence defense focusing on protection orders, credibility & evidence review. Free consultation."
+        keywords={['las vegas Battery Domestic Violence lawyer','protection order hearing representation']}
         faqs={[
           { question: 'Will I automatically get a protection order?', answer: 'Temporary orders can issue quickly; hearings allow challenges—early representation matters.' },
           { question: 'Can charges be dismissed?', answer: 'Inconsistencies, lack of evidence, or credibility issues can support dismissal or reduction.' }

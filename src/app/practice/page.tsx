@@ -5,12 +5,12 @@ import PracticeStructuredData from './PracticeStructuredData'
 
 export const metadata = {
   title: 'Las Vegas Injury & Criminal Defense Lawyers | Practice Areas',
-  description: 'Las Vegas personal injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, Drug offenses & more. Free consultation.',
+  description: 'Las Vegas personal injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, Drug Offenses & more. Free consultation.',
   keywords: [
     'las vegas personal injury lawyer',
     'las vegas criminal defense lawyer',
     'dui defense las vegas',
-    'Drug offenses lawyer las vegas'
+    'Drug Offenses lawyer las vegas'
   ],
   alternates: { canonical: `${SITE_URL}/practice` },
   openGraph: { title: 'Las Vegas Injury & Criminal Defense Lawyers', description: 'Explore our core personal injury and criminal defense practice areas.', url: `${SITE_URL}/practice`, type: 'website' },
@@ -86,8 +86,8 @@ export default function PracticePage() {
       <PracticeStructuredData
         slug="/practice"
         serviceType="Las Vegas Personal Injury & Criminal Defense Lawyers"
-        description="Las Vegas personal injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, Drug offenses & more. Free consultation."
-        keywords={['las vegas personal injury lawyer','las vegas criminal defense lawyer','dui defense las vegas','Drug offenses lawyer las vegas']}
+        description="Las Vegas personal injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, Drug Offenses & more. Free consultation."
+        keywords={['las vegas personal injury lawyer','las vegas criminal defense lawyer','dui defense las vegas','Drug Offenses lawyer las vegas']}
         faqs={[
           { question: 'Do you offer free consultations?', answer: 'Yes. We provide free, no‑obligation consultations for injury and criminal matters.' },
           { question: 'What types of injury cases do you handle?', answer: 'Car, truck, motorcycle, premises liability, catastrophic injury, wrongful death and more.' }

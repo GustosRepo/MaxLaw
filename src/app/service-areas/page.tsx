@@ -59,7 +59,7 @@ export default function ServiceAreasPage() {
               <li>DUI & traffic related</li>
               <li>Violent & property offenses</li>
               <li>Drug & controlled substance cases</li>
-              <li>Drug offenses guidance</li>
+              <li>Drug Offenses guidance</li>
               <li>Professional licensing impacts</li>
             </ul>
           </div>

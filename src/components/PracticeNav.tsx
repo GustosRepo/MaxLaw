@@ -29,7 +29,7 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
     { href: '/criminal-defense/dui', label: 'DUI' },
     { href: '/criminal-defense/prostitution', label: 'Prostitution' },
     { href: '/criminal-defense/larceny', label: 'Larceny' },
-    { href: '/criminal-defense/domestic-violence', label: 'Domestic Violence' },
+    { href: '/criminal-defense/domestic-violence', label: 'Battery Domestic Violence' },
     { href: '/criminal-defense/drugs', label: 'Drugs' },
     { href: '/criminal-defense/theft', label: 'Theft' },
     { href: '/criminal-defense/sexual-assault', label: 'Sexual Assault' },

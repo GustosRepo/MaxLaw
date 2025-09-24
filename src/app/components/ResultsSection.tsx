@@ -4,10 +4,10 @@ import React from 'react';
 // Avoid promises / data fetching for now; can be replaced with real data later.
 
 const results = [
-  { amount: '$2.1M', label: 'Motor Vehicle Collision' },
-  { amount: '$980K', label: 'Premises Liability' },
-  { amount: '$750K', label: 'Commercial Truck Crash' },
-  { amount: '$450K', label: 'Defective Product' },
+  { amount: '$6.9M', label: 'Negligent Foster Care' },
+  { amount: '$2.9M', label: 'Premises Liability' },
+  { amount: '$1.9M', label: 'Negligent training and Hiring' },
+  { amount: '$1.35M', label: 'Motorcycle Accident' },
 ];
 
 export default function ResultsSection(){

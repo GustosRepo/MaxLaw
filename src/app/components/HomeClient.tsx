@@ -202,7 +202,37 @@ export default function HomeClient(){
       window.cancelAnimationFrame(raf);
     };
   }, [defer, sectionQueue, pushLog]);
-  if(safe){return (<main className="min-h-screen bg-neutral-950 text-white"><section className="min-h-[90vh] relative flex items-center justify-center"><div className="absolute inset-0 -z-10"><HeroMediaRotator/><div className="absolute inset-0 bg-black/55"/></div><div className="px-6 max-w-2xl text-center"><h1 className="font-[var(--font-playfair)] text-4xl font-extrabold">{FIRM_NAME}</h1><p className="mt-4 text-white/70">Safe mode – below fold disabled.</p><a href={`tel:${FIRM_PHONE_E164}`} className="mt-6 inline-block rounded-xl bg-[#d4af37] px-6 py-3 font-semibold text-black">Call {FIRM_PHONE_DISPLAY}</a></div></section></main>);} 
+  if (safe) {
+    return (
+      <main className="min-h-screen bg-[#080808] text-white flex items-center justify-center px-6">
+        <div className="w-full max-w-md space-y-6 text-center">
+          <h1 className="font-[var(--font-playfair)] text-3xl font-semibold tracking-tight text-white/95">
+            {FIRM_NAME}
+          </h1>
+          <p className="text-sm leading-relaxed text-white/70">
+            Mobile lite mode is active to keep things stable. Call or request a callback and we will reach out right away.
+          </p>
+          <div className="space-y-3">
+            <a
+              href={`tel:${FIRM_PHONE_E164}`}
+              className="block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e]"
+            >
+              Call {FIRM_PHONE_DISPLAY}
+            </a>
+            <Link
+              href="/contact"
+              className="block rounded-2xl border border-white/15 px-5 py-3 text-sm text-white/85"
+            >
+              Send a secure message
+            </Link>
+          </div>
+          <p className="text-[11px] text-white/40">
+            To view the full experience, open this page on a desktop browser.
+          </p>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#161616] text-white font-[var(--font-inter)]">

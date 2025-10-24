@@ -13,12 +13,11 @@ interface LayoutShellProps {
 
 export default function LayoutShell({ children }: LayoutShellProps) {
   const { lite, nav } = useLiteMode();
-  const [isMobile, setIsMobile] = React.useState(() => {
-    if (typeof window === 'undefined') return false;
-    return window.matchMedia('(max-width: 767px)').matches;
-  });
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [isHydrated, setIsHydrated] = React.useState(false);
 
   React.useEffect(() => {
+    setIsHydrated(true);
     if (typeof window === 'undefined') return;
     const mql = window.matchMedia('(max-width: 767px)');
     const update = () => setIsMobile(mql.matches);
@@ -31,13 +30,21 @@ export default function LayoutShell({ children }: LayoutShellProps) {
     if (lite) {
       return nav ? <LiteNavbar /> : null;
     }
+    // Always render Navbar on server and during initial hydration
+    if (!isHydrated) {
+      return <Navbar />;
+    }
     return isMobile ? <LiteNavbar /> : <Navbar />;
-  }, [isMobile, lite, nav]);
+  }, [isMobile, lite, nav, isHydrated]);
 
   const footer = React.useMemo(() => {
     if (lite) return <LiteFooter />;
+    // Always render Footer on server and during initial hydration
+    if (!isHydrated) {
+      return <Footer />;
+    }
     return isMobile ? <LiteFooter /> : <Footer />;
-  }, [isMobile, lite]);
+  }, [isMobile, lite, isHydrated]);
 
   return (
     <>

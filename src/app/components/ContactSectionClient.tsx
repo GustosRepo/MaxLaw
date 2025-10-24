@@ -81,6 +81,13 @@ export default function ContactSectionClient() {
           </ul>
         </div>
         <div className="mt-4 text-sm text-white/60">Office hours: Mon–Fri 8:00–5:00 • Sat–Sun Closed</div>
+        <div className="mt-3 relative rounded-xl overflow-hidden border border-white/10">
+          <img 
+            src="/office-building.jpg" 
+            alt="The Law Offices of Saggese & Associates office building"
+            className="w-full h-32 object-cover"
+          />
+        </div>
         {!mapRevealed ? (
           <button onClick={() => setMapRevealed(true)} className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/70 hover:bg-white/10">Load map</button>
         ) : (

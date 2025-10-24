@@ -86,6 +86,13 @@ export default function ContactPageClient() {
             </div>
             <div>
               <h3 className="text-base font-semibold">Directions</h3>
+              <div className="mt-3 relative rounded-xl overflow-hidden border border-white/10">
+                <img 
+                  src="/office-building.jpg" 
+                  alt="The Law Offices of Saggese & Associates office building"
+                  className="w-full h-32 object-cover"
+                />
+              </div>
               {!mapRevealed ? (
                 <button onClick={() => setMapRevealed(true)} className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/70 hover:bg-white/10">Load map</button>
               ) : (

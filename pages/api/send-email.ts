@@ -132,7 +132,58 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     // Support multiple recipients (comma-separated)
     const to = process.env.CONTACT_TO || user; // prefer CONTACT_TO, fallback to SMTP_USER
 
+    // Send email to lawyers with all form details
     const info = await transporter.sendMail({ from, to, subject, text, html });
+
+    // Send confirmation email to client
+    const clientSubject = 'Thank you for contacting The Law Offices of Saggese & Associates';
+    const clientHtml = `
+      <div style="font-family:Arial,Helvetica,sans-serif;color:#111;max-width:600px">
+        <h2 style="color:#d4af37">Thank You for Reaching Out</h2>
+        <p>Dear ${form.firstName || ''},</p>
+        <p>We have received your inquiry regarding <strong>${form.caseType || 'your legal matter'}</strong>. A member of our team will review your information and contact you shortly.</p>
+        <p style="margin-top:20px"><strong>What to expect next:</strong></p>
+        <ul style="line-height:1.8">
+          <li>A member of our team will review your case details</li>
+          <li>We will contact you within 1-2 business days</li>
+          <li>Have any questions? Call us at <strong>(702) 778-8883</strong></li>
+        </ul>
+        <p style="margin-top:20px">In the meantime, please gather any relevant documents, photos, or information related to your case.</p>
+        <div style="margin-top:30px;padding:20px;background:#f8f8f8;border-left:4px solid #d4af37">
+          <p style="margin:0"><strong>The Law Offices of Saggese & Associates</strong></p>
+          <p style="margin:5px 0">732 S 6th St #200c</p>
+          <p style="margin:5px 0">Las Vegas, NV 89101</p>
+          <p style="margin:5px 0">Phone: (702) 778-8883</p>
+          <p style="margin:5px 0">Web: <a href="https://www.maxlawnv.com" style="color:#d4af37">www.maxlawnv.com</a></p>
+        </div>
+        <p style="margin-top:20px;font-size:12px;color:#666">This email is a confirmation of your inquiry. If you did not submit this form, please disregard this message or contact us.</p>
+      </div>
+    `;
+    const clientText = `
+Thank you for contacting The Law Offices of Saggese & Associates
+
+Dear ${form.firstName || ''},
+
+We have received your inquiry regarding ${form.caseType || 'your legal matter'}. A member of our team will review your information and contact you shortly.
+
+What to expect next:
+- A member of our team will review your case details
+- We will contact you within 1-2 business days
+- Have any questions? Call us at (702) 778-8883
+
+The Law Offices of Saggese & Associates
+732 S 6th St #200c, Las Vegas, NV 89101
+Phone: (702) 778-8883
+Web: www.maxlawnv.com
+    `;
+
+    await transporter.sendMail({
+      from,
+      to: form.email,
+      subject: clientSubject,
+      text: clientText,
+      html: clientHtml,
+    });
 
     return res.status(200).json({ success: true, info });
   } catch (err: unknown) {

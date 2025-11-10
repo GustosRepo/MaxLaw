@@ -120,9 +120,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     }
 
     const port = parseInt(portRaw, 10);
-    const secure = port === 465;
 
-    const transporter = nodemailer.createTransport({ host, port, secure, auth: { user, pass } });
+    // GoDaddy SMTP requires TLS on port 587
+    // Use secure: false with port 587 to enable STARTTLS
+    const transporter = nodemailer.createTransport({
+      host,
+      port,
+      secure: false, // Use false for port 587 (use STARTTLS)
+      requireTLS: true, // Force TLS
+      auth: { user, pass },
+      tls: {
+        // Don't fail on invalid certs (GoDaddy sometimes has cert issues)
+        rejectUnauthorized: false
+      }
+    });
 
     // Use custom FROM name if provided, otherwise default to "Max Lawn"
     const fromEmail = process.env.CONTACT_FROM || user;

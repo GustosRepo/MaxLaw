@@ -124,7 +124,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     const transporter = nodemailer.createTransport({ host, port, secure, auth: { user, pass } });
 
-    const from = `"Max Lawn" <${user}>`;
+    // Use custom FROM name if provided, otherwise default to "Max Lawn"
+    const fromEmail = process.env.CONTACT_FROM || user;
+    const fromName = process.env.CONTACT_FROM_NAME || 'Max Lawn';
+    const from = `"${fromName}" <${fromEmail}>`;
+    
+    // Support multiple recipients (comma-separated)
     const to = process.env.CONTACT_TO || user; // prefer CONTACT_TO, fallback to SMTP_USER
 
     const info = await transporter.sendMail({ from, to, subject, text, html });

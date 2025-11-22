@@ -7,7 +7,8 @@ export default function HeroMediaLite() {
         src="/home-pics/neo-classical-courthouse-facade-illuminated-night-generated-by-ai.jpg"
         alt="Courthouse facade at night"
         fill
-        priority={false}
+        priority
+        fetchPriority="high"
         sizes="100vw"
         quality={40}
         className="object-cover object-center opacity-85"

@@ -284,7 +284,7 @@ export default function HomeClient(){
                   priority
                 />
               </div>
-              <h1 className="font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
+              <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
                 {FIRM_NAME}
                 <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Personal Injury & Criminal Defense</span>
               </h1>

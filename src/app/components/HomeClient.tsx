@@ -305,12 +305,13 @@ export default function HomeClient(){
                 <Image
                   src={HomeLogo}
                   alt="The Law Offices of Saggese & Associates logo"
-                  sizes="(max-width: 767px) 68vw"
-                  className="mx-auto h-auto w-[68vw] max-w-[360px] drop-shadow-[0_6px_14px_rgba(0,0,0,0.55)]"
+                  sizes="(max-width: 767px) 48vw"
+                  className="mx-auto h-auto w-[48vw] max-w-[280px] drop-shadow-[0_6px_14px_rgba(0,0,0,0.55)]"
+                  width={280}
+                  height={140}
                   priority
                   fetchPriority="high"
-                  placeholder="blur"
-                  quality={80}
+                  quality={70}
                 />
               </div>
               <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">

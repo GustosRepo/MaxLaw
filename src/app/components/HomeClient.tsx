@@ -257,7 +257,7 @@ export default function HomeClient(){
             </>
           )}
         </div>
-  <div className="relative z-10 w-full max-w-6xl mx-auto px-6 min-h-[90dvh] flex items-end">
+  <div className="relative z-10 w-full max-w-6xl mx-auto px-6 min-h-[90dvh] flex items-end pb-12 md:pb-0">
           <div className="flex flex-col md:flex-row items-center md:items-end gap-8 md:gap-14">
             {/* Figure (desktop only) */}
             <div className="hidden md:block relative w-56 lg:w-64 xl:w-72 2xl:w-80 aspect-[365/815] self-end md:mb-0">

@@ -2,23 +2,22 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import HomeLogo from '../../../public/home-logo.png';
 import Link from 'next/link';
 import HeroMediaRotator from './HeroMediaRotator';
-import GoogleReviews from './GoogleReviews';
-import AwardsSection from './AwardsSection';
-import MediaSection from './MediaSection';
-import ResultsSection from './ResultsSection';
-import MissionSection from './MissionSection';
+const GoogleReviews = dynamic(() => import('./GoogleReviews'), { loading: () => null });
+const AwardsSection = dynamic(() => import('./AwardsSection'), { loading: () => null });
+const MediaSection = dynamic(() => import('./MediaSection'), { loading: () => null });
+const ResultsSection = dynamic(() => import('./ResultsSection'), { loading: () => null });
+const MissionSection = dynamic(() => import('./MissionSection'), { loading: () => null });
 import { FIRM_PHONE_E164, FIRM_PHONE_DISPLAY, FIRM_NAME, FIRM_ADDRESS_LINE1, FIRM_ADDRESS_LINE2 } from '../../lib/constants';
 import { useLiteMode } from './LiteModeContext';
-import PracticeCardsLite from './PracticeCardsLite';
-import ResultsSectionLite from './ResultsSectionLite';
-import AwardsSectionLite from './AwardsSectionLite';
-import ReviewsSectionLite from './ReviewsSectionLite';
-import AboutSectionLite from './AboutSectionLite';
+const PracticeCardsLite = dynamic(() => import('./PracticeCardsLite'), { loading: () => null });
+const ResultsSectionLite = dynamic(() => import('./ResultsSectionLite'), { loading: () => null });
+const AwardsSectionLite = dynamic(() => import('./AwardsSectionLite'), { loading: () => null });
+const ReviewsSectionLite = dynamic(() => import('./ReviewsSectionLite'), { loading: () => null });
+const AboutSectionLite = dynamic(() => import('./AboutSectionLite'), { loading: () => null });
 import HeroMediaLite from './HeroMediaLite';
-import ContactSectionLite from './ContactSectionLite';
+const ContactSectionLite = dynamic(() => import('./ContactSectionLite'), { loading: () => null });
 
 const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { ssr: false, loading: () => <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-white/60">Loading…</div> });
 
@@ -302,16 +301,16 @@ export default function HomeClient(){
             <div className="text-center md:text-left flex-1">
               {/* Mobile-only logo above headline */}
               <div className="md:hidden mx-auto mb-5">
-                <Image
-                  src={HomeLogo}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/home-logo-280.webp"
+                  srcSet="/home-logo-280.webp 1x, /home-logo-560.webp 2x"
                   alt="The Law Offices of Saggese & Associates logo"
-                  sizes="(max-width: 767px) 48vw"
-                  className="mx-auto h-auto w-[48vw] max-w-[280px] drop-shadow-[0_6px_14px_rgba(0,0,0,0.55)]"
                   width={280}
                   height={140}
-                  priority
                   fetchPriority="high"
-                  quality={70}
+                  style={{ width: '48vw', maxWidth: 280, height: 'auto' }}
+                  className="mx-auto drop-shadow-[0_6px_14px_rgba(0,0,0,0.55)]"
                 />
               </div>
               <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">

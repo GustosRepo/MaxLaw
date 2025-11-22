@@ -27,7 +27,7 @@ export default function AwardsSection() {
           {[...awards, ...awards].map((file, idx) => (
             <div
               key={`${file}-${idx}`}
-              className="relative h-24 w-24 sm:h-28 sm:w-28 award-tile flex items-center justify-center overflow-hidden"
+              className="relative h-24 w-24 sm:h-28 sm:w-28 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center overflow-hidden"
             >
               <Image
                 src={`/awards/${file}`}

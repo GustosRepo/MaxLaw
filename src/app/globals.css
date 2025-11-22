@@ -3,11 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  /* Brand tokens */
-  --brand-gold: #d4af37;
-  --brand-gold-2: #c5a467;
-  --brand-bg: #0e0e0e;
-  --brand-bg-2: #161616;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -79,22 +74,6 @@ section[id] {
 }
 .cta-glow { transition:box-shadow .28s, transform .22s; }
 .cta-glow:hover { box-shadow:0 18px 48px rgba(212,175,55,0.18); transform:translateY(-3px) scale(1.02); }
-
-/* --- Brand utilities (lightweight, mobile-safe) --- */
-.btn-brand { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; border-radius:16px; padding:.875rem 1.75rem; font-weight:600; color:#0e0e0e; background:linear-gradient(90deg,var(--brand-gold),var(--brand-gold-2)); box-shadow:0 10px 30px rgba(212,175,55,0.18); border:1px solid color-mix(in srgb,var(--brand-gold),transparent 30%); }
-.btn-brand:focus-visible { outline:2px solid color-mix(in srgb,var(--brand-gold),white 10%); outline-offset:2px; }
-@media (hover:hover) and (pointer:fine){
-  .btn-brand:hover{ transform:translateY(-2px); box-shadow:0 16px 48px rgba(212,175,55,0.26); }
-}
-
-.btn-outline { display:inline-flex; align-items:center; justify-content:center; border-radius:16px; padding:.875rem 1.75rem; color:rgba(255,255,255,.9); background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.2); }
-.btn-outline:focus-visible { outline:2px solid rgba(255,255,255,.4); outline-offset:2px; }
-@media (hover:hover) and (pointer:fine){
-  .btn-outline:hover{ background:rgba(255,255,255,.08); }
-}
-
-.award-tile { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:12px; box-shadow:0 8px 24px rgba(0,0,0,.3); }
-.heading-brand { font-family: var(--font-playfair), serif; color: color-mix(in srgb, var(--brand-gold), #fff 15%); }
 
 /* Awards Carousel Animation */
 @keyframes scroll {

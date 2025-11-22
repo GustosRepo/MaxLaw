@@ -7,8 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "optimize:logo": "node scripts/optimize-logo.js"
+    "optimize:logo": "node scripts/optimize-logo.js",
+    "optimize:hero": "node scripts/optimize-hero.js"
   },
+  "optionalDependencies": {},
   "dependencies": {
     "@types/nodemailer": "^7.0.1",
     "@vercel/analytics": "^1.5.0",

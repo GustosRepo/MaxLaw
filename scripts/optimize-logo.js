@@ -16,6 +16,8 @@ async function main(){
     process.exit(1);
   }
   const targets = [
+    { width: 160, name: 'home-logo-160.webp' },
+    { width: 320, name: 'home-logo-320.webp' },
     { width: 280, name: 'home-logo-280.webp' },
     { width: 560, name: 'home-logo-560.webp' },
   ];
@@ -27,7 +29,7 @@ async function main(){
       .webp({ quality: 70, effort: 4 })
       .toFile(out);
   }
-  console.log('Done. Generated WebP logo variants: home-logo-280.webp, home-logo-560.webp');
+  console.log('Done. Generated WebP logo variants: 160/320/280/560 widths');
 }
 
 main().catch(err=>{ console.error(err); process.exit(1); });

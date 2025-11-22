@@ -1,18 +1,28 @@
-import Image from 'next/image';
-
 export default function HeroMediaLite() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <Image
-        src="/home-pics/neo-classical-courthouse-facade-illuminated-night-generated-by-ai.jpg"
-        alt="Courthouse facade at night"
-        fill
-        priority
-        fetchPriority="high"
-        sizes="100vw"
-        quality={40}
-        className="object-cover object-center opacity-85"
-      />
+      {/* Serve responsive AVIF/WebP hero without Next/Image to avoid remote optimizer */}
+      <picture>
+        <source
+          type="image/avif"
+          srcSet="/home-pics/courthouse-640.avif 640w, /home-pics/courthouse-960.avif 960w, /home-pics/courthouse-1280.avif 1280w, /home-pics/courthouse-1536.avif 1536w"
+          sizes="100vw"
+        />
+        <source
+          type="image/webp"
+          srcSet="/home-pics/courthouse-640.webp 640w, /home-pics/courthouse-960.webp 960w, /home-pics/courthouse-1280.webp 1280w, /home-pics/courthouse-1536.webp 1536w"
+          sizes="100vw"
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/home-pics/courthouse-1280.webp"
+          alt="Courthouse facade at night"
+          fetchPriority="high"
+          decoding="async"
+          loading="eager"
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-85"
+        />
+      </picture>
       <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/70 to-black/85" />
     </div>
   );

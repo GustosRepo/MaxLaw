@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 const NAV_LINKS = [
@@ -22,12 +21,15 @@ export default function Navbar() {
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
         <Link href="/" className="inline-flex items-center gap-2 md:gap-3" prefetch={false}>
           <span className="inline-flex items-center justify-center rounded-xl px-2.5 py-1 md:px-3.5 md:py-1.5 border border-[#d4af37]/60 bg-transparent shadow-[0_3px_12px_rgba(212,175,55,0.2)]">
-            <Image
-              src="/home-logo.png"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/home-logo-160.webp"
+              srcSet="/home-logo-160.webp 1x, /home-logo-320.webp 2x"
               alt="The Law Offices of Saggese & Associates"
               width={160}
               height={36}
-              priority
+              fetchPriority="low"
+              decoding="async"
               className="h-8 w-auto md:h-10"
             />
           </span>

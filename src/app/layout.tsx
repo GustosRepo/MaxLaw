@@ -83,6 +83,7 @@ export const metadata: Metadata = {
   shortcut: '/icon.svg',
   apple: '/icon.svg',
   },
+  themeColor: '#0e0e0e',
   alternates: {
     canonical: 'https://www.maxlawnv.com',
   },
@@ -95,6 +96,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfairDisplay.variable} ${inter.variable}`}>
+      <head>
+        <link rel="preload" as="image" href="/home-logo.png" />
+      </head>
       <body className="antialiased">
         <LiteModeProvider>
           <LayoutShell>

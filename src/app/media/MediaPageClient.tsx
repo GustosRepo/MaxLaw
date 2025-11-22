@@ -69,34 +69,34 @@ export default function MediaPage() {
                 <div className="flex animate-scroll gap-8 hover:pause-animation">
                   {/* First set of awards */}
                   <div className="flex gap-8 min-w-max">
-                    <Image src="/awards/Client-Champion.png" alt="Client Champion Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/Lawyers-badge.png" alt="Lawyers Badge" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/top-100.png" alt="Top 100 Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-1.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-2.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-3.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-4.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-5.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-6.jpg" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-7.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-8.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-9.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 hover:shadow-[0_12px_48px_rgba(212,175,55,0.2)] transition-all duration-300" />
+                    <div className="award-tile"><Image src="/awards/Client-Champion.png" alt="Client Champion Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/Lawyers-badge.png" alt="Lawyers Badge" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/top-100.png" alt="Top 100 Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-1.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-2.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-3.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-4.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-5.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-6.jpg" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-7.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-8.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-9.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
                   </div>
                   {/* Duplicate set for seamless loop */}
                   <div className="flex gap-8 min-w-max">
-                    <Image src="/awards/new-updated-badge-10.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-11.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-12.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-13.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-14.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-15.png" alt="Professional Award" width={120} height={150} className="object-contain bg-gradient-to-br from-white/10 to-[#d4af37]/5 rounded-xl p-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-[#d4af37]/20 transition-all duration-300" />
-                    <Image src="/awards/new-updated-badge-16.png" alt="Professional Award" width={120} height={150} className="object-contain bg-white/5 rounded-lg p-2 shadow-lg" />
-                    <Image src="/awards/new-updated-badge-17.png" alt="Professional Award" width={120} height={150} className="object-contain bg_white/5 rounded-lg p-2 shadow-lg" />
-                    <Image src="/awards/new-updated-badge-18.png" alt="Professional Award" width={120} height={150} className="object-contain bg_white/5 rounded-lg p-2 shadow-lg" />
-                    <Image src="/awards/new-updated-badge-19.png" alt="Professional Award" width={120} height={150} className="object-contain bg_white/5 rounded-lg p-2 shadow-lg" />
-                    <Image src="/awards/new-updated-badge-20.png" alt="Professional Award" width={120} height={150} className="object-contain bg_white/5 rounded-lg p-2 shadow-lg" />
-                    <Image src="/awards/new-updated-badge-21.png" alt="Professional Award" width={120} height={150} className="object-contain bg_white/5 rounded-lg p-2 shadow-lg" />
-                    <Image src="/awards/new-updated-badge-22.png" alt="Professional Award" width={120} height={150} className="object-contain bg_white/5 rounded-lg p-2 shadow-lg" />
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-10.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-11.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-12.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-13.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-14.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-15.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-16.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-17.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-18.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-19.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-20.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-21.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
+                    <div className="award-tile"><Image src="/awards/new-updated-badge-22.png" alt="Professional Award" width={120} height={150} className="object-contain" /></div>
                   </div>
                 </div>
               </motion.div>
@@ -189,7 +189,7 @@ export default function MediaPage() {
                 <form onSubmit={(e) => { e.preventDefault(); alert('Thanks — we will be in touch.'); }} className="space-y-3">
                   <input className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Name" />
                   <input className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Email" />
-                  <button className="w-full rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">Submit</button>
+                  <button className="w-full btn-brand text-sm">Submit</button>
                 </form>
               </div>
 

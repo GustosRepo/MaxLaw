@@ -149,7 +149,7 @@ export default function HomeClient(){
               <Card title="Meet Your Lawyer" subtitle="" titleClassName="text-2xl md:text-3xl text-center" bodyClassName="text-center">
                 <div className="flex flex-col items-center">
                   <div className="relative w-72 h-96 md:w-80 md:h-[28rem]">
-                    <Image src="/meet-your.jpg" alt="Attorney Marc A. Saggese" fill className="object-cover rounded-2xl border border-white/10 shadow-xl" />
+                    <Image src="/meet-your.jpg" alt="Attorney Marc A. Saggese" fill className="object-cover object-top rounded-2xl border border-white/10 shadow-xl" />
                   </div>
                   <h4 className="mt-6 text-xl font-semibold">Marc A. Saggese</h4>
                   <p className="mt-3 max-w-2xl mx-auto text-white/75 leading-relaxed">Las Vegas attorney focusing on <strong className="text-[#d4af37]">personal injury</strong> and <strong className="text-[#d4af37]">criminal defense</strong>, blending decades of courtroom experience with client‑first strategy.</p>
@@ -257,7 +257,7 @@ export default function HomeClient(){
             </>
           )}
         </div>
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 min-h-[90dvh] flex items-end">
+  <div className="relative z-10 w-full max-w-6xl mx-auto px-6 min-h-[90dvh] flex items-center md:items-end">
           <div className="flex flex-col md:flex-row items-center md:items-end gap-8 md:gap-14">
             {/* Figure (desktop only) */}
             <div className="hidden md:block relative w-56 lg:w-64 xl:w-72 2xl:w-80 aspect-[365/815] self-end md:mb-0">
@@ -272,14 +272,26 @@ export default function HomeClient(){
             </div>
             {/* Hero copy */}
             <div className="text-center md:text-left flex-1">
-              <h1 className="font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
+              {/* Mobile-only logo above headline */}
+              <div className="md:hidden mx-auto mb-5">
+                <Image
+                  src="/home-logo.png"
+                  alt="The Law Offices of Saggese & Associates logo"
+                  width={320}
+                  height={120}
+                  sizes="(max-width: 767px) 68vw, 0px"
+                  className="mx-auto h-auto w-[68vw] max-w-[360px] drop-shadow-[0_6px_14px_rgba(0,0,0,0.55)]"
+                  priority
+                />
+              </div>
+              <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
                 {FIRM_NAME}
                 <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Personal Injury & Criminal Defense</span>
               </h1>
               <p className="mt-6 text-base sm:text-lg md:text-xl text-white/80 max-w-2xl md:max-w-xl mx-auto md:mx-0">Award‑winning representation. Free consultation. No fee unless we win injury cases.</p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 md:justify-start justify-center">
-                <a href={`tel:${FIRM_PHONE_E164}`} className="rounded-2xl bg-[#d4af37] px-7 py-4 text-base sm:text-lg font-semibold text-[#0e0e0e]">Call {FIRM_PHONE_DISPLAY}</a>
-                <Link href="/contact" className="rounded-2xl border border-white/20 bg-white/5 px-7 py-4 text-base sm:text-lg text-white/90">Request Consultation</Link>
+                <a href={`tel:${FIRM_PHONE_E164}`} className="btn-brand text-base sm:text-lg">Call {FIRM_PHONE_DISPLAY}</a>
+                <Link href="/contact" className="btn-outline text-base sm:text-lg">Request Consultation</Link>
               </div>
               <ul className="mt-8 flex flex-wrap md:justify-start justify-center gap-4 text-xs text-white/60"><li>20+ Years Experience</li><li>Millions Recovered*</li><li>{reviewSummary.rating.toFixed(1)}★ ({reviewSummary.total}+ reviews)</li><li>24/7 Message Us</li></ul>
               <p className="mt-2 text-[10px] text-white/30">*Past results don’t guarantee future outcomes.</p>

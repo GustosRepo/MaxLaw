@@ -13,7 +13,7 @@ export default function AboutSectionLite() {
             alt="Marc A. Saggese"
             width={128}
             height={128}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-top"
             priority={false}
           />
         </div>

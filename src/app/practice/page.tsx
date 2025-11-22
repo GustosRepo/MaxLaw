@@ -31,8 +31,8 @@ export default function PracticePage() {
                 <p className="mt-3 text-sm text-white/80 max-w-3xl">We represent clients in personal injury and criminal defense matters with trial-ready representation and focused client service. Below are some of our core practice areas.</p>
 
                 <div className="mt-4 flex items-center gap-3">
-                  <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.18)]">Call (702) 778‑8883</a>
-                  <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-4 py-2 text-sm text-white/90">Request Consultation</Link>
+                  <a href="tel:17027788883" className="btn-brand text-sm">Call (702) 778‑8883</a>
+                  <Link href="/contact" className="btn-outline text-sm">Request Consultation</Link>
                 </div>
               </div>
             </div>
@@ -71,8 +71,8 @@ export default function PracticePage() {
               <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/8 shadow-lg text-center">
                 <div className="text-sm font-semibold text-white mb-2">Contact</div>
                 <div className="text-white/80 mb-4">Free consultation • Same‑day appointments</div>
-                <a href="tel:17027788883" className="block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-3 text-sm font-semibold text-[#0e0e0e] mb-3">Call (702) 778‑8883</a>
-                <Link href="/contact" className="block rounded-2xl border border-white/10 px-4 py-3 text-sm text-white/90">Request a consultation</Link>
+                <a href="tel:17027788883" className="block btn-brand text-sm mb-3">Call (702) 778‑8883</a>
+                <Link href="/contact" className="block btn-outline text-sm">Request a consultation</Link>
               </div>
 
               <div className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-sm text-white/80">

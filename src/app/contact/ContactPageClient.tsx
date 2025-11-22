@@ -2,6 +2,7 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import LazyMap from '../components/LazyMap';
 import {
   FIRM_ADDRESS_LINE1,
@@ -86,11 +87,14 @@ export default function ContactPageClient() {
             </div>
             <div>
               <h3 className="text-base font-semibold">Directions</h3>
-              <div className="mt-3 relative rounded-xl overflow-hidden border border-white/10">
-                <img 
-                  src="/office-building.jpg" 
+              <div className="mt-3 relative h-32 rounded-xl overflow-hidden border border-white/10">
+                <Image
+                  src="/office-building.jpg"
                   alt="The Law Offices of Saggese & Associates office building"
-                  className="w-full h-32 object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                  priority={false}
                 />
               </div>
               {!mapRevealed ? (

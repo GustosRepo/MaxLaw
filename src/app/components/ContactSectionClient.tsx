@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import LazyMap from './LazyMap';
 import {
   FIRM_ADDRESS_LINE1,
@@ -81,11 +82,14 @@ export default function ContactSectionClient() {
           </ul>
         </div>
         <div className="mt-4 text-sm text-white/60">Office hours: Mon–Fri 8:00–5:00 • Sat–Sun Closed</div>
-        <div className="mt-3 relative rounded-xl overflow-hidden border border-white/10">
-          <img 
-            src="/office-building.jpg" 
+        <div className="mt-3 relative h-32 rounded-xl overflow-hidden border border-white/10">
+          <Image
+            src="/office-building.jpg"
             alt="The Law Offices of Saggese & Associates office building"
-            className="w-full h-32 object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover"
+            priority={false}
           />
         </div>
         {!mapRevealed ? (

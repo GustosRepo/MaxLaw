@@ -23,8 +23,8 @@ import ContactSectionLite from './ContactSectionLite';
 const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { ssr: false, loading: () => <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-white/60">Loading…</div> });
 
 const slugify = (s: string) => s.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
-const PERSONAL_INJURY_TOPICS = ['Car Accidents','Brain And Spine Injury','Wrongful Death'];
 type TopicItem = string | { label: string; href: string };
+const PERSONAL_INJURY_TOPICS: TopicItem[] = ['Car Accidents','Brain & Spine Injury','Wrongful Death'];
 // Use explicit hrefs where slug does not match directory names
 const CRIMINAL_DEFENSE_TOPICS: TopicItem[] = [
   'DUI',
@@ -50,7 +50,7 @@ const TopicsAccordion: React.FC<{ title: string; topics: TopicItem[]; basePath?:
   return (
     <div className="mt-4">
       <button onClick={()=>setOpen(o=>!o)} className="flex w-full items-center justify-between rounded-xl border border-white/10 bg-black/30 px-4 py-2 text-sm font-semibold"><span>{open?`Hide ${title}`:`See ${title}`}</span><span className={`transition-transform ${open?'rotate-180':''}`}>▾</span></button>
-      {open && (
+      {open && Array.isArray(topics) && topics.length > 0 && (
         <ul className="mt-3 grid grid-cols-1 gap-2">
           {topics.map((t, idx) => {
             const label = typeof t === 'string' ? t : t.label;
@@ -382,7 +382,7 @@ export default function HomeClient(){
               <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
                 <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
                 <div className="grid gap-6 md:grid-cols-2">
-                  <Card title="Seriously Hurt?" subtitle="Personal Injury">We help injured Nevadans pursue medical care and compensation.<TopicsAccordion title="Injury Topics" topics={PERSONAL_INJURY_TOPICS as unknown as TopicItem[]} /></Card>
+                  <Card title="Seriously Hurt?" subtitle="Personal Injury">We help injured Nevadans pursue medical care and compensation.<TopicsAccordion title="Injury Topics" topics={PERSONAL_INJURY_TOPICS} /></Card>
                   <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" /></Card>
                 </div>
               </div>

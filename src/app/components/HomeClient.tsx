@@ -2,6 +2,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import HomeLogo from '../../../public/home-logo.png';
 import Link from 'next/link';
 import HeroMediaRotator from './HeroMediaRotator';
 import GoogleReviews from './GoogleReviews';
@@ -302,13 +303,14 @@ export default function HomeClient(){
               {/* Mobile-only logo above headline */}
               <div className="md:hidden mx-auto mb-5">
                 <Image
-                  src="/home-logo.png"
+                  src={HomeLogo}
                   alt="The Law Offices of Saggese & Associates logo"
-                  width={320}
-                  height={120}
-                  sizes="(max-width: 767px) 68vw, 0px"
+                  sizes="(max-width: 767px) 68vw"
                   className="mx-auto h-auto w-[68vw] max-w-[360px] drop-shadow-[0_6px_14px_rgba(0,0,0,0.55)]"
                   priority
+                  fetchPriority="high"
+                  placeholder="blur"
+                  quality={80}
                 />
               </div>
               <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">

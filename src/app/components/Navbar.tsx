@@ -25,7 +25,8 @@ export default function Navbar() {
             <img
               src="/home-logo-160.webp"
               srcSet="/home-logo-160.webp 1x, /home-logo-320.webp 2x"
-              alt="The Law Offices of Saggese & Associates"
+              alt=""
+              aria-hidden="true"
               width={160}
               height={36}
               fetchPriority="low"

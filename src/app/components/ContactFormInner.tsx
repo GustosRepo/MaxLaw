@@ -106,8 +106,8 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
       )}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="md:col-span-2">
-          <label className="text-sm font-semibold block mb-2">What type of matter is this? <span className="text-[#d4af37]">*</span></label>
-          <select value={formData.caseType} onChange={(e) => setFormData(prev => ({ ...prev, caseType: e.target.value }))} required className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+          <label htmlFor="caseType" className="text-sm font-semibold block mb-2">What type of matter is this? <span className="text-[#d4af37]">*</span></label>
+          <select id="caseType" value={formData.caseType} onChange={(e) => setFormData(prev => ({ ...prev, caseType: e.target.value }))} required className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
             <option value="">Select a case type</option>
             <option>Personal Injury</option>
             <option>Criminal Defense</option>

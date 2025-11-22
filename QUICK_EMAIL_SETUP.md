@@ -73,6 +73,8 @@ Then redeploy.
 ### Netlify:
 Same thing but in: Site settings → Build & deploy → Environment
 
+made changes test
+
 ---
 
 ## 🎯 What Happens When Someone Submits Contact Form?

@@ -40,7 +40,9 @@ export default function PracticePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <main className="md:col-span-2 space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <h2 className="text-xl font-['Playfair_Display'] font-bold text-[#bfa76a] mb-4">Personal Injury Law</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 {[
   { title: 'Car Accidents', href: '/practice/car-accidents', desc: 'Car accidents, premises liability, and catastrophic injury representation.' },
   { title: 'Brain & Spine Injury', href: '/practice/brain-and-spine-injury', desc: 'Serious injury, trauma, and long-term care cases.' },
@@ -55,6 +57,27 @@ export default function PracticePage() {
     </div>
   </Link>
 ))}
+                </div>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-['Playfair_Display'] font-bold text-[#bfa76a] mb-4">Criminal Defense</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+{[
+  { title: 'DUI Defense', href: '/criminal-defense/dui', desc: 'DUI - Driving Under the Influence defense and license protection.' },
+  { title: 'Domestic Violence', href: '/criminal-defense/domestic-violence', desc: 'Battery Domestic Violence and related charges.' },
+  { title: 'Drug Offenses', href: '/criminal-defense/drugs', desc: 'Drug related offenses and controlled substance cases.' },
+  { title: 'Violent Crimes', href: '/criminal-defense', desc: 'Violent Offenses and serious criminal charges.' },
+].map((p) => (
+  <Link key={p.title} href={p.href}>
+    <div className="block rounded-2xl p-5 bg-gradient-to-br from-white/3 to-transparent border border-white/8 card-hover">
+      <h3 className="text-lg font-semibold text-white">{p.title}</h3>
+      <p className="text-sm text-white/80 mt-2">{p.desc}</p>
+      <div className="mt-4 text-xs text-white/70">Learn more →</div>
+    </div>
+  </Link>
+))}
+                </div>
               </div>
 
               <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">

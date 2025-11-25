@@ -46,21 +46,22 @@ export default function ServiceAreasPage() {
           <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/10">
             <h3 className="text-lg font-semibold mb-3">Injury Representation</h3>
             <ul className="text-sm list-disc list-inside text-white/80 space-y-1">
-              <li>Auto, motorcycle & truck collisions</li>
-              <li>Brain & spinal trauma</li>
-              <li>Premises & negligent security claims</li>
-              <li>Wrongful death actions</li>
-              <li>Insurance disputes & bad faith</li>
+              <li>Automobile Accident Injury</li>
+              <li>Motorcycle Accident Injury</li>
+              <li>Truck Collision Injury</li>
+              <li>Brain Injury</li>
+              <li>Spinal Injury</li>
+              <li>Wrongful Death Actions</li>
+              <li>Premises Liability</li>
             </ul>
           </div>
           <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/10">
             <h3 className="text-lg font-semibold mb-3">Criminal Defense</h3>
             <ul className="text-sm list-disc list-inside text-white/80 space-y-1">
-              <li>DUI & traffic related</li>
-              <li>Violent & property offenses</li>
-              <li>Drug & controlled substance cases</li>
-              <li>Drug Offenses guidance</li>
-              <li>Professional licensing impacts</li>
+              <li>DUI - Driving Under the Influence</li>
+              <li>Battery Domestic Violence</li>
+              <li>Violent Offenses</li>
+              <li>Drug related offenses</li>
             </ul>
           </div>
         </section>

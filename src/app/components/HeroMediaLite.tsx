@@ -20,10 +20,10 @@ export default function HeroMediaLite() {
           fetchPriority="high"
           decoding="async"
           loading="eager"
-          className="absolute inset-0 h-full w-full object-cover object-center opacity-85"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </picture>
-      <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/70 to-black/85" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/35 via-black/25 to-black/40" />
     </div>
   );
 }

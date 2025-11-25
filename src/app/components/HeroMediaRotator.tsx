@@ -24,7 +24,7 @@ export default function HeroMediaRotator(){
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </picture>
-      <div className="absolute inset-0 bg-[rgba(0,0,0,0.68)] md:bg-gradient-to-br md:from-black/75 md:via-black/55 md:to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/35 via-black/25 to-black/40" />
       <div className="hidden md:block absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(212,175,55,0.25),transparent_65%)] pointer-events-none" />
     </div>
   );

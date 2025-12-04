@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import LayoutShell from './components/LayoutShell';
 import { LiteModeProvider } from './components/LiteModeContext';
+import Script from 'next/script';
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -101,6 +102,12 @@ export default function RootLayout({
             {children}
           </LayoutShell>
         </LiteModeProvider>
+        
+        {/* Apex Chat - Loads after page content */}
+        <Script
+          src="//www.apexchat.net/scripts/invitation.ashx?company=maxlawnv"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

@@ -24,7 +24,7 @@ const REVIEW_SUMMARY = {
 const REVIEWS: Review[] = [
   {
     id: 'desiree-steward',
-    author: 'Desiree Steward',
+    author: 'D.S.',
     profilePhoto: '/awards/Client-Champion.png',
     rating: 5,
     text: 'I had an excellent experience working with Marc Saggese. Professional, knowledgeable, and he explained everything clearly. I felt supported and confident throughout the process.',
@@ -33,7 +33,7 @@ const REVIEWS: Review[] = [
   },
   {
     id: 'melody-hernandez',
-    author: 'Melody Hernandez',
+    author: 'M.H.',
     profilePhoto: '/awards/Lawyers-badge.png',
     rating: 5,
     text: 'Marc Saggese is the most phenomenal lawyer ever. When you think there’s no hope call Marc. He’s a miracle worker.',
@@ -42,7 +42,7 @@ const REVIEWS: Review[] = [
   },
   {
     id: 'jovani-tavizon',
-    author: 'Jovani Tavizon',
+    author: 'J.T.',
     profilePhoto: '/awards/top-100.png',
     rating: 5,
     text: 'Highly recommend Saggese & Associates—very professional and always there to answer any questions. My family is grateful.',
@@ -51,7 +51,7 @@ const REVIEWS: Review[] = [
   },
   {
     id: 'victoria-spencer',
-    author: 'Victoria Spencer',
+    author: 'V.S.',
     profilePhoto: '/awards/new-updated-badge-1.png',
     rating: 5,
     text: 'Multi‑car accident—Marc got me medical attention right away and handled everything. He set realistic expectations and still over‑delivered.',
@@ -60,7 +60,7 @@ const REVIEWS: Review[] = [
   },
   {
     id: 'alma-alvarez',
-    author: 'Alma Alvarez',
+    author: 'A.A.',
     profilePhoto: '/awards/new-updated-badge-2.png',
     rating: 5,
     text: 'Best lawyers! Knowledgeable and will fight for you. Thank you for all you do to help our community.',
@@ -69,7 +69,7 @@ const REVIEWS: Review[] = [
   },
   {
     id: 'paul-mazurkiewicz',
-    author: 'Paul Mazurkiewicz',
+    author: 'P.M.',
     profilePhoto: '/awards/new-updated-badge-3.png',
     rating: 5,
     text: 'Best lawyer in Vegas—thorough, detailed, and on your side from the consultation onward. Thank you Marc!',
@@ -78,7 +78,7 @@ const REVIEWS: Review[] = [
   },
   {
     id: 'patrick-williams',
-    author: 'Patrick Williams',
+    author: 'P.W.',
     profilePhoto: '/awards/new-updated-badge-4.png',
     rating: 5,
     text: 'Stand‑up attorney who always has his clients’ backs. Best attorney I’ve had—he earned every bit of it.',
@@ -87,7 +87,7 @@ const REVIEWS: Review[] = [
   },
   {
     id: 'chaz-bautzer',
-    author: 'Chaz Bautzer',
+    author: 'C.B.',
     profilePhoto: '/awards/new-updated-badge-5.png',
     rating: 5,
     text: 'Best attorney in town, hands down!',
@@ -96,7 +96,7 @@ const REVIEWS: Review[] = [
   },
   {
     id: 'joseph-coleman',
-    author: 'Joseph Coleman',
+    author: 'J.C.',
     profilePhoto: '/awards/new-updated-badge-6.jpg',
     rating: 5,
     text: 'False accusations—Marc stood by me and exposed the truth. Grateful for his skill and persistence.',

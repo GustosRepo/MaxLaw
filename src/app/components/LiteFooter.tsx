@@ -12,6 +12,8 @@ export default function LiteFooter() {
           <Link href="/about" className="hover:text-[#d4af37]">About</Link>
           <Link href="/practice" className="hover:text-[#d4af37]">Practice</Link>
           <Link href="/results" className="hover:text-[#d4af37]">Results</Link>
+          <Link href="/privacy-policy" className="hover:text-[#d4af37]">Privacy Policy</Link>
+          <Link href="/disclaimer" className="hover:text-[#d4af37]">Disclaimer</Link>
           <Link href="/contact" className="hover:text-[#d4af37]">Contact</Link>
         </div>
         <p>© {year} The Law Offices of Saggese &amp; Associates</p>

@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 
 const ACCEPTED_CASE_TYPES = ['Personal Injury', 'Criminal Defense'];
 
@@ -223,7 +224,13 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
         </label>
         <div className="flex items-start gap-2 md:col-span-2">
           <input id="consent" name="consent" type="checkbox" checked={formData.consent} onChange={handleInputChange} className="mt-1" required />
-          <label htmlFor="consent" className="text-sm font-semibold">I have read the disclaimer. <span className="text-white/60">(Submitting does not create an attorney‑client relationship)</span></label>
+          <label htmlFor="consent" className="text-sm font-semibold leading-relaxed">
+            I consent to being contacted by The Law Offices of Saggese &amp; Associates regarding my inquiry and agree to the{' '}
+            <Link href="/privacy-policy" className="text-[#d4af37] underline underline-offset-2">Privacy Policy</Link>{' '}
+            and{' '}
+            <Link href="/disclaimer" className="text-[#d4af37] underline underline-offset-2">Disclaimer</Link>.
+            <span className="mt-1 block text-white/60">Submitting this form does not establish an attorney-client relationship.</span>
+          </label>
         </div>
         <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden />
         <button type="submit" disabled={formStatus === 'loading'} className="mt-2 w-full rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] disabled:opacity-50 disabled:cursor-not-allowed">

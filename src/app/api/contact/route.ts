@@ -11,9 +11,18 @@ interface ContactFormData {
 }
 
 export async function POST(request: NextRequest) {
+  let data: ContactFormData | null = null;
+
   try {
-    const data: ContactFormData = await request.json();
-    
+    data = await request.json();
+
+    if (!data || typeof data !== 'object') {
+      return NextResponse.json(
+        { success: false, error: 'Missing required fields' },
+        { status: 400 }
+      );
+    }
+
     // Validate required fields
     if (!data.firstName || !data.lastName || !data.email || !data.message) {
       return NextResponse.json(
@@ -86,10 +95,24 @@ Submitted on: ${new Date().toLocaleString('en-US', {
       html: emailBody.replace(/\n/g, '<br>'),
     });
 
+    console.info('Contact form email sent successfully', {
+      email: data.email,
+      caseType: data.message ? 'provided' : 'missing',
+      recipient: process.env.CONTACT_TO,
+    });
+
     return NextResponse.json({ success: true });
 
   } catch (error) {
-    console.error('Contact form error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown SMTP error';
+    console.error('Contact form email failed', {
+      error: errorMessage,
+      email: data?.email,
+      firstName: data?.firstName,
+      lastName: data?.lastName,
+      smtpHost: process.env.SMTP_HOST,
+      smtpPort: process.env.SMTP_PORT,
+    });
     return NextResponse.json(
       { success: false, error: 'Failed to send message' },
       { status: 500 }

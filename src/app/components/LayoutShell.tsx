@@ -6,6 +6,8 @@ import LiteNavbar from './LiteNavbar';
 import Footer from './Footer';
 import LiteFooter from './LiteFooter';
 import { useLiteMode } from './LiteModeContext';
+import CookieConsentBanner from './CookieConsentBanner';
+import ClientErrorBoundary from './ClientErrorBoundary';
 
 interface LayoutShellProps {
   children: React.ReactNode;
@@ -47,10 +49,11 @@ export default function LayoutShell({ children }: LayoutShellProps) {
   }, [isMobile, lite, isHydrated]);
 
   return (
-    <>
+    <ClientErrorBoundary>
       {header}
       {children}
       {footer}
-    </>
+      <CookieConsentBanner />
+    </ClientErrorBoundary>
   );
 }

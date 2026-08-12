@@ -14,7 +14,6 @@ export default function HeroMediaRotator(){
           srcSet="/home-pics/courthouse-960.webp 960w, /home-pics/courthouse-1280.webp 1280w, /home-pics/courthouse-1536.webp 1536w"
           sizes="100vw"
         />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/home-pics/courthouse-1536.webp"
           alt="Courthouse facade at night"

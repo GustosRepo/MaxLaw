@@ -1,25 +1,10 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import LayoutShell from './components/LayoutShell';
 import { LiteModeProvider } from './components/LiteModeContext';
 import Script from 'next/script';
 
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-  weight: ["400", "600", "700"],
-  preload: false,
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  weight: ["400", "500", "600"],
-  preload: false,
-});
+// Using standard Google Fonts via CSS to avoid Turbopack/next/font dev-time issues
 
 export const viewport = {
   width: 'device-width',
@@ -95,7 +80,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfairDisplay.variable} ${inter.variable}`}>
+    <html lang="en">
       <body className="antialiased">
         <LiteModeProvider>
           <LayoutShell>

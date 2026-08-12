@@ -17,3 +17,7 @@
 ## Notes
 - The project still has existing ESLint warnings on unused disable directives in two media components, but they do not block the site from building.
 - For production hardening, the next recommended layer is Sentry or similar error monitoring plus uptime checks.
+
+## Monitoring / Sentry
+- [x] Removed temporary Sentry `beforeSend` suppression for ENOENT/PageNotFoundError used during App Router migration.
+	- Follow-up: audit Sentry for any increased noise over next 48-72 hours and decide whether to add targeted filters.

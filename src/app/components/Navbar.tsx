@@ -23,12 +23,11 @@ export default function Navbar() {
           <span className="inline-flex items-center justify-center rounded-xl px-2.5 py-1 md:px-3.5 md:py-1.5 border border-[#d4af37]/60 bg-transparent shadow-[0_3px_12px_rgba(212,175,55,0.2)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/home-logo-160.webp"
-              srcSet="/home-logo-160.webp 1x, /home-logo-320.webp 2x"
+              src="/plainlogo.png"
               alt=""
               aria-hidden="true"
-              width={160}
-              height={36}
+              width={210}
+              height={75}
               fetchPriority="low"
               decoding="async"
               className="h-8 w-auto md:h-10"

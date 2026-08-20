@@ -333,13 +333,15 @@ SEO KPIs
 -   [x] Sitemap submitted
 -   [x] GA4 installed
 -   [x] Search Console linked to GA4
--   [ ] Crawl entire website
--   [ ] Build complete page-to-keyword map
--   [ ] Audit metadata
--   [ ] Audit schema
+-   [x] Crawl entire website
+-   [x] Build complete page-to-keyword map
+-   [x] Audit metadata
+-   [x] Audit schema
 -   [ ] Optimize Home page
 -   [ ] Optimize Personal Injury page
 -   [ ] Optimize Car Accident page
+
+Audit reference: `docs/seo-audit-2026-08-20.md`
 
 ------------------------------------------------------------------------
 

@@ -285,7 +285,7 @@ export default function HomeClient(){
           )}
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[56%] bg-gradient-to-t from-black/90 via-black/55 to-transparent md:hidden" />
-  <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-6 min-h-[calc(100dvh-57px)] md:min-h-[90dvh] flex items-end pb-[12vh] md:pb-0">
+  <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-6 min-h-[calc(100dvh-57px)] md:min-h-[90dvh] flex items-end pb-[28vh] md:pb-0">
           <div className="flex w-full flex-col md:flex-row items-center md:items-end gap-7 md:gap-14">
             {/* Figure (desktop only) */}
             <div className="hidden md:block relative w-56 lg:w-64 xl:w-72 2xl:w-80 aspect-[365/815] self-end md:mb-0">

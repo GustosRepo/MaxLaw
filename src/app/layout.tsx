@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import LayoutShell from './components/LayoutShell';
 import { LiteModeProvider } from './components/LiteModeContext';
+import ApexChatLoader from './components/ApexChatLoader';
 import Script from 'next/script';
 
 // Using standard Google Fonts via CSS to avoid Turbopack/next/font dev-time issues
@@ -79,6 +80,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/home-pics/courthouse-640.avif"
+          type="image/avif"
+          imageSrcSet="/home-pics/courthouse-640.avif 640w, /home-pics/courthouse-960.avif 960w, /home-pics/courthouse-1280.avif 1280w"
+          imageSizes="100vw"
+        />
         {/* Google tag (gtag.js) */}
         <Script
           async
@@ -104,12 +113,7 @@ export default function RootLayout({
             {children}
           </LayoutShell>
         </LiteModeProvider>
-        
-        {/* Apex Chat - Loads after page content */}
-        <Script
-          src="//www.apexchat.net/scripts/invitation.ashx?company=maxlawnv"
-          strategy="lazyOnload"
-        />
+        <ApexChatLoader />
       </body>
     </html>
   );

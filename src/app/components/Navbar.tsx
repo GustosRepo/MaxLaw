@@ -23,7 +23,9 @@ export default function Navbar() {
           <span className="inline-flex items-center justify-center rounded-xl px-2.5 py-1 md:px-3.5 md:py-1.5 border border-[#d4af37]/60 bg-transparent shadow-[0_3px_12px_rgba(212,175,55,0.2)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/plainlogo.png"
+              src="/plainlogo-280.webp"
+              srcSet="/plainlogo-280.webp 280w, /plainlogo-560.webp 560w"
+              sizes="(min-width: 768px) 140px, 42vw"
               alt=""
               aria-hidden="true"
               width={210}

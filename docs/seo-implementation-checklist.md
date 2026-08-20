@@ -10,8 +10,9 @@
 -   Phase 1 technical SEO fixes are mostly complete.
 -   TypeScript validation passes.
 -   ESLint validation passes.
+-   Mobile performance pass completed for above-fold logo assets and deferred chat loading.
 -   Production build is still blocked by the existing Sentry/Turbopack instrumentation failure.
--   Next recommended work: finish homepage metadata/internal links, then optimize the car accident page.
+-   Next recommended work: choose whether to build a dedicated personal injury hub or move to motorcycle/truck/wrongful death supporting pages.
 
 ## Phase 1: Technical SEO Baseline
 
@@ -56,14 +57,28 @@ Build blocker next steps:
 ## Phase 2: Revenue Page Optimization
 
 -   [ ] Optimize homepage around qualified PI/car accident leads.
-    -   [ ] Update homepage title/meta toward `car accident attorney las vegas` and `personal injury lawyer las vegas`.
+    -   [x] Update homepage title/meta toward `car accident attorney las vegas` and `personal injury lawyer las vegas`.
     -   [x] Improve hero/supporting copy for injured, not-at-fault accident victims.
-    -   [ ] Add stronger links to car accident, motorcycle, truck, wrongful death, and contact pages.
-    -   [ ] Keep "lawyer las vegas" language natural because it is already ranking.
+    -   [x] Add stronger links to car accident, motorcycle, truck, wrongful death, and contact pages.
+    -   [x] Keep "lawyer las vegas" language natural because it is already ranking.
 -   [ ] Optimize or create personal injury hub.
--   [ ] Optimize car accident page for `car accident attorney las vegas`.
--   [ ] Add visible FAQ about medical treatment after an injury.
--   [ ] Clean duplicated/unclear schema on priority pages.
+-   [x] Optimize car accident page for `car accident attorney las vegas`.
+-   [x] Add visible FAQ about medical treatment after an injury.
+-   [x] Clean duplicated/unclear schema on car accident page.
+
+## Phase 2A: Mobile PageSpeed
+
+-   [x] Replace above-fold `plainlogo.png` usage with small WebP variants.
+-   [x] Add responsive logo `srcSet` for navbar and mobile hero.
+-   [x] Preload responsive AVIF courthouse hero image.
+-   [x] Defer ApexChat until user interaction or delayed load.
+-   [x] Re-run TypeScript and lint validation.
+-   [ ] Re-run Google PageSpeed Insights after deployment.
+
+Notes:
+
+-   Local PageSpeed Insights API request was blocked by Google API quota on 2026-08-20.
+-   Original `public/plainlogo.png` remains available as a fallback/source asset.
 
 ## Phase 3: Supporting High-Value Pages
 

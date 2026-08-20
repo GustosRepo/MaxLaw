@@ -10,7 +10,9 @@ export default function LiteNavbar() {
         <Link href="/" className="inline-flex min-w-0 flex-shrink-0 items-center" prefetch={false}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/plainlogo.png"
+            src="/plainlogo-280.webp"
+            srcSet="/plainlogo-280.webp 280w, /plainlogo-560.webp 560w"
+            sizes="42vw"
             alt=""
             aria-hidden="true"
             width={210}

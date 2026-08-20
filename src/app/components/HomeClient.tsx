@@ -23,7 +23,13 @@ const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { s
 
 const slugify = (s: string) => s.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
 type TopicItem = string | { label: string; href: string };
-const PERSONAL_INJURY_TOPICS: TopicItem[] = ['Car Accidents','Brain & Spine Injury','Wrongful Death'];
+const PERSONAL_INJURY_TOPICS: TopicItem[] = [
+  { label: 'Car Accidents', href: '/practice/car-accidents' },
+  { label: 'Motorcycle Accidents', href: '/practice/motorcycle-accidents' },
+  { label: 'Truck Accidents', href: '/practice/truck-accidents' },
+  { label: 'Wrongful Death', href: '/practice/wrongful-death' },
+  { label: 'Uninsured & Underinsured Accidents', href: '/practice/underinsured-and-uninsured-accidents' },
+];
 // Use explicit hrefs where slug does not match directory names
 const CRIMINAL_DEFENSE_TOPICS: TopicItem[] = [
   'DUI',
@@ -302,25 +308,32 @@ export default function HomeClient(){
             <div className="w-full flex-1 text-center md:text-left">
               {/* Mobile-only logo above headline */}
               <div className="md:hidden mx-auto mb-4">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/plainlogo.png"
-                  alt="The Law Offices of Saggese & Associates logo"
-                  width={280}
-                  height={100}
-                  fetchPriority="high"
-                  className="mx-auto h-auto w-[62vw] max-w-[255px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.72)]"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet="/plainlogo-280.webp 280w, /plainlogo-560.webp 560w, /plainlogo-840.webp 840w"
+                    sizes="62vw"
+                  />
+                  <img
+                    src="/plainlogo.png"
+                    alt="The Law Offices of Saggese & Associates logo"
+                    width={280}
+                    height={100}
+                    fetchPriority="high"
+                    decoding="async"
+                    className="mx-auto h-auto w-[62vw] max-w-[255px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.72)]"
+                  />
+                </picture>
               </div>
               <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
                 {FIRM_NAME}
-                <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Personal Injury & Criminal Defense</span>
+                <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Car Accident & Personal Injury Attorneys</span>
               </h1>
               <h1 className="md:hidden mx-auto max-w-[22rem] font-[var(--font-playfair)] text-[2.35rem] font-bold leading-[1.02] text-white">
                 Injured in a Las Vegas Car Accident?
               </h1>
               <p className="mt-4 md:mt-6 text-base sm:text-lg md:text-xl leading-relaxed text-white/84 max-w-2xl md:max-w-xl mx-auto md:mx-0">
-                Free consultation. No fee unless we win your injury case.
+                Injured and not at fault? Free consultation. No fee unless we win your injury case.
               </p>
               <div className="mt-6 md:mt-8 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 md:flex md:flex-row md:gap-4 md:justify-start justify-center">
                 <a href={`tel:${FIRM_PHONE_E164}`} className="rounded-2xl bg-[#d4af37] px-6 py-4 text-base sm:text-lg font-semibold text-[#0e0e0e] shadow-[0_14px_34px_rgba(0,0,0,0.35)]">Call {FIRM_PHONE_DISPLAY}</a>
@@ -386,7 +399,7 @@ export default function HomeClient(){
               <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
                 <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
                 <div className="grid gap-6 md:grid-cols-2">
-                  <Card title="Seriously Hurt?" subtitle="Personal Injury">We help injured Nevadans pursue medical care and compensation.<TopicsAccordion title="Injury Topics" topics={PERSONAL_INJURY_TOPICS} /></Card>
+                  <Card title="Injured and not at fault?" subtitle="Las Vegas Personal Injury">We help injured Nevadans after car, motorcycle, and truck accidents pursue medical care and compensation.<TopicsAccordion title="Accident Topics" topics={PERSONAL_INJURY_TOPICS} /><Link href="/contact" className="mt-4 inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">Request a free consultation</Link></Card>
                   <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" /></Card>
                 </div>
               </div>

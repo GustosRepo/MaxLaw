@@ -10,7 +10,7 @@
 -   Phase 1 technical SEO fixes are mostly complete.
 -   TypeScript validation passes.
 -   ESLint validation passes.
--   Mobile performance pass completed for above-fold logo assets and deferred chat loading.
+-   Mobile performance pass completed for above-fold images, font loading, analytics, and chat loading.
 -   Production build is still blocked by the existing Sentry/Turbopack instrumentation failure.
 -   Next recommended work: choose whether to build a dedicated personal injury hub or move to motorcycle/truck/wrongful death supporting pages.
 
@@ -71,7 +71,13 @@ Build blocker next steps:
 -   [x] Replace above-fold `plainlogo.png` usage with small WebP variants.
 -   [x] Add responsive logo `srcSet` for navbar and mobile hero.
 -   [x] Preload responsive AVIF courthouse hero image.
+-   [x] Remove render-blocking Google Fonts CSS import and use system font fallbacks.
+-   [x] Render the lightweight responsive hero media path before mobile hydration.
+-   [x] Defer Google Analytics until user interaction or delayed load.
 -   [x] Defer ApexChat until user interaction or delayed load.
+-   [x] Defer mobile below-fold lite sections until scroll or delayed load.
+-   [x] Split footer and cookie banner out of the initial client shell.
+-   [x] Delay cookie banner display to reduce first-load work and CLS risk.
 -   [x] Re-run TypeScript and lint validation.
 -   [ ] Re-run Google PageSpeed Insights after deployment.
 
@@ -79,6 +85,7 @@ Notes:
 
 -   Local PageSpeed Insights API request was blocked by Google API quota on 2026-08-20.
 -   Original `public/plainlogo.png` remains available as a fallback/source asset.
+-   The Aug. 20, 2026 2:45 PM PDT live report still showed the old render-blocking Google Fonts import and early Google Tag Manager output on production.
 
 ## Phase 3: Supporting High-Value Pages
 

@@ -3,7 +3,6 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-import HeroMediaRotator from './HeroMediaRotator';
 const GoogleReviews = dynamic(() => import('./GoogleReviews'), { loading: () => null });
 const AwardsSection = dynamic(() => import('./AwardsSection'), { loading: () => null });
 const MediaSection = dynamic(() => import('./MediaSection'), { loading: () => null });
@@ -87,6 +86,7 @@ export default function HomeClient(){
   const [safe,setSafe]=React.useState(false);
   const [isMobile,setIsMobile]=React.useState(false);
   const [defer,setDefer]=React.useState(true);
+  const [loadLiteSections,setLoadLiteSections]=React.useState(false);
   const sentinelRef=React.useRef<HTMLDivElement|null>(null);
   const [skipSections,setSkipSections]=React.useState<SkipConfig>({results:false,awards:false,media:false,mission:false,reviews:false,about:false,contact:false});
   const [visibleSections,setVisibleSections]=React.useState(0);
@@ -138,6 +138,33 @@ export default function HomeClient(){
       clearTimeout(to);
       obs?.disconnect();
     };
+  },[lite,isMobile]);
+
+  React.useEffect(()=>{
+    if(typeof window==='undefined')return;
+    const isLiteView = lite || isMobile;
+    if(!isLiteView){
+      setLoadLiteSections(false);
+      return;
+    }
+    let loaded=false;
+    const load=()=>{
+      if(loaded)return;
+      loaded=true;
+      setLoadLiteSections(true);
+      cleanup();
+    };
+    const timer=window.setTimeout(load,12000);
+    const cleanup=()=>{
+      window.removeEventListener('scroll',load);
+      window.removeEventListener('touchmove',load);
+      window.removeEventListener('wheel',load);
+      window.clearTimeout(timer);
+    };
+    window.addEventListener('scroll',load,{once:true,passive:true});
+    window.addEventListener('touchmove',load,{once:true,passive:true});
+    window.addEventListener('wheel',load,{once:true,passive:true});
+    return cleanup;
   },[lite,isMobile]);
 
   const sectionQueue = React.useMemo(() => {
@@ -281,14 +308,8 @@ export default function HomeClient(){
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#161616] text-white font-[var(--font-inter)]">
       <Section id="home" className="relative overflow-hidden min-h-[calc(100dvh-57px)] md:min-h-[90dvh] flex items-stretch md:items-center pt-0 md:pt-16 pb-0">
         <div className="absolute inset-0">
-          {isLite ? (
-            <HeroMediaLite />
-          ) : (
-            <>
-              <HeroMediaRotator />
-              <div className="absolute inset-0 bg-black/45" />
-            </>
-          )}
+          <HeroMediaLite />
+          {!isLite && <div className="absolute inset-0 hidden bg-black/45 md:block" />}
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[56%] bg-gradient-to-t from-black/90 via-black/55 to-transparent md:hidden" />
   <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-6 min-h-[calc(100dvh-57px)] md:min-h-[90dvh] flex items-end pb-[28vh] md:pb-0">
@@ -354,37 +375,37 @@ export default function HomeClient(){
         </div>
       )}
 
-      {isLite && (
+      {isLite && loadLiteSections && (
         <Section id="practice" className="py-10">
           <PracticeCardsLite />
         </Section>
       )}
 
-      {isLite && (
+      {isLite && loadLiteSections && (
         <Section id="results-lite" className="py-10">
           <ResultsSectionLite />
         </Section>
       )}
 
-      {isLite && (
+      {isLite && loadLiteSections && (
         <Section id="awards-lite" className="py-10">
           <AwardsSectionLite />
         </Section>
       )}
 
-      {isLite && (
+      {isLite && loadLiteSections && (
         <Section id="reviews-lite" className="py-10">
           <ReviewsSectionLite />
         </Section>
       )}
 
-      {isLite && (
+      {isLite && loadLiteSections && (
         <Section id="about-lite" className="py-10">
           <AboutSectionLite />
         </Section>
       )}
 
-      {isLite && (
+      {isLite && loadLiteSections && (
         <Section id="contact-lite" className="py-10">
           <ContactSectionLite />
         </Section>

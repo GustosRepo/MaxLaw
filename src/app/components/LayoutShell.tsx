@@ -1,13 +1,15 @@
 "use client";
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Navbar from './Navbar';
 import LiteNavbar from './LiteNavbar';
-import Footer from './Footer';
-import LiteFooter from './LiteFooter';
 import { useLiteMode } from './LiteModeContext';
-import CookieConsentBanner from './CookieConsentBanner';
 import ClientErrorBoundary from './ClientErrorBoundary';
+
+const Footer = dynamic(() => import('./Footer'), { loading: () => null });
+const LiteFooter = dynamic(() => import('./LiteFooter'), { loading: () => null });
+const CookieConsentBanner = dynamic(() => import('./CookieConsentBanner'), { loading: () => null });
 
 interface LayoutShellProps {
   children: React.ReactNode;
@@ -17,6 +19,7 @@ export default function LayoutShell({ children }: LayoutShellProps) {
   const { lite, nav } = useLiteMode();
   const [isMobile, setIsMobile] = React.useState(false);
   const [isHydrated, setIsHydrated] = React.useState(false);
+  const [showCookieConsent, setShowCookieConsent] = React.useState(false);
 
   React.useEffect(() => {
     setIsHydrated(true);
@@ -26,6 +29,11 @@ export default function LayoutShell({ children }: LayoutShellProps) {
     update();
     mql.addEventListener('change', update);
     return () => mql.removeEventListener('change', update);
+  }, []);
+
+  React.useEffect(() => {
+    const timer = window.setTimeout(() => setShowCookieConsent(true), 3500);
+    return () => window.clearTimeout(timer);
   }, []);
 
   const header = React.useMemo(() => {
@@ -53,7 +61,7 @@ export default function LayoutShell({ children }: LayoutShellProps) {
       {header}
       {children}
       {footer}
-      <CookieConsentBanner />
+      {showCookieConsent && <CookieConsentBanner />}
     </ClientErrorBoundary>
   );
 }

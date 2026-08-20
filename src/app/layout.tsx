@@ -3,7 +3,7 @@ import "./globals.css";
 import LayoutShell from './components/LayoutShell';
 import { LiteModeProvider } from './components/LiteModeContext';
 import ApexChatLoader from './components/ApexChatLoader';
-import Script from 'next/script';
+import GoogleAnalyticsLoader from './components/GoogleAnalyticsLoader';
 
 // Using standard Google Fonts via CSS to avoid Turbopack/next/font dev-time issues
 
@@ -88,24 +88,6 @@ export default function RootLayout({
           imageSrcSet="/home-pics/courthouse-640.avif 640w, /home-pics/courthouse-960.avif 960w, /home-pics/courthouse-1280.avif 1280w"
           imageSizes="100vw"
         />
-        {/* Google tag (gtag.js) */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-1FSZHPMBHS"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-1FSZHPMBHS');
-            `,
-          }}
-        />
       </head>
       <body className="antialiased">
         <LiteModeProvider>
@@ -113,6 +95,7 @@ export default function RootLayout({
             {children}
           </LayoutShell>
         </LiteModeProvider>
+        <GoogleAnalyticsLoader />
         <ApexChatLoader />
       </body>
     </html>

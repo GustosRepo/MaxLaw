@@ -309,7 +309,7 @@ export default function HomeClient(){
                   width={280}
                   height={140}
                   fetchPriority="high"
-                  style={{ width: '48vw', maxWidth: 280, height: 'auto' }}
+                  style={{ width: '58vw', maxWidth: 340, height: 'auto' }}
                   className="mx-auto drop-shadow-[0_6px_14px_rgba(0,0,0,0.55)]"
                 />
               </div>

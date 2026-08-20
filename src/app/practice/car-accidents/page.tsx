@@ -14,14 +14,14 @@ export const metadata: Metadata = {
     title: 'Las Vegas Car Accident Lawyer | Saggese & Associates',
     description: 'Pursuing maximum compensation for Nevada crash & injury victims. Free consultation.',
     url: `${SITE_URL}/practice/car-accidents`,
-    images: [{ url: `${SITE_URL}/og-car-accidents.jpg`, width: 1200, height: 630, alt: 'Las Vegas Car Accident Lawyer' }],
+    images: [{ url: `${SITE_URL}/content/car-accident2.png`, width: 640, height: 426, alt: 'Las Vegas Car Accident Lawyer' }],
     type: 'article'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Las Vegas Car Accident Lawyer',
     description: 'Injured in a crash? Free case review – Saggese & Associates.',
-    images: [`${SITE_URL}/og-car-accidents.jpg`]
+    images: [`${SITE_URL}/content/car-accident2.png`]
   }
 };
 
@@ -34,7 +34,7 @@ export default function CarAccidentsPage() {
         serviceType="Las Vegas Car Accident Lawyer"
         description="Experienced Las Vegas car accident lawyers pursuing maximum compensation for collision & injury victims. Free consultation – call (702) 778‑8883."
         keywords={['las vegas car accident lawyer','auto accident attorney','car crash injury claim','nevada personal injury lawyer']}
-        imagePath="/og-car-accidents.jpg"
+        imagePath="/content/car-accident2.png"
       />
     </>
   );

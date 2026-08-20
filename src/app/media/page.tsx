@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     title: 'Media & Press Coverage',
     description: 'Latest media appearances and press coverage of The Law Offices of Saggese & Associates.',
     url: 'https://www.maxlawnv.com/media',
-    images: ['/og-media.jpg'],
+    images: ['/content/boston-marathon.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Media & Press | Saggese & Associates',
     description: 'Stay updated on our latest media appearances and legal insights.',
-    images: ['/og-media.jpg'],
+    images: ['/content/boston-marathon.jpg'],
   },
 };
 

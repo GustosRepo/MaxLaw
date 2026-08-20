@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     title: 'Las Vegas Motorcycle Accident Lawyer | Saggese & Associates',
     description: 'Helmet law, reconstruction & severe injury advocacy. Free consultation.',
     url: `${SITE_URL}/practice/motorcycle-accidents`,
-    images: [{ url: `${SITE_URL}/og-motorcycle-accidents.jpg`, width: 1200, height: 630, alt: 'Las Vegas Motorcycle Accident Lawyer' }],
+    images: [{ url: `${SITE_URL}/lvbg.jpg`, width: 1280, height: 882, alt: 'Las Vegas Motorcycle Accident Lawyer' }],
     type: 'article'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Las Vegas Motorcycle Accident Lawyer',
     description: 'Motorcycle crash injury advocacy — free consultation.',
-    images: [`${SITE_URL}/og-motorcycle-accidents.jpg`]
+    images: [`${SITE_URL}/lvbg.jpg`]
   }
 };
 
@@ -32,7 +32,7 @@ export default function MotorcycleAccidentsPage() {
         serviceType="Las Vegas Motorcycle Accident Lawyer"
         description="Las Vegas motorcycle crash & injury lawyers — helmet law knowledge, severe injury claims & insurer negotiation. Free consultation."
         keywords={['las vegas motorcycle accident lawyer','motorcycle injury claim','biker crash attorney']}
-        imagePath="/og-motorcycle-accidents.jpg"
+        imagePath="/lvbg.jpg"
         faqs={[
           { question: 'Do I have to wear a helmet in Nevada?', answer: 'Yes. Nevada law requires approved helmets for most motorcycle riders and passengers.' },
           { question: 'How long do I have to file a motorcycle accident claim?', answer: 'In Nevada, the statute of limitations for most injury claims is two years from the date of the crash.' }

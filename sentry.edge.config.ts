@@ -20,7 +20,7 @@ Sentry.init({
     // userInfo: false,
     // httpBodies: [],
   },
-  beforeSend(event, hint) {
+  beforeSend(event) {
     // Previously we suppressed ENOENT / PageNotFoundError events during
     // App Router migration to reduce noisy Sentry alerts. Those temporary
     // filters have been removed so all production errors are reported.

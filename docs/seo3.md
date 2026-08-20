@@ -1,7 +1,7 @@
 # Max Law SEO Playbook
 
-**Version:** 1.0\
-**Last Updated:** 2026-08-16
+**Version:** 1.1\
+**Last Updated:** 2026-08-20
 
 ------------------------------------------------------------------------
 
@@ -21,7 +21,8 @@ with this strategy.
 ## Primary Goal
 
 Generate **4--8 new qualified personal injury cases per month** from
-organic Google search.
+organic Google search. The client specifically said they would be content
+with **one to two new good cases per week**.
 
 ## Success Metric
 
@@ -30,6 +31,92 @@ alone
 
 The objective is to attract **qualified, not-at-fault injury victims**
 who become paying clients.
+
+## Qualified Case Definition
+
+The client's highest-value case is:
+
+-   Car accident case
+-   Caller has injuries
+-   Caller was not at fault
+-   Case can become a signed client, not just a phone call or consultation
+
+Marketing should not optimize for lead volume alone. More calls,
+consultations, or form submissions are only valuable when they produce
+viable signed cases.
+
+------------------------------------------------------------------------
+
+# Client Discovery Answers
+
+Source: Marc Saggese client response, August 5.
+
+## Practice Areas Client Wants to Rank For
+
+-   Personal Injury: Yes
+-   Car Accidents: Yes
+-   Wrongful Death: Yes
+-   Motorcycle cases: Usually very good
+-   Big rig / trucking cases: Good because of larger insurance policies
+
+## Services Client Does Not Want to Rank For
+
+-   Immigration
+-   Bankruptcy
+-   Medical Malpractice
+-   Family Law
+-   Workers' Compensation
+-   Estate Planning
+
+## Target Locations Confirmed by Client
+
+-   Las Vegas
+-   Henderson
+-   Summerlin
+-   Clark County
+
+## Target Search Terms From Client
+
+Client priority order:
+
+1.  Car accident attorney
+2.  Personal injury lawyer
+3.  Injury lawyer near me
+
+Additional term client likes:
+
+-   Injury Attorney
+
+## Competitors From Client
+
+-   Naqvi
+-   Paul Powell
+-   Lerner & Rowe
+-   Dimopoulos
+-   All major personal injury advertisers in the Las Vegas market
+
+## Case Results Constraint
+
+Recent settlements, verdicts, and success stories may be difficult to
+feature because many outcomes are tied to confidentiality agreements.
+Avoid relying on specific case-result content unless the client approves
+the exact language.
+
+## FAQ From Client
+
+Prospective clients often ask:
+
+-   If I am injured, can the firm send me somewhere for medical treatment?
+
+This should become a visible FAQ and supporting content topic for car
+accident and personal injury pages.
+
+## Google Business Profile Status
+
+Client believes a Google Business Profile exists. They previously used a
+Google product and received a high volume of spam contacts, then stopped.
+Credentials are pending from the client. Local SEO and GBP optimization
+should resume once access is available.
 
 ------------------------------------------------------------------------
 
@@ -48,9 +135,9 @@ who become paying clients.
 
 ## Critical
 
-1.  Car Accident
-2.  Personal Injury
-3.  Injury Attorney
+1.  Car Accident Attorney
+2.  Personal Injury Lawyer
+3.  Injury Lawyer Near Me / Injury Attorney
 
 ## High
 
@@ -92,8 +179,16 @@ Future expansion only after dominating these markets.
 
 -   car accident attorney las vegas
 -   car accident lawyer las vegas
--   injury attorney
 -   personal injury lawyer las vegas
+-   injury lawyer near me
+-   injury attorney
+
+## Priority Rationale
+
+The client ranked **Car accident attorney** as the number-one search term
+and described the ideal lead as an injured, not-at-fault car accident
+victim. Personal injury lawyer is second. Injury lawyer near me is third.
+Injury attorney is also approved by the client.
 
 ------------------------------------------------------------------------
 
@@ -174,6 +269,7 @@ Target supporting topics:
 -   motorcycle accident lawyer
 -   distracted driving accidents
 -   medical treatment after accident
+-   can a lawyer send me somewhere for medical treatment
 
 ------------------------------------------------------------------------
 
@@ -215,6 +311,7 @@ Future articles:
 
 -   What to do after a car accident
 -   Can a lawyer help me find treatment?
+-   Can my lawyer send me to a doctor after a car accident?
 -   Who pays medical bills?
 -   Insurance claim process
 -   Rear-end accidents
@@ -227,12 +324,13 @@ Future articles:
   ---------------------------------------------------------------------------
   URL          Primary Keyword              Status           Priority
   ------------ ---------------------------- ---------------- ----------------
-  Home         lawyer las vegas             Improve          High
+  Home         lawyer las vegas / car       Improve          High
+               accident attorney las vegas                   
 
   Personal     personal injury lawyer las   Audit            Critical
   Injury       vegas                                         
 
-  Car Accident car accident lawyer las      Audit/Create     Critical
+  Car Accident car accident attorney las    Audit/Create     Critical
                vegas                                         
 
   Motorcycle   motorcycle accident lawyer   Audit/Create     High
@@ -291,6 +389,7 @@ Also maintain:
 7.  Review Core Web Vitals
 8.  Review Google Business Profile
 9.  Track leads and signed cases
+10. Review lead quality, not just lead volume
 
 ------------------------------------------------------------------------
 
@@ -300,6 +399,9 @@ Business KPIs
 
 -   Signed cases
 -   Qualified consultations
+-   Qualified car accident inquiries
+-   Not-at-fault injury inquiries
+-   New good cases per month
 
 SEO KPIs
 
@@ -317,13 +419,19 @@ SEO KPIs
 # Development Guardrails
 
 -   Never optimize for services the firm does not offer.
+-   Do not optimize for immigration, bankruptcy, medical malpractice,
+    family law, workers' compensation, or estate planning.
 -   Prioritize client revenue over search volume.
+-   Prioritize signed qualified cases over raw calls or form submissions.
 -   Preserve URLs whenever possible.
 -   Avoid duplicate titles and metadata.
 -   One primary keyword per page.
 -   Every page should have a clear CTA.
 -   Every page should strengthen topical authority in Personal Injury.
 -   Do not chase random keywords.
+-   Do not publish specific case results, settlement amounts, or success
+    stories unless the client approves the exact language because many
+    outcomes may be confidential.
 
 ------------------------------------------------------------------------
 

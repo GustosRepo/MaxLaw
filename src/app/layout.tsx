@@ -28,9 +28,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
   robots: {
     index: true,
     follow: true,

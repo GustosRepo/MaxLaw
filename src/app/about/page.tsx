@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     title: 'About The Law Offices of Saggese & Associates',
     description: 'Experienced Las Vegas attorneys dedicated to personal injury and criminal defense cases.',
     url: 'https://www.maxlawnv.com/about',
-    images: ['/og-about.jpg'],
+    images: ['/marcpage.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Our Las Vegas Law Firm',
     description: 'Meet the experienced attorneys at Saggese & Associates.',
-    images: ['/og-about.jpg'],
+    images: ['/marcpage.jpg'],
   },
 };
 

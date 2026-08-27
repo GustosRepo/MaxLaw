@@ -317,7 +317,7 @@ export default function HomeClient(){
             {/* Figure (desktop only) */}
             <div className="hidden md:block relative w-56 lg:w-64 xl:w-72 2xl:w-80 aspect-[365/815] self-end md:mb-0">
               <Image
-                src="/fulbodyhero.png"
+                src="/newfigure.png"
                 alt="Lead attorney"
                 fill
                 sizes="(min-width:1280px) 20vw, (min-width:1024px) 25vw, 0px" /* 0 on mobile since hidden */

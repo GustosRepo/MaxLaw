@@ -209,7 +209,7 @@ export default function HomeClient(){
               <Card title="Meet Your Lawyer" subtitle="" titleClassName="text-2xl md:text-3xl text-center" bodyClassName="text-center">
                 <div className="flex flex-col items-center">
                   <div className="relative w-72 h-96 md:w-80 md:h-[28rem]">
-                    <Image src="/meet-your.jpg" alt="Attorney Marc A. Saggese" fill className="object-cover object-top rounded-2xl border border-white/10 shadow-xl" />
+                    <Image src="/newmarc.jpg" alt="Attorney Marc A. Saggese" fill className="object-cover object-top rounded-2xl border border-white/10 shadow-xl" />
                   </div>
                   <h4 className="mt-6 text-xl font-semibold">Marc A. Saggese</h4>
                   <p className="mt-3 max-w-2xl mx-auto text-white/75 leading-relaxed">Las Vegas attorney focusing on <strong className="text-[#d4af37]">personal injury</strong> and <strong className="text-[#d4af37]">criminal defense</strong>, blending decades of courtroom experience with client‑first strategy.</p>
@@ -317,7 +317,7 @@ export default function HomeClient(){
             {/* Figure (desktop only) */}
             <div className="hidden md:block relative w-56 lg:w-64 xl:w-72 2xl:w-80 aspect-[365/815] self-end md:mb-0">
               <Image
-                src="/attorney-figure.png"
+                src="/fulbodyhero.png"
                 alt="Lead attorney"
                 fill
                 sizes="(min-width:1280px) 20vw, (min-width:1024px) 25vw, 0px" /* 0 on mobile since hidden */

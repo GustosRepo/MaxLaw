@@ -1,5 +1,13 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import {
+  FIRM_ADDRESS_LINE1,
+  FIRM_ADDRESS_LINE2,
+  FIRM_NAME,
+  FIRM_PHONE_DISPLAY,
+  FIRM_PHONE_E164,
+  SITE_URL,
+} from '../../../lib/constants';
 
 interface FormPayload {
   firstName: string;
@@ -23,6 +31,7 @@ interface FormPayload {
 }
 
 const ACCEPTED_CASE_TYPES = ['Personal Injury', 'Criminal Defense'];
+const EMAIL_LOGO_URL = `${SITE_URL}/home-logo-560.webp`;
 
 function buildPlainText(form: FormPayload) {
   const lines: string[] = [];
@@ -126,12 +135,22 @@ export async function POST(req: Request) {
     const clientSubject = 'Thank you for contacting The Law Offices of Saggese & Associates';
     const clientHtml = `
       <div style="font-family:Arial,Helvetica,sans-serif;color:#111;max-width:600px">
-        <h2 style="color:#d4af37">Thank You for Reaching Out</h2>
+        <div style="margin-bottom:22px">
+          <img src="${EMAIL_LOGO_URL}" alt="${FIRM_NAME}" width="220" style="display:block;max-width:220px;width:100%;height:auto" />
+        </div>
+        <h2 style="color:#d4af37;margin:0 0 14px">Thank You for Reaching Out</h2>
         <p>Dear ${form.firstName || ''},</p>
         <p>We have received your inquiry regarding <strong>${form.caseType || 'your legal matter'}</strong>. A member of our team will review your information and contact you shortly.</p>
+        <div style="margin-top:22px;padding-top:16px;border-top:1px solid #ddd;color:#333;font-size:14px;line-height:1.5">
+          <strong>${FIRM_NAME}</strong><br />
+          ${FIRM_ADDRESS_LINE1}<br />
+          ${FIRM_ADDRESS_LINE2}<br />
+          Phone: <a href="tel:${FIRM_PHONE_E164}" style="color:#111">${FIRM_PHONE_DISPLAY}</a><br />
+          Website: <a href="${SITE_URL}" style="color:#111">${SITE_URL}</a>
+        </div>
       </div>
     `;
-    const clientText = `Thank you for contacting The Law Offices of Saggese & Associates\n\nDear ${form.firstName || ''},\n\nWe have received your inquiry regarding ${form.caseType || 'your legal matter'}.`;
+    const clientText = `Thank you for contacting The Law Offices of Saggese & Associates\n\nDear ${form.firstName || ''},\n\nWe have received your inquiry regarding ${form.caseType || 'your legal matter'}.\n\n${FIRM_NAME}\n${FIRM_ADDRESS_LINE1}\n${FIRM_ADDRESS_LINE2}\nPhone: ${FIRM_PHONE_DISPLAY}\nWebsite: ${SITE_URL}`;
 
     await transporter.sendMail({ from, to: form.email, subject: clientSubject, text: clientText, html: clientHtml });
 

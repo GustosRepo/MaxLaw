@@ -110,12 +110,9 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
           <label htmlFor="caseType" className="text-sm font-semibold block mb-2">What type of matter is this? <span className="text-[#d4af37]">*</span></label>
           <select id="caseType" value={formData.caseType} onChange={(e) => setFormData(prev => ({ ...prev, caseType: e.target.value }))} required className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
             <option value="">Select a case type</option>
-            <option>Personal Injury</option>
-            <option>Criminal Defense</option>
-            <option>Family Law</option>
-            <option>Immigration</option>
-            <option>Business / Contract</option>
-            <option>Other</option>
+            {ACCEPTED_CASE_TYPES.map(caseType => (
+              <option key={caseType} value={caseType}>{caseType}</option>
+            ))}
           </select>
           {!ACCEPTED_CASE_TYPES.includes(formData.caseType || '') && formData.caseType !== '' && (
             <div className="mt-2 text-sm text-yellow-300">We do not handle this matter. Please call for a referral.</div>

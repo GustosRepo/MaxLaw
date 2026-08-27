@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     type: "profile",
     url: "https://www.maxlawnv.com/about/marc-a-saggese",
     images: [
-      { url: "https://www.maxlawnv.com/marcpage.jpg", width: 800, height: 1200, alt: "Attorney Marc A. Saggese" }
+      { url: "https://www.maxlawnv.com/newmarc.jpg", width: 1320, height: 1604, alt: "Attorney Marc A. Saggese" }
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Marc A. Saggese, Esq. | Las Vegas Trial Attorney",
     description: "Las Vegas personal injury & criminal defense lawyer. Free consultation.",
-    images: ["https://www.maxlawnv.com/marcpage.jpg"],
+    images: ["https://www.maxlawnv.com/newmarc.jpg"],
   },
 };
 
@@ -38,7 +38,7 @@ export default function MarcSaggesePage() {
             <div className="flex items-start justify-center md:justify-start">
               <div className="relative rounded-2xl overflow-hidden w-40 md:w-48">
                 <div className="absolute inset-0 rounded-2xl blur-2xl" style={{ background: 'radial-gradient(ellipse at center, rgba(191,167,106,0.12), transparent 30%)' }} />
-                <Image src="/marcpage.jpg" alt="Marc A. Saggese, Esq." width={320} height={520} className="relative rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] border border-[#bfa76a]/20 object-cover bg-[#0f1011]" />
+                <Image src="/newmarc.jpg" alt="Marc A. Saggese, Esq." width={320} height={389} className="relative rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] border border-[#bfa76a]/20 object-cover bg-[#0f1011]" />
               </div>
             </div>
 

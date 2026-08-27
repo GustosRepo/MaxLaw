@@ -190,7 +190,7 @@ export default function AboutPage() {
                   <h3 className="text-2xl font-[var(--font-playfair)] font-bold mb-3">Your Attorney</h3>
                   <div className="flex items-center gap-4 justify-center">
                     <Image
-                      src="/biopic.jpg"
+                      src="/newmarc.jpg"
                       alt="Marc A. Saggese"
                       width={80}
                       height={80}

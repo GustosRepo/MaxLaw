@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Las Vegas Service Areas | Saggese & Associates',
-  description: 'Law firm serving Las Vegas Valley communities including Summerlin, Henderson, North Las Vegas, Spring Valley, Paradise, Enterprise & more. Personal injury & criminal defense.',
+  description: 'Law firm serving Las Vegas Valley communities including Summerlin, Henderson, North Las Vegas, Spring Valley, Paradise, Enterprise & more. Injury & criminal defense.',
   alternates: { canonical: 'https://www.maxlawnv.com/service-areas' }
 }
 
@@ -15,11 +15,11 @@ const AREAS = [
 export default function ServiceAreasPage() {
   const areaStructured = {
     name: 'Service Areas – The Law Offices of Saggese & Associates',
-    serviceType: ['Personal Injury Law', 'Criminal Defense Law'],
+    serviceType: ['Injury Law', 'Criminal Defense Law'],
     areaServed: AREAS.map(a => ({ '@type': 'City', name: a })),
     provider: { '@type': 'LegalService', name: 'The Law Offices of Saggese & Associates' },
     url: 'https://www.maxlawnv.com/service-areas',
-    description: 'Comprehensive legal representation across the Las Vegas Valley in personal injury and criminal defense matters.'
+    description: 'Comprehensive legal representation across the Las Vegas Valley in injury and criminal defense matters.'
   }
 
   return (
@@ -29,7 +29,7 @@ export default function ServiceAreasPage() {
         <header className="mb-10 text-center">
           <h1 className="text-3xl md:text-4xl font-[var(--font-playfair)] font-bold text-[#d4af37]">Areas We Serve</h1>
           <div className="mt-3 mx-auto w-40 h-1.5 bg-gradient-to-r from-[#d4af37] to-[#c5a467] rounded-full" />
-          <p className="mt-4 text-white/80 max-w-2xl mx-auto text-sm">We provide personal injury and criminal defense representation throughout the greater Las Vegas Valley. Below is a representative list of communities we regularly serve. If you do not see your area listed, contact us — we likely cover it.</p>
+          <p className="mt-4 text-white/80 max-w-2xl mx-auto text-sm">We provide injury and criminal defense representation throughout the greater Las Vegas Valley. Below is a representative list of communities we regularly serve. If you do not see your area listed, contact us — we likely cover it.</p>
         </header>
 
         <section className="rounded-2xl p-6 md:p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 shadow-lg">

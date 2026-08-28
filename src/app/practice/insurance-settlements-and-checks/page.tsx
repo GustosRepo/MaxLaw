@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Las Vegas insurance settlement lawyer negotiating fair payouts, lien reduction & proper disbursement. Free consultation (702) 778‑8883.',
   keywords: [
     'las vegas insurance settlement lawyer',
-    'personal injury settlement process nevada',
+    'injury settlement process nevada',
     'lien reduction attorney',
     'injury settlement timeline'
   ],
@@ -44,7 +44,7 @@ export default function InsuranceSettlementsPage() {
             <li><span className="stat-number">•</span> Settlement structures can vary from lump sum to structured payments.</li>
             <li><span className="stat-number">•</span> Medical liens can often be reduced by <strong className="text-[#d4af37]">15-30%</strong> through negotiation.</li>
             <li><span className="stat-number">•</span> Settlement processing typically takes <strong className="text-[#d4af37]">3-6 months</strong> for distribution.</li>
-            <li><span className="stat-number">•</span> Personal injury settlements are generally not taxable income.</li>
+            <li><span className="stat-number">•</span> Injury settlements are generally not taxable income.</li>
           </ul>
 
           <p className="mt-4 text-white/80 leading-relaxed">We advise on settlement taxes, lien negotiations, and whether a lump-sum or structured option best serves your long-term needs.</p>
@@ -92,7 +92,7 @@ export default function InsuranceSettlementsPage() {
         description="Las Vegas insurance settlement lawyer negotiating fair payouts, lien reduction & proper disbursement. Free consultation."
         keywords={['las vegas insurance settlement lawyer','lien reduction attorney','injury settlement timeline']}
         faqs={[
-          { question: 'How long does a settlement take?', answer: 'Many personal injury settlements disburse within 3–6 months after agreement, depending on lien negotiations and insurer processing.' },
+          { question: 'How long does a settlement take?', answer: 'Many injury settlements disburse within 3–6 months after agreement, depending on lien negotiations and insurer processing.' },
           { question: 'Can medical liens be reduced?', answer: 'Yes—providers and lienholders often accept reductions negotiated by counsel, increasing net recovery.' }
         ]}
       />

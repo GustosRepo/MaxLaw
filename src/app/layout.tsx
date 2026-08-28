@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.maxlawnv.com'),
   title: {
     template: '%s | The Law Offices of Saggese & Associates',
-    default: 'Las Vegas Personal Injury & Criminal Defense Lawyer | Saggese & Associates',
+    default: 'Las Vegas Injury & Criminal Defense Lawyer | Saggese & Associates',
   },
-  description: 'Award-winning Las Vegas law firm specializing in personal injury and criminal defense. Free consultations, no fees unless we win. Call (702) 778-8883.',
-  keywords: ['Las Vegas lawyer', 'personal injury attorney', 'criminal defense lawyer', 'Nevada law firm', 'Clark County attorney', 'Marc Saggese'],
+  description: 'Award-winning Las Vegas law firm specializing in injury and criminal defense. Free consultations, no fees unless we win. Call (702) 778-8883.',
+  keywords: ['Las Vegas lawyer', 'injury attorney', 'criminal defense lawyer', 'Nevada law firm', 'Clark County attorney', 'Marc Saggese'],
   authors: [{ name: 'The Law Offices of Saggese & Associates' }],
   creator: 'The Law Offices of Saggese & Associates',
   publisher: 'The Law Offices of Saggese & Associates',
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.maxlawnv.com',
     siteName: 'The Law Offices of Saggese & Associates',
-    title: 'Las Vegas Personal Injury & Criminal Defense Lawyer',
-    description: 'Award-winning Las Vegas law firm specializing in personal injury and criminal defense. Free consultations available.',
+    title: 'Las Vegas Injury & Criminal Defense Lawyer',
+    description: 'Award-winning Las Vegas law firm specializing in injury and criminal defense. Free consultations available.',
     images: [
       {
         url: 'https://www.maxlawnv.com/home-logo.png?v=2',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Las Vegas Personal Injury & Criminal Defense Lawyer',
+    title: 'Las Vegas Injury & Criminal Defense Lawyer',
     description: 'Award-winning law firm. Free consultations. Call (702) 778-8883.',
     images: ['https://www.maxlawnv.com/home-logo.png?v=2'],
   },

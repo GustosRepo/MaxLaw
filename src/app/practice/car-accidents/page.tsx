@@ -8,7 +8,7 @@ const CarAccidentsPageClient = dynamic(() => import('./CarAccidentsPageClient'))
 export const metadata: Metadata = {
   title: 'Las Vegas Car Accident Attorney | Saggese & Associates',
   description: 'Injured in a Las Vegas car accident and not at fault? Talk with a car accident attorney about medical treatment, insurance claims, and compensation.',
-  keywords: ['Las Vegas car accident attorney','car accident attorney las vegas','car accident lawyer las vegas','Nevada auto accident attorney','car crash injury claim','Las Vegas personal injury law firm'],
+  keywords: ['Las Vegas car accident attorney','car accident attorney las vegas','car accident lawyer las vegas','Nevada auto accident attorney','car crash injury claim','Las Vegas injury law firm'],
   alternates: { canonical: `${SITE_URL}/practice/car-accidents` },
   openGraph: {
     title: 'Las Vegas Car Accident Attorney | Saggese & Associates',
@@ -33,7 +33,7 @@ export default function CarAccidentsPage() {
         slug="/practice/car-accidents"
         serviceType="Las Vegas Car Accident Attorney"
         description="Las Vegas car accident attorney helping injured, not-at-fault crash victims with medical treatment questions, insurance claims, and compensation."
-        keywords={['las vegas car accident attorney','car accident attorney las vegas','car accident lawyer las vegas','auto accident attorney','car crash injury claim','nevada personal injury lawyer']}
+        keywords={['las vegas car accident attorney','car accident attorney las vegas','car accident lawyer las vegas','auto accident attorney','car crash injury claim','nevada injury lawyer']}
         imagePath="/content/car-accident2.png"
         faqs={[
           {

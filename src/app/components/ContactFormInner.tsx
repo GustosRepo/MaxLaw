@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const ACCEPTED_CASE_TYPES = ['Personal Injury', 'Criminal Defense'];
+const ACCEPTED_CASE_TYPES = ['Injury', 'Criminal Defense'];
 
 interface ContactFormInnerProps {
   onSubmitSuccess?: () => void;
@@ -120,9 +120,9 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
             <div className="mt-2 text-sm text-yellow-300">We do not handle this matter. Please call for a referral.</div>
           )}
         </div>
-        {formData.caseType === 'Personal Injury' && (
+        {formData.caseType === 'Injury' && (
           <>
-            <label className="text-base">Personal injury type
+            <label className="text-base">Injury type
               <select value={formData.piSubtype} onChange={(e) => setFormData(prev => ({ ...prev, piSubtype: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-3 text-base">
                 <option value="">Select</option>
                 <option value="Car Accident">Car Accident</option>

@@ -31,9 +31,13 @@ interface FormPayload {
   financialAbility?: string;
 }
 
-const ACCEPTED_CASE_TYPES = ['Personal Injury', 'Criminal Defense'];
+const ACCEPTED_CASE_TYPES = ['Injury', 'Personal Injury', 'Criminal Defense'];
 const EMAIL_LOGO_CID = 'saggese-logo@maxlawnv.com';
 const EMAIL_LOGO_PATH = join(process.cwd(), 'public', 'home-logo.png');
+
+function normalizeCaseType(caseType: string) {
+  return caseType === 'Personal Injury' ? 'Injury' : caseType;
+}
 
 function buildPlainText(form: FormPayload) {
   const lines: string[] = [];
@@ -86,9 +90,10 @@ export async function POST(req: Request) {
 
     const TEST_EMAIL = process.env.TEST_EMAIL === 'true' || process.env.NODE_ENV === 'test';
 
-    const subject = `[Website Contact] ${caseType} — ${form.firstName || ''} ${form.lastName || ''}`;
-    const text = buildPlainText(form);
-    const html = buildHtml(form);
+    const normalizedForm = { ...form, caseType: normalizeCaseType(caseType) };
+    const subject = `[Website Contact] ${normalizedForm.caseType} — ${form.firstName || ''} ${form.lastName || ''}`;
+    const text = buildPlainText(normalizedForm);
+    const html = buildHtml(normalizedForm);
 
     if (TEST_EMAIL) {
       const testAccount = await nodemailer.createTestAccount();

@@ -21,7 +21,7 @@ export default function AboutPage() {
         type="LegalService" 
         data={{
           name: "The Law Offices of Saggese & Associates",
-          description: "Experienced Las Vegas law firm specializing in personal injury and criminal defense cases.",
+          description: "Experienced Las Vegas law firm specializing in injury and criminal defense cases.",
           url: "https://www.maxlawnv.com/about",
           areaServed: "Las Vegas, Nevada",
           founder: "Marc A. Saggese"
@@ -83,7 +83,7 @@ export default function AboutPage() {
               <div className="relative z-10 text-center">
                 <h1 className="text-2xl md:text-3xl font-[var(--font-playfair)] font-bold text-[#bfa76a]">About the Firm</h1>
                 <div className="mt-3 w-32"><span className="accent-underline" /></div>
-                <p className="mt-3 text-sm text-white/80 max-w-3xl mx-auto">The Law Offices of Saggese & Associates provides experienced representation in personal injury and criminal defense. We focus on individualized service, trial readiness, and protecting client rights through every stage of a case.</p>
+                <p className="mt-3 text-sm text-white/80 max-w-3xl mx-auto">The Law Offices of Saggese & Associates provides experienced representation in injury and criminal defense. We focus on individualized service, trial readiness, and protecting client rights through every stage of a case.</p>
                 <div className="mt-4 flex items-center gap-3 justify-center">
                   <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.2)]">Call (702) 778‑8883</a>
                   <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-4 py-2 text-sm text-white/90">Request Consultation</Link>
@@ -110,7 +110,7 @@ export default function AboutPage() {
 
               <article className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-center">
                 <h2 className="text-3xl md:text-4xl font-[var(--font-playfair)] font-bold text-white mb-3 text-center">Firm Overview</h2>
-                <p className="text-white/80 mb-3">The Law Offices of Saggese and Associates was founded by Attorney Marc Anthony Saggese, who has been practicing law in Las Vegas since 1999. Our firm represents those facing criminal charges, as well as those who have experienced a personal injury in an accident.</p>
+                <p className="text-white/80 mb-3">The Law Offices of Saggese and Associates was founded by Attorney Marc Anthony Saggese, who has been practicing law in Las Vegas since 1999. Our firm represents those facing criminal charges, as well as those who have experienced an injury in an accident.</p>
                 <p className="text-white/80 mb-3">Marc actively litigates cases, conducts jury trials and has represented more than 2,500 clients. In addition, for years he was a pro tempore judge for the Las Vegas Municipal Court System, as well as a Small Claims Court judge and Traffic Court magistrate.</p>
                 <h3 className="mt-6 text-2xl font-semibold">Media & Publications</h3>
                 <p className="text-white/80 mb-3">Marc has appeared on Fox and Friends, On the Record with Greta VanSusteren, Court TV and CBS&apos;s 48 Hours to provide legal insight and analysis. He is a weekly contributing writer for the Las Vegas Review Journal and has been profiled in the Las Vegas Review Journal and Las Vegas Magazine.</p>
@@ -255,7 +255,7 @@ export default function AboutPage() {
 // Small FAQ component for the about page
 function FAQ() {
   const faqs = [
-    { q: 'What types of cases do you handle?', a: 'We handle personal injury and criminal defense matters with trial-ready representation for serious cases.' },
+    { q: 'What types of cases do you handle?', a: 'We handle injury and criminal defense matters with trial-ready representation for serious cases.' },
     { q: 'Do you offer free consultations?', a: 'Yes — we provide free initial consultations to discuss your case and options.' },
     { q: 'How do I schedule a consultation?', a: 'Call our office at (702) 778‑8883 or use the contact form to request an appointment.' },
   ];

@@ -33,7 +33,7 @@ export default function PracticeCardsLite() {
         <p className="text-sm text-white/70">Clear next steps for injured, not-at-fault accident victims.</p>
       </div>
       <div className="grid grid-cols-1 gap-4">
-        {renderList('Personal Injury', PERSONAL_INJURY_TOPICS)}
+        {renderList('Injury', PERSONAL_INJURY_TOPICS)}
         <div className="rounded-xl border border-white/15 bg-black/40 p-4">
           <h3 className="text-base font-semibold text-white">Need Help Now?</h3>
           <div className="mt-3 grid grid-cols-1 gap-2">

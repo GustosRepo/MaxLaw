@@ -4,11 +4,11 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Marc A. Saggese, Esq. | Las Vegas Trial Attorney",
-  description: "Profile of Marc A. Saggese — Las Vegas personal injury & criminal defense attorney with decades of trial experience. Free consultations.",
+  description: "Profile of Marc A. Saggese — Las Vegas injury & criminal defense attorney with decades of trial experience. Free consultations.",
   alternates: { canonical: "https://www.maxlawnv.com/about/marc-a-saggese" },
   openGraph: {
     title: "Marc A. Saggese, Esq. | Las Vegas Trial Attorney",
-    description: "Las Vegas personal injury & criminal defense lawyer with decades of courtroom experience.",
+    description: "Las Vegas injury & criminal defense lawyer with decades of courtroom experience.",
     type: "profile",
     url: "https://www.maxlawnv.com/about/marc-a-saggese",
     images: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Marc A. Saggese, Esq. | Las Vegas Trial Attorney",
-    description: "Las Vegas personal injury & criminal defense lawyer. Free consultation.",
+    description: "Las Vegas injury & criminal defense lawyer. Free consultation.",
     images: ["https://www.maxlawnv.com/newmarc.jpg"],
   },
 };
@@ -48,7 +48,7 @@ export default function MarcSaggesePage() {
                 <span className="inline-block w-full md:w-auto"><span className="accent-underline" /></span>
               </div>
 
-              <p className="text-sm text-white/80 mb-4">Founder & Lead Attorney — The Law Offices of Saggese & Associates. Trial-ready representation in personal injury and criminal defense; individualized attention and seasoned courtroom experience.</p>
+              <p className="text-sm text-white/80 mb-4">Founder & Lead Attorney — The Law Offices of Saggese & Associates. Trial-ready representation in injury and criminal defense; individualized attention and seasoned courtroom experience.</p>
 
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.2)]">Call (702) 778‑8883</a>

@@ -218,7 +218,7 @@ export default function HomeClient(){
                     />
                   </div>
                   <h4 className="mt-6 text-xl font-semibold">Marc A. Saggese</h4>
-                  <p className="mt-3 max-w-2xl mx-auto text-white/75 leading-relaxed">Las Vegas attorney focusing on <strong className="text-[#d4af37]">personal injury</strong> and <strong className="text-[#d4af37]">criminal defense</strong>, blending decades of courtroom experience with client‑first strategy.</p>
+                  <p className="mt-3 max-w-2xl mx-auto text-white/75 leading-relaxed">Las Vegas attorney focusing on <strong className="text-[#d4af37]">injury</strong> and <strong className="text-[#d4af37]">criminal defense</strong>, blending decades of courtroom experience with client‑first strategy.</p>
                   <ul className="mt-6 flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm">
                     <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Free consultations</li>
                     <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Same-day when available</li>
@@ -347,11 +347,11 @@ export default function HomeClient(){
               </div>
               <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[0.95] tracking-tight">
                 {FIRM_NAME}
-                <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Car Accident & Personal Injury Attorneys</span>
+                <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Car Accident & Injury Attorneys</span>
               </h1>
               <h1 className="md:hidden mx-auto max-w-[22rem] font-[var(--font-playfair)] text-[1.5rem] font-bold leading-[1.08] text-white">
                 {FIRM_NAME}
-                <span className="block mt-3 text-[0.55em] text-[#d4af37] font-normal">Car Accident &amp; Personal Injury Attorneys</span>
+                <span className="block mt-3 text-[0.55em] text-[#d4af37] font-normal">Car Accident &amp; Injury Attorneys</span>
               </h1>
               <p className="mt-4 md:mt-6 text-sm sm:text-lg md:text-2xl leading-relaxed text-white/84 max-w-2xl md:max-w-xl mx-auto md:mx-0">
                 Injured and not at fault? Free consultation. No fee unless we win your injury case.
@@ -420,7 +420,7 @@ export default function HomeClient(){
               <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
                 <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
                 <div className="grid gap-6 md:grid-cols-2">
-                  <Card title="Injured and not at fault?" subtitle="Las Vegas Personal Injury">We help injured Nevadans after car, motorcycle, and truck accidents pursue medical care and compensation.<TopicsAccordion title="Accident Topics" topics={PERSONAL_INJURY_TOPICS} /><Link href="/contact" className="mt-4 inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">Request a free consultation</Link></Card>
+                  <Card title="Injured and not at fault?" subtitle="Las Vegas Injury">We help injured Nevadans after car, motorcycle, and truck accidents pursue medical care and compensation.<TopicsAccordion title="Accident Topics" topics={PERSONAL_INJURY_TOPICS} /><Link href="/contact" className="mt-4 inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">Request a free consultation</Link></Card>
                   <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" /></Card>
                 </div>
               </div>

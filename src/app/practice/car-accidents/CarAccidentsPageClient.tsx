@@ -62,7 +62,7 @@ export default function CarAccidentsPageClient() {
             <div className="bg-gradient-to-r from-[#d4af37]/10 to-[#c5a467]/10 border border-[#d4af37]/20 rounded-lg p-4">
               <h4 className="font-semibold text-[#d4af37] mb-2">Free Consultation Available</h4>
               <p className="text-white/80 text-sm">
-                Don't wait to seek legal help. Nevada's statute of limitations for personal injury claims is two years from the date of the accident.
+                Don't wait to seek legal help. Nevada's statute of limitations for injury claims is two years from the date of the accident.
               </p>
             </div>
           </article>

@@ -5,15 +5,15 @@ import PracticeStructuredData from './PracticeStructuredData'
 
 export const metadata = {
   title: 'Las Vegas Injury & Criminal Defense Lawyers | Practice Areas',
-  description: 'Las Vegas personal injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, Drug Offenses & more. Free consultation.',
+  description: 'Las Vegas injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, Drug Offenses & more. Free consultation.',
   keywords: [
-    'las vegas personal injury lawyer',
+    'las vegas injury lawyer',
     'las vegas criminal defense lawyer',
     'dui defense las vegas',
     'Drug Offenses lawyer las vegas'
   ],
   alternates: { canonical: `${SITE_URL}/practice` },
-  openGraph: { title: 'Las Vegas Injury & Criminal Defense Lawyers', description: 'Explore our core personal injury and criminal defense practice areas.', url: `${SITE_URL}/practice`, type: 'website' },
+  openGraph: { title: 'Las Vegas Injury & Criminal Defense Lawyers', description: 'Explore our core injury and criminal defense practice areas.', url: `${SITE_URL}/practice`, type: 'website' },
   twitter: { card: 'summary', title: 'Las Vegas Law Firm Practice Areas', description: 'Injury & criminal defense representation.' }
 }
 
@@ -28,7 +28,7 @@ export default function PracticePage() {
               <div className="relative z-10">
                 <h1 className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#bfa76a]">Practice Areas</h1>
                 <div className="mt-3 w-36"><span className="accent-underline" /></div>
-                <p className="mt-3 text-sm text-white/80 max-w-3xl">We represent clients in personal injury and criminal defense matters with trial-ready representation and focused client service. Below are some of our core practice areas.</p>
+                <p className="mt-3 text-sm text-white/80 max-w-3xl">We represent clients in injury and criminal defense matters with trial-ready representation and focused client service. Below are some of our core practice areas.</p>
 
                 <div className="mt-4 flex items-center gap-3">
                   <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.18)]">Call (702) 778‑8883</a>
@@ -41,7 +41,7 @@ export default function PracticePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <main className="md:col-span-2 space-y-6">
               <div>
-                <h2 className="text-xl font-['Playfair_Display'] font-bold text-[#bfa76a] mb-4">Personal Injury Law</h2>
+                <h2 className="text-xl font-['Playfair_Display'] font-bold text-[#bfa76a] mb-4">Injury Law</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 {[
   { title: 'Car Accidents', href: '/practice/car-accidents', desc: 'Car accidents, premises liability, and catastrophic injury representation.' },
@@ -108,9 +108,9 @@ export default function PracticePage() {
       </main>
       <PracticeStructuredData
         slug="/practice"
-        serviceType="Las Vegas Personal Injury & Criminal Defense Lawyers"
-        description="Las Vegas personal injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, Drug Offenses & more. Free consultation."
-        keywords={['las vegas personal injury lawyer','las vegas criminal defense lawyer','dui defense las vegas','Drug Offenses lawyer las vegas']}
+        serviceType="Las Vegas Injury & Criminal Defense Lawyers"
+        description="Las Vegas injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, Drug Offenses & more. Free consultation."
+        keywords={['las vegas injury lawyer','las vegas criminal defense lawyer','dui defense las vegas','Drug Offenses lawyer las vegas']}
         faqs={[
           { question: 'Do you offer free consultations?', answer: 'Yes. We provide free, no‑obligation consultations for injury and criminal matters.' },
           { question: 'What types of injury cases do you handle?', answer: 'Car, truck, motorcycle, premises liability, catastrophic injury, wrongful death and more.' }

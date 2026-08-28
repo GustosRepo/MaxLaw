@@ -88,7 +88,7 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
           >
             <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
               <div className="p-4">
-                <div className="text-xs font-semibold text-[#d4af37] tracking-wide mb-2">Personal Injury</div>
+                <div className="text-xs font-semibold text-[#d4af37] tracking-wide mb-2">Injury</div>
                 <ul className="space-y-1">
                   {personalInjuryLinks.map((l) => (
                     <li key={l.href}>

@@ -25,7 +25,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
 // Predefined structured data objects for common use cases
 export const legalServiceData = {
   name: 'The Law Offices of Saggese & Associates',
-  description: 'Las Vegas personal injury law firm helping injured, not-at-fault accident victims with car accident, motorcycle accident, truck accident, and wrongful death cases',
+  description: 'Las Vegas injury law firm helping injured, not-at-fault accident victims with car accident, motorcycle accident, truck accident, and wrongful death cases',
   url: 'https://www.maxlawnv.com',
   telephone: '+1-702-778-8883',
   email: 'info@maxlawnv.com',
@@ -47,7 +47,7 @@ export const legalServiceData = {
     '@type': 'State',
     name: 'Nevada'
   },
-  serviceType: ['Personal Injury Law', 'Car Accident Law', 'Motorcycle Accident Law', 'Truck Accident Law', 'Wrongful Death Law'],
+  serviceType: ['Injury Law', 'Car Accident Law', 'Motorcycle Accident Law', 'Truck Accident Law', 'Wrongful Death Law'],
   priceRange: 'Free Consultation',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -57,8 +57,8 @@ export const legalServiceData = {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Personal Injury Consultation',
-          description: 'Free consultation for personal injury cases'
+          name: 'Injury Consultation',
+          description: 'Free consultation for injury cases'
         }
       },
       {
@@ -92,7 +92,7 @@ export const legalServiceData = {
 export const attorneyData = {
   name: 'Marc A. Saggese',
   jobTitle: 'Attorney',
-  description: 'Experienced Las Vegas attorney specializing in personal injury and criminal defense law',
+  description: 'Experienced Las Vegas attorney specializing in injury and criminal defense law',
   url: 'https://www.maxlawnv.com/about/marc-a-saggese',
   telephone: '+1-702-778-8883',
   email: 'info@maxlawnv.com',
@@ -113,7 +113,7 @@ export const attorneyData = {
     '@type': 'CollegeOrUniversity',
     name: 'University of Nevada, Las Vegas - William S. Boyd School of Law'
   },
-  knowsAbout: ['Personal Injury Law', 'Criminal Defense Law', 'Nevada Law', 'Trial Advocacy'],
+  knowsAbout: ['Injury Law', 'Criminal Defense Law', 'Nevada Law', 'Trial Advocacy'],
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
     credentialCategory: 'Law Degree'
@@ -122,7 +122,7 @@ export const attorneyData = {
 
 export const organizationData = {
   name: 'The Law Offices of Saggese & Associates',
-  description: 'Premier Las Vegas law firm providing expert legal representation in personal injury and criminal defense matters',
+  description: 'Premier Las Vegas law firm providing expert legal representation in injury and criminal defense matters',
   url: 'https://www.maxlawnv.com',
   logo: 'https://www.maxlawnv.com/home-logo.png',
   telephone: '+1-702-778-8883',

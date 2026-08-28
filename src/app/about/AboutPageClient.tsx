@@ -110,10 +110,10 @@ export default function AboutPage() {
 
               <article className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-center">
                 <h2 className="text-3xl md:text-4xl font-[var(--font-playfair)] font-bold text-white mb-3 text-center">Firm Overview</h2>
-                <p className="text-white/80 mb-3">The Law Offices of Saggese & Associates was founded by Attorney Marc Anthony Saggese, who has been practicing law in Las Vegas since 1999. The firm represents clients facing criminal charges and individuals who have suffered a personal injury in an accident.</p>
-                <p className="text-white/80 mb-3">Marc actively litigates cases, conducts jury trials, and has represented more than 2,500 clients. He has served as a pro tempore judge for the Las Vegas Municipal Court System and as a Traffic Court magistrate.</p>
+                <p className="text-white/80 mb-3">The Law Offices of Saggese and Associates was founded by Attorney Marc Anthony Saggese, who has been practicing law in Las Vegas since 1999. Our firm represents those facing criminal charges, as well as those who have experienced a personal injury in an accident.</p>
+                <p className="text-white/80 mb-3">Marc actively litigates cases, conducts jury trials and has represented more than 2,500 clients. In addition, for years he was a pro tempore judge for the Las Vegas Municipal Court System, as well as a Small Claims Court judge and Traffic Court magistrate.</p>
                 <h3 className="mt-6 text-2xl font-semibold">Media & Publications</h3>
-                <p className="text-white/80 mb-3">Marc has appeared on Fox & Friends, On the Record with Greta Van Susteren, Court TV, and CBS’s 48 Hours to provide legal insight and analysis. He is a weekly contributing writer for the Las Vegas Review‑Journal and has been profiled in the Las Vegas Review‑Journal and Las Vegas Magazine.</p>
+                <p className="text-white/80 mb-3">Marc has appeared on Fox and Friends, On the Record with Greta VanSusteren, Court TV and CBS&apos;s 48 Hours to provide legal insight and analysis. He is a weekly contributing writer for the Las Vegas Review Journal and has been profiled in the Las Vegas Review Journal and Las Vegas Magazine.</p>
                 <p className="text-white/80"><Link href="/about/marc-a-saggese" className="underline text-[#d4af37]">Learn more about Marc: Marc A. Saggese, Esq.</Link></p>
               </article>
 
@@ -129,17 +129,36 @@ export default function AboutPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-center">
-                  <h3 className="text-2xl font-[var(--font-playfair)] font-bold mb-3">Biography (Selected)</h3>
-                  <p className="text-white/80">Originally from Utica, New York, Marc obtained his Bachelor of Arts in Political Science from the State University of New York in 1995, graduating cum laude. He earned his Juris Doctor from The Catholic University of America, Columbus School of Law in 1999.</p>
-                  <p className="text-white/80 mt-3">Marc was admitted to the Judge Advocate General (JAG) Corps in 2000, where he served as a Captain in the United States Army, undertaking litigation work for the Department of Justice. In 2003, after forming his own firm, Marc devoted his practice to civil and criminal matters.</p>
+                  <h3 className="text-2xl font-[var(--font-playfair)] font-bold mb-3">Biography</h3>
+                  <p className="text-white/80">Marc obtained his Bachelor of Arts in political science from the State University of New York in 1995, graduating with honors. Marc continued on to earn his Juris Doctor from the Catholic University of America, Columbus School of Law, in Washington, DC, in 1999.</p>
+                  <p className="text-white/80 mt-3">Marc was admitted to the Judge Advocate General Corps in 2000 where he served as a Captain in the United States Army, undertaking litigation work for the Department of Justice. Upon forming his own firm in 2003, Marc devoted his practice to civil and criminal matters, finding that passionate defense work was how he best served his community.</p>
+                  <p className="text-white/80 mt-3">In 2010, after building a distinguished reputation through trials, his skills of persuasion and tenacious style in the courtroom caught the attention of Hollywood. Marc became the inspiration for Pete Kaczmarek, portrayed by Jerry O&apos;Connell, in the CBS primetime television drama <em>&quot;The Defenders.&quot;</em> He worked alongside the show&apos;s writers to provide legal authenticity to scenes and storylines, and episodes were based on clients or issues he had previously litigated.</p>
                 </div>
 
                 <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-center">
                   <h3 className="text-2xl font-[var(--font-playfair)] font-bold mb-3">Awards & Recognition</h3>
-                  <ul className="list-disc list-inside text-white/90 inline-block mx-auto">
-                    <li>American Institute of Personal Injury Attorneys – named among the “10 Best Attorneys.”</li>
-                    <li>Desert Companion Magazine – recognized among “the Valley’s Top Lawyers.”</li>
-                    <li>Best of Las Vegas – Silver & Bronze (2017) and Silver (2018) awards.</li>
+                  <ul className="columns-1 text-left text-sm leading-relaxed text-white/90 list-disc list-inside md:columns-2 md:space-y-1">
+                    <li>2026 Platinum Client Champion, Martindale-Hubbell Attorney Ratings</li>
+                    <li>2025 Platinum Client Champion, Martindale-Hubbell Attorney Ratings</li>
+                    <li>Multi-Million Dollar Advocates Forum Member, Million Dollar Advocates Forum</li>
+                    <li>Million Dollar Advocates Forum Member, Million Dollar Advocates Forum</li>
+                    <li>Nation&apos;s Top One Percent of Attorneys, The National Association of Distinguished Counsel</li>
+                    <li>10 BEST Client Satisfaction Award, American Institute of DUI/DWI Attorneys</li>
+                    <li>Clients&apos; Choice Award - Criminal Defense, AVVO</li>
+                    <li>10 Best 2 Year Client Satisfaction Award, American Institute of Personal Injury Attorneys</li>
+                    <li>10 BEST - Client Satisfaction Award, American Institute of Personal Injury Attorneys</li>
+                    <li>Top 10 Attorney Award, National Academy of Personal Injury Attorneys</li>
+                    <li>Superb Rated Award - Top Attorney Criminal Defense, AVVO</li>
+                    <li>The Valley&apos;s Top Lawyers, Desert Companion Magazine</li>
+                    <li>Top Lawyers in Las Vegas, MyVegas Magazine</li>
+                    <li>Rising Star, Super Lawyers Magazine</li>
+                    <li>Silver Client Champion, Martindale-Hubbell Attorney Ratings</li>
+                    <li>Rated, AVVO</li>
+                    <li>Top Attorneys, Mountain States</li>
+                    <li>Rising Star, Super Lawyers Magazine</li>
+                    <li>Top 40 Under 40, The National Trial Lawyers</li>
+                    <li>Rising Star, Super Lawyers Magazine</li>
+                    <li>Top Attorneys, Mountain States</li>
                   </ul>
                   <p className="text-xs text-white/60 mt-3">Past results, awards, or recognitions do not guarantee similar outcomes. Each case is unique.</p>
                 </div>
@@ -155,7 +174,7 @@ export default function AboutPage() {
                   <span className="badge">Felonies & Misdemeanors</span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-white/90">
-                  <div className="kpi"><b>$1M+</b><span className="text-sm text-white/70">Combined client recoveries*</span></div>
+                  <div className="kpi"><b>Over $30 million</b><span className="text-sm text-white/70">Reported client recoveries*</span></div>
                   <div className="kpi"><b>1000s</b><span className="text-sm text-white/70">of hearings & motions</span></div>
                   <div className="kpi"><b>Top</b><span className="text-sm text-white/70">Local media legal analyst</span></div>
                 </div>

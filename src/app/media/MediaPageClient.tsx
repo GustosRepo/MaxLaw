@@ -16,7 +16,6 @@ const stagger = {
 
 // Note: Metadata handled by layout since this is a client component
 export default function MediaPage() {
-
   return (
     <>
       <style jsx>{`
@@ -52,8 +51,25 @@ export default function MediaPage() {
                 <h1 className="text-2xl md:text-3xl font-[var(--font-playfair)] font-bold text-[#bfa76a]">Media & Press</h1>
                 <div className="mt-3 w-36"><span className="accent-underline" /></div>
                 <p className="mt-3 text-sm text-white/80 max-w-3xl">Interviews, appearances, and media coverage featuring The Law Offices of Saggese & Associates. Select items are listed below.</p>
+                <p className="mt-4 text-sm text-white/75">Weekly contributing writer for the Las Vegas Review-Journal and featured in the Las Vegas Review-Journal and Las Vegas Magazine.</p>
               </div>
             </div>
+          </section>
+
+          <section id="defenders" className="mb-10 rounded-3xl border border-[#d4af37]/30 bg-gradient-to-br from-[#191919] to-black/30 p-6 shadow-lg md:p-8">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37]">Featured television history</p>
+            <h2 className="mt-2 text-2xl font-[var(--font-playfair)] font-bold text-white md:text-3xl">The Real Lawyer Behind CBS&apos;s <em>The Defenders</em></h2>
+            <p className="mt-4 max-w-4xl text-base leading-relaxed text-white/80">CBS&apos;s 2010 prime-time legal drama <em>The Defenders</em>, starring Jim Belushi and Jerry O&apos;Connell, was based on real Las Vegas attorneys Michael Cristalli and Marc Saggese. Marc was the inspiration for Pete Kaczmarek, portrayed by Jerry O&apos;Connell, and worked with the show&apos;s writers to provide legal and story authenticity.</p>
+            <p className="mt-3 max-w-4xl text-sm leading-relaxed text-white/65">The series ran for 18 episodes from September 22, 2010 through March 11, 2011. This page lists substantiated media appearances and coverage; video clips are not embedded unless an official source is available.</p>
+          </section>
+
+          <section className="mb-10 rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-8" aria-labelledby="television-appearances-heading">
+            <h2 id="television-appearances-heading" className="text-2xl font-[var(--font-playfair)] font-bold text-[#d4af37]">Television & News Appearances</h2>
+            <ul className="mt-5 grid grid-cols-1 gap-3 text-base text-white/85 sm:grid-cols-2 lg:grid-cols-3">
+              {['Fox & Friends', 'On the Record with Greta Van Susteren', 'Court TV', 'TruTV', "CBS's 48 Hours with Peter Van Sant", "CNN's The Burden of Proof", 'Catherine Crier Live', 'The Lineup with Kimberly Guilfoyle', 'KLAS-TV 8 News Now', 'KSNV NBC News 3', 'Fox 5 News'].map((appearance) => (
+                <li key={appearance} className="rounded-xl border border-white/10 bg-black/20 px-4 py-3">{appearance}</li>
+              ))}
+            </ul>
           </section>
 
           {/* Awards & Recognition (copied) */}
@@ -119,19 +135,19 @@ export default function MediaPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <main className="md:col-span-2 space-y-6">
-              <div>
+              <div id="articles">
                 {/* Media article list using available images from /public/content */}
                 {(() => {
                   const availableImages = ['/content/boston-marathon.jpg', '/content/match.png', '/content/dui.png', '/content/car_accident.png','/content/car-accident2.png','/content/will.png','/content/drinking.png','/content/texting.png'] as const;
                   const articles = [
-                    { title: 'ASK A LAWYER — Should The Boston Marathon Bomber be Sentenced to Death?', date: 'April 28, 2015', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-should-the-boston-marathon-bomber-be-sentenced-to-death/', excerpt: 'How does a state sentence a terrorist to death when that state no longer has the death penalty?' },
-                    { title: 'Ninth Circuit Takes New Look at Duty to Warn in Match Gone Bad', date: 'April 28, 2015', link: 'https://www.reviewjournal.com/news/after-surviving-nearly-fatal-attack-woman-sues-match-com/', excerpt: 'It has been seven years since Mary Kay Beckman was brutally stabbed and left for dead by a man she met on Match.com.' },
-                    { title: 'DUI Checkpoints – Are They Legal and What are Your Rights?', date: 'December 30, 2014', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-dui-checkpoints-are-they-legal-and-what-are-your-rights/', excerpt: 'They go by a number of different names: DUI checkpoints, administrative roadblocks, mobile checkpoints...' },
-                    { title: 'Everything You Need to Know About Car Insurance', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-everything-you-need-to-know-about-car-insurance/', excerpt: 'Practical guidance on car insurance coverage and claims.' },
-                    { title: "What to Do If You're In A Car Accident", date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-what-to-do-if-youre-in-a-car-accident/', excerpt: 'Steps to take immediately after a collision to protect your claim.' },
-                    { title: 'The Importance of Having a Will', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-the-importance-of-having-a-will/', excerpt: 'Why an estate plan matters and how to get started.' },
-                    { title: 'Drinking and Driving in Nevada', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-drinking-and-driving-in-nevada/', excerpt: 'Overview of Nevada DUI laws and potential defenses.' },
-                    { title: 'Texting and Driving', date: '', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-texting-and-driving/', excerpt: 'How distracted driving laws apply and what to know.' },
+                    { title: 'ASK A LAWYER — Should The Boston Marathon Bomber be Sentenced to Death?', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-should-the-boston-marathon-bomber-be-sentenced-to-death/', excerpt: 'How does a state sentence a terrorist to death when that state no longer has the death penalty?' },
+                    { title: 'Ninth Circuit Takes New Look at Duty to Warn in Match Gone Bad', link: 'https://www.reviewjournal.com/news/after-surviving-nearly-fatal-attack-woman-sues-match-com/', excerpt: 'It has been seven years since Mary Kay Beckman was brutally stabbed and left for dead by a man she met on Match.com.' },
+                    { title: 'DUI Checkpoints – Are They Legal and What are Your Rights?', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-dui-checkpoints-are-they-legal-and-what-are-your-rights/', excerpt: 'They go by a number of different names: DUI checkpoints, administrative roadblocks, mobile checkpoints...' },
+                    { title: 'Everything You Need to Know About Car Insurance', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-everything-you-need-to-know-about-car-insurance/', excerpt: 'Practical guidance on car insurance coverage and claims.' },
+                    { title: "What to Do If You're In A Car Accident", link: 'https://www.reviewjournal.com/life/ask-a-lawyer-what-to-do-if-youre-in-a-car-accident/', excerpt: 'Steps to take immediately after a collision to protect your claim.' },
+                    { title: 'The Importance of Having a Will', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-the-importance-of-having-a-will/', excerpt: 'Why an estate plan matters and how to get started.' },
+                    { title: 'Drinking and Driving in Nevada', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-drinking-and-driving-in-nevada/', excerpt: 'Overview of Nevada DUI laws and potential defenses.' },
+                    { title: 'Texting and Driving', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-texting-and-driving/', excerpt: 'How distracted driving laws apply and what to know.' },
                   ];
                   return articles.map((a, i) => {
                     const img = availableImages[i % availableImages.length];
@@ -150,7 +166,7 @@ export default function MediaPage() {
                           </div>
                           <div className="media-info text-white/80">
                             <h3 className="text-lg font-semibold">{a.title}</h3>
-                            <h4 className="text-sm mt-1 text-white/70">{a.date} <span className="mx-2">|</span> <a className="current" href={a.link} target="_blank" rel="noreferrer">Original Article</a></h4>
+                            <h4 className="text-sm mt-1 text-white/70"><a className="current" href={a.link} target="_blank" rel="noreferrer">Original Article</a></h4>
                             <p className="mt-2">{a.excerpt}</p>
                             <a href={a.link} target="_blank" rel="noreferrer" className="underline mt-2 inline-block">Read More</a>
                           </div>
@@ -168,21 +184,6 @@ export default function MediaPage() {
             </main>
 
             <aside className="space-y-6">
-              <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/8 shadow-lg">
-                <div className="text-sm font-semibold text-white mb-2">Media Links</div>
-                <nav id="silo-media" className="silo-media" aria-label="Media">
-                  <ul className="grid gap-3">
-                    {['Review-Journal','attorney-media','Face-to-Face','The-Defenders','Metropolitan-police','media-panel'].map((id) => (
-                      <li key={id}>
-                        <a href="#" className="block">
-                          <div className="w-full rounded-md object-cover bg-neutral-900 p-6 text-center">{id.replace(/[-_]/g, ' ')}</div>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              </div>
-
               <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
                 <h3 className="text-base font-semibold mb-2">Short Contact</h3>
                 <p className="text-sm text-white/80 mb-3">Quick intake for media & press.</p>
@@ -196,14 +197,15 @@ export default function MediaPage() {
               <div className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-sm text-white/80">
                 <div className="font-semibold text-white mb-2">Contact Info</div>
                 <div>The Law Offices of Saggese & Associates</div>
-                <div>732 S 6th St #200c, Las Vegas, NV 89101</div>
+                <div>732 S. Sixth Street, Suite 200C</div>
+                <div>Las Vegas, Nevada 89101</div>
                 <div>Phone: <a href="tel:17027788883" className="underline">702-778-8883</a></div>
                 <div className="mt-3 w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
                   <div className="relative aspect-[4/3] w-full">
                     <iframe
                       title="Office Location Map"
-                      aria-label="Map showing office location at 732 S 6th St #200c, Las Vegas, NV 89101"
-                      src="https://www.google.com/maps?q=732+S+6th+St+%23200c,+Las+Vegas,+NV+89101&output=embed"
+                      aria-label="Map showing office location at 732 S. Sixth Street, Suite 200C, Las Vegas, Nevada 89101"
+                      src="https://www.google.com/maps?q=732+S.+Sixth+Street,+Suite+200C,+Las+Vegas,+Nevada+89101&output=embed"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                       className="absolute inset-0 h-full w-full border-0"
@@ -213,7 +215,7 @@ export default function MediaPage() {
                   <div className="mt-2 text-[11px] text-white/60 flex items-center justify-between">
                     <span>Interactive map</span>
                     <a
-                      href="https://www.google.com/maps/dir/?api=1&destination=732+S+6th+St+%23200c,+Las+Vegas,+NV+89101"
+                      href="https://www.google.com/maps/dir/?api=1&destination=732+S.+Sixth+Street,+Suite+200C,+Las+Vegas,+Nevada+89101"
                       target="_blank"
                       rel="noreferrer"
                       className="underline text-[#d4af37] hover:text-[#c5a467]"

@@ -30,7 +30,7 @@ export default function ResultsPage() {
           .custom-bg { background-image: radial-gradient(circle at 8% 12%, rgba(191,167,106,0.03), transparent 6%), radial-gradient(circle at 90% 80%, rgba(255,255,255,0.02), transparent 22%), linear-gradient(180deg,#0e0e0e,#0f0f0f); }
         `}</style>
 
-      <main className="min-h-screen custom-bg bg-gradient-to-br from-[#0e0e0e] to-[#0f0f0f] text-white font-['Inter'] py-12">
+      <main className="min-h-screen custom-bg bg-gradient-to-br from-[#0e0e0e] to-[#0f0f0f] text-white font-[var(--font-inter)] py-12">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <section className="mb-8">
             <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg overflow-hidden">
@@ -39,6 +39,10 @@ export default function ResultsPage() {
                 <h1 className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#bfa76a]">Representative Results</h1>
                 <div className="mt-3 w-36"><span className="accent-underline" /></div>
                 <p className="mt-3 text-sm text-white/80 max-w-3xl">A selection of outcomes and representative results from The Law Offices of Saggese & Associates. Results vary and past outcomes do not guarantee future results.</p>
+                <div className="mt-6 inline-flex flex-col rounded-2xl border border-[#d4af37]/30 bg-[#d4af37]/10 px-6 py-4 text-left">
+                  <span className="text-3xl font-bold text-[#d4af37]">Over $30 million</span>
+                  <span className="mt-1 text-sm text-white/70">in reported client recoveries*</span>
+                </div>
               </div>
             </div>
           </section>

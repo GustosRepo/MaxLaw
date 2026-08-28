@@ -18,8 +18,9 @@ export default function ContactSectionLite() {
             Call or send a brief note and our team will respond promptly.
           </p>
         </div>
-        <div className="space-y-3 text-sm">
-          <p>Phone: <a href={`tel:${FIRM_PHONE_E164}`} className="text-[#d4af37] underline">{FIRM_PHONE_DISPLAY}</a></p>
+        <div className="space-y-3 text-base">
+          <p className="text-xl font-bold">Phone: <a href={`tel:${FIRM_PHONE_E164}`} className="text-[#d4af37] underline">{FIRM_PHONE_DISPLAY}</a></p>
+          <p className="text-white/70">24-hour calls available</p>
           <p>Office: {FIRM_ADDRESS_LINE1}, {FIRM_ADDRESS_LINE2}</p>
           <p className="text-xs text-white/50">Submitting a message does not create an attorney-client relationship.</p>
         </div>

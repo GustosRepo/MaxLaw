@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function MarcSaggesePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#111215] text-white font-sans pb-16">
+    <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#111215] text-white font-[var(--font-inter)] pb-16">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <section className="rounded-3xl bg-gradient-to-br from-white/3 to-transparent border border-white/8 p-6 md:p-10 shadow-lg mt-8">
           <style>{`
@@ -56,27 +56,56 @@ export default function MarcSaggesePage() {
                 <span className="w-full text-center text-xs text-white/70 md:w-auto md:ml-3">Free consultation • 1:1 attorney attention</span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/6 card-hover">
-                  <h3 className="text-lg font-semibold text-white">Bar Admissions</h3>
-                  <ul className="text-sm text-white/90 list-disc list-inside mt-2">
-                    <li>NV (1999)</li>
-                    <li>US Court of Military Appeals (2000)</li>
-                    <li>US Court of Appeals (5th, 3rd, 9th)</li>
-                    <li>TX (2015)</li>
-                    <li>US Supreme Court (2019)</li>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <section className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/6 card-hover" aria-labelledby="bar-admissions-heading">
+                  <h2 id="bar-admissions-heading" className="text-lg font-semibold text-white">Bar Admissions</h2>
+                  <ul className="mt-3 space-y-2 text-sm leading-relaxed text-white/90 list-disc list-inside">
+                    <li>Supreme Court of the United States, Washington DC</li>
+                    <li>State Bar of Nevada</li>
+                    <li>State Bar of Georgia</li>
+                    <li>State Bar of Texas</li>
+                    <li>United States Court of Appeals, 9th Circuit</li>
+                    <li>United States Court of Appeals, 5th Circuit</li>
+                    <li>United States Court of Appeals, 3rd Circuit</li>
+                    <li>United States Court of Military Appeals</li>
+                    <li>United States Court of Appeals for the Armed Forces</li>
                   </ul>
-                </div>
+                </section>
 
-                <div className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/6 card-hover">
-                  <h3 className="text-lg font-semibold text-white">Education & Awards</h3>
-                  <ul className="text-sm text-white/90 list-disc list-inside mt-2">
-                    <li>J.D., Catholic Univ. of America, 1999</li>
-                    <li>B.A., SUNY Cortland, cum laude, 1995</li>
-                    <li>Martindale Hubbell | Client Champion | Silver 2019</li>
-                    <li>"10 Best Attorneys" – AIPIA; Desert Companion Top Lawyers</li>
+                <section className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/6 card-hover" aria-labelledby="education-heading">
+                  <h2 id="education-heading" className="text-lg font-semibold text-white">Education</h2>
+                  <ul className="mt-3 space-y-2 text-sm leading-relaxed text-white/90 list-disc list-inside">
+                    <li>J.D., Columbus School of Law, The Catholic University of America, 1999</li>
+                    <li>B.A., State University of New York at Cortland, 1995</li>
+                    <li>Graduate, The Judge Advocate General&apos;s (JAG) Legal Center and School, U.S. Army, 2000</li>
                   </ul>
-                </div>
+                </section>
+
+                <section className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/6 card-hover md:col-span-2" aria-labelledby="awards-heading">
+                  <h2 id="awards-heading" className="text-lg font-semibold text-white">Awards</h2>
+                  <ul className="mt-3 columns-1 space-y-2 text-sm leading-relaxed text-white/90 list-disc list-inside md:columns-2 md:space-y-0">
+                    <li>2026 Platinum Client Champion, Martindale-Hubbell Attorney Ratings</li>
+                    <li>2025 Platinum Client Champion, Martindale-Hubbell Attorney Ratings</li>
+                    <li>Silver Client Champion, Martindale-Hubbell Attorney Ratings</li>
+                    <li>Multi-Million Dollar Advocates Forum Member, Million Dollar Advocates Forum</li>
+                    <li>Million Dollar Advocates Forum Member, Million Dollar Advocates Forum</li>
+                    <li>Nation&apos;s Top One Percent of Attorneys, The National Association of Distinguished Counsel</li>
+                    <li>10 BEST Client Satisfaction Award, American Institute of DUI/DWI Attorneys</li>
+                    <li>Clients&apos; Choice Award - Criminal Defense, AVVO</li>
+                    <li>10 Best 2 Year Client Satisfaction Award, American Institute of Personal Injury Attorneys</li>
+                    <li>10 BEST - Client Satisfaction Award, American Institute of Personal Injury Attorneys</li>
+                    <li>Top 10 Attorney Award, National Academy of Personal Injury Attorneys</li>
+                    <li>Superb Rated Award - Top Attorney Criminal Defense, AVVO</li>
+                    <li>The Valley&apos;s Top Lawyers, Desert Companion Magazine</li>
+                    <li>Top Lawyers in Las Vegas, MyVegas Magazine</li>
+                    <li>Rising Star, Super Lawyers Magazine</li>
+                    <li>Rated, AVVO</li>
+                    <li>Top Attorneys, Mountain States</li>
+                    <li>Top 40 Under 40, The National Trial Lawyers</li>
+                    <li>Rising Star, Super Lawyers Magazine</li>
+                    <li>Top Attorneys, Mountain States</li>
+                  </ul>
+                </section>
               </div>
             </div>
           </div>
@@ -88,9 +117,10 @@ export default function MarcSaggesePage() {
               <h2 className="text-2xl font-['Playfair_Display'] font-bold mb-3">Professional Highlights</h2>
               <ul className="text-sm text-white/90 list-disc list-inside">
                 <li>Practicing law since 1999; represented 2,500+ clients</li>
-                <li>Pro tempore judge, Las Vegas Municipal Court; Traffic Court magistrate</li>
+                <li>Pro tempore judge, Las Vegas Municipal Court; Small Claims Court judge; Traffic Court magistrate</li>
                 <li>Captain, JAG Corps, U.S. Army; litigation for U.S. DOJ</li>
                 <li>Featured on Fox, Court TV, CBS; weekly writer for Las Vegas Review‑Journal</li>
+                <li>Inspiration for Pete Kaczmarek in the CBS drama <em>The Defenders</em></li>
               </ul>
             </div>
 
@@ -109,9 +139,10 @@ export default function MarcSaggesePage() {
                 <h3 className="text-xl font-semibold mb-2">Contact & Office</h3>
                 <address className="not-italic text-sm text-white/80">
                   <div>The Law Offices of Saggese & Associates</div>
-                  <div>732 S 6th St #200c, Las Vegas, NV 89101</div>
+                  <div>732 S. Sixth Street, Suite 200C</div>
+                  <div>Las Vegas, Nevada 89101</div>
                   <div>Phone: <a href="tel:17027788883" className="underline">702-778-8883</a></div>
-                  <div><a href="#" className="underline text-[#bfa76a]">Map & Directions</a></div>
+                  <div><a href="https://www.google.com/maps/dir/?api=1&destination=732+S.+Sixth+Street,+Suite+200C,+Las+Vegas,+Nevada+89101" target="_blank" rel="noreferrer" className="underline text-[#bfa76a]">Map & Directions</a></div>
                 </address>
               </div>
             </div>

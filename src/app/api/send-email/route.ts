@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { join } from 'node:path';
 import {
   FIRM_ADDRESS_LINE1,
   FIRM_ADDRESS_LINE2,
@@ -31,7 +32,8 @@ interface FormPayload {
 }
 
 const ACCEPTED_CASE_TYPES = ['Personal Injury', 'Criminal Defense'];
-const EMAIL_LOGO_URL = `${SITE_URL}/home-logo-560.webp`;
+const EMAIL_LOGO_CID = 'saggese-logo@maxlawnv.com';
+const EMAIL_LOGO_PATH = join(process.cwd(), 'public', 'home-logo.png');
 
 function buildPlainText(form: FormPayload) {
   const lines: string[] = [];
@@ -136,7 +138,7 @@ export async function POST(req: Request) {
     const clientHtml = `
       <div style="font-family:Arial,Helvetica,sans-serif;color:#111;max-width:600px">
         <div style="margin-bottom:22px">
-          <img src="${EMAIL_LOGO_URL}" alt="${FIRM_NAME}" width="220" style="display:block;max-width:220px;width:100%;height:auto" />
+          <img src="cid:${EMAIL_LOGO_CID}" alt="${FIRM_NAME}" width="220" style="display:block;max-width:220px;width:100%;height:auto" />
         </div>
         <h2 style="color:#d4af37;margin:0 0 14px">Thank You for Reaching Out</h2>
         <p>Dear ${form.firstName || ''},</p>
@@ -152,7 +154,18 @@ export async function POST(req: Request) {
     `;
     const clientText = `Thank you for contacting The Law Offices of Saggese & Associates\n\nDear ${form.firstName || ''},\n\nWe have received your inquiry regarding ${form.caseType || 'your legal matter'}.\n\n${FIRM_NAME}\n${FIRM_ADDRESS_LINE1}\n${FIRM_ADDRESS_LINE2}\nPhone: ${FIRM_PHONE_DISPLAY}\nWebsite: ${SITE_URL}`;
 
-    await transporter.sendMail({ from, to: form.email, subject: clientSubject, text: clientText, html: clientHtml });
+    await transporter.sendMail({
+      from,
+      to: form.email,
+      subject: clientSubject,
+      text: clientText,
+      html: clientHtml,
+      attachments: [{
+        filename: 'saggese-logo.png',
+        path: EMAIL_LOGO_PATH,
+        cid: EMAIL_LOGO_CID,
+      }],
+    });
 
     return NextResponse.json({ success: true, info });
   } catch (err: unknown) {

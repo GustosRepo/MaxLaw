@@ -14,7 +14,7 @@ export default function PracticeCardsLite() {
   const renderList = (title: string, topics: { label: string; href: string }[]) => (
     <div className="rounded-xl border border-white/15 bg-black/40 p-4">
       <h3 className="text-base font-semibold text-white">{title}</h3>
-      <ul className="mt-2 space-y-1 text-sm text-white/70">
+      <ul className="mt-2 space-y-1 text-base text-white/70">
         {topics.map(topic => (
           <li key={topic.href}>
             <Link href={topic.href} className="hover:text-[#d4af37]">
@@ -41,7 +41,7 @@ export default function PracticeCardsLite() {
             <Link href="/contact" className="rounded-xl border border-white/15 px-4 py-3 text-center text-sm text-white/85">Request Consultation</Link>
           </div>
         </div>
-        <details className="rounded-xl border border-white/10 bg-black/25 p-4 text-sm text-white/70">
+        <details className="rounded-xl border border-white/10 bg-black/25 p-4 text-base text-white/70">
           <summary className="cursor-pointer font-semibold text-white">Other services</summary>
           <ul className="mt-3 space-y-1">
             {CRIMINAL_DEFENSE_TOPICS.map(topic => (

@@ -25,7 +25,7 @@ export default function AboutSectionLite() {
           </p>
         </div>
         <ul className="mt-4 flex flex-wrap justify-center gap-3 text-xs text-white/60">
-          <li>20+ Years Serving Nevada</li>
+          <li>25+ Years Serving Nevada</li>
           <li>Former Army JAG Captain</li>
           <li>Legal Analyst for Local Media</li>
         </ul>

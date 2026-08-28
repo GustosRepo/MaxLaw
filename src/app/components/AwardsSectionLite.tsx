@@ -3,6 +3,8 @@
 import Image from 'next/image';
 
 const awards = [
+  'ClientChampion_Platinum_2026_300.png',
+  'peer-reviewed-300.png',
   'Client-Champion.png',
   'Lawyers-badge.png',
   'top-100.png',

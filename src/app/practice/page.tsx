@@ -20,7 +20,7 @@ export const metadata = {
 export default function PracticePage() {
   return (
     <>
-  <main className="min-h-screen custom-bg text-white font-['Inter'] py-12">
+  <main className="min-h-screen custom-bg text-white font-[var(--font-inter)] py-12">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <section className="mb-8">
             <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg overflow-hidden">
@@ -52,8 +52,8 @@ export default function PracticePage() {
   <Link key={p.title} href={p.href}>
     <div className="block rounded-2xl p-5 bg-gradient-to-br from-white/3 to-transparent border border-white/8 card-hover">
       <h3 className="text-lg font-semibold text-white">{p.title}</h3>
-      <p className="text-sm text-white/80 mt-2">{p.desc}</p>
-      <div className="mt-4 text-xs text-white/70">Learn more →</div>
+      <p className="text-base text-white/80 mt-2">{p.desc}</p>
+      <div className="mt-4 text-sm text-white/70">Learn more →</div>
     </div>
   </Link>
 ))}
@@ -72,8 +72,8 @@ export default function PracticePage() {
   <Link key={p.title} href={p.href}>
     <div className="block rounded-2xl p-5 bg-gradient-to-br from-white/3 to-transparent border border-white/8 card-hover">
       <h3 className="text-lg font-semibold text-white">{p.title}</h3>
-      <p className="text-sm text-white/80 mt-2">{p.desc}</p>
-      <div className="mt-4 text-xs text-white/70">Learn more →</div>
+      <p className="text-base text-white/80 mt-2">{p.desc}</p>
+      <div className="mt-4 text-sm text-white/70">Learn more →</div>
     </div>
   </Link>
 ))}

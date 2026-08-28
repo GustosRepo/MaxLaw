@@ -98,17 +98,19 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6" aria-label="Free consultation form">
+    <form onSubmit={handleFormSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6 [&_label]:leading-relaxed [&_input:not([type=checkbox])]:text-base [&_select]:text-base [&_textarea]:text-base" aria-label="Free consultation form">
+      <h2 className="mb-2 text-2xl font-bold text-white">Tell us about your case</h2>
+      <p className="mb-6 text-base leading-relaxed text-white/75">Complete the form below and our team will review your message.</p>
       {formStatus === 'success' && (
-        <div className="mb-4 rounded-lg bg-green-900/20 border border-green-500/30 p-4 text-green-300">{formMessage}</div>
+        <div className="mb-4 rounded-lg border border-blue-400/30 bg-[#0b2a4a] p-4 text-base text-blue-100">{formMessage}</div>
       )}
       {formStatus === 'error' && (
         <div className="mb-4 rounded-lg bg-red-900/20 border border-red-500/30 p-4 text-red-300">{formMessage}</div>
       )}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="md:col-span-2">
-          <label htmlFor="caseType" className="text-sm font-semibold block mb-2">What type of matter is this? <span className="text-[#d4af37]">*</span></label>
-          <select id="caseType" value={formData.caseType} onChange={(e) => setFormData(prev => ({ ...prev, caseType: e.target.value }))} required className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+          <label htmlFor="caseType" className="block mb-2 text-lg font-bold text-white">What type of matter is this? <span className="text-[#d4af37]">*</span></label>
+          <select id="caseType" value={formData.caseType} onChange={(e) => setFormData(prev => ({ ...prev, caseType: e.target.value }))} required className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-3 text-base">
             <option value="">Select a case type</option>
             {ACCEPTED_CASE_TYPES.map(caseType => (
               <option key={caseType} value={caseType}>{caseType}</option>
@@ -120,8 +122,8 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
         </div>
         {formData.caseType === 'Personal Injury' && (
           <>
-            <label className="text-sm">Personal injury type
-              <select value={formData.piSubtype} onChange={(e) => setFormData(prev => ({ ...prev, piSubtype: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+            <label className="text-base">Personal injury type
+              <select value={formData.piSubtype} onChange={(e) => setFormData(prev => ({ ...prev, piSubtype: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-3 text-base">
                 <option value="">Select</option>
                 <option value="Car Accident">Car Accident</option>
                 <option value="Slip and Fall">Slip and Fall</option>
@@ -130,8 +132,8 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
                 <option value="Other">Other</option>
               </select>
             </label>
-            <label className="text-sm">Injury severity
-              <select value={formData.injurySeverity} onChange={(e) => setFormData(prev => ({ ...prev, injurySeverity: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+            <label className="text-base">Injury severity
+              <select value={formData.injurySeverity} onChange={(e) => setFormData(prev => ({ ...prev, injurySeverity: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-3 text-base">
                 <option value="">Select</option>
                 <option value="minor">Minor (no hospitalization)</option>
                 <option value="moderate">Moderate (medical treatment)</option>
@@ -144,14 +146,15 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
                 <option value="under-5k">Under $5,000</option>
                 <option value="5k-25k">$5,000 - $25,000</option>
                 <option value="25k-plus">Over $25,000</option>
+                <option value="unknown">Unknown</option>
               </select>
             </label>
-            <label className="text-sm">Were you clearly at fault for the accident?
+            <label className="text-sm">Was the other vehicle at fault?
               <select value={formData.atFault} onChange={(e) => setFormData(prev => ({ ...prev, atFault: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
                 <option value="">Select</option>
-                <option value="no">No</option>
-                <option value="unsure">Not sure</option>
                 <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="unknown">Unknown</option>
               </select>
             </label>
             <label className="text-sm">Does the other driver have insurance?
@@ -230,7 +233,7 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
           </label>
         </div>
         <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden />
-        <button type="submit" disabled={formStatus === 'loading'} className="mt-2 w-full rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] disabled:opacity-50 disabled:cursor-not-allowed">
+        <button type="submit" disabled={formStatus === 'loading'} className="mt-3 w-full rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-4 text-lg font-bold text-[#0e0e0e] shadow-[0_8px_24px_rgba(212,175,55,0.25)] disabled:opacity-50 disabled:cursor-not-allowed">
           {formStatus === 'loading' ? 'Sending...' : 'Request a free consultation'}
         </button>
       </div>

@@ -209,7 +209,13 @@ export default function HomeClient(){
               <Card title="Meet Your Lawyer" subtitle="" titleClassName="text-2xl md:text-3xl text-center" bodyClassName="text-center">
                 <div className="flex flex-col items-center">
                   <div className="relative w-72 h-96 md:w-80 md:h-[28rem]">
-                    <Image src="/newmarc.jpg" alt="Attorney Marc A. Saggese" fill className="object-cover object-top rounded-2xl border border-white/10 shadow-xl" />
+                    <Image
+                      src="/newmarc.jpg"
+                      alt="Attorney Marc A. Saggese"
+                      fill
+                      sizes="(min-width: 768px) 20rem, 18rem"
+                      className="object-cover object-top rounded-2xl border border-white/10 shadow-xl"
+                    />
                   </div>
                   <h4 className="mt-6 text-xl font-semibold">Marc A. Saggese</h4>
                   <p className="mt-3 max-w-2xl mx-auto text-white/75 leading-relaxed">Las Vegas attorney focusing on <strong className="text-[#d4af37]">personal injury</strong> and <strong className="text-[#d4af37]">criminal defense</strong>, blending decades of courtroom experience with client‑first strategy.</p>
@@ -306,13 +312,13 @@ export default function HomeClient(){
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#161616] text-white font-[var(--font-inter)]">
-      <Section id="home" className="relative overflow-hidden min-h-[calc(100dvh-57px)] md:min-h-[90dvh] flex items-stretch md:items-center pt-0 md:pt-16 pb-0">
+      <Section id="home" className="relative max-w-none px-0 overflow-hidden min-h-[calc(100dvh-57px)] md:min-h-[90dvh] flex items-stretch md:items-center pt-0 md:pt-16 pb-0">
         <div className="absolute inset-0">
           <HeroMediaLite />
           {!isLite && <div className="absolute inset-0 hidden bg-black/45 md:block" />}
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[56%] bg-gradient-to-t from-black/90 via-black/55 to-transparent md:hidden" />
-  <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-6 min-h-[calc(100dvh-57px)] md:min-h-[90dvh] flex items-end pb-[28vh] md:pb-0">
+  <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-6 min-h-[calc(100dvh-57px)] md:min-h-[90dvh] flex items-end pb-[18vh] md:pb-0">
           <div className="flex w-full flex-col md:flex-row items-center md:items-end gap-7 md:gap-14">
             {/* Figure (desktop only) */}
             <div className="hidden md:block relative w-56 lg:w-64 xl:w-72 2xl:w-80 aspect-[365/815] self-end md:mb-0">
@@ -320,47 +326,41 @@ export default function HomeClient(){
                 src="/newfigure.png"
                 alt="Lead attorney"
                 fill
-                sizes="(min-width:1280px) 20vw, (min-width:1024px) 25vw, 0px" /* 0 on mobile since hidden */
+                sizes="(min-width:1536px) 20rem, (min-width:1280px) 18rem, (min-width:1024px) 16rem, 14rem"
                 className="object-contain object-bottom drop-shadow-[0_10px_18px_rgba(0,0,0,0.55)] select-none pointer-events-none"
-                priority={false}
+                priority
               />
             </div>
             {/* Hero copy */}
             <div className="w-full flex-1 text-center md:text-left">
-              {/* Mobile-only logo above headline */}
-              <div className="md:hidden mx-auto mb-4">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet="/plainlogo-280.webp 280w, /plainlogo-560.webp 560w, /plainlogo-840.webp 840w"
-                    sizes="62vw"
-                  />
-                  <img
-                    src="/plainlogo.png"
-                    alt="The Law Offices of Saggese & Associates logo"
-                    width={280}
-                    height={100}
-                    fetchPriority="high"
-                    decoding="async"
-                    className="mx-auto h-auto w-[62vw] max-w-[255px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.72)]"
-                  />
-                </picture>
+              {/* Brand logo above the hero headline */}
+              <div className="relative top-10 mx-auto mb-10 md:top-0 md:mx-0 md:mb-6">
+                <img
+                  src="/2026logo-sharp.png"
+                  alt="The Law Offices of Saggese & Associates logo"
+                  width={280}
+                  height={100}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="mx-auto h-auto w-[62vw] max-w-[255px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.72)] md:mx-0 md:w-[min(520px,100%)] md:max-w-none"
+                />
               </div>
-              <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
+              <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[0.95] tracking-tight">
                 {FIRM_NAME}
                 <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Car Accident & Personal Injury Attorneys</span>
               </h1>
-              <h1 className="md:hidden mx-auto max-w-[22rem] font-[var(--font-playfair)] text-[2.35rem] font-bold leading-[1.02] text-white">
-                Injured in a Las Vegas Car Accident?
+              <h1 className="md:hidden mx-auto max-w-[22rem] font-[var(--font-playfair)] text-[1.5rem] font-bold leading-[1.08] text-white">
+                {FIRM_NAME}
+                <span className="block mt-3 text-[0.55em] text-[#d4af37] font-normal">Car Accident &amp; Personal Injury Attorneys</span>
               </h1>
-              <p className="mt-4 md:mt-6 text-base sm:text-lg md:text-xl leading-relaxed text-white/84 max-w-2xl md:max-w-xl mx-auto md:mx-0">
+              <p className="mt-4 md:mt-6 text-sm sm:text-lg md:text-2xl leading-relaxed text-white/84 max-w-2xl md:max-w-xl mx-auto md:mx-0">
                 Injured and not at fault? Free consultation. No fee unless we win your injury case.
               </p>
               <div className="mt-6 md:mt-8 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 md:flex md:flex-row md:gap-4 md:justify-start justify-center">
                 <a href={`tel:${FIRM_PHONE_E164}`} className="rounded-2xl bg-[#d4af37] px-6 py-4 text-base sm:text-lg font-semibold text-[#0e0e0e] shadow-[0_14px_34px_rgba(0,0,0,0.35)]">Call {FIRM_PHONE_DISPLAY}</a>
                 <Link href="/contact" className="rounded-2xl border border-white/25 bg-black/25 px-6 py-4 text-base sm:text-lg text-white/90 md:bg-white/5">Request Consultation</Link>
               </div>
-              <ul className="mt-5 md:mt-8 flex flex-wrap md:justify-start justify-center gap-x-4 gap-y-2 text-[11px] md:text-xs text-white/66"><li>20+ Years Experience</li><li>{reviewSummary.rating.toFixed(1)}★ ({reviewSummary.total}+ reviews)</li><li>24/7 Message Us</li></ul>
+              <ul className="mt-5 md:mt-8 flex flex-wrap md:justify-start justify-center gap-x-4 gap-y-2 text-[11px] md:text-xs text-white/66"><li>Over $30 million in reported client recoveries*</li><li>25+ Years Experience</li><li>{reviewSummary.rating.toFixed(1)}★ ({reviewSummary.total}+ reviews)</li><li>24/7 Message Us</li></ul>
               <p className="mt-2 text-[10px] text-white/35">*Past results don’t guarantee future outcomes.</p>
             </div>
           </div>

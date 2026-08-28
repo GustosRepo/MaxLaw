@@ -87,8 +87,8 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-lg font-semibold text-white mb-2">Contact Information</h2>
             <p>
               The Law Offices of Saggese &amp; Associates<br />
-              732 S 6th St #200c<br />
-              Las Vegas, NV 89101<br />
+              732 S. Sixth Street, Suite 200C<br />
+              Las Vegas, Nevada 89101<br />
               Phone: (702) 778-8883<br />
               Email: info@maxlawnv.com
             </p>

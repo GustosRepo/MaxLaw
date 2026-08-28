@@ -31,7 +31,7 @@ export const legalServiceData = {
   email: 'info@maxlawnv.com',
   address: {
     '@type': 'PostalAddress',
-  streetAddress: '732 S 6th St #200c',
+    streetAddress: '732 S. Sixth Street, Suite 200C',
     addressLocality: 'Las Vegas',
     addressRegion: 'NV',
     postalCode: '89101',
@@ -103,7 +103,7 @@ export const attorneyData = {
   },
   address: {
     '@type': 'PostalAddress',
-  streetAddress: '732 S 6th St #200c',
+    streetAddress: '732 S. Sixth Street, Suite 200C',
     addressLocality: 'Las Vegas',
     addressRegion: 'NV',
     postalCode: '89101',
@@ -129,7 +129,7 @@ export const organizationData = {
   email: 'info@maxlawnv.com',
   address: {
     '@type': 'PostalAddress',
-  streetAddress: '732 S 6th St #200c',
+    streetAddress: '732 S. Sixth Street, Suite 200C',
     addressLocality: 'Las Vegas',
     addressRegion: 'NV',
     postalCode: '89101',

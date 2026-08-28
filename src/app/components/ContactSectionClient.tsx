@@ -63,7 +63,8 @@ export default function ContactSectionClient() {
         <address className="not-italic text-white/80">
           The Law Offices of Saggese & Associates<br />{FIRM_ADDRESS_LINE1}<br />{FIRM_ADDRESS_LINE2}
         </address>
-        <p className="text-white/80">Phone: <a href={`tel:${FIRM_PHONE_E164}`} className="underline" style={{ textDecorationColor: BRAND.accent }}>{FIRM_PHONE_DISPLAY}</a></p>
+        <p className="text-2xl font-bold leading-tight text-[#d4af37]"><a href={`tel:${FIRM_PHONE_E164}`} className="underline underline-offset-4" style={{ textDecorationColor: BRAND.accent }}>{FIRM_PHONE_DISPLAY}</a></p>
+        <p className="text-white/70">24-hour calls available</p>
         <p className="text-white/80">Fax: 702-778-8884</p>
         <div className="mt-2">
           <h4 className="text-sm font-semibold text-white/75">Connect</h4>

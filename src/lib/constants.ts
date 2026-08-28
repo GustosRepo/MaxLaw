@@ -1,6 +1,6 @@
 // Centralized firm constants (address, phone, etc.)
-export const FIRM_ADDRESS_LINE1 = '732 S 6th St #200c';
-export const FIRM_ADDRESS_LINE2 = 'Las Vegas, NV 89101';
+export const FIRM_ADDRESS_LINE1 = '732 S. Sixth Street, Suite 200C';
+export const FIRM_ADDRESS_LINE2 = 'Las Vegas, Nevada 89101';
 export const FIRM_ADDRESS_FULL = `${FIRM_ADDRESS_LINE1}, ${FIRM_ADDRESS_LINE2}`;
 export const FIRM_NAME = 'The Law Offices of Saggese & Associates';
 export const FIRM_CITY = 'Las Vegas';

@@ -36,12 +36,15 @@ export default function ContactPageClient() {
   }, []);
 
   return (
-    <main className="min-h-screen custom-bg text-white font-['Inter'] py-12">
+    <main className="min-h-screen custom-bg text-white font-[var(--font-inter)] py-12">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <section className="mb-6">
           <div className="rounded-3xl p-6 md:p-8 bg-black/40 md:bg-gradient-to-br md:from-white/3 md:to-transparent border border-white/8 shadow-lg">
             <h1 className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#bfa76a]">Contact</h1>
-            <p className="mt-2 text-white/80">Schedule a free consultation or call <a href="tel:17027788883" className="underline">(702) 778‑8883</a>.</p>
+            <p className="mt-2 text-white/80">Schedule a free consultation.</p>
+            <div className="mt-4 flex flex-col gap-3 text-xl font-bold sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8">
+              <a href={`tel:${FIRM_PHONE_E164}`} className="text-[#d4af37] underline underline-offset-4">Call {FIRM_PHONE_DISPLAY}</a>
+            </div>
           </div>
         </section>
 
@@ -79,7 +82,8 @@ export default function ContactPageClient() {
             </div>
             <div>
               <h3 className="text-base font-semibold">Call</h3>
-              <p className="text-white/80">Phone: <a href={`tel:${FIRM_PHONE_E164}`} className="underline">{FIRM_PHONE_DISPLAY}</a></p>
+              <p className="text-3xl font-bold leading-tight text-[#d4af37]"><a href={`tel:${FIRM_PHONE_E164}`} className="underline underline-offset-4">{FIRM_PHONE_DISPLAY}</a></p>
+              <p className="mt-1 text-white/70">24-hour calls available</p>
             </div>
             <div>
               <h3 className="text-base font-semibold">Hours</h3>
@@ -98,7 +102,7 @@ export default function ContactPageClient() {
                 />
               </div>
               {!mapRevealed ? (
-                <button onClick={() => setMapRevealed(true)} className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/70 hover:bg-white/10">Load map</button>
+                <button onClick={() => setMapRevealed(true)} className="mt-2 w-full rounded-xl bg-[#d4af37] px-4 py-3 text-base font-bold text-[#0e0e0e] shadow-[0_8px_22px_rgba(212,175,55,0.2)] hover:bg-[#e6c547]">Show office map</button>
               ) : (
                 <>
                   <LazyMap title="Office location map" className="mt-3" />
@@ -106,7 +110,7 @@ export default function ContactPageClient() {
                 </>
               )}
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=732+S+6th+St+%23200c,+Las+Vegas,+NV+89101"
+                href="https://www.google.com/maps/dir/?api=1&destination=732+S.+Sixth+Street,+Suite+200C,+Las+Vegas,+Nevada+89101"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-3 inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 text-xs text-white/75 hover:bg-white/10"

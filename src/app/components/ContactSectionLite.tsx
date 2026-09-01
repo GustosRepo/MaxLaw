@@ -19,9 +19,11 @@ export default function ContactSectionLite() {
           </p>
         </div>
         <div className="space-y-3 text-base">
-          <p className="text-xl font-bold">Phone: <a href={`tel:${FIRM_PHONE_E164}`} className="text-[#d4af37] underline">{FIRM_PHONE_DISPLAY}</a></p>
+          <a href={`tel:${FIRM_PHONE_E164}`} className="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-xl font-bold text-[#0e0e0e] no-underline shadow-[0_10px_30px_rgba(212,175,55,0.2)]">Call {FIRM_PHONE_DISPLAY}</a>
           <p className="text-white/70">24-hour calls available</p>
           <p>Office: {FIRM_ADDRESS_LINE1}, {FIRM_ADDRESS_LINE2}</p>
+          <p>Fax: 702-778-8884</p>
+          <p>Office hours: Mon-Fri 8:00-5:00, Sat-Sun Closed</p>
           <p className="text-xs text-white/50">Submitting a message does not create an attorney-client relationship.</p>
         </div>
         <a

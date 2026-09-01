@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { TOTAL_RECOVERED_DISPLAY } from '../../lib/constants';
 
 const results = [
   { amount: '$6.9M', label: 'Negligent Foster Care' },
@@ -14,7 +15,7 @@ export default function ResultsSectionLite() {
     <section className="mx-auto w-full max-w-5xl space-y-6 px-4">
       <div className="text-center space-y-2">
         <h2 className="text-2xl font-semibold text-white">Selected Case Results</h2>
-        <p className="text-sm text-white/70"><strong className="text-[#d4af37]">Over $30 million</strong> in reported client recoveries*</p>
+        <p className="text-sm text-white/70"><strong className="text-[#d4af37]">{TOTAL_RECOVERED_DISPLAY}</strong>*</p>
         <p className="text-xs text-white/50">Representative recoveries. Past results do not guarantee future outcomes.</p>
       </div>
       <div className="grid grid-cols-2 gap-3 text-sm text-white/80">

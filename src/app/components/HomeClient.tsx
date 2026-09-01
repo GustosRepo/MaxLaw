@@ -8,7 +8,18 @@ const AwardsSection = dynamic(() => import('./AwardsSection'), { loading: () => 
 const MediaSection = dynamic(() => import('./MediaSection'), { loading: () => null });
 const ResultsSection = dynamic(() => import('./ResultsSection'), { loading: () => null });
 const MissionSection = dynamic(() => import('./MissionSection'), { loading: () => null });
-import { FIRM_PHONE_E164, FIRM_PHONE_DISPLAY, FIRM_NAME, FIRM_ADDRESS_LINE1, FIRM_ADDRESS_LINE2 } from '../../lib/constants';
+import {
+  CRIMINAL_DEFENSE_CASE_TYPES,
+  FIRM_ADDRESS_LINE1,
+  FIRM_ADDRESS_LINE2,
+  FIRM_NAME,
+  FIRM_PHONE_DISPLAY,
+  FIRM_PHONE_E164,
+  MARC_HEADSHOT_SRC,
+  PERSONAL_INJURY_CASE_TYPES,
+  TOTAL_RECOVERED_DISPLAY,
+  type CaseTopic,
+} from '../../lib/constants';
 import { useLiteMode } from './LiteModeContext';
 const PracticeCardsLite = dynamic(() => import('./PracticeCardsLite'), { loading: () => null });
 const ResultsSectionLite = dynamic(() => import('./ResultsSectionLite'), { loading: () => null });
@@ -20,21 +31,7 @@ const ContactSectionLite = dynamic(() => import('./ContactSectionLite'), { loadi
 
 const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { ssr: false, loading: () => <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-white/60">Loading…</div> });
 
-const slugify = (s: string) => s.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
-type TopicItem = string | { label: string; href: string };
-const PERSONAL_INJURY_TOPICS: TopicItem[] = [
-  { label: 'Car Accidents', href: '/practice/car-accidents' },
-  { label: 'Motorcycle Accidents', href: '/practice/motorcycle-accidents' },
-  { label: 'Truck Accidents', href: '/practice/truck-accidents' },
-  { label: 'Wrongful Death', href: '/practice/wrongful-death' },
-  { label: 'Uninsured & Underinsured Accidents', href: '/practice/underinsured-and-uninsured-accidents' },
-];
-// Use explicit hrefs where slug does not match directory names
-const CRIMINAL_DEFENSE_TOPICS: TopicItem[] = [
-  'DUI',
-  { label: 'Battery Domestic Violence', href: '/criminal-defense/domestic-violence' },
-  { label: 'Drug Offenses', href: '/criminal-defense/drugs' },
-];
+const topicHref = (topic: CaseTopic) => topic.href || `/contact?case=${encodeURIComponent(topic.label)}`;
 
 const Section: React.FC<React.PropsWithChildren<{ id?: string; className?: string }>> = ({ id, className, children }) => (
   <section id={id} data-mobile-chunk className={`mx-auto w-full max-w-7xl px-4 md:px-6 ${className||''}`}>
@@ -49,16 +46,16 @@ const Card: React.FC<React.PropsWithChildren<{ title: string; subtitle?: string;
   </div>
 );
  
-const TopicsAccordion: React.FC<{ title: string; topics: TopicItem[]; basePath?: string }> = ({ title, topics, basePath='/practice' }) => {
+const TopicsAccordion: React.FC<{ title: string; topics: CaseTopic[] }> = ({ title, topics }) => {
   const [open,setOpen]=React.useState(false);
   return (
     <div className="mt-4">
       <button onClick={()=>setOpen(o=>!o)} className="flex w-full items-center justify-between rounded-xl border border-white/10 bg-black/30 px-4 py-2 text-sm font-semibold"><span>{open?`Hide ${title}`:`See ${title}`}</span><span className={`transition-transform ${open?'rotate-180':''}`}>▾</span></button>
       {open && Array.isArray(topics) && topics.length > 0 && (
         <ul className="mt-3 grid grid-cols-1 gap-2">
-          {topics.map((t, idx) => {
-            const label = typeof t === 'string' ? t : t.label;
-            const href = typeof t === 'string' ? `${basePath}/${slugify(t)}` : t.href;
+          {topics.map((topic, idx) => {
+            const label = topic.label;
+            const href = topicHref(topic);
             return (
               <li key={`${label}-${idx}`}>
                 <Link href={href} className="block rounded-lg px-3 py-2 text-sm hover:bg-white/5">{label}</Link>
@@ -170,6 +167,38 @@ export default function HomeClient(){
   const sectionQueue = React.useMemo(() => {
     if(lite || isMobile) return [];
     const list: Array<{ key: string; node: React.ReactNode }> = [];
+    if (!skipSections.about) {
+      list.push({
+        key: 'about',
+        node: (
+          <Section id="about" className="py-12">
+            <div className="max-w-5xl mx-auto">
+              <Card title="Meet Your Lawyer" subtitle="" titleClassName="text-2xl md:text-3xl text-center" bodyClassName="text-center">
+                <div className="flex flex-col items-center">
+                  <div className="relative w-72 h-96 md:w-80 md:h-[28rem]">
+                    <Image
+                      src={MARC_HEADSHOT_SRC}
+                      alt="Attorney Marc A. Saggese"
+                      fill
+                      sizes="(min-width: 768px) 20rem, 18rem"
+                      className="object-cover object-top rounded-2xl border border-white/10 shadow-xl"
+                    />
+                  </div>
+                  <h4 className="mt-6 text-xl font-semibold">Marc A. Saggese</h4>
+                  <p className="mt-3 max-w-2xl mx-auto text-white/75 leading-relaxed">Las Vegas attorney focusing on <strong className="text-[#d4af37]">injury</strong> and <strong className="text-[#d4af37]">criminal defense</strong>, blending decades of courtroom experience with client‑first strategy.</p>
+                  <ul className="mt-6 flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm">
+                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Free consultations</li>
+                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Same-day when available</li>
+                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Evening/weekend by appt.</li>
+                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Se habla Español</li>
+                  </ul>
+                </div>
+              </Card>
+            </div>
+          </Section>
+        ),
+      });
+    }
     if (!skipSections.results) list.push({ key: 'results', node: <ResultsSection /> });
     if (!skipSections.awards) list.push({ key: 'awards', node: <AwardsSection /> });
     if (!skipSections.media) list.push({ key: 'media', node: <MediaSection /> });
@@ -200,38 +229,6 @@ export default function HomeClient(){
         ),
       });
     }
-    if (!skipSections.about) {
-      list.push({
-        key: 'about',
-        node: (
-          <Section id="about" className="py-12">
-            <div className="max-w-5xl mx-auto">
-              <Card title="Meet Your Lawyer" subtitle="" titleClassName="text-2xl md:text-3xl text-center" bodyClassName="text-center">
-                <div className="flex flex-col items-center">
-                  <div className="relative w-72 h-96 md:w-80 md:h-[28rem]">
-                    <Image
-                      src="/newmarc.jpg"
-                      alt="Attorney Marc A. Saggese"
-                      fill
-                      sizes="(min-width: 768px) 20rem, 18rem"
-                      className="object-cover object-top rounded-2xl border border-white/10 shadow-xl"
-                    />
-                  </div>
-                  <h4 className="mt-6 text-xl font-semibold">Marc A. Saggese</h4>
-                  <p className="mt-3 max-w-2xl mx-auto text-white/75 leading-relaxed">Las Vegas attorney focusing on <strong className="text-[#d4af37]">injury</strong> and <strong className="text-[#d4af37]">criminal defense</strong>, blending decades of courtroom experience with client‑first strategy.</p>
-                  <ul className="mt-6 flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm">
-                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Free consultations</li>
-                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Same-day when available</li>
-                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Evening/weekend by appt.</li>
-                    <li className="flex items-center"><span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4af37] mr-2"></span>Se habla Español</li>
-                  </ul>
-                </div>
-              </Card>
-            </div>
-          </Section>
-        ),
-      });
-    }
     if (!skipSections.contact) {
       list.push({
         key: 'contact',
@@ -239,7 +236,12 @@ export default function HomeClient(){
           <Section id="contact" className="py-12">
             <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-5xl mx-auto">
               <h2 className="text-3xl font-bold text-center mb-6">Speak With an Experienced Lawyer Today</h2>
-              <p className="text-center max-w-2xl mx-auto text-white/70">Call <a href={`tel:${FIRM_PHONE_E164}`} className="underline" style={{textDecorationColor:'#d4af37'}}>{FIRM_PHONE_DISPLAY}</a> or send a confidential message below.</p>
+              <div className="mx-auto flex max-w-2xl flex-col items-center gap-3 text-center text-white/70">
+                <a href={`tel:${FIRM_PHONE_E164}`} className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-base font-bold text-[#0e0e0e] no-underline shadow-[0_10px_30px_rgba(212,175,55,0.2)]">
+                  Call {FIRM_PHONE_DISPLAY}
+                </a>
+                <p>Or send a confidential message below.</p>
+              </div>
               <div className="mt-8"><ContactSectionClient /></div>
               <p className="mt-6 text-center text-xs text-white/30">Office: {FIRM_ADDRESS_LINE1}, {FIRM_ADDRESS_LINE2}</p>
             </div>
@@ -335,32 +337,32 @@ export default function HomeClient(){
             <div className="w-full flex-1 text-center md:text-left">
               {/* Brand logo above the hero headline */}
               <div className="relative top-10 mx-auto mb-10 md:top-0 md:mx-0 md:mb-6">
-                <img
+                <Image
                   src="/2026logo-sharp.png"
                   alt="The Law Offices of Saggese & Associates logo"
                   width={280}
                   height={100}
-                  fetchPriority="high"
-                  decoding="async"
                   className="mx-auto h-auto w-[62vw] max-w-[255px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.72)] md:mx-0 md:w-[min(520px,100%)] md:max-w-none"
+                  priority
                 />
               </div>
               <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[0.95] tracking-tight">
                 {FIRM_NAME}
                 <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Car Accident & Injury Attorneys</span>
               </h1>
-              <h1 className="md:hidden mx-auto max-w-[22rem] font-[var(--font-playfair)] text-[1.5rem] font-bold leading-[1.08] text-white">
-                {FIRM_NAME}
+              <h1 className="md:hidden mx-auto max-w-[20rem] font-[var(--font-playfair)] text-[1.38rem] font-bold leading-[1.12] text-white">
+                <span className="block">The Law Offices of Saggese</span>
+                <span className="block">&amp; Associates</span>
                 <span className="block mt-3 text-[0.55em] text-[#d4af37] font-normal">Car Accident &amp; Injury Attorneys</span>
               </h1>
-              <p className="mt-4 md:mt-6 text-sm sm:text-lg md:text-2xl leading-relaxed text-white/84 max-w-2xl md:max-w-xl mx-auto md:mx-0">
+              <p className="mx-auto mt-4 max-w-[19rem] text-sm leading-relaxed text-white/84 sm:max-w-2xl sm:text-lg md:mx-0 md:mt-6 md:max-w-xl md:text-2xl">
                 Injured and not at fault? Free consultation. No fee unless we win your injury case.
               </p>
-              <div className="mt-6 md:mt-8 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 md:flex md:flex-row md:gap-4 md:justify-start justify-center">
-                <a href={`tel:${FIRM_PHONE_E164}`} className="rounded-2xl bg-[#d4af37] px-6 py-4 text-base sm:text-lg font-semibold text-[#0e0e0e] shadow-[0_14px_34px_rgba(0,0,0,0.35)]">Call {FIRM_PHONE_DISPLAY}</a>
-                <Link href="/contact" className="rounded-2xl border border-white/25 bg-black/25 px-6 py-4 text-base sm:text-lg text-white/90 md:bg-white/5">Request Consultation</Link>
+              <div className="mx-auto mt-6 grid w-full max-w-[19rem] grid-cols-1 gap-3 sm:max-w-sm sm:grid-cols-2 md:mx-0 md:mt-8 md:flex md:max-w-none md:flex-row md:gap-4 md:justify-start">
+                <a href={`tel:${FIRM_PHONE_E164}`} className="w-full rounded-2xl bg-[#d4af37] px-5 py-4 text-center text-base font-semibold text-[#0e0e0e] shadow-[0_14px_34px_rgba(0,0,0,0.35)] sm:text-lg md:w-auto md:px-6">Call {FIRM_PHONE_DISPLAY}</a>
+                <Link href="/contact" className="w-full rounded-2xl border border-white/25 bg-black/25 px-5 py-4 text-center text-base text-white/90 sm:text-lg md:w-auto md:bg-white/5 md:px-6">Request Consultation</Link>
               </div>
-              <ul className="mt-5 md:mt-8 flex flex-wrap md:justify-start justify-center gap-x-4 gap-y-2 text-[11px] md:text-xs text-white/66"><li>Over $30 million in reported client recoveries*</li><li>25+ Years Experience</li><li>{reviewSummary.rating.toFixed(1)}★ ({reviewSummary.total}+ reviews)</li><li>24/7 Message Us</li></ul>
+              <ul className="mx-auto mt-5 flex max-w-[19rem] flex-wrap justify-center gap-x-4 gap-y-2 text-[11px] text-white/66 md:mx-0 md:mt-8 md:max-w-none md:justify-start md:text-xs"><li>{TOTAL_RECOVERED_DISPLAY}*</li><li>25+ Years Experience</li><li>{reviewSummary.rating.toFixed(1)}★ ({reviewSummary.total}+ reviews)</li><li>24/7 Message Us</li></ul>
               <p className="mt-2 text-[10px] text-white/35">*Past results don’t guarantee future outcomes.</p>
             </div>
           </div>
@@ -382,6 +384,12 @@ export default function HomeClient(){
       )}
 
       {isLite && loadLiteSections && (
+        <Section id="about-lite" className="py-10">
+          <AboutSectionLite />
+        </Section>
+      )}
+
+      {isLite && loadLiteSections && (
         <Section id="results-lite" className="py-10">
           <ResultsSectionLite />
         </Section>
@@ -394,14 +402,14 @@ export default function HomeClient(){
       )}
 
       {isLite && loadLiteSections && (
-        <Section id="reviews-lite" className="py-10">
-          <ReviewsSectionLite />
+        <Section id="media-lite" className="py-10">
+          <MediaSection />
         </Section>
       )}
 
       {isLite && loadLiteSections && (
-        <Section id="about-lite" className="py-10">
-          <AboutSectionLite />
+        <Section id="reviews-lite" className="py-10">
+          <ReviewsSectionLite />
         </Section>
       )}
 
@@ -420,8 +428,8 @@ export default function HomeClient(){
               <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
                 <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
                 <div className="grid gap-6 md:grid-cols-2">
-                  <Card title="Injured and not at fault?" subtitle="Las Vegas Injury">We help injured Nevadans after car, motorcycle, and truck accidents pursue medical care and compensation.<TopicsAccordion title="Accident Topics" topics={PERSONAL_INJURY_TOPICS} /><Link href="/contact" className="mt-4 inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">Request a free consultation</Link></Card>
-                  <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_TOPICS} basePath="/criminal-defense" /></Card>
+                  <Card title="Injured and not at fault?" subtitle="Las Vegas Injury">We help injured Nevadans after car, motorcycle, and truck accidents pursue medical care and compensation.<TopicsAccordion title="Accident Topics" topics={PERSONAL_INJURY_CASE_TYPES} /><Link href="/contact" className="mt-4 inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">Request a free consultation</Link></Card>
+                  <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_CASE_TYPES} /></Card>
                 </div>
               </div>
             )}

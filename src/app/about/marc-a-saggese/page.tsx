@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { MARC_AWARDS, MARC_HEADSHOT_SRC } from "../../../lib/constants";
 
 export const metadata: Metadata = {
   title: "Marc A. Saggese, Esq. | Las Vegas Trial Attorney",
@@ -12,14 +13,14 @@ export const metadata: Metadata = {
     type: "profile",
     url: "https://www.maxlawnv.com/about/marc-a-saggese",
     images: [
-      { url: "https://www.maxlawnv.com/newmarc.jpg", width: 1320, height: 1604, alt: "Attorney Marc A. Saggese" }
+      { url: `https://www.maxlawnv.com${MARC_HEADSHOT_SRC}`, width: 1320, height: 1604, alt: "Attorney Marc A. Saggese" }
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Marc A. Saggese, Esq. | Las Vegas Trial Attorney",
     description: "Las Vegas injury & criminal defense lawyer. Free consultation.",
-    images: ["https://www.maxlawnv.com/newmarc.jpg"],
+    images: [`https://www.maxlawnv.com${MARC_HEADSHOT_SRC}`],
   },
 };
 
@@ -38,7 +39,7 @@ export default function MarcSaggesePage() {
             <div className="flex items-start justify-center md:justify-start">
               <div className="relative rounded-2xl overflow-hidden w-40 md:w-48">
                 <div className="absolute inset-0 rounded-2xl blur-2xl" style={{ background: 'radial-gradient(ellipse at center, rgba(191,167,106,0.12), transparent 30%)' }} />
-                <Image src="/newmarc.jpg" alt="Marc A. Saggese, Esq." width={320} height={389} className="relative rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] border border-[#bfa76a]/20 object-cover bg-[#0f1011]" />
+                <Image src={MARC_HEADSHOT_SRC} alt="Marc A. Saggese, Esq." width={320} height={389} className="relative rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] border border-[#bfa76a]/20 object-cover bg-[#0f1011]" />
               </div>
             </div>
 
@@ -83,27 +84,10 @@ export default function MarcSaggesePage() {
 
                 <section className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/6 card-hover md:col-span-2" aria-labelledby="awards-heading">
                   <h2 id="awards-heading" className="text-lg font-semibold text-white">Awards</h2>
-                  <ul className="mt-3 columns-1 space-y-2 text-sm leading-relaxed text-white/90 list-disc list-inside md:columns-2 md:space-y-0">
-                    <li>2026 Platinum Client Champion, Martindale-Hubbell Attorney Ratings</li>
-                    <li>2025 Platinum Client Champion, Martindale-Hubbell Attorney Ratings</li>
-                    <li>Silver Client Champion, Martindale-Hubbell Attorney Ratings</li>
-                    <li>Multi-Million Dollar Advocates Forum Member, Million Dollar Advocates Forum</li>
-                    <li>Million Dollar Advocates Forum Member, Million Dollar Advocates Forum</li>
-                    <li>Nation&apos;s Top One Percent of Attorneys, The National Association of Distinguished Counsel</li>
-                    <li>10 BEST Client Satisfaction Award, American Institute of DUI/DWI Attorneys</li>
-                    <li>Clients&apos; Choice Award - Criminal Defense, AVVO</li>
-                    <li>10 Best 2 Year Client Satisfaction Award, American Institute of Personal Injury Attorneys</li>
-                    <li>10 BEST - Client Satisfaction Award, American Institute of Personal Injury Attorneys</li>
-                    <li>Top 10 Attorney Award, National Academy of Personal Injury Attorneys</li>
-                    <li>Superb Rated Award - Top Attorney Criminal Defense, AVVO</li>
-                    <li>The Valley&apos;s Top Lawyers, Desert Companion Magazine</li>
-                    <li>Top Lawyers in Las Vegas, MyVegas Magazine</li>
-                    <li>Rising Star, Super Lawyers Magazine</li>
-                    <li>Rated, AVVO</li>
-                    <li>Top Attorneys, Mountain States</li>
-                    <li>Top 40 Under 40, The National Trial Lawyers</li>
-                    <li>Rising Star, Super Lawyers Magazine</li>
-                    <li>Top Attorneys, Mountain States</li>
+                  <ul className="mt-3 grid grid-cols-1 gap-3 text-sm leading-relaxed text-white/90 md:grid-cols-2">
+                    {MARC_AWARDS.map((award, index) => (
+                      <li key={`${award}-${index}`} className="rounded-xl border border-white/10 bg-black/25 px-4 py-3">{award}</li>
+                    ))}
                   </ul>
                 </section>
               </div>
@@ -141,7 +125,9 @@ export default function MarcSaggesePage() {
                   <div>The Law Offices of Saggese & Associates</div>
                   <div>732 S. Sixth Street, Suite 200C</div>
                   <div>Las Vegas, Nevada 89101</div>
-                  <div>Phone: <a href="tel:17027788883" className="underline">702-778-8883</a></div>
+                  <div className="mt-3">
+                    <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#bfa76a] px-4 py-2 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">Call 702-778-8883</a>
+                  </div>
                   <div><a href="https://www.google.com/maps/dir/?api=1&destination=732+S.+Sixth+Street,+Suite+200C,+Las+Vegas,+Nevada+89101" target="_blank" rel="noreferrer" className="underline text-[#bfa76a]">Map & Directions</a></div>
                 </address>
               </div>

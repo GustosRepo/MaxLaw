@@ -10,8 +10,6 @@ import {
   FIRM_PHONE_E164,
 } from '../../lib/constants';
 
-const BRAND = { accent: '#d4af37' };
-
 const ContactFormInner = dynamic(() => import('./ContactFormInner'), {
   ssr: false,
   loading: () => (
@@ -63,7 +61,7 @@ export default function ContactSectionClient() {
         <address className="not-italic text-white/80">
           The Law Offices of Saggese & Associates<br />{FIRM_ADDRESS_LINE1}<br />{FIRM_ADDRESS_LINE2}
         </address>
-        <p className="text-2xl font-bold leading-tight text-[#d4af37]"><a href={`tel:${FIRM_PHONE_E164}`} className="underline underline-offset-4" style={{ textDecorationColor: BRAND.accent }}>{FIRM_PHONE_DISPLAY}</a></p>
+        <a href={`tel:${FIRM_PHONE_E164}`} className="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-xl font-bold leading-tight text-[#0e0e0e] no-underline shadow-[0_10px_30px_rgba(212,175,55,0.2)] transition hover:scale-[1.02] hover:shadow-[0_14px_36px_rgba(212,175,55,0.28)]">{FIRM_PHONE_DISPLAY}</a>
         <p className="text-white/70">24-hour calls available</p>
         <p className="text-white/80">Fax: 702-778-8884</p>
         <div className="mt-2">

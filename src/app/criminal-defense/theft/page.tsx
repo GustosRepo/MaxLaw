@@ -91,7 +91,7 @@ export default function TheftPage() {
       <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mb-8">
         <h3 className="text-lg font-semibold text-white mb-3">Next steps</h3>
         <p className="text-white/80 leading-relaxed mb-3">If you're charged with theft, preserve receipts and avoid making statements without counsel. Contact us to discuss defenses and options.</p>
-        <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="underline" style={{ textDecorationColor: '#d4af37' }}>702-778-8883</a> or submit the contact form.</p>
+        <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-3 py-1.5 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">702-778-8883</a> or submit the contact form.</p>
       </section>
 
       <PracticeStructuredData

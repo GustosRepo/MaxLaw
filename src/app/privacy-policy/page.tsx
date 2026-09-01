@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { FIRM_PHONE_DISPLAY, FIRM_PHONE_E164 } from '../../lib/constants';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -89,7 +90,7 @@ export default function PrivacyPolicyPage() {
               The Law Offices of Saggese &amp; Associates<br />
               732 S. Sixth Street, Suite 200C<br />
               Las Vegas, Nevada 89101<br />
-              Phone: (702) 778-8883<br />
+              <a href={`tel:${FIRM_PHONE_E164}`} className="my-2 inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">Call {FIRM_PHONE_DISPLAY}</a><br />
               Email: info@maxlawnv.com
             </p>
           </section>

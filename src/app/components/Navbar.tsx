@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { FIRM_PHONE_DISPLAY, FIRM_PHONE_E164 } from "../../lib/constants";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -69,12 +70,12 @@ export default function Navbar() {
         </button>
 
         {/* Desktop Nav */}
-        <div className="hidden items-center gap-8 md:flex font-[var(--font-inter)]">
+        <div className="hidden items-center gap-4 lg:gap-5 xl:gap-7 md:flex font-[var(--font-inter)]">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-xl font-bold transition-all duration-300 relative group ${link.href === "/contact" ? "rounded-lg bg-[#d4af37] px-4 py-2 text-[#0e0e0e] shadow-[0_6px_20px_rgba(212,175,55,0.25)] hover:bg-[#e6c547]" : "text-white/85 hover:text-[#d4af37] hover:drop-shadow-[0_2px_8px_rgba(212,175,55,0.3)]"}`}
+              className={`text-base font-bold transition-all duration-300 relative group lg:text-lg xl:text-xl ${link.href === "/contact" ? "rounded-lg bg-[#d4af37] px-3 py-2 text-[#0e0e0e] shadow-[0_6px_20px_rgba(212,175,55,0.25)] hover:bg-[#e6c547] xl:px-4" : "text-white/85 hover:text-[#d4af37] hover:drop-shadow-[0_2px_8px_rgba(212,175,55,0.3)]"}`}
               prefetch={false}
             >
               {link.label}
@@ -85,11 +86,10 @@ export default function Navbar() {
 
         {/* Desktop call button (hidden on mobile) */}
         <a
-          href="tel:17027788883"
-          className="hidden md:inline-flex group relative overflow-hidden rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] border-2 border-[#d4af37] px-6 py-3 text-lg font-bold text-[#0e0e0e] shadow-[0_8px_32px_rgba(212,175,55,0.3)] transition-all duration-300 hover:shadow-[0_12px_48px_rgba(212,175,55,0.5)] hover:scale-105 font-[var(--font-inter)]"
+          href={`tel:${FIRM_PHONE_E164}`}
+          className="hidden whitespace-nowrap rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-3 text-xl font-black leading-none text-[#0e0e0e] no-underline shadow-[0_8px_32px_rgba(212,175,55,0.3)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_48px_rgba(212,175,55,0.5)] md:inline-flex lg:px-5 xl:px-6 xl:text-2xl font-[var(--font-inter)]"
         >
-          <span className="relative z-10">(702) 778-8883</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#e6c547] to-[#d4af37] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          {FIRM_PHONE_DISPLAY}
         </a>
       </nav>
 

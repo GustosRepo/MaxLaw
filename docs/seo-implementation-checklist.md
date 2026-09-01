@@ -11,7 +11,7 @@
 -   TypeScript validation passes.
 -   ESLint validation passes.
 -   Mobile performance pass completed for above-fold images, font loading, analytics, and chat loading.
--   Production build is still blocked by the existing Sentry/Turbopack instrumentation failure.
+-   Production build now passes using the webpack build path.
 -   Next recommended work: choose whether to build a dedicated personal injury hub or move to motorcycle/truck/wrongful death supporting pages.
 
 ## Phase 1: Technical SEO Baseline
@@ -24,7 +24,7 @@
     -   [x] `/plain-danger`
 -   [x] Resolve missing Open Graph image references.
 -   [x] Re-run TypeScript and lint validation.
--   [ ] Fix production build blocker.
+-   [x] Fix production build blocker.
 
 Completed files:
 
@@ -43,16 +43,17 @@ Completed files:
 
 Build blocker note:
 
--   `npm run build` still fails in Turbopack while parsing Sentry instrumentation files:
+-   The default Turbopack build still fails in this environment while parsing Sentry instrumentation files:
     -   `instrumentation-client.ts`
     -   `instrumentation.ts`
--   The error remained after escalation, so this is not just the default sandbox.
+-   The production build script now uses `next build --webpack`, which completes successfully.
+-   Sentry source-map upload is disabled in `next.config.ts` so builds do not upload source maps without an intentional config change.
 
 Build blocker next steps:
 
--   [ ] Decide whether to keep Sentry enabled during local/production builds.
--   [ ] Test a Sentry config change separately from SEO edits.
--   [ ] Re-run `npm run build`.
+-   [x] Keep Sentry runtime instrumentation enabled.
+-   [x] Disable Sentry source-map upload for deterministic local/CI builds.
+-   [x] Re-run `npm run build`.
 
 ## Phase 2: Revenue Page Optimization
 

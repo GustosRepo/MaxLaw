@@ -1,4 +1,5 @@
 import React from 'react';
+import { TOTAL_RECOVERED_DISPLAY } from '../../lib/constants';
 
 // Pure server component: static list of sample outcomes.
 // Avoid promises / data fetching for now; can be replaced with real data later.
@@ -15,7 +16,7 @@ export default function ResultsSection(){
     <section id="results" className="py-12 px-4 sm:px-6">
       <h2 className="text-3xl font-bold text-center">Selected Case Results</h2>
       <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-white/70">
-        <strong className="text-[#d4af37]">Over $30 million</strong> in reported client recoveries*
+        <strong className="text-[#d4af37]">{TOTAL_RECOVERED_DISPLAY}</strong>*
       </p>
       <ul className="mx-auto mt-8 max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {results.map(r => (

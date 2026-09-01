@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Breadcrumbs from '../components/Breadcrumbs'
 import StructuredData from '../components/StructuredData'
 import GoogleReviews from '../components/GoogleReviews';
+import { MARC_AWARDS, MARC_HEADSHOT_SRC, TOTAL_RECOVERED_DISPLAY } from '../../lib/constants';
 
 // Note: This metadata will be handled by layout or parent component
 // since this is now a client component
@@ -98,6 +99,38 @@ export default function AboutPage() {
             </div>
           </div>
 
+          <section className="mb-10 overflow-hidden rounded-3xl border border-[#d4af37]/20 bg-gradient-to-br from-white/[0.06] to-transparent p-6 text-left shadow-lg md:p-8">
+            <div className="grid grid-cols-1 gap-7 md:grid-cols-[minmax(240px,320px)_1fr] md:items-center">
+              <div className="mx-auto w-full max-w-[280px] md:max-w-none">
+                <div className="relative aspect-[1320/1604] overflow-hidden rounded-2xl border border-[#d4af37]/20 bg-black/40 shadow-[0_28px_70px_rgba(0,0,0,0.45)]">
+                  <Image
+                    src={MARC_HEADSHOT_SRC}
+                    alt="Marc A. Saggese"
+                    fill
+                    sizes="(min-width: 768px) 320px, 80vw"
+                    className="object-cover object-top"
+                    priority
+                  />
+                </div>
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#d4af37]">Founder & Lead Attorney</p>
+                <h2 className="mt-2 text-3xl font-[var(--font-playfair)] font-bold text-white md:text-4xl">Marc A. Saggese, Esq.</h2>
+                <p className="mt-4 text-base leading-relaxed text-white/82">Marc Anthony Saggese founded The Law Offices of Saggese and Associates and has been practicing law in Las Vegas since 1999. The firm represents those facing criminal charges, as well as those who have experienced an injury in an accident.</p>
+                <p className="mt-3 text-base leading-relaxed text-white/78">Marc actively litigates cases, conducts jury trials and has represented more than 2,500 clients. He has also served as a pro tempore judge for the Las Vegas Municipal Court System, as well as a Small Claims Court judge and Traffic Court magistrate.</p>
+                <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  <div className="kpi"><b>1999</b><span className="text-sm text-white/70">Practicing since</span></div>
+                  <div className="kpi"><b>2,500+</b><span className="text-sm text-white/70">Clients represented</span></div>
+                  <div className="kpi"><b>JAG</b><span className="text-sm text-white/70">Former Army Captain</span></div>
+                </div>
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <a href="tel:17027788883" className="inline-flex justify-center rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.2)]">Call (702) 778‑8883</a>
+                  <Link href="/about/marc-a-saggese" className="inline-flex justify-center rounded-2xl border border-white/12 px-5 py-3 text-sm font-semibold text-white/90">Full Marc Bio</Link>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Main content unified centered column */}
           <div className="space-y-10 max-w-4xl mx-auto">
             <main className="space-y-8">
@@ -137,28 +170,10 @@ export default function AboutPage() {
 
                 <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-center">
                   <h3 className="text-2xl font-[var(--font-playfair)] font-bold mb-3">Awards & Recognition</h3>
-                  <ul className="columns-1 text-left text-sm leading-relaxed text-white/90 list-disc list-inside md:columns-2 md:space-y-1">
-                    <li>2026 Platinum Client Champion, Martindale-Hubbell Attorney Ratings</li>
-                    <li>2025 Platinum Client Champion, Martindale-Hubbell Attorney Ratings</li>
-                    <li>Multi-Million Dollar Advocates Forum Member, Million Dollar Advocates Forum</li>
-                    <li>Million Dollar Advocates Forum Member, Million Dollar Advocates Forum</li>
-                    <li>Nation&apos;s Top One Percent of Attorneys, The National Association of Distinguished Counsel</li>
-                    <li>10 BEST Client Satisfaction Award, American Institute of DUI/DWI Attorneys</li>
-                    <li>Clients&apos; Choice Award - Criminal Defense, AVVO</li>
-                    <li>10 Best 2 Year Client Satisfaction Award, American Institute of Personal Injury Attorneys</li>
-                    <li>10 BEST - Client Satisfaction Award, American Institute of Personal Injury Attorneys</li>
-                    <li>Top 10 Attorney Award, National Academy of Personal Injury Attorneys</li>
-                    <li>Superb Rated Award - Top Attorney Criminal Defense, AVVO</li>
-                    <li>The Valley&apos;s Top Lawyers, Desert Companion Magazine</li>
-                    <li>Top Lawyers in Las Vegas, MyVegas Magazine</li>
-                    <li>Rising Star, Super Lawyers Magazine</li>
-                    <li>Silver Client Champion, Martindale-Hubbell Attorney Ratings</li>
-                    <li>Rated, AVVO</li>
-                    <li>Top Attorneys, Mountain States</li>
-                    <li>Rising Star, Super Lawyers Magazine</li>
-                    <li>Top 40 Under 40, The National Trial Lawyers</li>
-                    <li>Rising Star, Super Lawyers Magazine</li>
-                    <li>Top Attorneys, Mountain States</li>
+                  <ul className="grid grid-cols-1 gap-3 text-left text-sm leading-relaxed text-white/90 md:grid-cols-2">
+                    {MARC_AWARDS.map((award, index) => (
+                      <li key={`${award}-${index}`} className="rounded-xl border border-white/10 bg-black/25 px-4 py-3">{award}</li>
+                    ))}
                   </ul>
                   <p className="text-xs text-white/60 mt-3">Past results, awards, or recognitions do not guarantee similar outcomes. Each case is unique.</p>
                 </div>
@@ -174,7 +189,7 @@ export default function AboutPage() {
                   <span className="badge">Felonies & Misdemeanors</span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-white/90">
-                  <div className="kpi"><b>Over $30 million</b><span className="text-sm text-white/70">Reported client recoveries*</span></div>
+                  <div className="kpi"><b>{TOTAL_RECOVERED_DISPLAY}</b><span className="text-sm text-white/70">Reported client recoveries*</span></div>
                   <div className="kpi"><b>1000s</b><span className="text-sm text-white/70">of hearings & motions</span></div>
                   <div className="kpi"><b>Top</b><span className="text-sm text-white/70">Local media legal analyst</span></div>
                 </div>
@@ -209,7 +224,7 @@ export default function AboutPage() {
                   <h3 className="text-2xl font-[var(--font-playfair)] font-bold mb-3">Your Attorney</h3>
                   <div className="flex items-center gap-4 justify-center">
                     <Image
-                      src="/newmarc.jpg"
+                      src={MARC_HEADSHOT_SRC}
                       alt="Marc A. Saggese"
                       width={80}
                       height={80}

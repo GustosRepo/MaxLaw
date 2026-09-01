@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import { MARC_HEADSHOT_SRC } from '../../lib/constants';
 
 const AboutPageClient = dynamic(() => import('./AboutPageClient'));
 
@@ -12,13 +13,13 @@ export const metadata: Metadata = {
     title: 'About The Law Offices of Saggese & Associates',
     description: 'Experienced Las Vegas attorneys dedicated to injury and criminal defense cases.',
     url: 'https://www.maxlawnv.com/about',
-    images: ['/newmarc.jpg'],
+    images: [MARC_HEADSHOT_SRC],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Our Las Vegas Law Firm',
     description: 'Meet the experienced attorneys at Saggese & Associates.',
-    images: ['/newmarc.jpg'],
+    images: [MARC_HEADSHOT_SRC],
   },
 };
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { FIRM_PHONE_DISPLAY, FIRM_PHONE_E164 } from '../../lib/constants';
 
 export const metadata: Metadata = {
   title: 'Legal Disclaimer',
@@ -41,7 +42,9 @@ export default function DisclaimerPage() {
           </p>
 
           <p>
-            If you are in need of immediate legal assistance, please call (702) 778-8883 or contact the firm directly. If you
+            If you are in need of immediate legal assistance, please call{' '}
+            <a href={`tel:${FIRM_PHONE_E164}`} className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-3 py-1.5 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">Call {FIRM_PHONE_DISPLAY}</a>
+            {' '}or contact the firm directly. If you
             are facing an emergency involving imminent danger, call emergency services immediately.
           </p>
 

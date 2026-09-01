@@ -1,6 +1,10 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import {
+  CRIMINAL_DEFENSE_CASE_TYPES,
+  PERSONAL_INJURY_CASE_TYPES,
+} from '../../lib/constants';
 
 const ACCEPTED_CASE_TYPES = ['Injury', 'Criminal Defense'];
 
@@ -125,11 +129,9 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
             <label className="text-base">Injury type
               <select value={formData.piSubtype} onChange={(e) => setFormData(prev => ({ ...prev, piSubtype: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-3 text-base">
                 <option value="">Select</option>
-                <option value="Car Accident">Car Accident</option>
-                <option value="Slip and Fall">Slip and Fall</option>
-                <option value="Premises Liability">Premises Liability</option>
-                <option value="Product Liability">Product Liability</option>
-                <option value="Other">Other</option>
+                {PERSONAL_INJURY_CASE_TYPES.map((caseType) => (
+                  <option key={caseType.label} value={caseType.label}>{caseType.label}</option>
+                ))}
               </select>
             </label>
             <label className="text-base">Injury severity
@@ -196,7 +198,12 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
               </select>
             </label>
             <label className="text-sm">Charge (if known)
-              <input name="chargeName" value={formData.chargeName} onChange={handleInputChange} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="e.g. DUI, theft" />
+              <select value={formData.chargeName} onChange={(e) => setFormData(prev => ({ ...prev, chargeName: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">
+                <option value="">Select</option>
+                {CRIMINAL_DEFENSE_CASE_TYPES.map((caseType) => (
+                  <option key={caseType.label} value={caseType.label}>{caseType.label}</option>
+                ))}
+              </select>
             </label>
             <label className="text-sm">Ability to retain private counsel?
               <select value={formData.financialAbility} onChange={(e) => setFormData(prev => ({ ...prev, financialAbility: e.target.value }))} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm">

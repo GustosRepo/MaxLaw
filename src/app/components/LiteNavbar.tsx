@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { FIRM_PHONE_DISPLAY, FIRM_PHONE_E164 } from '../../lib/constants';
 
 export default function LiteNavbar() {
   return (
@@ -21,12 +22,12 @@ export default function LiteNavbar() {
           />
           <span className="sr-only">The Law Offices of Saggese & Associates</span>
         </Link>
-        <nav className="flex min-w-0 flex-shrink items-center justify-end gap-3 text-sm font-semibold text-white/80">
+        <nav className="flex min-w-0 flex-shrink items-center justify-end gap-2 text-sm font-semibold text-white/80 min-[430px]:gap-3">
           <Link href="/practice" className="hidden hover:text-[#d4af37] min-[430px]:inline">Practice</Link>
           <Link href="/results" className="hidden hover:text-[#d4af37] sm:inline">Results</Link>
           <Link href="/contact" className="hidden rounded-lg bg-[#d4af37] px-3 py-1.5 font-bold text-black shadow-[0_5px_16px_rgba(212,175,55,0.25)] min-[430px]:inline">Contact</Link>
-          <a href="tel:17027788883" className="whitespace-nowrap rounded-full bg-[#d4af37] px-4 py-2.5 text-base font-bold text-black shadow-[0_8px_22px_rgba(212,175,55,0.22)]">
-            Call Now
+          <a href={`tel:${FIRM_PHONE_E164}`} className="whitespace-nowrap rounded-full bg-[#d4af37] px-3 py-2 text-sm font-bold text-black shadow-[0_8px_22px_rgba(212,175,55,0.22)] min-[380px]:text-base sm:px-4 sm:py-2.5">
+            {FIRM_PHONE_DISPLAY}
           </a>
         </nav>
       </div>

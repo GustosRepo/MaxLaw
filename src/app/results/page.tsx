@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { TOTAL_RECOVERED_DISPLAY } from '../../lib/constants'
 
 export const metadata: Metadata = {
   title: 'Results — Saggese & Associates',
@@ -40,8 +41,8 @@ export default function ResultsPage() {
                 <div className="mt-3 w-36"><span className="accent-underline" /></div>
                 <p className="mt-3 text-sm text-white/80 max-w-3xl">A selection of outcomes and representative results from The Law Offices of Saggese & Associates. Results vary and past outcomes do not guarantee future results.</p>
                 <div className="mt-6 inline-flex flex-col rounded-2xl border border-[#d4af37]/30 bg-[#d4af37]/10 px-6 py-4 text-left">
-                  <span className="text-3xl font-bold text-[#d4af37]">Over $30 million</span>
-                  <span className="mt-1 text-sm text-white/70">in reported client recoveries*</span>
+                  <span className="text-3xl font-bold text-[#d4af37]">{TOTAL_RECOVERED_DISPLAY}</span>
+                  <span className="mt-1 text-sm text-white/70">Representative reported client recoveries*</span>
                 </div>
               </div>
             </div>

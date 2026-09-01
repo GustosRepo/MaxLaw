@@ -1,6 +1,10 @@
 import React from 'react'
 import StructuredData from '../components/StructuredData'
 import Link from 'next/link'
+import {
+  CRIMINAL_DEFENSE_REPRESENTATION_TYPES,
+  PERSONAL_INJURY_REPRESENTATION_TYPES,
+} from '../../lib/constants'
 
 export const metadata = {
   title: 'Las Vegas Service Areas | Saggese & Associates',
@@ -9,7 +13,7 @@ export const metadata = {
 }
 
 const AREAS = [
-  'Las Vegas', 'Downtown Las Vegas', 'Arts District', 'Summerlin', 'Summerlin South', 'Henderson', 'Green Valley', 'Anthem', 'North Las Vegas', 'Aliante', 'Centennial Hills', 'Spring Valley', 'Paradise', 'Enterprise', 'Southern Highlands', 'Mountains Edge', 'Seven Hills', 'Rhodes Ranch', 'Whitney', 'Sunrise Manor', 'Winchester', 'Boulder City'
+  'Las Vegas', 'Downtown Las Vegas', 'Arts District', 'Summerlin', 'Summerlin South', 'Henderson', 'Green Valley', 'Anthem', 'North Las Vegas', 'Aliante', 'Centennial Hills', 'Spring Valley', 'Paradise', 'Enterprise', 'Southern Highlands', 'Mountains Edge', 'Seven Hills', 'Rhodes Ranch', 'Silverado Ranch', 'The Strip', 'Whitney', 'Sunrise Manor', 'Winchester', 'Boulder City'
 ]
 
 export default function ServiceAreasPage() {
@@ -45,23 +49,18 @@ export default function ServiceAreasPage() {
         <section className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/10">
             <h3 className="text-lg font-semibold mb-3">Injury Representation</h3>
-            <ul className="text-sm list-disc list-inside text-white/80 space-y-1">
-              <li>Automobile Accident Injury</li>
-              <li>Motorcycle Accident Injury</li>
-              <li>Truck Collision Injury</li>
-              <li>Brain Injury</li>
-              <li>Spinal Injury</li>
-              <li>Wrongful Death Actions</li>
-              <li>Premises Liability</li>
+            <ul className="grid grid-cols-1 gap-2 text-sm text-white/80 sm:grid-cols-2">
+              {PERSONAL_INJURY_REPRESENTATION_TYPES.map((caseType) => (
+                <li key={caseType.label} className="rounded-lg border border-white/10 bg-black/20 px-3 py-2">{caseType.label}</li>
+              ))}
             </ul>
           </div>
           <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/10">
             <h3 className="text-lg font-semibold mb-3">Criminal Defense</h3>
-            <ul className="text-sm list-disc list-inside text-white/80 space-y-1">
-              <li>DUI - Driving Under the Influence</li>
-              <li>Battery Domestic Violence</li>
-              <li>Violent Offenses</li>
-              <li>Drug related offenses</li>
+            <ul className="grid grid-cols-1 gap-2 text-sm text-white/80 sm:grid-cols-2">
+              {CRIMINAL_DEFENSE_REPRESENTATION_TYPES.map((caseType) => (
+                <li key={caseType.label} className="rounded-lg border border-white/10 bg-black/20 px-3 py-2">{caseType.label}</li>
+              ))}
             </ul>
           </div>
         </section>

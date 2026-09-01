@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { FEATURED_MEDIA_APPEARANCES } from '../../lib/constants';
 
 // Server component: minimal markup, lazy images.
 
@@ -26,6 +27,14 @@ export default function MediaSection() {
               className="h-auto max-h-[300px] w-auto max-w-full object-contain opacity-90 transition hover:opacity-100"
               sizes="(max-width:640px) 90vw, 421px"
             />
+          </li>
+        ))}
+      </ul>
+      <ul className="mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {FEATURED_MEDIA_APPEARANCES.map((appearance) => (
+          <li key={`${appearance.network}-${appearance.program}`} className="rounded-xl border border-white/10 bg-black/25 p-4 text-center">
+            <div className="text-xs font-bold uppercase tracking-[0.16em] text-[#d4af37]">{appearance.network}</div>
+            <div className="mt-2 text-sm font-semibold leading-snug text-white">{appearance.program}</div>
           </li>
         ))}
       </ul>

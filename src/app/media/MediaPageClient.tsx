@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { FEATURED_MEDIA_APPEARANCES } from '../../lib/constants'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -65,6 +66,14 @@ export default function MediaPage() {
 
           <section className="mb-10 rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-8" aria-labelledby="television-appearances-heading">
             <h2 id="television-appearances-heading" className="text-2xl font-[var(--font-playfair)] font-bold text-[#d4af37]">Television & News Appearances</h2>
+            <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {FEATURED_MEDIA_APPEARANCES.map((appearance) => (
+                <li key={`${appearance.network}-${appearance.program}`} className="rounded-xl border border-[#d4af37]/20 bg-black/25 p-4">
+                  <div className="text-xs font-bold uppercase tracking-[0.16em] text-[#d4af37]">{appearance.network}</div>
+                  <div className="mt-2 text-base font-semibold leading-snug text-white">{appearance.program}</div>
+                </li>
+              ))}
+            </ul>
             <ul className="mt-5 grid grid-cols-1 gap-3 text-base text-white/85 sm:grid-cols-2 lg:grid-cols-3">
               {['Fox & Friends', 'On the Record with Greta Van Susteren', 'Court TV', 'TruTV', "CBS's 48 Hours with Peter Van Sant", "CNN's The Burden of Proof", 'Catherine Crier Live', 'The Lineup with Kimberly Guilfoyle', 'KLAS-TV 8 News Now', 'KSNV NBC News 3', 'Fox 5 News'].map((appearance) => (
                 <li key={appearance} className="rounded-xl border border-white/10 bg-black/20 px-4 py-3">{appearance}</li>
@@ -199,7 +208,9 @@ export default function MediaPage() {
                 <div>The Law Offices of Saggese & Associates</div>
                 <div>732 S. Sixth Street, Suite 200C</div>
                 <div>Las Vegas, Nevada 89101</div>
-                <div>Phone: <a href="tel:17027788883" className="underline">702-778-8883</a></div>
+                <div className="mt-3">
+                  <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">Call 702-778-8883</a>
+                </div>
                 <div className="mt-3 w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
                   <div className="relative aspect-[4/3] w-full">
                     <iframe

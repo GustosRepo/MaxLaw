@@ -1,8 +1,9 @@
 "use client";
 
 import Image from 'next/image';
+import { MARC_AWARDS } from '../../lib/constants';
 
-const awards = [
+const awardBadges = [
   'ClientChampion_Platinum_2026_300.png',
   'peer-reviewed-300.png',
   'Client-Champion.png',
@@ -21,7 +22,7 @@ export default function AwardsSectionLite() {
       </div>
       <div className="overflow-hidden">
         <div className="flex min-w-max gap-6 animate-scroll hover:pause-animation">
-          {[...awards, ...awards].map((file, idx) => (
+          {[...awardBadges, ...awardBadges].map((file, idx) => (
             <div key={`${file}-${idx}`} className="relative h-20 w-20 rounded-xl border border-white/12 bg-black/35">
               <Image
                 src={`/awards/${file}`}
@@ -34,6 +35,15 @@ export default function AwardsSectionLite() {
           ))}
         </div>
       </div>
+      <details className="rounded-xl border border-white/12 bg-black/30 p-4 text-sm text-white/75">
+        <summary className="cursor-pointer font-semibold text-white">Recognition details</summary>
+        <ul className="mt-3 grid grid-cols-1 gap-3 text-left leading-relaxed">
+          {MARC_AWARDS.map((award, index) => (
+            <li key={`${award}-${index}`} className="rounded-xl border border-white/10 bg-black/25 px-4 py-3">{award}</li>
+          ))}
+        </ul>
+      </details>
+      <p className="text-center text-xs text-white/50">Past results, awards, or recognitions do not guarantee similar outcomes. Each case is unique.</p>
     </section>
   );
 }

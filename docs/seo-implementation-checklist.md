@@ -1,7 +1,7 @@
 # Max Law SEO Implementation Checklist
 
 **Started:** 2026-08-20  
-**Last updated:** 2026-08-20  
+**Last updated:** 2026-09-02  
 **Strategy source:** `docs/seo3.md`  
 **Audit source:** `docs/seo-audit-2026-08-20.md`
 
@@ -12,7 +12,8 @@
 -   ESLint validation passes.
 -   Mobile performance pass completed for above-fold images, font loading, analytics, and chat loading.
 -   Production build now passes using the webpack build path.
--   Next recommended work: choose whether to build a dedicated personal injury hub or move to motorcycle/truck/wrongful death supporting pages.
+-   Client confirmed car accidents are the firm's number-one SEO priority.
+-   Next recommended work: deepen the car accident SEO cluster first, while continuing to preserve and improve keywords already ranking.
 
 ## Phase 1: Technical SEO Baseline
 
@@ -57,6 +58,9 @@ Build blocker next steps:
 
 ## Phase 2: Revenue Page Optimization
 
+-   [ ] Treat car accident SEO as the lead priority without dropping existing ranking opportunities.
+    -   [ ] Track and improve current ranking terms such as `lawyer las vegas`, `las vegas lawyer`, and near-page-one criminal defense terms where they support overall organic authority.
+    -   [ ] Prioritize these client-confirmed car accident terms: `car accident lawyer Las Vegas`, `car accident attorney Las Vegas`, and `Las Vegas car accident lawyer`.
 -   [ ] Optimize homepage around qualified PI/car accident leads.
     -   [x] Update homepage title/meta toward `car accident attorney las vegas` and `personal injury lawyer las vegas`.
     -   [x] Improve hero/supporting copy for injured, not-at-fault accident victims.

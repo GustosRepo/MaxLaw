@@ -1,7 +1,7 @@
 # Max Law SEO Playbook
 
-**Version:** 1.1\
-**Last Updated:** 2026-08-20
+**Version:** 1.2\
+**Last Updated:** 2026-09-02
 
 ------------------------------------------------------------------------
 
@@ -77,7 +77,7 @@ Source: Marc Saggese client response, August 5.
 
 ## Target Search Terms From Client
 
-Client priority order:
+Original client priority order:
 
 1.  Car accident attorney
 2.  Personal injury lawyer
@@ -86,6 +86,25 @@ Client priority order:
 Additional term client likes:
 
 -   Injury Attorney
+
+## Client Priority Update
+
+Source: Marc Saggese client response, September 2, 2026.
+
+Marc confirmed that **car accidents are the firm's number-one SEO
+priority**.
+
+Most common priority search terms from the client:
+
+1.  car accident lawyer Las Vegas
+2.  car accident attorney Las Vegas
+3.  Las Vegas car accident lawyer
+
+This update makes car accident SEO the first revenue focus. It does not
+replace or dismiss keywords the site already ranks for. Existing ranking
+opportunities, including broad Las Vegas lawyer terms and criminal
+defense terms already near page one, should continue to be monitored and
+improved where doing so supports the firm's authority and organic growth.
 
 ## Competitors From Client
 
@@ -179,16 +198,19 @@ Future expansion only after dominating these markets.
 
 -   car accident attorney las vegas
 -   car accident lawyer las vegas
+-   las vegas car accident lawyer
 -   personal injury lawyer las vegas
 -   injury lawyer near me
 -   injury attorney
 
 ## Priority Rationale
 
-The client ranked **Car accident attorney** as the number-one search term
-and described the ideal lead as an injured, not-at-fault car accident
-victim. Personal injury lawyer is second. Injury lawyer near me is third.
-Injury attorney is also approved by the client.
+The client confirmed **car accidents** are the firm's number-one SEO
+priority and identified the most common searches as **car accident lawyer
+Las Vegas**, **car accident attorney Las Vegas**, and **Las Vegas car
+accident lawyer**. The ideal lead remains an injured, not-at-fault car
+accident victim. Personal injury lawyer, injury lawyer near me, and injury
+attorney remain approved supporting targets.
 
 ------------------------------------------------------------------------
 
@@ -229,7 +251,9 @@ business objective.
 
 ## Phase 1 --- Quick Wins
 
-Improve keywords already ranking.
+Improve keywords already ranking. These rankings are existing assets and
+should not be abandoned while the firm increases focus on car accident
+SEO.
 
 Priority:
 
@@ -245,15 +269,17 @@ Move Page 2 rankings onto Page 1.
 
 ## Phase 2 --- Revenue Keywords
 
-Strengthen topical authority around:
+Strengthen topical authority around the firm's top revenue priority:
 
 -   Car Accident Lawyer
 -   Car Accident Attorney
+-   Las Vegas Car Accident Lawyer
 -   Personal Injury Lawyer
 -   Injury Attorney
 
-These keywords have priority over search volume because they directly
-align with client revenue.
+Car accident terms come first because Marc confirmed them as the firm's
+top priority. The broader personal injury terms still matter because they
+support topical authority and qualified case generation.
 
 ------------------------------------------------------------------------
 
@@ -422,6 +448,10 @@ SEO KPIs
 -   Do not optimize for immigration, bankruptcy, medical malpractice,
     family law, workers' compensation, or estate planning.
 -   Prioritize client revenue over search volume.
+-   Treat car accident SEO as the firm's first priority.
+-   Keep improving keywords the site already ranks for; do not remove or
+    weaken existing ranking signals just because car accidents are now the
+    lead priority.
 -   Prioritize signed qualified cases over raw calls or form submissions.
 -   Preserve URLs whenever possible.
 -   Avoid duplicate titles and metadata.

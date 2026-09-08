@@ -67,7 +67,7 @@ export default function PracticePage() {
   { title: 'DUI Defense', href: '/criminal-defense/dui', desc: 'DUI - Driving Under the Influence defense and license protection.' },
   { title: 'Domestic Violence', href: '/criminal-defense/domestic-violence', desc: 'Battery Domestic Violence and related charges.' },
   { title: 'Drug Offenses', href: '/criminal-defense/drugs', desc: 'Drug related offenses and controlled substance cases.' },
-  { title: 'Violent Crimes', href: '/criminal-defense', desc: 'Violent Offenses and serious criminal charges.' },
+  { title: 'Homicide & Murder', href: '/criminal-defense/murder', desc: 'Homicide and serious criminal charges.' },
 ].map((p) => (
   <Link key={p.title} href={p.href}>
     <div className="block rounded-2xl p-5 bg-gradient-to-br from-white/3 to-transparent border border-white/8 card-hover">

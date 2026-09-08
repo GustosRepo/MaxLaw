@@ -1,5 +1,5 @@
 interface StructuredDataProps {
-  type: 'LegalService' | 'Person' | 'Organization' | 'BreadcrumbList' | 'FAQPage'
+  type: 'LegalService' | 'Person' | 'Organization' | 'BreadcrumbList' | 'FAQPage' | 'WebPage'
   data: Record<string, unknown>
 }
 
@@ -25,7 +25,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
 // Predefined structured data objects for common use cases
 export const legalServiceData = {
   name: 'The Law Offices of Saggese & Associates',
-  description: 'Las Vegas injury law firm helping injured, not-at-fault accident victims with car accident, motorcycle accident, truck accident, and wrongful death cases',
+  description: 'Las Vegas injury and criminal defense law firm helping injured, not-at-fault victims and clients facing criminal charges',
   url: 'https://www.maxlawnv.com',
   telephone: '+1-702-778-8883',
   email: 'info@maxlawnv.com',
@@ -47,7 +47,7 @@ export const legalServiceData = {
     '@type': 'State',
     name: 'Nevada'
   },
-  serviceType: ['Injury Law', 'Car Accident Law', 'Motorcycle Accident Law', 'Truck Accident Law', 'Wrongful Death Law'],
+  serviceType: ['Injury Law', 'Criminal Defense Law', 'Car Accident Law', 'Motorcycle Accident Law', 'Truck Accident Law', 'Wrongful Death Law'],
   priceRange: 'Free Consultation',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -59,6 +59,14 @@ export const legalServiceData = {
           '@type': 'Service',
           name: 'Injury Consultation',
           description: 'Free consultation for injury cases'
+        }
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Criminal Defense Consultation',
+          description: 'Criminal defense legal consultation'
         }
       },
       {

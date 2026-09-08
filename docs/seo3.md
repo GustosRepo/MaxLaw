@@ -106,6 +106,26 @@ opportunities, including broad Las Vegas lawyer terms and criminal
 defense terms already near page one, should continue to be monitored and
 improved where doing so supports the firm's authority and organic growth.
 
+## Client Language Rule: Injury vs. Personal Injury
+
+Marc prefers client-facing language to use **Injury**, **Injury Lawyer**,
+**Injury Attorney**, **Injury Law**, or **Accident & Injury** instead of
+**Personal Injury** because he is concerned prospective clients may find
+"personal injury" confusing.
+
+Implementation rule:
+
+-   Visible page copy, headings, navigation labels, cards, CTAs, and hub
+    names should prefer **Injury** language.
+-   Metadata, schema, and keyword strategy may still preserve
+    **personal injury** terms where they protect existing rankings or map
+    to real search demand.
+-   Do not remove existing ranking signals for `personal injury lawyer`
+    solely because visible copy is being simplified.
+-   When choosing between visible wording and search-volume wording,
+    use **Injury** visibly and reserve **personal injury** for
+    behind-the-scenes SEO fields or carefully approved snippets.
+
 ## Competitors From Client
 
 -   Naqvi
@@ -457,7 +477,8 @@ SEO KPIs
 -   Avoid duplicate titles and metadata.
 -   One primary keyword per page.
 -   Every page should have a clear CTA.
--   Every page should strengthen topical authority in Personal Injury.
+-   Every page should strengthen topical authority in Injury, with
+    personal injury terms preserved in metadata where strategically useful.
 -   Do not chase random keywords.
 -   Do not publish specific case results, settlement amounts, or success
     stories unless the client approves the exact language because many
@@ -476,7 +497,7 @@ SEO KPIs
 -   [x] Audit metadata
 -   [x] Audit schema
 -   [ ] Optimize Home page
--   [ ] Optimize Personal Injury page
+-   [ ] Optimize Injury page/hub
 -   [ ] Optimize Car Accident page
 
 Audit reference: `docs/seo-audit-2026-08-20.md`
@@ -488,5 +509,5 @@ Audit reference: `docs/seo-audit-2026-08-20.md`
 The objective is **not** to become the biggest law website.
 
 The objective is to make Google clearly understand that **Max Law is a
-leading Las Vegas Personal Injury and Car Accident law firm**, resulting
-in more qualified, signed personal injury cases from organic search.
+leading Las Vegas Injury and Car Accident law firm**, resulting in more
+qualified, signed injury cases from organic search.

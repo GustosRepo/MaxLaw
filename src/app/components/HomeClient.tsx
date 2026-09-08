@@ -348,12 +348,12 @@ export default function HomeClient(){
               </div>
               <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[0.95] tracking-tight">
                 {FIRM_NAME}
-                <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Car Accident & Injury Attorneys</span>
+                <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Injury & Criminal Defense Attorneys</span>
               </h1>
-              <h1 className="md:hidden mx-auto max-w-[20rem] font-[var(--font-playfair)] text-[1.38rem] font-bold leading-[1.12] text-white">
+              <h1 className="md:hidden mx-auto max-w-[20rem] font-[var(--font-playfair)] text-lg font-bold leading-[1.12] text-white">
                 <span className="block">The Law Offices of Saggese</span>
                 <span className="block">&amp; Associates</span>
-                <span className="block mt-3 text-[0.55em] text-[#d4af37] font-normal">Car Accident &amp; Injury Attorneys</span>
+                <span className="block mt-3 text-[0.55em] text-[#d4af37] font-normal">Injury &amp; Criminal Defense Attorneys</span>
               </h1>
               <p className="mx-auto mt-4 max-w-[19rem] text-sm leading-relaxed text-white/84 sm:max-w-2xl sm:text-lg md:mx-0 md:mt-6 md:max-w-xl md:text-2xl">
                 Injured and not at fault? Free consultation. No fee unless we win your injury case.

@@ -46,7 +46,7 @@ export default function MotorcycleAccidentsPageClient() {
             
             <h3 className="text-lg font-semibold mb-3">Nevada Motorcycle Laws We Navigate</h3>
             <ul className="list-disc list-inside text-white/80 space-y-2 mb-4">
-              <li>Helmet requirements for riders under 21</li>
+              <li>Helmet requirements for motorcycle riders and passengers</li>
               <li>Lane splitting regulations</li>
               <li>Right-of-way laws</li>
               <li>Insurance requirements</li>

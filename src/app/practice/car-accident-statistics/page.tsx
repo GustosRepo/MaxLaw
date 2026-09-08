@@ -1,25 +1,25 @@
 import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
-import PracticeStructuredData from '../PracticeStructuredData'
+import StructuredData from '../../components/StructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Car Accident Statistics | Saggese & Associates',
-  description: 'Key Las Vegas & national car accident statistics and why early legal counsel matters. Free consultation (702) 778‑8883.',
+  title: 'Las Vegas & Nevada Car Accident Statistics | Saggese & Associates',
+  description: 'Review Las Vegas and Nevada car accident statistics, common crash factors, and why evidence preservation can matter after a serious collision.',
   keywords: [
     'las vegas car accident statistics',
+    'nevada car accident statistics',
     'nevada crash data',
-    'car accident injury lawyer las vegas',
     'auto collision stats nevada'
   ],
   alternates: { canonical: `${SITE_URL}/practice/car-accident-statistics` },
   openGraph: {
-    title: 'Las Vegas Car Accident Statistics',
-    description: 'Crash data insights & why quick evidence preservation matters.',
+    title: 'Las Vegas & Nevada Car Accident Statistics',
+    description: 'Crash data insights, common crash factors, and evidence-preservation guidance.',
     url: `${SITE_URL}/practice/car-accident-statistics`,
     type: 'article'
   },
-  twitter: { card: 'summary', title: 'Las Vegas Car Accident Stats', description: 'Crash data insights & legal guidance.' }
+  twitter: { card: 'summary', title: 'Las Vegas & Nevada Car Accident Statistics', description: 'Crash data insights and evidence-preservation guidance.' }
 }
 
 export default function CarAccidentStatsPage() {
@@ -30,10 +30,10 @@ export default function CarAccidentStatsPage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Car Accident Statistics</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas &amp; Nevada Car Accident Statistics</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
-        <p className="text-white/75 mt-3">At some point in their lives, most people experience a car or motor vehicle accident. Below are important facts and why early legal involvement matters.</p>
+        <p className="text-white/75 mt-3">This page summarizes Las Vegas and Nevada car accident statistics, common crash factors, and why evidence preservation can matter after a serious collision.</p>
       </header>
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
@@ -58,7 +58,7 @@ export default function CarAccidentStatsPage() {
             <li><span className="stat-number">•</span> Distracted driving — including cellphone use — and aggressive driving remain major contributors to crashes.</li>
           </ul>
 
-          <p className="mt-4 text-white/80 leading-relaxed">If you are seriously injured, contact Saggese & Associates promptly. Early involvement helps document and preserve evidence and gives your case its best chance for a full recovery.</p>
+          <p className="mt-4 text-white/80 leading-relaxed">If you are seriously injured, contact Saggese & Associates promptly. Early involvement helps document and preserve evidence and gives your case its best chance for a full recovery. For legal help after a serious crash, visit our <Link href="/practice/car-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">Las Vegas car accident attorney</Link> page.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-md">Call (702) 778‑8883</a>
@@ -95,15 +95,19 @@ export default function CarAccidentStatsPage() {
       </section>
 
   {/* Footer removed: global footer handles copyright */}
-      <PracticeStructuredData
-        slug="/practice/car-accident-statistics"
-        serviceType="Las Vegas Car Accident Lawyer"
-        description="Key Las Vegas & national car accident statistics and why early legal counsel matters. Free consultation."
-        keywords={['las vegas car accident statistics','nevada crash data','auto injury lawyer las vegas']}
-        faqs={[
-          { question: 'Why do car accident statistics matter?', answer: 'They highlight common causes and support early evidence preservation to strengthen claims.' },
-          { question: 'How soon should I contact a lawyer?', answer: 'Immediately—critical scene, vehicle, and electronic data can be lost within days.' }
-        ]}
+      <StructuredData
+        type="WebPage"
+        data={{
+          name: 'Las Vegas & Nevada Car Accident Statistics',
+          url: `${SITE_URL}/practice/car-accident-statistics`,
+          description: 'Informational Las Vegas and Nevada car accident statistics, common crash factors, and evidence-preservation guidance for serious collisions.',
+          about: ['Las Vegas car accident statistics', 'Nevada crash data', 'traffic collision evidence preservation'],
+          isPartOf: {
+            '@type': 'WebSite',
+            name: 'The Law Offices of Saggese & Associates',
+            url: SITE_URL
+          }
+        }}
       />
     </>
   )

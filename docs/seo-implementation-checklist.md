@@ -1,9 +1,9 @@
 # Max Law SEO Implementation Checklist
 
 **Started:** 2026-08-20  
-**Last updated:** 2026-09-02  
+**Last updated:** 2026-09-08  
 **Strategy source:** `docs/seo3.md`  
-**Audit source:** `docs/seo-audit-2026-08-20.md`
+**Audit sources:** `docs/seo-audit-2026-08-20.md`; current codebase audit on 2026-09-08
 
 ## Current Status
 
@@ -14,6 +14,8 @@
 -   Production build now passes using the webpack build path.
 -   Client confirmed car accidents are the firm's number-one SEO priority.
 -   Next recommended work: deepen the car accident SEO cluster first, while continuing to preserve and improve keywords already ranking.
+-   2026-09-08 current audit cleanup pass completed approved fixes; no new Injury or Criminal Defense hub should be created until the architecture pass is approved.
+-   Client-facing SEO language should prefer `Injury`, `Injury Lawyer`, `Injury Attorney`, `Injury Law`, or `Accident & Injury`; metadata may preserve `personal injury` terms where useful for rankings.
 
 ## Phase 1: Technical SEO Baseline
 
@@ -56,17 +58,32 @@ Build blocker next steps:
 -   [x] Disable Sentry source-map upload for deterministic local/CI builds.
 -   [x] Re-run `npm run build`.
 
+## Current Audit Cleanup: 2026-09-08
+
+-   [x] Verify current Nevada motorcycle helmet statute before editing motorcycle page wording.
+-   [x] Correct motorcycle page helmet wording without adding new legal claims or statistics.
+-   [x] Fix malformed schema URL slug on `/criminal-defense/theft`.
+-   [x] Fix malformed schema URL slug on `/criminal-defense/sexual-assault`.
+-   [x] Replace broken `/criminal-defense` practice-card link with the most logical existing destination.
+-   [ ] Review and approve minimum homepage targeting changes:
+    -   Homepage should visibly own Las Vegas injury law firm / injury lawyer intent.
+    -   Metadata may preserve personal injury terms where useful for rankings.
+    -   `/practice/car-accidents` should continue to own Las Vegas car accident attorney/lawyer intent.
+-   [ ] Review and approve `/practice/car-accident-statistics` informational-support positioning changes.
+-   [x] Re-run `npm run lint`.
+-   [x] Re-run `npm run build`.
+
 ## Phase 2: Revenue Page Optimization
 
 -   [ ] Treat car accident SEO as the lead priority without dropping existing ranking opportunities.
     -   [ ] Track and improve current ranking terms such as `lawyer las vegas`, `las vegas lawyer`, and near-page-one criminal defense terms where they support overall organic authority.
     -   [ ] Prioritize these client-confirmed car accident terms: `car accident lawyer Las Vegas`, `car accident attorney Las Vegas`, and `Las Vegas car accident lawyer`.
--   [ ] Optimize homepage around qualified PI/car accident leads.
-    -   [x] Update homepage title/meta toward `car accident attorney las vegas` and `personal injury lawyer las vegas`.
+-   [ ] Optimize homepage around qualified injury and car accident leads.
+    -   [x] Update homepage title/meta toward car accident and broad injury search intent.
     -   [x] Improve hero/supporting copy for injured, not-at-fault accident victims.
     -   [x] Add stronger links to car accident, motorcycle, truck, wrongful death, and contact pages.
     -   [x] Keep "lawyer las vegas" language natural because it is already ranking.
--   [ ] Optimize or create personal injury hub.
+-   [ ] Optimize or create Injury hub; use `Injury` visibly and preserve `personal injury` only where useful in metadata/schema.
 -   [x] Optimize car accident page for `car accident attorney las vegas`.
 -   [x] Add visible FAQ about medical treatment after an injury.
 -   [x] Clean duplicated/unclear schema on car accident page.
@@ -101,7 +118,7 @@ Notes:
 
 ## Phase 4: Local SEO
 
--   [ ] Rework service-area copy around PI and car accident intent.
+-   [ ] Rework service-area copy around injury and car accident intent.
 -   [ ] Add Las Vegas, Henderson, Summerlin, and Clark County relevance.
 -   [ ] Review Google Business Profile after client provides access.
 

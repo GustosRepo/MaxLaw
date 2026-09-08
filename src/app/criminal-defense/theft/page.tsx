@@ -95,7 +95,7 @@ export default function TheftPage() {
       </section>
 
       <PracticeStructuredData
-        slug="criminal-defense/theft"
+        slug="/criminal-defense/theft"
         serviceType="Las Vegas Theft & Larceny Defense Lawyer"
         description={description}
         keywords={keywords}

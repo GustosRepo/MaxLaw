@@ -111,7 +111,7 @@ export default function SexualAssaultPage() {
       </section>
 
       <PracticeStructuredData
-        slug="criminal-defense/sexual-assault"
+        slug="/criminal-defense/sexual-assault"
         serviceType="Las Vegas Sexual Assault Defense Lawyer"
         description={description}
         keywords={keywords}

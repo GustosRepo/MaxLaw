@@ -34,7 +34,7 @@ export default function AboutSectionLite() {
           <li>Se habla Espanol</li>
         </ul>
         <Link href="/about/marc-a-saggese" className="inline-flex justify-center rounded-2xl border border-white/12 px-5 py-3 text-sm font-semibold text-white/90">
-          Full Marc Bio
+          View Attorney Profile
         </Link>
       </div>
     </section>

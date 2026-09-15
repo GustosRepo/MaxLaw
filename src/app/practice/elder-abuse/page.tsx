@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Elder Abuse Lawyer | Saggese & Associates',
@@ -29,11 +30,12 @@ export const metadata = {
 export default function ElderAbusePage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Elder Abuse" href="/practice/elder-abuse" />
 
       {/* Content only — PracticeLayout provides the outer main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Elder Abuse</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Elder Abuse Lawyer</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Abuse or neglect of seniors is unacceptable. We represent families seeking accountability for physical, emotional, or financial abuse.</p>
@@ -51,9 +53,7 @@ export default function ElderAbusePage() {
 
           <h3 className="mt-4 text-lg font-semibold text-white">Facts about elder abuse</h3>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> Approximately <strong className="text-[#d4af37]">1 in 6</strong> seniors experience some form of abuse.</li>
             <li><span className="stat-number">•</span> <strong className="text-[#d4af37]">Financial abuse</strong> is the most common form of elder mistreatment.</li>
-            <li><span className="stat-number">•</span> Only <strong className="text-[#d4af37]">1 in 24</strong> cases of elder abuse are reported.</li>
             <li><span className="stat-number">•</span> Nursing home residents are particularly vulnerable to abuse.</li>
             <li><span className="stat-number">•</span> Early intervention can prevent further harm and secure justice.</li>
           </ul>
@@ -73,12 +73,12 @@ export default function ElderAbusePage() {
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Abuse rate</div>
-              <div className="text-lg font-semibold text-[#d4af37]">1 in 6</div>
+              <div className="text-xs text-white/75">Case focus</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Protection</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Reported cases</div>
-              <div className="text-lg font-semibold text-[#d4af37]">1 in 24</div>
+              <div className="text-xs text-white/75">Evidence</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Records</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Most common</div>
@@ -100,10 +100,6 @@ export default function ElderAbusePage() {
         serviceType="Las Vegas Elder Abuse Lawyer"
         description="Las Vegas elder abuse & nursing home neglect lawyer protecting seniors from abuse. Free consultation."
         keywords={['las vegas elder abuse lawyer','nursing home neglect attorney','elder financial abuse claim']}
-        faqs={[
-          { question: 'What are common signs of elder abuse?', answer: 'Unexplained injuries, withdrawal, sudden financial changes, poor hygiene, or fearfulness around caregivers.' },
-          { question: 'Who can be liable for elder abuse?', answer: 'Individual caregivers, facility operators, financial advisors, or other parties enabling or committing misconduct.' }
-        ]}
       />
     </>
   )

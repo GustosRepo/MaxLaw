@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import Breadcrumbs from '../../components/Breadcrumbs'
-import StructuredData from '../../components/StructuredData'
 
 export default function MotorcycleAccidentsPageClient() {
   const breadcrumbItems = [
@@ -10,27 +9,14 @@ export default function MotorcycleAccidentsPageClient() {
     { name: 'Motorcycle Accidents', href: '/practice/motorcycle-accidents' }
   ];
 
-  const motorcycleServiceData = {
-    name: "Motorcycle Accident Legal Services",
-    description: "Specialized legal representation for motorcycle accident victims in Las Vegas, Nevada.",
-    url: "https://www.maxlawnv.com/practice/motorcycle-accidents",
-    provider: {
-      "@type": "LegalService",
-      "name": "The Law Offices of Saggese & Associates"
-    },
-    areaServed: "Las Vegas, Nevada"
-  };
-
   return (
     <>
-      <StructuredData type="LegalService" data={motorcycleServiceData} />
-
       <Breadcrumbs items={breadcrumbItems} />
 
       {/* Content only — PracticeLayout provides outer main and container */}
       <header className="mb-6">
         <div className="rounded-3xl p-6 md:p-8 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
-          <h1 className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#bfa76a]">Motorcycle Accidents</h1>
+          <h1 className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#bfa76a]">Las Vegas Motorcycle Accident Lawyer</h1>
           <div className="mt-3 w-32 h-[6px] bg-gradient-to-r from-[#d4af37] to-[#c5a467] rounded-full" />
           <p className="mt-3 text-white/80">Dedicated representation for motorcycle accident victims throughout Nevada.</p>
         </div>
@@ -72,7 +58,7 @@ export default function MotorcycleAccidentsPageClient() {
 
             <h3 className="text-lg font-semibold mb-3">Serious Injuries We Handle</h3>
             <p className="text-white/80 mb-4">
-              Motorcycle accidents frequently result in catastrophic injuries including traumatic brain injuries, spinal cord damage, road rash, broken bones, and internal injuries. We work with medical experts to fully document your injuries and ensure you receive compensation for current and future medical needs.
+              Motorcycle accidents frequently result in catastrophic injuries including <Link href="/practice/brain-and-spine-injury" className="text-[#d4af37] underline-offset-4 hover:underline">traumatic brain injuries and spinal cord damage</Link>, road rash, broken bones, and internal injuries. We work with medical experts to fully document your injuries and ensure you receive compensation for current and future medical needs.
             </p>
 
             <div className="bg-gradient-to-r from-[#d4af37]/10 to-[#c5a467]/10 border border-[#d4af37]/20 rounded-lg p-4">

@@ -33,10 +33,6 @@ export default function MotorcycleAccidentsPage() {
         description="Las Vegas motorcycle crash & injury lawyers — helmet law knowledge, severe injury claims & insurer negotiation. Free consultation."
         keywords={['las vegas motorcycle accident lawyer','motorcycle injury claim','biker crash attorney']}
         imagePath="/lvbg.jpg"
-        faqs={[
-          { question: 'Do I have to wear a helmet in Nevada?', answer: 'Yes. Nevada law requires approved helmets for most motorcycle riders and passengers.' },
-          { question: 'How long do I have to file a motorcycle accident claim?', answer: 'In Nevada, the statute of limitations for most injury claims is two years from the date of the crash.' }
-        ]}
       />
     </>
   );

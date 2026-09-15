@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Commercial Vehicle Accident Lawyer | Saggese & Associates',
@@ -25,15 +26,16 @@ export const metadata = {
 export default function CommercialVehicleAccidentsPage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Commercial Vehicle Accidents" href="/practice/commercial-vehicle-accidents" />
 
       {/* Content only — PracticeLayout supplies the outer main/container */}
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Commercial Vehicle Accidents</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Commercial Vehicle Accident Lawyer</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
-        <p className="text-white/75 mt-3">When a commercial vehicle is involved in a crash, liability can include the employer, dispatcher, or vehicle maintainer. We investigate corporate responsibility and safety practices.</p>
+        <p className="text-white/75 mt-3">When a company, fleet, delivery, bus, or other non-personal vehicle is involved in a crash, we investigate responsibility and safety practices.</p>
       </header>
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
@@ -43,16 +45,15 @@ export default function CommercialVehicleAccidentsPage() {
           </p>
 
           <p className="mb-4 text-white/90 leading-relaxed">
-            We handle claims involving buses, ride-share vehicles, delivery vans, and municipal fleets. Our firm traces responsibility through hiring practices, training, and maintenance records to identify all at-fault parties.
+            We handle claims involving buses, ride-share vehicles, delivery vans, and municipal fleets. Semi-truck, tractor-trailer, and 18-wheeler claims are handled on our <Link href="/practice/truck-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">truck accidents</Link> page.
           </p>
 
-          <h3 className="mt-4 text-lg font-semibold text-white">Facts about commercial vehicle accidents</h3>
+          <h2 className="mt-4 text-xl font-semibold text-white">Commercial Vehicle Case Factors</h2>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> Commercial vehicles are involved in <strong className="text-[#d4af37]">450,000+</strong> accidents annually.</li>
-            <li><span className="stat-number">•</span> <strong className="text-[#d4af37]">Multiple parties</strong> may be liable in commercial vehicle crashes.</li>
+            <li><span className="stat-number">•</span> Commercial vehicle claims can involve company policies, driver training, and maintenance records.</li>
             <li><span className="stat-number">•</span> Employer liability often extends beyond the driver.</li>
             <li><span className="stat-number">•</span> Training and maintenance records are crucial evidence.</li>
-            <li><span className="stat-number">•</span> Corporate negligence can increase damages significantly.</li>
+            <li><span className="stat-number">•</span> Serious crashes may involve medical documentation and long-term care needs.</li>
           </ul>
 
           <p className="mt-4 text-white/80 leading-relaxed">Proving employer liability often requires document review and depositions; we are prepared to pursue comprehensive discovery to reveal negligence.</p>
@@ -70,8 +71,8 @@ export default function CommercialVehicleAccidentsPage() {
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Annual accidents</div>
-              <div className="text-lg font-semibold text-[#d4af37]">450,000+</div>
+              <div className="text-xs text-white/75">Vehicle focus</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Fleet / Bus / Van</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Liable parties</div>
@@ -80,6 +81,10 @@ export default function CommercialVehicleAccidentsPage() {
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Evidence types</div>
               <div className="text-lg font-semibold text-[#d4af37]">Extensive</div>
+            </div>
+            <div className="rounded-lg bg-neutral-900 p-3 text-sm">
+              <div className="text-xs text-white/75">Related page</div>
+              <Link href="/practice/truck-accidents" className="text-lg font-semibold text-[#d4af37] underline-offset-4 hover:underline">Large Trucks</Link>
             </div>
           </div>
         </aside>
@@ -97,10 +102,6 @@ export default function CommercialVehicleAccidentsPage() {
         serviceType="Las Vegas Commercial Vehicle Accident Lawyer"
         description="Las Vegas commercial vehicle accident lawyer handling bus, van & fleet crashes with multi-party liability. Free consultation."
         keywords={['las vegas commercial vehicle accident lawyer','bus crash attorney','delivery van accident lawyer']}
-        faqs={[
-          { question: 'Who may be liable in a commercial vehicle accident?', answer: 'Driver, employer, maintenance provider, parts manufacturer, or contractor dispatching the vehicle.' },
-          { question: 'What evidence is critical?', answer: 'Maintenance logs, driver qualification file, telematics, hours-of-service, and corporate policies.' }
-        ]}
       />
     </>
   )

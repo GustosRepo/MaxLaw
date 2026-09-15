@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Insurance Settlement Lawyer | Saggese & Associates',
@@ -20,6 +21,7 @@ export const metadata = {
 export default function InsuranceSettlementsPage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Insurance Settlements & Checks" href="/practice/insurance-settlements-and-checks" />
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
@@ -42,9 +44,9 @@ export default function InsuranceSettlementsPage() {
           <h3 className="mt-4 text-lg font-semibold text-white">Settlement oversight</h3>
           <ul className="mt-3 space-y-3 text-white/80">
             <li><span className="stat-number">•</span> Settlement structures can vary from lump sum to structured payments.</li>
-            <li><span className="stat-number">•</span> Medical liens can often be reduced by <strong className="text-[#d4af37]">15-30%</strong> through negotiation.</li>
-            <li><span className="stat-number">•</span> Settlement processing typically takes <strong className="text-[#d4af37]">3-6 months</strong> for distribution.</li>
-            <li><span className="stat-number">•</span> Injury settlements are generally not taxable income.</li>
+            <li><span className="stat-number">•</span> Medical liens may need to be reviewed before funds are distributed.</li>
+            <li><span className="stat-number">•</span> Settlement timing can depend on insurer processing, releases, and lien resolution.</li>
+            <li><span className="stat-number">•</span> Tax questions should be reviewed with an appropriate tax professional.</li>
           </ul>
 
           <p className="mt-4 text-white/80 leading-relaxed">We advise on settlement taxes, lien negotiations, and whether a lump-sum or structured option best serves your long-term needs.</p>
@@ -61,20 +63,20 @@ export default function InsuranceSettlementsPage() {
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Lien reduction</div>
-              <div className="text-lg font-semibold text-[#d4af37]">15-30%</div>
+              <div className="text-xs text-white/75">Lien review</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Important</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Processing time</div>
-              <div className="text-lg font-semibold text-[#d4af37]">3-6 months</div>
+              <div className="text-xs text-white/75">Processing</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Varies</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Tax liability</div>
-              <div className="text-lg font-semibold text-[#d4af37]">No Taxes</div>
+              <div className="text-xs text-white/75">Documentation</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Reviewed</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Transparency</div>
-              <div className="text-lg font-semibold text-[#d4af37]">100%</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Clear</div>
             </div>
           </div>
         </aside>
@@ -91,10 +93,6 @@ export default function InsuranceSettlementsPage() {
         serviceType="Las Vegas Insurance Settlement Lawyer"
         description="Las Vegas insurance settlement lawyer negotiating fair payouts, lien reduction & proper disbursement. Free consultation."
         keywords={['las vegas insurance settlement lawyer','lien reduction attorney','injury settlement timeline']}
-        faqs={[
-          { question: 'How long does a settlement take?', answer: 'Many injury settlements disburse within 3–6 months after agreement, depending on lien negotiations and insurer processing.' },
-          { question: 'Can medical liens be reduced?', answer: 'Yes—providers and lienholders often accept reductions negotiated by counsel, increasing net recovery.' }
-        ]}
       />
     </>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Pedestrian Accident Lawyer | Saggese & Associates',
@@ -29,11 +30,12 @@ export const metadata = {
 export default function PedestrianAccidentsPage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Crosswalk & Pedestrian Accidents" href="/practice/crosswalk-and-pedestrian-accidents" />
 
       {/* Content only — provided by PracticeLayout */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Crosswalk & Pedestrian Accidents</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Pedestrian Accident Lawyer</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Pedestrians are vulnerable. We investigate visibility, right-of-way, signage, and driver behavior to establish liability and protect your recovery.</p>
@@ -49,16 +51,14 @@ export default function PedestrianAccidentsPage() {
             Pedestrians are vulnerable road users who deserve protection. We investigate visibility, right-of-way, signage, and driver behavior to establish liability and protect your recovery.
           </p>
 
-          <h3 className="mt-4 text-lg font-semibold text-white">Facts about pedestrian accidents</h3>
+          <h2 className="mt-4 text-xl font-semibold text-white">Pedestrian Accident Case Factors</h2>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> <strong className="text-[#d4af37]">6,283</strong> pedestrians were killed in traffic crashes in 2018.</li>
-            <li><span className="stat-number">•</span> A pedestrian is killed every <strong className="text-[#d4af37]">84 minutes</strong> in traffic crashes.</li>
-            <li><span className="stat-number">•</span> <strong className="text-[#d4af37]">76%</strong> of pedestrian fatalities occur in urban areas.</li>
-            <li><span className="stat-number">•</span> Most pedestrian crashes occur at <strong className="text-[#d4af37]">non-intersection</strong> locations.</li>
-            <li><span className="stat-number">•</span> Alcohol impairment is a factor in <strong className="text-[#d4af37]">34%</strong> of pedestrian fatalities.</li>
+            <li><span className="stat-number">•</span> Visibility, right-of-way, signage, speed, and driver attention can affect liability.</li>
+            <li><span className="stat-number">•</span> Police reports, witness statements, photos, and traffic or surveillance video can help preserve evidence.</li>
+            <li><span className="stat-number">•</span> Pedestrian crashes may involve severe injuries, including <Link href="/practice/brain-and-spine-injury" className="text-[#d4af37] underline-offset-4 hover:underline">brain or spine injuries</Link>.</li>
           </ul>
 
-          <p className="mt-4 text-white/80 leading-relaxed">Beyond individual claims, we advocate for safer streets and collaborate with engineers and advocacy groups when patterns of dangerous design arise.</p>
+          <p className="mt-4 text-white/80 leading-relaxed">Beyond individual claims, pedestrian cases may require careful scene review, witness follow-up, and medical documentation.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-md">Call (702) 778‑8883</a>
@@ -69,20 +69,20 @@ export default function PedestrianAccidentsPage() {
 
         <aside className="rounded-2xl border border-white/10 bg-white/4 p-4 shadow-lg">
           <div className="mb-3 text-sm font-semibold text-white">Pedestrian safety</div>
-          <p className="text-sm text-white/80">Vulnerable road users need strong legal advocacy. Understanding crash patterns helps build stronger cases.</p>
+          <p className="text-sm text-white/80">Vulnerable road users need careful case development and early evidence preservation.</p>
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Annual fatalities</div>
-              <div className="text-lg font-semibold text-[#d4af37]">6,283</div>
+              <div className="text-xs text-white/75">Evidence</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Video / Witnesses</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Frequency</div>
-              <div className="text-lg font-semibold text-[#d4af37]">Every 84 min</div>
+              <div className="text-xs text-white/75">Case focus</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Crosswalks</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Urban crashes</div>
-              <div className="text-lg font-semibold text-[#d4af37]">76%</div>
+              <div className="text-xs text-white/75">Related page</div>
+              <Link href="/practice/car-accidents" className="text-lg font-semibold text-[#d4af37] underline-offset-4 hover:underline">Car Crashes</Link>
             </div>
           </div>
         </aside>
@@ -100,10 +100,6 @@ export default function PedestrianAccidentsPage() {
         serviceType="Las Vegas Pedestrian Accident Lawyer"
         description="Las Vegas pedestrian & crosswalk accident lawyer protecting injured pedestrians. Free consultation."
         keywords={['las vegas pedestrian accident lawyer','crosswalk injury attorney','pedestrian hit by car claim las vegas']}
-        faqs={[
-          { question: 'Who is at fault in a pedestrian accident?', answer: 'Fault can involve the driver, comparative negligence, or unsafe roadway design depending on evidence.' },
-          { question: 'What evidence helps my claim?', answer: 'Scene photos, witness statements, police reports, traffic or surveillance video, and medical documentation.' }
-        ]}
       />
     </>
   )

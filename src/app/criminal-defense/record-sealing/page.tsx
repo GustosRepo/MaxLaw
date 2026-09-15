@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Drug Offenses Lawyer | Saggese & Associates',
+  title: 'Las Vegas Record Sealing Lawyer | Saggese & Associates',
   description: 'Drug Offenses & expungement guidance—eligibility analysis & petition filing. Free consultation (702) 778-8883.',
   keywords: [
     'las vegas Drug Offenses lawyer',
@@ -12,8 +12,8 @@ export const metadata = {
     'seal criminal record las vegas'
   ],
   alternates: { canonical: `${SITE_URL}/criminal-defense/record-sealing` },
-  openGraph: { title: 'Las Vegas Drug Offenses Lawyer', description: 'Eligibility review & petition filing.', url: `${SITE_URL}/criminal-defense/record-sealing`, type: 'article' },
-  twitter: { card: 'summary', title: 'Drug Offenses Lawyer', description: 'Clear your record—free eligibility review.' }
+  openGraph: { title: 'Las Vegas Record Sealing Lawyer', description: 'Eligibility review & petition filing.', url: `${SITE_URL}/criminal-defense/record-sealing`, type: 'article' },
+  twitter: { card: 'summary', title: 'Record Sealing Lawyer', description: 'Clear your record—free eligibility review.' }
 }
 
 export default function RecordSealingPage() {

@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Uninsured Motorist Lawyer | Saggese & Associates',
@@ -29,11 +30,12 @@ export const metadata = {
 export default function UnderinsuredAccidentsPage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Underinsured & Uninsured Accidents" href="/practice/underinsured-and-uninsured-accidents" />
 
       {/* Content only — provided by PracticeLayout */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Underinsured & Uninsured Accidents</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Uninsured Motorist Lawyer</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">We represent clients when the responsible party has insufficient insurance or no insurance at all. Explore your recovery options, including uninsured/underinsured motorist coverage.</p>
@@ -46,16 +48,14 @@ export default function UnderinsuredAccidentsPage() {
           </p>
 
           <p className="mb-4 text-white/90 leading-relaxed">
-            When the at-fault driver lacks adequate insurance, we help you pursue available sources of recovery including UM/UIM and other parties with policy evaluation and strategy.
+            When the at-fault driver lacks adequate insurance, we help you pursue available sources of recovery including UM/UIM and other parties with policy evaluation and strategy. If your coverage question started with a crash, our <Link href="/practice/car-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">car accident representation</Link> page explains the broader claim process.
           </p>
 
           <h3 className="mt-4 text-lg font-semibold text-white">Facts about uninsured/underinsured drivers</h3>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> <strong className="text-[#d4af37]">1 in 8</strong> drivers on the road are uninsured.</li>
-            <li><span className="stat-number">•</span> In Nevada, <strong className="text-[#d4af37]">17.4%</strong> of drivers are uninsured.</li>
             <li><span className="stat-number">•</span> Many drivers carry only minimum liability coverage.</li>
-            <li><span className="stat-number">•</span> UM/UIM coverage protects you from uninsured drivers.</li>
-            <li><span className="stat-number">•</span> Your own insurance may provide additional coverage sources.</li>
+            <li><span className="stat-number">•</span> UM/UIM coverage may provide a recovery path when the responsible driver has no insurance or not enough coverage.</li>
+            <li><span className="stat-number">•</span> Your own insurance policy may need to be reviewed for additional coverage sources.</li>
           </ul>
 
           <p className="mt-4 text-white/80 leading-relaxed">Our attorneys review policy language, coordinate with coverage counsel, and negotiate or litigate aggressively to secure fair compensation.</p>
@@ -73,12 +73,12 @@ export default function UnderinsuredAccidentsPage() {
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Uninsured drivers</div>
-              <div className="text-lg font-semibold text-[#d4af37]">1 in 8</div>
+              <div className="text-xs text-white/75">Coverage issue</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Low Limits</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Nevada rate</div>
-              <div className="text-lg font-semibold text-[#d4af37]">17.4%</div>
+              <div className="text-xs text-white/75">Policy review</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Important</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">UM/UIM claims</div>
@@ -100,10 +100,6 @@ export default function UnderinsuredAccidentsPage() {
         serviceType="Las Vegas Uninsured Motorist Lawyer"
         description="Las Vegas uninsured & underinsured motorist accident lawyer helping maximize recovery when coverage is limited. Free consultation."
         keywords={['las vegas uninsured motorist lawyer','underinsured accident attorney','um uim lawyer nevada']}
-        faqs={[
-          { question: 'What is UM/UIM coverage?', answer: 'Uninsured/Underinsured Motorist coverage pays when an at-fault driver has no insurance or insufficient limits.' },
-          { question: 'Can I stack policies?', answer: 'Depending on policy language and Nevada law, multiple policies or coverages may apply; an attorney can evaluate stacking potential.' }
-        ]}
       />
     </>
   )

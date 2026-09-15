@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import StructuredData from '../../components/StructuredData'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas & Nevada Car Accident Statistics | Saggese & Associates',
@@ -25,6 +26,7 @@ export const metadata = {
 export default function CarAccidentStatsPage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Car Accident Statistics" href="/practice/car-accident-statistics" />
 
       {/* Content only — PracticeLayout provides the outer wrapper and sidebar */}
 
@@ -39,23 +41,19 @@ export default function CarAccidentStatsPage() {
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
           <p className="mb-4 text-white/90 leading-relaxed">
-            At Saggese & Associates we know how devastating motor vehicle accidents can be. The number of car accidents increases every year — involving millions of Americans. Even though an accident is a common event, it is unanticipated, and the injuries can be life-altering or, tragically, fatal.
+            At Saggese & Associates we know how devastating motor vehicle accidents can be. Even though crashes are common, a serious collision is unexpected, and the injuries can be life-altering or, tragically, fatal.
           </p>
 
           <p className="mb-4 text-white/90 leading-relaxed">
             Our firm has experience prosecuting claims against careless drivers, fleets, and manufacturers whose vehicles failed to meet crashworthiness standards. We aggressively preserve evidence and pursue maximum compensation for injured clients.
           </p>
 
-          <h3 className="mt-4 text-lg font-semibold text-white">Facts about car accidents</h3>
+          <h2 className="mt-4 text-xl font-semibold text-white">Common Crash Factors</h2>
           <ul className="mt-3 space-y-3 text-white/80">
             <li><span className="stat-number">•</span> Auto accidents are a leading cause of injury and death in all age groups.</li>
-            <li><span className="stat-number">•</span> Approximately <strong className="text-[#d4af37]">6,000,000</strong> auto accidents occur each year.</li>
-            <li><span className="stat-number">•</span> Over <strong className="text-[#d4af37]">3,150,000</strong> people were injured in these accidents annually.</li>
-            <li><span className="stat-number">•</span> Each year approximately <strong className="text-[#d4af37]">40,000</strong> people lose their lives in automobile-related accidents.</li>
-            <li><span className="stat-number">•</span> Alcohol is involved in roughly <strong className="text-[#d4af37]">40%</strong> of traffic fatalities.</li>
-            <li><span className="stat-number">•</span> Speeding contributes to about <strong className="text-[#d4af37]">29%</strong> of vehicle accident fatalities.</li>
-            <li><span className="stat-number">•</span> Young drivers (15–20) and older drivers (70+) have higher fatality rates than drivers aged 25–69.</li>
             <li><span className="stat-number">•</span> Distracted driving — including cellphone use — and aggressive driving remain major contributors to crashes.</li>
+            <li><span className="stat-number">•</span> Alcohol, speeding, driver inattention, and vehicle-condition issues can affect how a crash is evaluated.</li>
+            <li><span className="stat-number">•</span> Evidence preservation can help connect crash factors to fault, injury, and insurance coverage.</li>
           </ul>
 
           <p className="mt-4 text-white/80 leading-relaxed">If you are seriously injured, contact Saggese & Associates promptly. Early involvement helps document and preserve evidence and gives your case its best chance for a full recovery. For legal help after a serious crash, visit our <Link href="/practice/car-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">Las Vegas car accident attorney</Link> page.</p>
@@ -69,20 +67,20 @@ export default function CarAccidentStatsPage() {
 
         <aside className="rounded-2xl border border-white/10 bg-white/4 p-4 shadow-lg">
           <div className="mb-3 text-sm font-semibold text-white">Why statistics matter</div>
-          <p className="text-sm text-white/80">Numbers tell a story: they show how preventable many crashes are and why preserving evidence quickly is essential to a successful claim.</p>
+          <p className="text-sm text-white/80">Crash data and case evidence can help explain why preserving records quickly matters after a serious collision.</p>
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Annual accidents</div>
-              <div className="text-lg font-semibold text-[#d4af37]">~6,000,000</div>
+              <div className="text-xs text-white/75">Crash factors</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Reviewed</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Annual injuries</div>
-              <div className="text-lg font-semibold text-[#d4af37]">~3,150,000</div>
+              <div className="text-xs text-white/75">Evidence</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Preserved</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Annual fatalities</div>
-              <div className="text-lg font-semibold text-[#d4af37]">~40,000</div>
+              <div className="text-xs text-white/75">Legal help</div>
+              <Link href="/practice/car-accidents" className="text-lg font-semibold text-[#d4af37] underline-offset-4 hover:underline">Car Accidents</Link>
             </div>
           </div>
         </aside>

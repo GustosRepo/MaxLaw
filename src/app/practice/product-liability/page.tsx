@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Product Liability Lawyer | Saggese & Associates',
@@ -29,11 +30,12 @@ export const metadata = {
 export default function ProductLiabilityPage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Product Liability" href="/practice/product-liability" />
 
       {/* Content only — PracticeLayout provides main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Product Liability</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Product Liability Lawyer</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Defective products can cause catastrophic injuries. We hold manufacturers accountable for design, manufacturing, and warning defects.</p>
@@ -49,16 +51,15 @@ export default function ProductLiabilityPage() {
             Defective products can cause catastrophic injuries. We hold manufacturers accountable for design, manufacturing, and warning defects with comprehensive investigation and expert testimony.
           </p>
 
-          <h3 className="mt-4 text-lg font-semibold text-white">Facts about product liability</h3>
+          <h2 className="mt-4 text-xl font-semibold text-white">Product Liability Case Factors</h2>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> Product defects cause over <strong className="text-[#d4af37]">22 million</strong> injuries annually.</li>
             <li><span className="stat-number">•</span> <strong className="text-[#d4af37]">Design defects</strong> affect entire product lines.</li>
             <li><span className="stat-number">•</span> Manufacturing defects occur during <strong className="text-[#d4af37]">production</strong>.</li>
             <li><span className="stat-number">•</span> Warning defects involve <strong className="text-[#d4af37]">inadequate instructions</strong>.</li>
             <li><span className="stat-number">•</span> Multiple parties may be liable in the supply chain.</li>
           </ul>
 
-          <p className="mt-4 text-white/80 leading-relaxed">Design defects, manufacturing defects, and inadequate warnings — we evaluate claims to find the strongest legal theories for recovery.</p>
+          <p className="mt-4 text-white/80 leading-relaxed">Design defects, manufacturing defects, and inadequate warnings — we evaluate claims to find the strongest legal theories for recovery. Serious product injuries may also involve <Link href="/practice/brain-and-spine-injury" className="text-[#d4af37] underline-offset-4 hover:underline">brain or spine injury</Link> claims or, in fatal incidents, <Link href="/practice/wrongful-death" className="text-[#d4af37] underline-offset-4 hover:underline">wrongful death</Link> claims.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-md">Call (702) 778‑8883</a>
@@ -73,8 +74,8 @@ export default function ProductLiabilityPage() {
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Annual injuries</div>
-              <div className="text-lg font-semibold text-[#d4af37]">22M+</div>
+              <div className="text-xs text-white/75">Evidence</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Preserve Product</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Defect types</div>
@@ -100,10 +101,6 @@ export default function ProductLiabilityPage() {
         serviceType="Las Vegas Product Liability Lawyer"
         description="Las Vegas product liability lawyer handling defective product, design, manufacturing & warning defect claims. Free consultation."
         keywords={['las vegas product liability lawyer','defective product attorney','design defect lawyer nevada']}
-        faqs={[
-          { question: 'What is a product defect?', answer: 'A defect may arise from unsafe design, manufacturing errors, or inadequate warnings/instructions making the product unreasonably dangerous.' },
-          { question: 'Who can be liable?', answer: 'Manufacturers, component makers, distributors, and retailers across the supply chain may share liability.' }
-        ]}
       />
     </>
   )

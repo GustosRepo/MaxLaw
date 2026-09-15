@@ -2,10 +2,11 @@ import React from 'react'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
 import Link from 'next/link'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Truck Accident Lawyer | Saggese & Associates',
-  description: 'Complex commercial truck & 18-wheeler collision claims. Federal regs, multiple parties, catastrophic injuries. Free consultation (702) 778‑8883.',
+  description: 'Las Vegas truck accident lawyer for semi-truck, tractor-trailer, 18-wheeler, and large commercial truck crash claims. Free consultation.',
   alternates: { canonical: `${SITE_URL}/practice/truck-accidents` },
   openGraph: {
     title: 'Las Vegas Truck Accident Lawyer',
@@ -18,13 +19,14 @@ export const metadata = {
 export default function TruckAccidentsPage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Truck Accidents" href="/practice/truck-accidents" />
       {/* Content only — provided by PracticeLayout */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Truck Accidents</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Truck Accident Lawyer</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
-        <p className="text-white/75 mt-3">Large trucks and commercial vehicles cause devastating injuries. We investigate hours-of-service, maintenance, and carrier liability to hold negligent parties accountable.</p>
+        <p className="text-white/75 mt-3">Large truck crashes can cause devastating injuries. We investigate hours-of-service, maintenance, and carrier liability to hold negligent parties accountable.</p>
       </header>
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
@@ -34,19 +36,18 @@ export default function TruckAccidentsPage() {
           </p>
 
           <p className="mb-4 text-white/90 leading-relaxed">
-            Large trucks and commercial vehicles cause devastating injuries. We investigate hours-of-service, maintenance, and carrier liability to hold negligent parties accountable with regulatory and carrier investigations.
+            This page focuses on semi-trucks, tractor-trailers, 18-wheelers, and large commercial trucks. Claims involving delivery vans, buses, company cars, or other fleet vehicles may fit our <Link href="/practice/commercial-vehicle-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">commercial vehicle accidents</Link> practice area.
           </p>
 
-          <h3 className="mt-4 text-lg font-semibold text-white">Facts about truck accidents</h3>
+          <h2 className="mt-4 text-xl font-semibold text-white">Truck Accident Case Factors</h2>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> Commercial trucks are involved in over <strong className="text-[#d4af37]">500,000</strong> accidents annually.</li>
-            <li><span className="stat-number">•</span> Truck accidents result in <strong className="text-[#d4af37]">5,000+</strong> fatalities each year.</li>
-            <li><span className="stat-number">•</span> Driver fatigue contributes to <strong className="text-[#d4af37]">13%</strong> of commercial vehicle crashes.</li>
-            <li><span className="stat-number">•</span> Brake problems account for <strong className="text-[#d4af37]">29%</strong> of truck accidents.</li>
+            <li><span className="stat-number">•</span> Truck crashes may involve drivers, carriers, maintenance providers, cargo loaders, or parts manufacturers.</li>
+            <li><span className="stat-number">•</span> Driver logs, ELD/ECM data, maintenance records, and inspection records can be important evidence.</li>
+            <li><span className="stat-number">•</span> Serious truck crashes may involve <Link href="/practice/brain-and-spine-injury" className="text-[#d4af37] underline-offset-4 hover:underline">brain or spine injury</Link> claims.</li>
             <li><span className="stat-number">•</span> Federal regulations govern hours-of-service and maintenance requirements.</li>
           </ul>
 
-          <p className="mt-4 text-white/80 leading-relaxed">We subpoena driver logs, maintenance records, and GPS/ELD data to build a timeline and assign responsibility.</p>
+          <p className="mt-4 text-white/80 leading-relaxed">We subpoena driver logs, maintenance records, and GPS/ELD data to build a timeline and assign responsibility. Fatal truck crashes may also require separate <Link href="/practice/wrongful-death" className="text-[#d4af37] underline-offset-4 hover:underline">wrongful death</Link> analysis.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-md">Call (702) 778‑8883</a>
@@ -57,20 +58,20 @@ export default function TruckAccidentsPage() {
 
         <aside className="rounded-2xl border border-white/10 bg-white/4 p-4 shadow-lg">
           <div className="mb-3 text-sm font-semibold text-white">Truck accident complexity</div>
-          <p className="text-sm text-white/80">Commercial vehicle accidents involve federal regulations, multiple parties, and complex liability chains requiring specialized legal expertise.</p>
+          <p className="text-sm text-white/80">Truck accident claims can involve federal regulations, multiple parties, and complex liability chains.</p>
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Annual accidents</div>
-              <div className="text-lg font-semibold text-[#d4af37]">500,000+</div>
+              <div className="text-xs text-white/75">Vehicle focus</div>
+              <div className="text-lg font-semibold text-[#d4af37]">18-Wheelers</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Fatalities</div>
-              <div className="text-lg font-semibold text-[#d4af37]">5,000+</div>
+              <div className="text-xs text-white/75">Evidence</div>
+              <div className="text-lg font-semibold text-[#d4af37]">ELD / Logs</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Brake issues</div>
-              <div className="text-lg font-semibold text-[#d4af37]">29%</div>
+              <div className="text-xs text-white/75">Related page</div>
+              <Link href="/practice/commercial-vehicle-accidents" className="text-lg font-semibold text-[#d4af37] underline-offset-4 hover:underline">Fleet Vehicles</Link>
             </div>
           </div>
         </aside>
@@ -86,12 +87,8 @@ export default function TruckAccidentsPage() {
       <PracticeStructuredData
         slug="/practice/truck-accidents"
         serviceType="Las Vegas Truck Accident Lawyer"
-        description="Complex commercial truck & 18-wheeler collision claims. Federal regs, multiple parties, catastrophic injuries. Free consultation."
+        description="Las Vegas truck accident lawyer for semi-truck, tractor-trailer, 18-wheeler, and large commercial truck crash claims. Free consultation."
         keywords={['las vegas truck accident lawyer','commercial vehicle collision attorney','18 wheeler crash nevada']}
-        faqs={[
-          { question: 'Who can be liable in a truck accident?', answer: 'Driver, carrier, maintenance provider, cargo loader, or parts manufacturer may share liability.' },
-          { question: 'What evidence is critical?', answer: 'Driver logs, ELD/ECM data, maintenance & inspection records, and reconstruction analyses.' }
-        ]}
       />
     </>
   )

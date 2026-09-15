@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Excessive Force Injury Lawyer | Saggese & Associates',
@@ -19,11 +20,12 @@ export const metadata = {
 export default function ExcessiveForcePage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Excessive Force" href="/practice/excessive-force" />
 
       {/* Content only — PracticeLayout provides the outer main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Excessive Force</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Excessive Force Lawyer</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">When force used by officers or security exceeds legal bounds, victims deserve justice. We bring claims to hold responsible parties accountable.</p>
@@ -41,7 +43,6 @@ export default function ExcessiveForcePage() {
 
           <h3 className="mt-4 text-lg font-semibold text-white">Facts about excessive force</h3>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> Police use of force incidents are reported in <strong className="text-[#d4af37]">1.6%</strong> of arrests.</li>
             <li><span className="stat-number">•</span> <strong className="text-[#d4af37]">Body cameras</strong> provide crucial evidence in excessive force cases.</li>
             <li><span className="stat-number">•</span> Civil rights violations can result in <strong className="text-[#d4af37]">federal claims</strong>.</li>
             <li><span className="stat-number">•</span> Witness testimony and video evidence are critical for success.</li>
@@ -63,8 +64,8 @@ export default function ExcessiveForcePage() {
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Force incidents</div>
-              <div className="text-lg font-semibold text-[#d4af37]">1.6%</div>
+              <div className="text-xs text-white/75">Evidence</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Video</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Evidence</div>
@@ -90,10 +91,6 @@ export default function ExcessiveForcePage() {
         serviceType="Las Vegas Excessive Force Injury Lawyer"
         description="Injured by excessive force? We investigate, preserve evidence & pursue accountability. Free consultation."
         keywords={['las vegas excessive force lawyer','civil rights injury lawyer las vegas']}
-        faqs={[
-          { question: 'What counts as excessive force?', answer: 'Force that is unreasonable or disproportionate to the situation, causing unnecessary injury.' },
-          { question: 'How soon should I act?', answer: 'Immediately—evidence such as video, witness statements, and medical findings should be preserved early.' }
-        ]}
       />
     </>
   )

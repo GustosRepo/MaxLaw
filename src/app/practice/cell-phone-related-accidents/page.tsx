@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Distracted Driving Lawyer | Saggese & Associates',
@@ -25,12 +26,13 @@ export const metadata = {
 export default function CellPhoneAccidentsPage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Cell Phone-Related Accidents" href="/practice/cell-phone-related-accidents" />
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
           <header className="mb-6">
             <div className="relative inline-block">
-              <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Cell Phone-Related Accidents</h1>
+              <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Distracted Driving Accident Lawyer</h1>
               <span className="accent-underline w-full rounded-full" aria-hidden />
             </div>
             <p className="text-white/75 mt-3">Distracted driving from cell phone use causes preventable crashes. Our team preserves evidence and proves negligence.</p>
@@ -50,13 +52,12 @@ export default function CellPhoneAccidentsPage() {
 
           <h3 className="mt-4 text-lg font-semibold text-white">An Experienced Firm to Hold Negligent Parties Accountable</h3>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> Cell phone distraction causes <strong className="text-[#d4af37]">9 deaths</strong> daily in the US.</li>
-            <li><span className="stat-number">•</span> Texting while driving increases crash risk by <strong className="text-[#d4af37]">23 times</strong>.</li>
-            <li><span className="stat-number">•</span> Eyes are off the road for <strong className="text-[#d4af37]">5 seconds</strong> on average when texting.</li>
-            <li><span className="stat-number">•</span> Nevada law prohibits texting while driving and requires hands-free devices.</li>
+            <li><span className="stat-number">•</span> Cell phone records, vehicle data, and witness statements may help show distraction.</li>
+            <li><span className="stat-number">•</span> Texting, app use, GPS interaction, and calls can all become evidence issues after a crash.</li>
+            <li><span className="stat-number">•</span> Fast evidence preservation can matter when electronic data is overwritten or deleted.</li>
           </ul>
 
-          <p className="mt-4 text-white/80 leading-relaxed">If you've been in a cellphone-related accident, The Law Offices of Saggese & Associates can help. Our attorneys will research the incident and carefully build the case that your injury was caused by another driver's negligence.</p>
+          <p className="mt-4 text-white/80 leading-relaxed">If you've been in a cellphone-related accident, The Law Offices of Saggese & Associates can help. Our attorneys will research the incident and carefully build the case that your injury was caused by another driver's negligence. For broader help after a crash, review our <Link href="/practice/car-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">car accident claims</Link> page.</p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] cta-glow">Call (702) 778‑8883</a>
@@ -70,16 +71,16 @@ export default function CellPhoneAccidentsPage() {
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Daily deaths</div>
-              <div className="text-lg font-semibold text-[#d4af37]">9 deaths</div>
+              <div className="text-xs text-white/75">Evidence</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Phone Records</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Eyes off road</div>
-              <div className="text-lg font-semibold text-[#d4af37]">5 seconds</div>
+              <div className="text-xs text-white/75">Case issue</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Distraction</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Crash risk increase</div>
-              <div className="text-lg font-semibold text-[#d4af37]">23x</div>
+              <div className="text-xs text-white/75">Timing</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Early Review</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Evidence preservation</div>
@@ -100,10 +101,6 @@ export default function CellPhoneAccidentsPage() {
         serviceType="Las Vegas Distracted Driving Lawyer"
         description="Las Vegas distracted driving & cell phone accident lawyer preserving evidence to prove negligence. Free consultation."
         keywords={['las vegas distracted driving lawyer','cell phone accident attorney','texting and driving crash lawyer']}
-        faqs={[
-          { question: 'What evidence proves distracted driving?', answer: 'Cell phone logs, telematics, surveillance video, eyewitness statements, and vehicle data downloads.' },
-          { question: 'How fast should evidence be preserved?', answer: 'Immediately—some electronic logs and dash data overwrite within days.' }
-        ]}
       />
     </>
   )

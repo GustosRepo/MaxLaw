@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Breadcrumbs from '../../components/Breadcrumbs'
+import { TOTAL_RECOVERED_DISPLAY } from '@/lib/constants'
 
 export default function CarAccidentsPageClient() {
   const breadcrumbItems = [
@@ -30,9 +31,18 @@ export default function CarAccidentsPageClient() {
               When you're injured in a car accident, you need an attorney who understands how crashes, medical care, insurance coverage, and fault disputes affect your claim. At The Law Offices of Saggese & Associates, we help injured Las Vegas drivers and passengers understand their options after a serious collision.
             </p>
             <p className="text-white/80 mb-4">
-              The best calls for the firm are from people who were hurt and were not at fault. If that describes your crash, call for a free consultation before giving detailed statements to insurance companies.
+              The best calls for the firm are from people who were hurt and were not at fault. If that describes your crash, call for a free consultation before giving detailed statements to insurance companies or signing paperwork you do not fully understand.
             </p>
             
+            <h3 className="text-lg font-semibold mb-3">What to Do After a Las Vegas Crash</h3>
+            <ul className="list-disc list-inside text-white/80 space-y-2 mb-4">
+              <li>Get medical attention and follow through with recommended care</li>
+              <li>Report the crash and keep the police report or incident number</li>
+              <li>Take photos of vehicle damage, injuries, road conditions, and insurance information</li>
+              <li>Save names and phone numbers for witnesses when possible</li>
+              <li>Be careful with recorded statements before you understand your rights</li>
+            </ul>
+
             <h3 className="text-lg font-semibold mb-3">Common Types of Car Accidents We Handle</h3>
             <ul className="list-disc list-inside text-white/80 space-y-2 mb-4">
               <li>Rear-end collisions</li>
@@ -45,18 +55,12 @@ export default function CarAccidentsPageClient() {
               <li>Rollover accidents</li>
             </ul>
 
-            <h3 className="text-lg font-semibold mb-3">How We Help After a Crash</h3>
-            <ul className="list-disc list-inside text-white/80 space-y-2 mb-4">
-              <li>Review how the accident happened and who may be responsible</li>
-              <li>Discuss medical treatment options after an injury</li>
-              <li>Deal with insurance claim issues and coverage questions</li>
-              <li>Document injuries, lost income, and other damages</li>
-              <li>Prepare the case for settlement or litigation when needed</li>
-            </ul>
-
-            <h3 className="text-lg font-semibold mb-3">Our Approach</h3>
+            <h3 className="text-lg font-semibold mb-3">Insurance, Fault, and Evidence</h3>
             <p className="text-white/80 mb-4">
-              We thoroughly investigate every accident, working with accident reconstruction experts, medical professionals, and other specialists to build the strongest possible case. Our goal is to secure maximum compensation for your medical expenses, lost wages, pain and suffering, and other damages.
+              Nevada injury claims often turn on proof: how the crash happened, what the police report says, what the vehicles and photos show, and how your medical records connect the collision to your injuries. A car accident lawyer can help organize that evidence, respond to insurance coverage questions, and evaluate whether uninsured or underinsured motorist coverage may matter.
+            </p>
+            <p className="text-white/80 mb-4">
+              Insurance adjusters may ask for a recorded statement early. That request can feel routine, but it may affect how fault, injuries, and treatment are evaluated later. We help clients understand what information is needed, what should be documented, and when a claim should be prepared for negotiation or litigation.
             </p>
 
             <div className="bg-gradient-to-r from-[#d4af37]/10 to-[#c5a467]/10 border border-[#d4af37]/20 rounded-lg p-4">
@@ -66,6 +70,50 @@ export default function CarAccidentsPageClient() {
               </p>
             </div>
           </article>
+
+          <section className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
+            <h2 className="text-xl font-semibold mb-4">How the Firm Builds a Car Accident Claim</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div>
+                <h3 className="text-base font-semibold text-[#bfa76a]">Medical Documentation</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/80">We discuss treatment options, help clients understand why consistent care matters, and organize records that show the effect of the injury on daily life and work.</p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-[#bfa76a]">Investigation</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/80">The firm reviews police reports, photos, witness information, insurance coverage, and available vehicle or scene evidence to clarify liability.</p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-[#bfa76a]">Insurance Negotiation</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/80">We prepare the claim around fault, injuries, treatment, lost income, and other losses before negotiating with the insurance company.</p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-[#bfa76a]">Litigation Readiness</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/80">When a case cannot be resolved fairly, the firm prepares for litigation with a trial-ready approach shaped by the facts and available evidence.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
+            <h2 className="text-xl font-semibold mb-4">Why Saggese & Associates</h2>
+            <p className="text-white/80 mb-4">
+              Marc A. Saggese has practiced law in Las Vegas since 1999 and has represented more than 2,500 clients. The firm brings courtroom and trial experience to injury cases, with direct attention to the facts, medical documentation, and insurance issues that often shape the value of a claim.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="rounded-xl border border-white/10 bg-black/25 p-4">
+                <div className="text-lg font-semibold text-[#d4af37]">Since 1999</div>
+                <p className="mt-1 text-xs text-white/70">Practicing law in Las Vegas</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-black/25 p-4">
+                <div className="text-lg font-semibold text-[#d4af37]">2,500+</div>
+                <p className="mt-1 text-xs text-white/70">Clients represented</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-black/25 p-4">
+                <div className="text-lg font-semibold text-[#d4af37]">{TOTAL_RECOVERED_DISPLAY}*</div>
+                <p className="mt-1 text-xs text-white/70">Reported client recoveries</p>
+              </div>
+            </div>
+            <p className="mt-3 text-xs text-white/50">*Past results do not guarantee future outcomes. Each case is unique.</p>
+          </section>
 
           <section className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
             <h2 className="text-xl font-semibold mb-4">Car Accident Questions</h2>

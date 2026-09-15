@@ -3,6 +3,7 @@ import React from 'react'
 import PracticeStructuredData from '../PracticeStructuredData'
 import { SITE_URL } from '@/lib/constants'
 import Link from 'next/link'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Brain & Spine Injury Lawyer | Saggese & Associates',
@@ -19,11 +20,12 @@ export const metadata = {
 export default function BrainSpineInjuryPage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Brain & Spine Injury" href="/practice/brain-and-spine-injury" />
 
       {/* Content only — PracticeLayout provides the outer main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Brain & Spine Injury</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Brain & Spine Injury Lawyer</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Catastrophic brain and spinal injuries change lives. We coordinate medical experts, rehabilitation planning, and long-term recovery strategies to protect your future.</p>
@@ -39,13 +41,11 @@ export default function BrainSpineInjuryPage() {
             Catastrophic brain and spinal injuries change lives. We coordinate medical experts, rehabilitation planning, and long-term recovery strategies to protect your future with specialized advocacy.
           </p>
 
-          <h3 className="mt-4 text-lg font-semibold text-white">Facts about brain & spine injuries</h3>
+          <h2 className="mt-4 text-xl font-semibold text-white">Brain and Spine Injury Case Factors</h2>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> <strong className="text-[#d4af37]">2.87 million</strong> TBI-related deaths, hospitalizations, and ER visits occur annually.</li>
-            <li><span className="stat-number">•</span> Spinal cord injuries affect approximately <strong className="text-[#d4af37]">17,000</strong> people per year.</li>
-            <li><span className="stat-number">•</span> Lifetime costs can exceed <strong className="text-[#d4af37]">$5 million</strong> for severe injuries.</li>
-            <li><span className="stat-number">•</span> Motor vehicle accidents cause <strong className="text-[#d4af37]">38%</strong> of spinal cord injuries.</li>
-            <li><span className="stat-number">•</span> Early intervention improves long-term outcomes significantly.</li>
+            <li><span className="stat-number">•</span> Medical records, specialist evaluations, rehabilitation plans, and symptom timelines can shape the value of a claim.</li>
+            <li><span className="stat-number">•</span> Brain and spine injuries may arise from major crashes, falls, unsafe products, or other serious incidents.</li>
+            <li><span className="stat-number">•</span> Long-term care needs, work limitations, and daily-life changes should be documented carefully.</li>
           </ul>
 
           <p className="mt-4 text-white/80 leading-relaxed">Our attorneys work with neurologists, physiatrists, and vocational experts to develop settlement structures or trial strategies that reflect long-term needs.</p>
@@ -63,16 +63,16 @@ export default function BrainSpineInjuryPage() {
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">TBI incidents</div>
-              <div className="text-lg font-semibold text-[#d4af37]">2.87M</div>
+              <div className="text-xs text-white/75">Medical proof</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Records</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">SCI annual</div>
-              <div className="text-lg font-semibold text-[#d4af37]">17,000</div>
+              <div className="text-xs text-white/75">Planning</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Long-Term</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Lifetime costs</div>
-              <div className="text-lg font-semibold text-[#d4af37]">$5M+</div>
+              <div className="text-xs text-white/75">Related page</div>
+              <Link href="/practice/truck-accidents" className="text-lg font-semibold text-[#d4af37] underline-offset-4 hover:underline">Truck Crashes</Link>
             </div>
           </div>
         </aside>

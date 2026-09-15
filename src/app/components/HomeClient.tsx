@@ -362,6 +362,9 @@ export default function HomeClient(){
                 <a href={`tel:${FIRM_PHONE_E164}`} className="w-full rounded-2xl bg-[#d4af37] px-5 py-4 text-center text-base font-semibold text-[#0e0e0e] shadow-[0_14px_34px_rgba(0,0,0,0.35)] sm:text-lg md:w-auto md:px-6">Call {FIRM_PHONE_DISPLAY}</a>
                 <Link href="/contact" className="w-full rounded-2xl border border-white/25 bg-black/25 px-5 py-4 text-center text-base text-white/90 sm:text-lg md:w-auto md:bg-white/5 md:px-6">Request Consultation</Link>
               </div>
+              <div className="mx-auto mt-3 max-w-[19rem] text-center text-xs text-white/60 md:mx-0 md:max-w-none md:text-left md:text-sm">
+                Hurt in a crash? <Link href="/practice/car-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">Car accident cases</Link>
+              </div>
               <ul className="mx-auto mt-5 flex max-w-[19rem] flex-wrap justify-center gap-x-4 gap-y-2 text-[11px] text-white/66 md:mx-0 md:mt-8 md:max-w-none md:justify-start md:text-xs"><li>{TOTAL_RECOVERED_DISPLAY}*</li><li>25+ Years Experience</li><li>{reviewSummary.rating.toFixed(1)}★ ({reviewSummary.total}+ reviews)</li><li>24/7 Message Us</li></ul>
               <p className="mt-2 text-[10px] text-white/35">*Past results don’t guarantee future outcomes.</p>
             </div>
@@ -428,7 +431,18 @@ export default function HomeClient(){
               <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
                 <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
                 <div className="grid gap-6 md:grid-cols-2">
-                  <Card title="Injured and not at fault?" subtitle="Las Vegas Injury">We help injured Nevadans after car, motorcycle, and truck accidents pursue medical care and compensation.<TopicsAccordion title="Accident Topics" topics={PERSONAL_INJURY_CASE_TYPES} /><Link href="/contact" className="mt-4 inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">Request a free consultation</Link></Card>
+                  <Card title="Injured and not at fault?" subtitle="Las Vegas Injury">
+                    We help injured Nevadans after car, motorcycle, and truck accidents pursue medical care and compensation.
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      <Link href="/practice/car-accidents" className="inline-flex rounded-xl border border-[#d4af37]/40 px-4 py-2 text-sm font-semibold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0e0e0e]">
+                        Car accident cases
+                      </Link>
+                      <Link href="/contact" className="inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">
+                        Request a free consultation
+                      </Link>
+                    </div>
+                    <TopicsAccordion title="Accident Topics" topics={PERSONAL_INJURY_CASE_TYPES} />
+                  </Card>
                   <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_CASE_TYPES} /></Card>
                 </div>
               </div>

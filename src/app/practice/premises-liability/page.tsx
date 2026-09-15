@@ -2,10 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
+import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Premises Liability Lawyer | Saggese & Associates',
-  description: 'Las Vegas premises liability lawyer for slip-and-fall, negligent security & dangerous property conditions. Free consultation (702) 778‑8883.',
+  title: 'Las Vegas Premises Liability & Slip and Fall Lawyer | Saggese & Associates',
+  description: 'Las Vegas premises liability and slip-and-fall lawyer for unsafe property injuries, evidence preservation, medical documentation, and insurance claims.',
   keywords: [
     'las vegas premises liability lawyer',
     'negligent security attorney nevada',
@@ -14,14 +15,14 @@ export const metadata = {
   ],
   alternates: { canonical: `${SITE_URL}/practice/premises-liability` },
   openGraph: {
-    title: 'Las Vegas Premises Liability Lawyer',
-    description: 'Slip-and-fall & negligent security claims – free consultation.',
+    title: 'Las Vegas Premises Liability & Slip and Fall Lawyer',
+    description: 'Unsafe property, slip-and-fall, and negligent security claims.',
     url: `${SITE_URL}/practice/premises-liability`,
     type: 'article'
   },
   twitter: {
     card: 'summary',
-    title: 'Las Vegas Premises Liability Lawyer',
+    title: 'Las Vegas Premises Liability & Slip and Fall Lawyer',
     description: 'Injured on unsafe property? Free consultation (702) 778‑8883.'
   }
 }
@@ -29,11 +30,12 @@ export const metadata = {
 export default function PremisesLiabilityPage() {
   return (
     <>
+      <PracticeBreadcrumbs current="Premises Liability" href="/practice/premises-liability" />
 
       {/* Content only — PracticeLayout provides outer main/container */}
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Premises Liability</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Premises Liability Lawyer</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">Property owners must keep visitors safe. We pursue claims for slips, falls, negligent security, and other dangerous conditions.</p>
@@ -49,16 +51,21 @@ export default function PremisesLiabilityPage() {
             Property owners must keep visitors safe. We pursue claims for slips, falls, negligent security, and other dangerous conditions with thorough investigation and expert testimony.
           </p>
 
-          <h3 className="mt-4 text-lg font-semibold text-white">Facts about premises liability</h3>
+          <h2 className="mt-4 text-xl font-semibold text-white">Slip and Fall Cases on Unsafe Property</h2>
+          <p className="mt-3 text-white/80 leading-relaxed">
+            Slip-and-fall, stairway accidents, store negligence, and poor lighting or maintenance are handled on this page. Serious falls may also involve <Link href="/practice/brain-and-spine-injury" className="text-[#d4af37] underline-offset-4 hover:underline">brain or spine injuries</Link>.
+          </p>
+
+          <h2 className="mt-6 text-xl font-semibold text-white">Premises Liability Case Factors</h2>
           <ul className="mt-3 space-y-3 text-white/80">
-            <li><span className="stat-number">•</span> Slip-and-fall accidents account for over <strong className="text-[#d4af37]">1 million</strong> ER visits annually.</li>
-            <li><span className="stat-number">•</span> <strong className="text-[#d4af37]">15%</strong> of all accidental deaths are from falls.</li>
-            <li><span className="stat-number">•</span> Property owners may be liable for <strong className="text-[#d4af37]">inadequate security</strong>.</li>
-            <li><span className="stat-number">•</span> Winter weather increases slip-and-fall risks significantly.</li>
-            <li><span className="stat-number">•</span> Documentation of hazards is crucial for successful claims.</li>
+            <li><span className="stat-number">•</span> Property owners may be liable for inadequate security.</li>
+            <li><span className="stat-number">•</span> Documentation of hazards is crucial for claims.</li>
+            <li><span className="stat-number">•</span> Maintenance records, incident logs, and surveillance may help establish liability.</li>
           </ul>
 
-          <p className="mt-4 text-white/80 leading-relaxed">Slip-and-fall, stairway accidents, store negligence, and poor lighting or maintenance — we handle these cases and work to recover medical expenses and losses.</p>
+          <p className="mt-4 text-white/80 leading-relaxed">
+            When unsafe property conditions cause a fatal injury, the case may also involve a separate <Link href="/practice/wrongful-death" className="text-[#d4af37] underline-offset-4 hover:underline">wrongful death claim</Link>.
+          </p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-md">Call (702) 778‑8883</a>
@@ -73,12 +80,12 @@ export default function PremisesLiabilityPage() {
 
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">ER visits</div>
-              <div className="text-lg font-semibold text-[#d4af37]">1M+</div>
+              <div className="text-xs text-white/75">Case type</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Slip & Fall</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
-              <div className="text-xs text-white/75">Fall deaths</div>
-              <div className="text-lg font-semibold text-[#d4af37]">15%</div>
+              <div className="text-xs text-white/75">Key issue</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Notice</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Evidence</div>
@@ -89,21 +96,17 @@ export default function PremisesLiabilityPage() {
       </section>
 
       <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mb-8">
-        <h3 className="text-lg font-semibold text-white mb-3">How we help</h3>
-        <p className="text-white/80 leading-relaxed mb-3">We work with safety experts, property managers, and witnesses to document hazardous conditions and present a compelling claim against negligent owners.</p>
+        <h2 className="text-xl font-semibold text-white mb-3">How We Help</h2>
+        <p className="text-white/80 leading-relaxed mb-3">We work with safety experts, property managers, and witnesses to document hazardous conditions and present a claim against negligent owners.</p>
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-3 py-1.5 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">702-778-8883</a> or use our contact form.</p>
       </section>
 
   {/* Footer removed */}
       <PracticeStructuredData
         slug="/practice/premises-liability"
-        serviceType="Las Vegas Premises Liability Lawyer"
-        description="Las Vegas premises liability lawyer for slip-and-fall, negligent security & dangerous property conditions. Free consultation."
+        serviceType="Las Vegas Premises Liability and Slip and Fall Lawyer"
+        description="Las Vegas premises liability and slip-and-fall lawyer for unsafe property injuries, evidence preservation, medical documentation, and insurance claims."
         keywords={['las vegas premises liability lawyer','negligent security attorney','slip and fall lawyer las vegas']}
-        faqs={[
-          { question: 'What is premises liability?', answer: 'It is the responsibility of property owners to maintain safe conditions; injuries from hazards can create legal liability.' },
-          { question: 'Do I need to prove the owner knew?', answer: 'You must show the owner knew or should have known about the dangerous condition and failed to fix or warn.' }
-        ]}
       />
     </>
   )

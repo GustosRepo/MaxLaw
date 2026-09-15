@@ -1,7 +1,7 @@
 # Max Law SEO Playbook
 
-**Version:** 1.2\
-**Last Updated:** 2026-09-02
+**Version:** 1.3\
+**Last Updated:** 2026-09-15
 
 ------------------------------------------------------------------------
 
@@ -232,6 +232,48 @@ accident lawyer**. The ideal lead remains an injured, not-at-fault car
 accident victim. Personal injury lawyer, injury lawyer near me, and injury
 attorney remain approved supporting targets.
 
+## Injury Business-Priority Clarification
+
+The firm's primary Injury marketing focus is people who were injured
+where another person, business, property owner, manufacturer, driver, or
+other responsible party may be at fault.
+
+The existing client-facing positioning, **"Injured and not at fault?"**,
+should remain an important conceptual umbrella for the Injury practice.
+This does not mean every page must literally repeat "not at fault." Use
+the concept as a business and intent prioritization principle.
+
+High-priority Injury SEO should generally emphasize existing services
+involving injuries caused by another party, including where applicable:
+
+-   Car Accidents
+-   Motorcycle Accidents
+-   Truck Accidents
+-   Commercial Vehicle Accidents
+-   Pedestrian Accidents
+-   Premises Liability / Slip & Fall
+-   Wrongful Death
+-   Product Liability
+-   Brain / Spine Injury arising from another party's conduct
+
+Do not manufacture negligence or fault claims where the legal theory is
+more nuanced. Lower-priority or niche routes, including Insurance
+Settlements & Checks, Elder Abuse, Excessive Force, and other niche
+Injury routes, should not be forced into the same SEO priority merely
+because they currently exist.
+
+Final Phase 2 H1 decisions:
+
+-   `/practice/cell-phone-related-accidents`: use `Las Vegas Distracted
+    Driving Accident Lawyer` to avoid ambiguity with defense
+    representation for people accused of distracted driving.
+-   `/practice/excessive-force`: use `Las Vegas Excessive Force Lawyer`;
+    do not force `Injury` into that H1.
+-   `/practice/insurance-settlements-and-checks`: use `Insurance
+    Settlements & Checks` because it is a low-priority support/service
+    page for settlement processing, checks, lien review, and disbursement
+    after a claim already exists.
+
 ------------------------------------------------------------------------
 
 # Search Console Baseline
@@ -244,6 +286,33 @@ attorney remain approved supporting targets.
 -   ✅ Search Console Linked to GA4
 
 ## Current Rankings
+
+Pre-Phase-2 baseline recorded 2026-09-15 from the latest 28-day Search
+Console window:
+
+-   Overall: 1,436 impressions, 52 clicks, approximately 3.62% CTR.
+-   United States: 1,355 impressions, 52 clicks.
+-   Homepage `/`: approximately 1,207 impressions.
+-   `/practice`: approximately 85 impressions.
+-   `/practice/car-accidents`: approximately 2 impressions.
+
+Directional car accident and injury query observations:
+
+  Keyword                                 Impressions Avg Position Notes
+  ------------------------------------- ------------ ------------ --------------------------------
+  las vegas car accident lawyer                    50       ~58.86 Directional, not stable
+  car accident attorney las vegas                  23       ~23.61 Highest-priority commercial query
+  las vegas car accident attorney                   8       ~16.50 Directional, near page-two opportunity
+  las vegas accident attorney                       6       ~17.33 Broader accident intent
+  las vegas car accident lawyers          not recorded       ~16.50 Directional plural variation
+  car accident attorney in las vegas      not recorded       ~18.00 Directional long-tail variation
+  las vegas injury lawyer                 not recorded       ~21.00 Broader Injury intent
+  car accident attorneys las vegas        not recorded       ~13.00 Directional near page-one/page-two opportunity
+
+Do not interpret low-volume average positions as stable rankings. Use
+them as directional Search Console observations for Phase 2 comparison.
+
+Earlier baseline ranking notes:
 
   Keyword                                 Avg Position Notes
   ------------------------------------- -------------- --------------------------------
@@ -259,11 +328,15 @@ attorney remain approved supporting targets.
 
 ## Key Finding
 
-Google already trusts the website.
+Google already trusts the website and currently assigns most commercial
+visibility to the homepage.
 
-However, Google currently associates the site more with **general legal
-services** than with **personal injury**, which is the firm's primary
-business objective.
+The latest codebase audit found that `/practice/car-accidents` is the
+cleanest dedicated commercial target for Las Vegas car accident attorney
+and lawyer intent, but that page has very low page-level visibility so
+far. Phase 2 should strengthen the dedicated page and supporting Injury
+architecture without stripping the homepage of broader Injury, Criminal
+Defense, and general Las Vegas lawyer relevance.
 
 ------------------------------------------------------------------------
 
@@ -300,6 +373,57 @@ Strengthen topical authority around the firm's top revenue priority:
 Car accident terms come first because Marc confirmed them as the firm's
 top priority. The broader personal injury terms still matter because they
 support topical authority and qualified case generation.
+
+Phase 2 structure:
+
+-   **Phase 2A -- Car Accident Commercial SEO + Topic Cluster**
+    Status: Implemented / monitoring as of 2026-09-15. Strengthened
+    `/practice/car-accidents` and focused existing car-accident support
+    links without changing URLs or restructuring `/practice`.
+-   **Phase 2B -- Broad Injury Architecture + Practice Hub**
+    Status: Implemented / monitoring for structural SEO. `/practice`
+    remains mixed Injury + Criminal Defense while exposing more major
+    Injury practice areas.
+-   **Phase 2C -- Premises Liability / Slip & Fall**
+    Status: Implemented / monitoring for structural SEO; substantial
+    content enhancements pending client approval. The existing page owns
+    premises liability and slip-and-fall intent.
+-   **Phase 2D -- Wrongful Death**
+    Status: Implemented / monitoring for structural SEO; substantial
+    content enhancements pending client approval. Unsupported limitation,
+    settlement, and outcome-style claims were removed from production
+    copy.
+-   **Phase 2E -- Remaining Injury Commercial Pages**
+    Status: Implemented / monitoring for structural SEO; substantial
+    content enhancements pending client approval. Motorcycle, Truck,
+    Commercial Vehicle, Pedestrian/Crosswalk, Brain/Spine, Product
+    Liability, UM/UIM, Distracted Driving, Elder Abuse, Excessive Force,
+    Insurance Settlements/Checks, and supporting statistics pages were
+    reviewed and cleaned conservatively.
+-   **Phase 2F -- Injury Internal Linking + Cannibalization + Final QA**
+    Status: Completed for safe structural SEO. Balanced internal links
+    were added, separate intent ownership was preserved, schema/content
+    risks were reviewed, and final validation is recorded in the
+    implementation checklist.
+
+Phase 2B through Phase 2F were implemented as one coordinated safe
+structural SEO window so major Injury pages can begin accumulating
+post-Phase-2 Search Console data at roughly the same time. Substantial
+new client-facing content remains queued for Marc's approval before
+publication.
+
+Architecture guardrail from latest audit:
+
+-   `/practice` currently functions as a mixed Injury + Criminal Defense
+    hub.
+-   Do not convert `/practice` to Injury-only at this stage.
+-   Do not make `/practice/car-accidents` the center of all Injury SEO;
+    preserve separate ownership for Car Accidents, Premises Liability,
+    Wrongful Death, Motorcycle, Truck, Pedestrian, Brain/Spine, Product
+    Liability, and other meaningful injury intents.
+-   Do not create Henderson, Summerlin, or other city + keyword
+    car-accident landing pages without new evidence.
+-   Do not change existing URLs without a strong SEO reason.
 
 ------------------------------------------------------------------------
 
@@ -376,8 +500,9 @@ Future articles:
   Personal     personal injury lawyer las   Audit            Critical
   Injury       vegas                                         
 
-  Car Accident car accident attorney las    Audit/Create     Critical
+  Car Accident car accident attorney las    Implemented      Critical
                vegas                                         
+
 
   Motorcycle   motorcycle accident lawyer   Audit/Create     High
                las vegas                                     
@@ -421,6 +546,13 @@ Also maintain:
 -   robots.txt
 -   Core Web Vitals
 -   Mobile-first design
+
+Sitemap note:
+
+-   Sitemap `lastModified` values should reflect meaningful page updates
+    or be omitted until reliable.
+-   Sitemap `<priority>` is not a Google ranking lever and should not be
+    used as a Phase 2 ranking strategy.
 
 ------------------------------------------------------------------------
 
@@ -496,9 +628,18 @@ SEO KPIs
 -   [x] Build complete page-to-keyword map
 -   [x] Audit metadata
 -   [x] Audit schema
--   [ ] Optimize Home page
--   [ ] Optimize Injury page/hub
--   [ ] Optimize Car Accident page
+-   [x] Complete Phase 1 technical SEO baseline
+-   [x] Complete latest post-Phase-1 codebase audit
+-   [x] Record Pre-Phase-2 Search Console baseline
+-   [x] Plan Phase 2A Car Accident Commercial SEO + Topic Cluster
+-   [x] Phase 2A implementation approved
+-   [x] Phase 2A implemented
+-   [x] Phase 2B Broad Injury Architecture + Practice Hub structural SEO implemented
+-   [x] Phase 2C Premises Liability / Slip & Fall structural SEO implemented
+-   [x] Phase 2D Wrongful Death structural SEO implemented
+-   [x] Phase 2E Remaining Injury Commercial Pages structural SEO implemented
+-   [x] Phase 2F Injury Internal Linking + Cannibalization + Final QA completed
+-   [ ] Phase 2 client content approval queue reviewed by Marc
 
 Audit reference: `docs/seo-audit-2026-08-20.md`
 

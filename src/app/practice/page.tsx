@@ -5,7 +5,7 @@ import PracticeStructuredData from './PracticeStructuredData'
 
 export const metadata = {
   title: 'Las Vegas Injury & Criminal Defense Lawyers | Practice Areas',
-  description: 'Las Vegas injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, Drug Offenses & more. Free consultation.',
+  description: 'Explore injury and criminal defense practice areas at Saggese & Associates, including car accidents, slip and fall, wrongful death, DUI defense, and more.',
   keywords: [
     'las vegas injury lawyer',
     'las vegas criminal defense lawyer',
@@ -28,7 +28,7 @@ export default function PracticePage() {
               <div className="relative z-10">
                 <h1 className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#bfa76a]">Practice Areas</h1>
                 <div className="mt-3 w-36"><span className="accent-underline" /></div>
-                <p className="mt-3 text-sm text-white/80 max-w-3xl">We represent clients in injury and criminal defense matters with trial-ready representation and focused client service. Below are some of our core practice areas.</p>
+                <p className="mt-3 text-sm text-white/80 max-w-3xl">We represent clients in injury and criminal defense matters with trial-ready representation and focused client service. If you were hurt in a crash, start with our <Link href="/practice/car-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">car accident cases</Link>. Below are some of our core practice areas.</p>
 
                 <div className="mt-4 flex items-center gap-3">
                   <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.18)]">Call (702) 778‑8883</a>
@@ -44,10 +44,14 @@ export default function PracticePage() {
                 <h2 className="text-xl font-['Playfair_Display'] font-bold text-[#bfa76a] mb-4">Injury Law</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 {[
-  { title: 'Car Accidents', href: '/practice/car-accidents', desc: 'Car accidents, premises liability, and catastrophic injury representation.' },
+  { title: 'Car Accidents', href: '/practice/car-accidents', desc: 'Representation after serious Las Vegas auto crashes.' },
+  { title: 'Premises Liability', href: '/practice/premises-liability', desc: 'Slip and fall, unsafe property, and liability claims.' },
   { title: 'Brain & Spine Injury', href: '/practice/brain-and-spine-injury', desc: 'Serious injury, trauma, and long-term care cases.' },
   { title: 'Wrongful Death', href: '/practice/wrongful-death', desc: 'Representation for families in fatal accident cases.' },
-  { title: 'Premises Liability', href: '/practice/premises-liability', desc: 'Slip and fall, unsafe property, and liability claims.' },
+  { title: 'Motorcycle Accidents', href: '/practice/motorcycle-accidents', desc: 'Motorcycle crash cases involving severe injuries and rider-specific issues.' },
+  { title: 'Truck Accidents', href: '/practice/truck-accidents', desc: 'Semi-truck, tractor-trailer, and 18-wheeler crash claims.' },
+  { title: 'Pedestrian Accidents', href: '/practice/crosswalk-and-pedestrian-accidents', desc: 'Crosswalk and pedestrian injury cases involving driver negligence.' },
+  { title: 'Product Liability', href: '/practice/product-liability', desc: 'Defective product injury claims involving design, manufacturing, or warnings.' },
 ].map((p) => (
   <Link key={p.title} href={p.href}>
     <div className="block rounded-2xl p-5 bg-gradient-to-br from-white/3 to-transparent border border-white/8 card-hover">
@@ -109,12 +113,8 @@ export default function PracticePage() {
       <PracticeStructuredData
         slug="/practice"
         serviceType="Las Vegas Injury & Criminal Defense Lawyers"
-        description="Las Vegas injury & criminal defense lawyers handling car accidents, wrongful death, DUI defense, Drug Offenses & more. Free consultation."
+        description="Explore injury and criminal defense practice areas at Saggese & Associates, including car accidents, slip and fall, wrongful death, DUI defense, and more."
         keywords={['las vegas injury lawyer','las vegas criminal defense lawyer','dui defense las vegas','Drug Offenses lawyer las vegas']}
-        faqs={[
-          { question: 'Do you offer free consultations?', answer: 'Yes. We provide free, no‑obligation consultations for injury and criminal matters.' },
-          { question: 'What types of injury cases do you handle?', answer: 'Car, truck, motorcycle, premises liability, catastrophic injury, wrongful death and more.' }
-        ]}
       />
     </>
   )

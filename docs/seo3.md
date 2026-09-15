@@ -412,6 +412,20 @@ post-Phase-2 Search Console data at roughly the same time. Substantial
 new client-facing content remains queued for Marc's approval before
 publication.
 
+Current handoff:
+
+-   Safe structural Phase 2 work is implemented locally and ready for
+    deployment.
+-   The deployment date is still pending and should be recorded after the
+    site is pushed live.
+-   The Pre-Phase-2 Search Console baseline remains the official
+    comparison baseline and must not be overwritten.
+-   Marc's approval is still required before publishing any queued
+    substantial client-facing legal or marketing copy.
+-   After deployment, monitor homepage, `/practice`,
+    `/practice/car-accidents`, and the major Injury practice pages during
+    the post-Phase-2 measurement window.
+
 Architecture guardrail from latest audit:
 
 -   `/practice` currently functions as a mixed Injury + Criminal Defense

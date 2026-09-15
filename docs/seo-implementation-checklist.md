@@ -21,6 +21,36 @@
 -   2026-09-15 audit confirmed `/practice` currently functions as a mixed Injury + Criminal Defense hub; do not restructure it yet.
 -   Client-facing SEO language should prefer `Injury`, `Injury Lawyer`, `Injury Attorney`, `Injury Law`, or `Accident & Injury`; metadata may preserve `personal injury` terms where useful for rankings.
 
+## Current Handoff: Progress, Waiting On, Next
+
+Progress as of 2026-09-15:
+
+-   Phase 1 technical SEO baseline is complete.
+-   Phase 2A Car Accident Commercial SEO + Topic Cluster is implemented and ready to monitor.
+-   Phase 2B through Phase 2F safe structural SEO work is implemented locally and ready for deployment.
+-   Final Phase 2 H1 corrections are complete:
+    -   `/practice/cell-phone-related-accidents`: `Las Vegas Distracted Driving Accident Lawyer`
+    -   `/practice/excessive-force`: `Las Vegas Excessive Force Lawyer`
+    -   `/practice/insurance-settlements-and-checks`: `Insurance Settlements & Checks`
+-   Phase 2 client-content drafts are documented but not published.
+-   QA passed after the final H1 corrections: `npm run lint`, `./node_modules/.bin/tsc --noEmit`, `npm run build`, and `git diff --check`.
+
+Waiting on:
+
+-   Push/deploy approval for the safe structural Phase 2 changes.
+-   Recording the actual Phase 2 deployment date after deployment.
+-   Marc's review and approval of the Phase 2 Client Content Approval Queue.
+-   Google Search Console data after deployment; preserve the Pre-Phase-2 baseline below and do not overwrite it.
+
+Next steps:
+
+-   Deploy the safe structural Phase 2 batch when approved.
+-   After deployment, record the deployment date separately in this document.
+-   Begin the post-Phase-2 monitoring window for homepage, `/practice`, `/practice/car-accidents`, and the major Injury practice pages.
+-   Send the client-facing approval package to Marc.
+-   Do not publish any queued content until Marc approves the exact wording or provides edits.
+-   If Marc approves content, implement only the approved copy, run QA again, and document the approval source/date.
+
 ## Phase 1: Technical SEO Baseline
 
 Status: **Completed**

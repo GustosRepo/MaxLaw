@@ -45,7 +45,7 @@ export default function CommercialVehicleAccidentsPage() {
           </p>
 
           <p className="mb-4 text-white/90 leading-relaxed">
-            We handle claims involving buses, ride-share vehicles, delivery vans, and municipal fleets. Semi-truck, tractor-trailer, and 18-wheeler claims are handled on our <Link href="/practice/truck-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">truck accidents</Link> page.
+            Commercial vehicle claims may involve delivery vans, buses, rideshare vehicles, work trucks, or company cars. These cases can require review of employment records, dispatch instructions, maintenance practices, driver training, and insurance coverage tied to the business or vehicle owner.
           </p>
 
           <h2 className="mt-4 text-xl font-semibold text-white">Commercial Vehicle Case Factors</h2>

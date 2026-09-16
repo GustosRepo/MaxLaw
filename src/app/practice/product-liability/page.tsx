@@ -44,11 +44,11 @@ export default function ProductLiabilityPage() {
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
           <p className="mb-4 text-white/90 leading-relaxed">
-            Product liability cases often require engineering experts, testing, and detailed discovery to show how a product failed and who is responsible. We coordinate recalls, expert testing, and litigation strategies to protect clients.
+            Product liability claims can arise when a vehicle or auto part, a tool or appliance, a children’s product, or another consumer product injures someone because it breaks, malfunctions, or is unsafe in ordinary or reasonably expected use. These cases may involve the manufacturer, a component supplier, or another company that sold or distributed the product.
           </p>
 
           <p className="mb-4 text-white/90 leading-relaxed">
-            Defective products can cause catastrophic injuries. We hold manufacturers accountable for design, manufacturing, and warning defects with comprehensive investigation and expert testimony.
+            If a product may have caused an injury, preserving the product, packaging, instructions, receipts, photos, and repair or recall information can be important. Product liability cases may involve design defects, manufacturing defects, inadequate warnings, or failures in the supply chain.
           </p>
 
           <h2 className="mt-4 text-xl font-semibold text-white">Product Liability Case Factors</h2>

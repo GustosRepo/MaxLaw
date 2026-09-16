@@ -48,7 +48,7 @@ export default function PedestrianAccidentsPage() {
           </p>
 
           <p className="mb-4 text-white/90 leading-relaxed">
-            Pedestrians are vulnerable road users who deserve protection. We investigate visibility, right-of-way, signage, and driver behavior to establish liability and protect your recovery.
+            Pedestrian and crosswalk cases often depend on scene evidence: lighting, sightlines, signal timing, vehicle speed, driver attention, witness accounts, accurate police incident reports, and available traffic or surveillance video. We move quickly to preserve evidence that can help establish how the crash happened and how the injury affected the pedestrian’s daily life.
           </p>
 
           <h2 className="mt-4 text-xl font-semibold text-white">Pedestrian Accident Case Factors</h2>

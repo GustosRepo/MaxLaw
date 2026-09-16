@@ -34,11 +34,11 @@ export default function BrainSpineInjuryPage() {
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
           <p className="mb-4 text-white/90 leading-relaxed">
-            These injuries often require lifelong care and complex damages calculations. We document current and future medical needs, lost earning capacity, and life-care planning to seek full compensation.
+            Brain and spine injuries can follow car, truck, or motorcycle crashes, pedestrian or bicycle collisions, falls on property, and other incidents that jolt or impact the head, neck, or back. These claims may involve a concussion or other traumatic brain injury, as well as injuries to the vertebrae, discs, nerves, or spinal cord. Loss of consciousness is not required, and symptoms are not always obvious at the scene.
           </p>
 
           <p className="mb-4 text-white/90 leading-relaxed">
-            Catastrophic brain and spinal injuries change lives. We coordinate medical experts, rehabilitation planning, and long-term recovery strategies to protect your future with specialized advocacy.
+            Brain and spine injury claims often require detailed medical documentation, specialist input, rehabilitation records, and a clear timeline of symptoms. We focus on how the injury affects work, mobility, daily activities, potential future treatment needs, and long-term quality of life.
           </p>
 
           <h2 className="mt-4 text-xl font-semibold text-white">Brain and Spine Injury Case Factors</h2>

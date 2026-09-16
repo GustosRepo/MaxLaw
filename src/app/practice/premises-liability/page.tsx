@@ -107,6 +107,12 @@ export default function PremisesLiabilityPage() {
         serviceType="Las Vegas Premises Liability and Slip and Fall Lawyer"
         description="Las Vegas premises liability and slip-and-fall lawyer for unsafe property injuries, evidence preservation, medical documentation, and insurance claims."
         keywords={['las vegas premises liability lawyer','negligent security attorney','slip and fall lawyer las vegas']}
+        faqs={[
+          {
+            question: 'Should I contact a lawyer before speaking with an insurance adjuster?',
+            answer: 'YES. It is always wise to get legal guidance first, especially when who was at fault, whether or not the location had notice of the dangerous condition, medical treatment received as a result of the injury, or written/recorded statements are likely to be disputed.'
+          }
+        ]}
       />
     </>
   )

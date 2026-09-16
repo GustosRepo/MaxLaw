@@ -443,7 +443,18 @@ export default function HomeClient(){
                     </div>
                     <TopicsAccordion title="Accident Topics" topics={PERSONAL_INJURY_CASE_TYPES} />
                   </Card>
-                  <Card title="Arrested?" subtitle="Criminal Defense">Strategic, trial‑tested defense from arraignment through resolution.<TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_CASE_TYPES} /></Card>
+                  <Card title="Arrested?" subtitle="Criminal Defense">
+                    Strategic, trial‑tested defense from arraignment through resolution.
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      <Link href="/criminal-defense/dui" className="inline-flex rounded-xl border border-[#d4af37]/40 px-4 py-2 text-sm font-semibold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0e0e0e]">
+                        DUI defense
+                      </Link>
+                      <Link href="/contact" className="inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">
+                        Request a free consultation
+                      </Link>
+                    </div>
+                    <TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_CASE_TYPES} />
+                  </Card>
                 </div>
               </div>
             )}

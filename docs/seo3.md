@@ -405,26 +405,40 @@ Phase 2 structure:
     were added, separate intent ownership was preserved, schema/content
     risks were reviewed, and final validation is recorded in the
     implementation checklist.
+-   **Phase 2G -- Car Accident Authority Flow**
+    Status: Completed / monitoring. Contextual links from trust,
+    service-area, media, and supporting Injury pages now send clearer
+    authority toward `/practice/car-accidents` without bloating the
+    global navigation or turning the homepage into a duplicate car
+    accident landing page.
+-   **Phase 2H -- Car Accident Statistics Support Page**
+    Status: Completed / monitoring. `/practice/car-accident-statistics`
+    now functions as a sourced informational support asset using final
+    NHTSA FARS statewide Nevada fatality data and Nevada Office of
+    Traffic Safety Clark County figures with visible citations.
 
-Phase 2B through Phase 2F were implemented as one coordinated safe
-structural SEO window so major Injury pages can begin accumulating
+Phase 2A through Phase 2H are implemented locally as one coordinated
+Injury SEO window so major Injury pages can begin accumulating
 post-Phase-2 Search Console data at roughly the same time. Substantial
-new client-facing content remains queued for Marc's approval before
-publication.
+new future client-facing legal content still requires Marc's approval
+before publication.
 
 Current handoff:
 
--   Safe structural Phase 2 work is implemented locally and ready for
-    deployment.
--   The deployment date is still pending and should be recorded after the
-    site is pushed live.
+-   Phase 2 implementation is complete locally and ready for user-side
+    testing.
+-   The deployment/go-live date should be recorded after the site is
+    pushed live.
 -   The Pre-Phase-2 Search Console baseline remains the official
     comparison baseline and must not be overwritten.
--   Marc's approval is still required before publishing any queued
-    substantial client-facing legal or marketing copy.
--   After deployment, monitor homepage, `/practice`,
-    `/practice/car-accidents`, and the major Injury practice pages during
-    the post-Phase-2 measurement window.
+-   After deployment, let Google crawl and process the changes before
+    making another broad SEO move.
+-   Monitor homepage, `/practice`, `/practice/car-accidents`,
+    `/practice/car-accident-statistics`, and the major Injury practice
+    pages during the post-Phase-2 measurement window.
+-   Watch Search Console indexing, coverage, schema, crawl, impressions,
+    clicks, CTR, and average-position trends, especially for car accident
+    and broader Las Vegas Injury queries.
 
 Architecture guardrail from latest audit:
 
@@ -653,7 +667,12 @@ SEO KPIs
 -   [x] Phase 2D Wrongful Death structural SEO implemented
 -   [x] Phase 2E Remaining Injury Commercial Pages structural SEO implemented
 -   [x] Phase 2F Injury Internal Linking + Cannibalization + Final QA completed
--   [ ] Phase 2 client content approval queue reviewed by Marc
+-   [x] Phase 2G Car Accident authority-flow pass completed
+-   [x] Phase 2H Car Accident Statistics sourced support page completed
+-   [x] Phase 2 implementation complete locally
+-   [ ] User-side testing completed
+-   [ ] Post-Phase-2 Google recrawl/indexing monitoring started
+-   [ ] Phase 2 client content approval queue reviewed by Marc, if future substantial content additions are desired
 
 Audit reference: `docs/seo-audit-2026-08-20.md`
 

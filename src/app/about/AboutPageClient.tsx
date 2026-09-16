@@ -182,7 +182,7 @@ export default function AboutPage() {
               <section className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-center">
                 <h3 className="text-2xl font-[var(--font-playfair)] font-bold mb-3">Case Types & Results</h3>
                 <div className="flex flex-wrap gap-2 mb-4 justify-center">
-                  <span className="badge">Auto Accidents</span>
+                  <Link href="/practice/car-accidents" className="badge hover:border-[#d4af37]/45 hover:text-[#d4af37]">Auto Accidents</Link>
                   <span className="badge">Slip & Fall</span>
                   <span className="badge">DUI Defense</span>
                   <span className="badge">Domestic Matters</span>

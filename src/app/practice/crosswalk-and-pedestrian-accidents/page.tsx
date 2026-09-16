@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
-import { PracticeBreadcrumbs } from '../PracticePageExtras'
+import { PracticeBreadcrumbs, PracticeFaqSection, type PracticeFaq } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Pedestrian Accident Lawyer | Saggese & Associates',
@@ -26,6 +26,22 @@ export const metadata = {
     description: 'Injured in a crosswalk? Free consultation (702) 778‑8883.'
   }
 }
+
+const pedestrianAccidentFaqs: PracticeFaq[] = [
+  {
+    question: 'What should I document after being hit as a pedestrian?',
+    answer: 'Useful documentation may include photos of the scene, vehicle, crosswalk, lighting, signal timing, visible injuries, witness names, the police incident report, and any available traffic or surveillance video. Medical records can also help document the crash, injuries, treatment, and effects on daily life.'
+  },
+  {
+    question: 'Why is quick investigation important in a crosswalk or pedestrian case?',
+    answer: 'Pedestrian cases often depend on scene details that can change quickly, including lighting, traffic signal timing, sightlines, witness availability, and nearby video footage. Early investigation can help preserve information about how the crash happened.'
+  },
+  {
+    question: 'What if a pedestrian crash caused a head, neck, back, or spine injury?',
+    answer: 'Pedestrian crashes can cause serious injuries, including brain or spine injuries. These claims may involve medical records, specialist input, rehabilitation records, and a clear timeline of symptoms and daily-life limitations.',
+    links: [{ text: 'brain or spine injuries', href: '/practice/brain-and-spine-injury' }]
+  }
+]
 
 export default function PedestrianAccidentsPage() {
   return (
@@ -89,10 +105,12 @@ export default function PedestrianAccidentsPage() {
       </section>
 
       <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mb-8">
-        <h3 className="text-lg font-semibold text-white mb-3">How we help</h3>
+        <h2 className="text-lg font-semibold text-white mb-3">How we help</h2>
         <p className="text-white/80 leading-relaxed mb-3">We preserve witness statements, traffic camera footage, and scene reports to identify the cause and pursue full compensation for injured pedestrians.</p>
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-3 py-1.5 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">702-778-8883</a> or use our contact form.</p>
       </section>
+
+      <PracticeFaqSection title="Pedestrian Accident Questions" faqs={pedestrianAccidentFaqs} />
 
   {/* Footer removed */}
       <PracticeStructuredData
@@ -100,6 +118,7 @@ export default function PedestrianAccidentsPage() {
         serviceType="Las Vegas Pedestrian Accident Lawyer"
         description="Las Vegas pedestrian & crosswalk accident lawyer protecting injured pedestrians. Free consultation."
         keywords={['las vegas pedestrian accident lawyer','crosswalk injury attorney','pedestrian hit by car claim las vegas']}
+        faqs={pedestrianAccidentFaqs}
       />
     </>
   )

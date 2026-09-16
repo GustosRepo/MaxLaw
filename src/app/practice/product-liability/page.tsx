@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
-import { PracticeBreadcrumbs } from '../PracticePageExtras'
+import { PracticeBreadcrumbs, PracticeFaqSection, type PracticeFaq } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Product Liability Lawyer | Saggese & Associates',
@@ -26,6 +26,25 @@ export const metadata = {
     description: 'Injured by a defective product? Free consultation (702) 778‑8883.'
   }
 }
+
+const productLiabilityFaqs: PracticeFaq[] = [
+  {
+    question: 'What should be preserved if a product may have caused an injury?',
+    answer: 'Relevant items may include the product, packaging, instructions, receipts, photos, repair records, and available recall or warning information. Keeping these materials together can help document the product and the circumstances surrounding the incident.'
+  },
+  {
+    question: 'What types of products can be involved in product-related injury claims?',
+    answer: 'Examples can include vehicles or auto parts, tools, appliances, children’s products, and other consumer products. The circumstances can vary depending on the product, how it was used, and what happened.'
+  },
+  {
+    question: 'What if a product-related incident caused a serious or fatal injury?',
+    answer: 'Serious product-related incidents may also involve brain or spine injuries when the head, neck, back, nerves, or spinal cord are affected. Fatal incidents may also overlap with the firm’s wrongful death practice area.',
+    links: [
+      { text: 'brain or spine injuries', href: '/practice/brain-and-spine-injury' },
+      { text: 'wrongful death practice area', href: '/practice/wrongful-death' }
+    ]
+  }
+]
 
 export default function ProductLiabilityPage() {
   return (
@@ -90,10 +109,12 @@ export default function ProductLiabilityPage() {
       </section>
 
       <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mb-8">
-        <h3 className="text-lg font-semibold text-white mb-3">How we help</h3>
+        <h2 className="text-lg font-semibold text-white mb-3">How we help</h2>
         <p className="text-white/80 leading-relaxed mb-3">We preserve the product, retain experts, and pursue full recovery from manufacturers and distributors responsible for dangerous products.</p>
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-3 py-1.5 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">702-778-8883</a> or use our contact form.</p>
       </section>
+
+      <PracticeFaqSection title="Product Liability Questions" faqs={productLiabilityFaqs} />
 
   {/* Footer removed */}
       <PracticeStructuredData
@@ -101,6 +122,7 @@ export default function ProductLiabilityPage() {
         serviceType="Las Vegas Product Liability Lawyer"
         description="Las Vegas product liability lawyer handling defective product, design, manufacturing & warning defect claims. Free consultation."
         keywords={['las vegas product liability lawyer','defective product attorney','design defect lawyer nevada']}
+        faqs={productLiabilityFaqs}
       />
     </>
   )

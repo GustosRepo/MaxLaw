@@ -51,7 +51,7 @@ export default function UnderinsuredAccidentsPage() {
             When the at-fault driver lacks adequate insurance, we help you pursue available sources of recovery including UM/UIM and other parties with policy evaluation and strategy. If your coverage question started with a crash, our <Link href="/practice/car-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">car accident representation</Link> page explains the broader claim process.
           </p>
 
-          <h3 className="mt-4 text-lg font-semibold text-white">Facts about uninsured/underinsured drivers</h3>
+          <h2 className="mt-4 text-lg font-semibold text-white">Facts about uninsured/underinsured drivers</h2>
           <ul className="mt-3 space-y-3 text-white/80">
             <li><span className="stat-number">•</span> Many drivers carry only minimum liability coverage.</li>
             <li><span className="stat-number">•</span> UM/UIM coverage may provide a recovery path when the responsible driver has no insurance or not enough coverage.</li>
@@ -89,7 +89,7 @@ export default function UnderinsuredAccidentsPage() {
       </section>
 
       <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mb-8">
-        <h3 className="text-lg font-semibold text-white mb-3">How we help</h3>
+        <h2 className="text-lg font-semibold text-white mb-3">How we help</h2>
         <p className="text-white/80 leading-relaxed mb-3">We guide clients through UM/UIM claims, demand packages, and coordinating coverage disputes so you can maximize recovery despite low limits from an at-fault party.</p>
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-3 py-1.5 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">702-778-8883</a> or use our contact form.</p>
       </section>

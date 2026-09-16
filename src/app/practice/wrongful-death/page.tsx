@@ -3,7 +3,7 @@ import React from 'react'
 import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../PracticeStructuredData'
 import Link from 'next/link'
-import { PracticeBreadcrumbs } from '../PracticePageExtras'
+import { PracticeBreadcrumbs, PracticeFaqSection, type PracticeFaq } from '../PracticePageExtras'
 
 export const metadata = {
   title: 'Las Vegas Wrongful Death Lawyer | Saggese & Associates',
@@ -14,8 +14,29 @@ export const metadata = {
     description: 'Justice & compensation for Nevada families — free consultation.',
     url: `${SITE_URL}/practice/wrongful-death`,
     type: 'article'
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Las Vegas Wrongful Death Lawyer',
+    description: 'Compassionate wrongful death representation for Nevada families.'
   }
 }
+
+const wrongfulDeathFaqs: PracticeFaq[] = [
+  {
+    question: 'What types of incidents may involve a wrongful death claim?',
+    answer: 'Fatal incidents may overlap with serious vehicle crashes, truck accidents, unsafe property claims, workplace incidents, or defective product cases. The underlying circumstances and available evidence help determine which areas of the case need to be investigated.',
+    links: [
+      { text: 'truck accidents', href: '/practice/truck-accidents' },
+      { text: 'unsafe property claims', href: '/practice/premises-liability' },
+      { text: 'defective product cases', href: '/practice/product-liability' }
+    ]
+  },
+  {
+    question: 'What information can help document a fatal incident?',
+    answer: 'Relevant information may include incident reports, medical records, available photos or video, witness information, insurance correspondence, and other records connected to the incident. Preserving available documentation can help create a clearer record of what happened.'
+  }
+]
 
 export default function WrongfulDeathPage() {
   return (
@@ -83,11 +104,15 @@ export default function WrongfulDeathPage() {
         <p className="text-white/80 leading-relaxed mb-3">We manage wrongful death claims and fight for compensation for losses and future needs of surviving family members, while handling administrative burdens with care.</p>
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-3 py-1.5 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">702-778-8883</a> or use our contact form.</p>
       </section>
+
+      <PracticeFaqSection title="Wrongful Death Questions" faqs={wrongfulDeathFaqs} />
+
       <PracticeStructuredData
         slug="/practice/wrongful-death"
         serviceType="Las Vegas Wrongful Death Lawyer"
         description="Compassionate Las Vegas wrongful death attorneys pursuing justice & financial security for families. Free consultation – call (702) 778‑8883."
         keywords={['las vegas wrongful death lawyer','nevada wrongful death attorney','fatal accident claim']}
+        faqs={wrongfulDeathFaqs}
       />
     </>
   )

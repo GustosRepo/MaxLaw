@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FEATURED_MEDIA_APPEARANCES } from '../../lib/constants'
 
 const fadeUp = {
@@ -153,7 +154,7 @@ export default function MediaPage() {
                     { title: 'Ninth Circuit Takes New Look at Duty to Warn in Match Gone Bad', link: 'https://www.reviewjournal.com/news/after-surviving-nearly-fatal-attack-woman-sues-match-com/', excerpt: 'It has been seven years since Mary Kay Beckman was brutally stabbed and left for dead by a man she met on Match.com.' },
                     { title: 'DUI Checkpoints – Are They Legal and What are Your Rights?', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-dui-checkpoints-are-they-legal-and-what-are-your-rights/', excerpt: 'They go by a number of different names: DUI checkpoints, administrative roadblocks, mobile checkpoints...' },
                     { title: 'Everything You Need to Know About Car Insurance', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-everything-you-need-to-know-about-car-insurance/', excerpt: 'Practical guidance on car insurance coverage and claims.' },
-                    { title: "What to Do If You're In A Car Accident", link: 'https://www.reviewjournal.com/life/ask-a-lawyer-what-to-do-if-youre-in-a-car-accident/', excerpt: 'Steps to take immediately after a collision to protect your claim.' },
+                    { title: "What to Do If You're In A Car Accident", link: 'https://www.reviewjournal.com/life/ask-a-lawyer-what-to-do-if-youre-in-a-car-accident/', excerpt: 'Steps to take immediately after a collision to protect your claim.', internalHref: '/practice/car-accidents', internalLabel: 'Car accident representation' },
                     { title: 'The Importance of Having a Will', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-the-importance-of-having-a-will/', excerpt: 'Why an estate plan matters and how to get started.' },
                     { title: 'Drinking and Driving in Nevada', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-drinking-and-driving-in-nevada/', excerpt: 'Overview of Nevada DUI laws and potential defenses.' },
                     { title: 'Texting and Driving', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-texting-and-driving/', excerpt: 'How distracted driving laws apply and what to know.' },
@@ -177,7 +178,14 @@ export default function MediaPage() {
                             <h3 className="text-lg font-semibold">{a.title}</h3>
                             <h4 className="text-sm mt-1 text-white/70"><a className="current" href={a.link} target="_blank" rel="noreferrer">Original Article</a></h4>
                             <p className="mt-2">{a.excerpt}</p>
-                            <a href={a.link} target="_blank" rel="noreferrer" className="underline mt-2 inline-block">Read More</a>
+                            <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2">
+                              <a href={a.link} target="_blank" rel="noreferrer" className="underline inline-block">Read More</a>
+                              {a.internalHref && (
+                                <Link href={a.internalHref} className="text-[#d4af37] underline underline-offset-4">
+                                  {a.internalLabel}
+                                </Link>
+                              )}
+                            </div>
                           </div>
                         </div>
                       </div>

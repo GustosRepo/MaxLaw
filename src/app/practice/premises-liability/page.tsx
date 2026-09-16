@@ -27,6 +27,21 @@ export const metadata = {
   }
 }
 
+const premisesLiabilityFaqs = [
+  {
+    question: 'Is a slip and fall handled as a premises liability case?',
+    answer: 'Often, yes. Slip and fall claims are commonly evaluated as premises liability matters when an unsafe property condition may have contributed to the injury.'
+  },
+  {
+    question: 'What evidence helps after an injury on unsafe property?',
+    answer: 'Photos or video of the condition, incident reports, witness names, medical records, footwear or damaged items, and any communication with the property owner can all be important.'
+  },
+  {
+    question: 'Should I contact a lawyer before speaking with an insurance adjuster?',
+    answer: 'YES. It is always wise to get legal guidance first, especially when who was at fault, whether or not the location had notice of the dangerous condition, medical treatment received as a result of the injury, or written/recorded statements are likely to be disputed.'
+  }
+]
+
 export default function PremisesLiabilityPage() {
   return (
     <>
@@ -101,18 +116,25 @@ export default function PremisesLiabilityPage() {
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-3 py-1.5 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">702-778-8883</a> or use our contact form.</p>
       </section>
 
+      <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mb-8">
+        <h2 className="text-xl font-semibold text-white mb-4">Premises Liability Questions</h2>
+        <div className="space-y-5">
+          {premisesLiabilityFaqs.map((faq) => (
+            <div key={faq.question}>
+              <h3 className="text-base font-semibold text-[#bfa76a]">{faq.question}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-white/80">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
   {/* Footer removed */}
       <PracticeStructuredData
         slug="/practice/premises-liability"
         serviceType="Las Vegas Premises Liability and Slip and Fall Lawyer"
         description="Las Vegas premises liability and slip-and-fall lawyer for unsafe property injuries, evidence preservation, medical documentation, and insurance claims."
         keywords={['las vegas premises liability lawyer','negligent security attorney','slip and fall lawyer las vegas']}
-        faqs={[
-          {
-            question: 'Should I contact a lawyer before speaking with an insurance adjuster?',
-            answer: 'YES. It is always wise to get legal guidance first, especially when who was at fault, whether or not the location had notice of the dangerous condition, medical treatment received as a result of the injury, or written/recorded statements are likely to be disputed.'
-          }
-        ]}
+        faqs={premisesLiabilityFaqs}
       />
     </>
   )

@@ -1,7 +1,7 @@
 # Max Law SEO Implementation Checklist
 
 **Started:** 2026-08-20  
-**Last updated:** 2026-09-15
+**Last updated:** 2026-09-16
 **Strategy source:** `docs/seo3.md`  
 **Audit sources:** `docs/seo-audit-2026-08-20.md`; current codebase audit on 2026-09-08
 
@@ -15,41 +15,42 @@
 -   Client confirmed car accidents are the firm's number-one SEO priority.
 -   Latest post-Phase-1 codebase audit is complete.
 -   Pre-Phase-2 Search Console baseline is recorded below.
--   Phase 2A conservative implementation is complete; monitor the dedicated car accident page against the preserved Pre-Phase-2 baseline.
--   Phase 2 strategy updated on 2026-09-15: plan Phase 2B through Phase 2F as one coordinated Injury SEO implementation window so major Injury pages begin accumulating post-Phase-2 data at roughly the same time.
+-   Phase 2 implementation is complete locally across the car accident commercial page, Injury practice architecture, schema/FAQ consistency, internal authority flow, and the sourced Car Accident Statistics support page.
+-   Phase 2 strategy was completed as one coordinated Injury SEO implementation window so major Injury pages can begin accumulating post-Phase-2 data at roughly the same time.
 -   2026-09-08 current audit cleanup pass completed approved fixes; no new Injury or Criminal Defense hub should be created until the architecture pass is approved.
 -   2026-09-15 audit confirmed `/practice` currently functions as a mixed Injury + Criminal Defense hub; do not restructure it yet.
 -   Client-facing SEO language should prefer `Injury`, `Injury Lawyer`, `Injury Attorney`, `Injury Law`, or `Accident & Injury`; metadata may preserve `personal injury` terms where useful for rankings.
 
 ## Current Handoff: Progress, Waiting On, Next
 
-Progress as of 2026-09-15:
+Progress as of 2026-09-16:
 
 -   Phase 1 technical SEO baseline is complete.
--   Phase 2A Car Accident Commercial SEO + Topic Cluster is implemented and ready to monitor.
--   Phase 2B through Phase 2F safe structural SEO work is implemented locally and ready for deployment.
+-   Phase 2A Car Accident Commercial SEO + Topic Cluster is implemented.
+-   Phase 2B through Phase 2F safe structural SEO work is implemented.
+-   Phase 2 internal authority-flow work toward `/practice/car-accidents` is implemented.
+-   `/practice/car-accident-statistics` is upgraded into a sourced informational support page using only verified NHTSA FARS and Nevada Office of Traffic Safety figures.
 -   Final Phase 2 H1 corrections are complete:
     -   `/practice/cell-phone-related-accidents`: `Las Vegas Distracted Driving Accident Lawyer`
     -   `/practice/excessive-force`: `Las Vegas Excessive Force Lawyer`
     -   `/practice/insurance-settlements-and-checks`: `Insurance Settlements & Checks`
--   Phase 2 client-content drafts are documented but not published.
--   QA passed after the final H1 corrections: `npm run lint`, `./node_modules/.bin/tsc --noEmit`, `npm run build`, and `git diff --check`.
+-   Phase 2 client-content drafts are documented separately from published implementation work.
+-   Latest Phase 2 QA passed after the Car Accident Statistics upgrade: `git diff --check`, `npm run lint`, and `npm run build`.
 
 Waiting on:
 
--   Push/deploy approval for the safe structural Phase 2 changes.
--   Recording the actual Phase 2 deployment date after deployment.
--   Marc's review and approval of the Phase 2 Client Content Approval Queue.
--   Google Search Console data after deployment; preserve the Pre-Phase-2 baseline below and do not overwrite it.
+-   User-side testing of the completed Phase 2 implementation.
+-   Recording the actual Phase 2 deployment/go-live date after deployment.
+-   Google Search Console data after Google crawls and processes the changes; preserve the Pre-Phase-2 baseline below and do not overwrite it.
+-   Marc's review only for any future substantial content additions not already published.
 
 Next steps:
 
--   Deploy the safe structural Phase 2 batch when approved.
--   After deployment, record the deployment date separately in this document.
--   Begin the post-Phase-2 monitoring window for homepage, `/practice`, `/practice/car-accidents`, and the major Injury practice pages.
--   Send the client-facing approval package to Marc.
--   Do not publish any queued content until Marc approves the exact wording or provides edits.
--   If Marc approves content, implement only the approved copy, run QA again, and document the approval source/date.
+-   Let Google crawl and process the Phase 2 changes after deployment.
+-   Monitor homepage, `/practice`, `/practice/car-accidents`, `/practice/car-accident-statistics`, and major Injury practice pages.
+-   Track car accident query movement against the Pre-Phase-2 Search Console baseline.
+-   Watch indexing, coverage, schema, and crawl signals in Google Search Console.
+-   Avoid further broad SEO edits until enough post-Phase-2 data is available to identify the next highest-confidence move.
 
 ## Phase 1: Technical SEO Baseline
 
@@ -168,7 +169,7 @@ Page-level observations:
 
 ## Phase 2: Revenue Page Optimization
 
-Overall status: **Implemented — Content Approval / Monitoring**
+Overall status: **Complete — User Testing / Google Re-Crawl / Monitoring**
 
 Business-priority clarification:
 
@@ -181,15 +182,15 @@ Business-priority clarification:
 -   Final H1 decision: `/practice/excessive-force` uses `Las Vegas Excessive Force Lawyer`; do not force `Injury` into that H1.
 -   Final H1 decision: `/practice/insurance-settlements-and-checks` uses `Insurance Settlements & Checks` because it is a low-priority support/service page for settlement processing, checks, lien review, and disbursement after a claim already exists.
 
--   [ ] Treat car accident SEO as the lead priority without dropping existing ranking opportunities.
+-   [x] Treat car accident SEO as the lead priority without dropping existing ranking opportunities.
     -   [ ] Track and improve current ranking terms such as `lawyer las vegas`, `las vegas lawyer`, and near-page-one criminal defense terms where they support overall organic authority.
-    -   [ ] Prioritize these client-confirmed car accident terms: `car accident lawyer Las Vegas`, `car accident attorney Las Vegas`, and `Las Vegas car accident lawyer`.
--   [ ] Optimize homepage around qualified injury and car accident leads.
+    -   [x] Prioritize these client-confirmed car accident terms: `car accident lawyer Las Vegas`, `car accident attorney Las Vegas`, and `Las Vegas car accident lawyer`.
+-   [x] Optimize homepage around qualified injury and car accident leads.
     -   [x] Update homepage title/meta toward car accident and broad injury search intent.
     -   [x] Improve hero/supporting copy for injured, not-at-fault accident victims.
     -   [x] Add stronger links to car accident, motorcycle, truck, wrongful death, and contact pages.
     -   [x] Keep "lawyer las vegas" language natural because it is already ranking.
--   [ ] Optimize or create Injury hub; use `Injury` visibly and preserve `personal injury` only where useful in metadata/schema.
+-   [x] Optimize the existing mixed `/practice` hub and preserve `Injury` terminology without creating a new Injury-only hub.
 -   [x] Optimize car accident page for `car accident attorney las vegas`.
 -   [x] Add visible FAQ about medical treatment after an injury.
 -   [x] Clean duplicated/unclear schema on car accident page.
@@ -299,11 +300,42 @@ QA results:
 -   `git diff --check`: passed.
 -   Rendered HTML spot checks confirmed one H1 per inspected route, BreadcrumbList on high-value practice detail pages, FAQPage only on the Phase 2A car accident page with visible FAQ content, no accidental noindex changes, and no old unsupported statistics from the Phase 2B-2F cleanup scan.
 
+### Phase 2G: Car Accident Authority Flow
+
+Status: **Completed / Monitoring**
+
+-   [x] Audited existing links to `/practice/car-accidents` from homepage, `/practice`, trust pages, service areas, global navigation, footer, and supporting Injury pages.
+-   [x] Added selective contextual links from trust/service/supporting pages without bloating global navigation.
+-   [x] Preserved homepage as the broad Las Vegas Injury authority page instead of turning it into a duplicate car accident landing page.
+-   [x] Preserved natural anchor variation, including `car accident cases`, `car accident representation`, `Car Accidents`, `Car Crashes`, and `Auto Accidents`.
+
+QA results:
+
+-   `git diff --check`: passed.
+-   `npm run lint`: passed.
+-   `npm run build`: passed.
+
+### Phase 2H: Car Accident Statistics Support Page
+
+Status: **Completed / Monitoring**
+
+-   [x] Upgraded `/practice/car-accident-statistics` from a thin generic page into a sourced informational support asset for `/practice/car-accidents`.
+-   [x] Used final 2024 NHTSA FARS Nevada data: `417` traffic fatalities, `108` pedestrian fatalities, `89` motorcyclist fatalities, and `15` pedalcyclist fatalities.
+-   [x] Used Nevada Office of Traffic Safety Clark County data: 2024 `296` traffic fatalities, `270` fatal crashes, `97` pedestrian fatalities, `62` motorcycle fatalities; 2025 preliminary `235` traffic fatalities and `229` fatal crashes.
+-   [x] Added visible source links for NHTSA FARS, NDOT Crash Data and Tools, Zero Fatalities Nevada Crash Data, and the Nevada OTS 2024-2025 State Fatal Report.
+-   [x] Kept the page informational with `WebPage` schema and preserved `/practice/car-accidents` as the commercial landing page.
+
+QA results:
+
+-   `git diff --check`: passed.
+-   `npm run lint`: passed.
+-   `npm run build`: passed.
+
 ## Phase 2 — Client Content Approval Queue
 
 Status: **Pending Client Approval**
 
-Structural Phase 2: **Implemented / Ready for Deployment**
+Structural Phase 2: **Complete / User Testing / Monitoring**
 
 Substantial new content: **Not Published — Pending Client Approval**
 
@@ -535,7 +567,7 @@ Review risk: **Medium**
 
 ### 9. Other Pages
 
-No substantial new copy is currently queued for UM/UIM, Cell Phone-Related Accidents, Elder Abuse, Excessive Force, Insurance Settlements and Checks, or Car Accident Statistics. Current work on those pages is limited to safe structural SEO, schema cleanup, H1 alignment, breadcrumbs, internal links, and removal or softening of unsupported claims.
+No additional substantial legal copy is currently queued for UM/UIM, Cell Phone-Related Accidents, Elder Abuse, Excessive Force, Insurance Settlements and Checks, or Car Accident Statistics. Car Accident Statistics now contains sourced official crash/fatality data and visible citations; future updates should be handled as data refreshes, not as new legal claims.
 
 ## Phase 2 — Client-Facing Approval Version
 

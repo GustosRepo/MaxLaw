@@ -41,7 +41,7 @@ export default function ExcessiveForcePage() {
             When force used by officers or security exceeds legal bounds, victims deserve justice. We bring claims to hold responsible parties accountable with thorough investigation and advocacy.
           </p>
 
-          <h3 className="mt-4 text-lg font-semibold text-white">Facts about excessive force</h3>
+          <h2 className="mt-4 text-lg font-semibold text-white">Facts about excessive force</h2>
           <ul className="mt-3 space-y-3 text-white/80">
             <li><span className="stat-number">•</span> <strong className="text-[#d4af37]">Body cameras</strong> provide crucial evidence in excessive force cases.</li>
             <li><span className="stat-number">•</span> Civil rights violations can result in <strong className="text-[#d4af37]">federal claims</strong>.</li>
@@ -80,7 +80,7 @@ export default function ExcessiveForcePage() {
       </section>
 
       <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mb-8">
-        <h3 className="text-lg font-semibold text-white mb-3">How we help</h3>
+        <h2 className="text-lg font-semibold text-white mb-3">How we help</h2>
         <p className="text-white/80 leading-relaxed mb-3">We gather witness accounts, video evidence, and medical records to document abuse of force and seek appropriate remedies.</p>
         <p className="text-white/80 leading-relaxed">Call <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-3 py-1.5 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">702-778-8883</a> or use our contact form.</p>
       </section>

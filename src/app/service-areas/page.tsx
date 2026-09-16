@@ -51,7 +51,15 @@ export default function ServiceAreasPage() {
             <h3 className="text-lg font-semibold mb-3">Injury Representation</h3>
             <ul className="grid grid-cols-1 gap-2 text-sm text-white/80 sm:grid-cols-2">
               {PERSONAL_INJURY_REPRESENTATION_TYPES.map((caseType) => (
-                <li key={caseType.label} className="rounded-lg border border-white/10 bg-black/20 px-3 py-2">{caseType.label}</li>
+                <li key={caseType.label} className="rounded-lg border border-white/10 bg-black/20 px-3 py-2">
+                  {caseType.href ? (
+                    <Link href={caseType.href} className="hover:text-[#d4af37] hover:underline">
+                      {caseType.label}
+                    </Link>
+                  ) : (
+                    caseType.label
+                  )}
+                </li>
               ))}
             </ul>
           </div>

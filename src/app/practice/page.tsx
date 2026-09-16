@@ -20,7 +20,7 @@ export const metadata = {
 export default function PracticePage() {
   return (
     <>
-  <main className="min-h-screen custom-bg text-white font-[var(--font-inter)] py-12">
+      <div className="min-h-screen custom-bg text-white font-[var(--font-inter)] py-12">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <section className="mb-8">
             <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg overflow-hidden">
@@ -39,19 +39,26 @@ export default function PracticePage() {
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <main className="md:col-span-2 space-y-6">
+            <section className="md:col-span-2 space-y-6">
               <div>
                 <h2 className="text-xl font-['Playfair_Display'] font-bold text-[#bfa76a] mb-4">Injury Law</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 {[
   { title: 'Car Accidents', href: '/practice/car-accidents', desc: 'Representation after serious Las Vegas auto crashes.' },
+  { title: 'Car Accident Statistics', href: '/practice/car-accident-statistics', desc: 'Crash data insights, common crash factors, and evidence-preservation guidance.' },
+  { title: 'Cell Phone-Related Accidents', href: '/practice/cell-phone-related-accidents', desc: 'Cell phone & texting accident claims – free consultation.' },
+  { title: 'Underinsured & Uninsured', href: '/practice/underinsured-and-uninsured-accidents', desc: 'UM/UIM & coverage gap claims – free consultation.' },
   { title: 'Premises Liability', href: '/practice/premises-liability', desc: 'Slip and fall, unsafe property, and liability claims.' },
   { title: 'Brain & Spine Injury', href: '/practice/brain-and-spine-injury', desc: 'Serious injury, trauma, and long-term care cases.' },
   { title: 'Wrongful Death', href: '/practice/wrongful-death', desc: 'Representation for families in fatal accident cases.' },
   { title: 'Motorcycle Accidents', href: '/practice/motorcycle-accidents', desc: 'Motorcycle crash cases involving severe injuries and rider-specific issues.' },
   { title: 'Truck Accidents', href: '/practice/truck-accidents', desc: 'Semi-truck, tractor-trailer, and 18-wheeler crash claims.' },
+  { title: 'Commercial Vehicle Accidents', href: '/practice/commercial-vehicle-accidents', desc: 'Bus, fleet & commercial vehicle crash claims – free consultation.' },
   { title: 'Pedestrian Accidents', href: '/practice/crosswalk-and-pedestrian-accidents', desc: 'Crosswalk and pedestrian injury cases involving driver negligence.' },
   { title: 'Product Liability', href: '/practice/product-liability', desc: 'Defective product injury claims involving design, manufacturing, or warnings.' },
+  { title: 'Excessive Force', href: '/practice/excessive-force', desc: 'We pursue accountability for injuries from excessive force.' },
+  { title: 'Elder Abuse', href: '/practice/elder-abuse', desc: 'Nursing home & caretaker abuse claims – free consultation.' },
+  { title: 'Insurance Settlements & Checks', href: '/practice/insurance-settlements-and-checks', desc: 'Negotiating payouts, lien reductions & structured settlements.' },
 ].map((p) => (
   <Link key={p.title} href={p.href}>
     <div className="block rounded-2xl p-5 bg-gradient-to-br from-white/3 to-transparent border border-white/8 card-hover">
@@ -92,7 +99,7 @@ export default function PracticePage() {
                   <li>Transparent fee discussions</li>
                 </ul>
               </div>
-            </main>
+            </section>
 
             <aside className="space-y-6">
               <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/8 shadow-lg text-center">
@@ -109,7 +116,7 @@ export default function PracticePage() {
             </aside>
           </div>
         </div>
-      </main>
+      </div>
       <PracticeStructuredData
         slug="/practice"
         serviceType="Las Vegas Injury & Criminal Defense Lawyers"

@@ -84,6 +84,10 @@ export default function CommercialVehicleAccidentsPage() {
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Related page</div>
+              <Link href="/practice/car-accidents" className="text-lg font-semibold text-[#d4af37] underline-offset-4 hover:underline">Car Accidents</Link>
+            </div>
+            <div className="rounded-lg bg-neutral-900 p-3 text-sm">
+              <div className="text-xs text-white/75">Related page</div>
               <Link href="/practice/truck-accidents" className="text-lg font-semibold text-[#d4af37] underline-offset-4 hover:underline">Large Trucks</Link>
             </div>
           </div>

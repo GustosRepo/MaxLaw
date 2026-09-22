@@ -33,6 +33,25 @@ Sentry.init({
     // userInfo: false,
     // httpBodies: [],
   },
+  beforeSend(event) {
+    const exception = event.exception?.values?.[0];
+    const value = exception?.value || "";
+    const frames = exception?.stacktrace?.frames || [];
+    const isApexChatFrame = frames.some((frame) => {
+      const filename = frame.filename || "";
+      return (
+        filename.includes("apexchat.net") ||
+        filename.includes("apex.live") ||
+        filename.includes("vialivechat.com")
+      );
+    });
+
+    if (value.includes("googleAnalyticsMeasurementId") && isApexChatFrame) {
+      return null;
+    }
+
+    return event;
+  },
 });
 
 export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;

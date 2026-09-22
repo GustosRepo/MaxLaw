@@ -6,6 +6,7 @@ const APEX_CHAT_SRC = "https://www.apexchat.net/scripts/invitation.ashx?company=
 
 export default function ApexChatLoader() {
   React.useEffect(() => {
+    if (window.location.pathname === "/contact") return;
     if (document.querySelector(`script[src="${APEX_CHAT_SRC}"]`)) return;
 
     let loaded = false;

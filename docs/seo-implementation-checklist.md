@@ -223,7 +223,7 @@ URLs changed:
 Content changes:
 
 -   Added practical car accident guidance around steps after a crash, medical documentation, police reports, photos, witnesses, recorded statements, Nevada fault/evidence context, UM/UIM coverage, insurance negotiation, and litigation readiness.
--   Added a concise trust section to `/practice/car-accidents` using verified existing site facts only: Marc practicing law in Las Vegas since 1999, 2,500+ clients represented, and `$30+ Million Recovered` with the existing past-results disclaimer.
+-   Added a concise trust section to `/practice/car-accidents` using verified existing site facts only: Marc practicing law in Las Vegas since 1999, 5,000+ clients represented, and `$30+ Million Recovered` with the existing past-results disclaimer.
 -   Preserved the existing car accident page title and H1.
 -   Preserved existing LegalService/FAQ/Breadcrumb schema structure.
 

@@ -34,6 +34,7 @@ interface FormPayload {
 const ACCEPTED_CASE_TYPES = ['Injury', 'Personal Injury', 'Criminal Defense'];
 const EMAIL_LOGO_CID = 'saggese-logo@maxlawnv.com';
 const EMAIL_LOGO_PATH = join(process.cwd(), 'public', 'home-logo.png');
+const CONTACT_FROM_DISPLAY_NAME = 'Saggese – Lawyers';
 
 function normalizeCaseType(caseType: string) {
   return caseType === 'Personal Injury' ? 'Injury' : caseType;
@@ -104,7 +105,7 @@ export async function POST(req: Request) {
         auth: { user: testAccount.user, pass: testAccount.pass },
       });
 
-      const from = `"Max Lawn (TEST)" <${testAccount.user}>`;
+      const from = `"${CONTACT_FROM_DISPLAY_NAME} (TEST)" <${testAccount.user}>`;
       const to = testAccount.user;
       const info = await transporter.sendMail({ from, to, subject, text, html });
       const preview = nodemailer.getTestMessageUrl(info) || null;
@@ -132,8 +133,7 @@ export async function POST(req: Request) {
     });
 
     const fromEmail = process.env.CONTACT_FROM || user;
-    const fromName = process.env.CONTACT_FROM_NAME || 'Max Lawn';
-    const from = `"${fromName}" <${fromEmail}>`;
+    const from = `"${CONTACT_FROM_DISPLAY_NAME}" <${fromEmail}>`;
     const to = process.env.CONTACT_TO || user;
 
     const info = await transporter.sendMail({ from, to, subject, text, html });

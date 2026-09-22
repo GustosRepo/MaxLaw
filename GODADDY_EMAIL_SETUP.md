@@ -9,7 +9,7 @@ SMTP_HOST=smtpout.secureserver.net
 SMTP_PORT=587
 SMTP_USER=marc@maxlawnv.com
 CONTACT_FROM=marc@maxlawnv.com
-CONTACT_FROM_NAME=Max Law NV Website
+CONTACT_FROM_NAME=Saggese – Lawyers
 CONTACT_TO=marc@maxlawnv.com,steph@maxlawnv.com
 ```
 
@@ -84,7 +84,7 @@ SMTP_PORT = 587
 SMTP_USER = marc@maxlawnv.com
 SMTP_PASS = [the actual password]
 CONTACT_FROM = marc@maxlawnv.com
-CONTACT_FROM_NAME = Max Law NV Website
+CONTACT_FROM_NAME = Saggese – Lawyers
 CONTACT_TO = marc@maxlawnv.com,steph@maxlawnv.com
 ```
 
@@ -102,7 +102,7 @@ Same thing, but:
 ## 📧 What Happens When Form is Submitted?
 
 **Email will be sent:**
-- **FROM**: "Max Law NV Website" <marc@maxlawnv.com>
+- **FROM**: "Saggese – Lawyers" <marc@maxlawnv.com>
 - **TO**: marc@maxlawnv.com AND steph@maxlawnv.com
 - **SUBJECT**: [Website Contact] Personal Injury — John Doe
 - **BODY**: All form fields + message
@@ -192,7 +192,7 @@ legal representation. The other driver ran a red light...
 
 - ✅ Using GoDaddy SMTP (`smtpout.secureserver.net`)
 - ✅ Sending FROM: marc@maxlawnv.com
-- ✅ Display Name: "Max Law NV Website"
+- ✅ Display Name: "Saggese – Lawyers"
 - ✅ Sending TO: Marc AND Steph (both get every email)
 - ⏳ **Waiting for**: GoDaddy mailbox password
 

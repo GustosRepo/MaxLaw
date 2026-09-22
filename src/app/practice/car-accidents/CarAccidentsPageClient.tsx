@@ -96,7 +96,7 @@ export default function CarAccidentsPageClient() {
           <section className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
             <h2 className="text-xl font-semibold mb-4">Why Saggese & Associates</h2>
             <p className="text-white/80 mb-4">
-              Marc A. Saggese has practiced law in Las Vegas since 1999 and has represented more than 2,500 clients. The firm brings courtroom and trial experience to injury cases, with direct attention to the facts, medical documentation, and insurance issues that often shape the value of a claim.
+              Marc A. Saggese has practiced law in Las Vegas since 1999 and has represented more than 5,000 clients. The firm brings courtroom and trial experience to injury cases, with direct attention to the facts, medical documentation, and insurance issues that often shape the value of a claim.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-xl border border-white/10 bg-black/25 p-4">
@@ -104,7 +104,7 @@ export default function CarAccidentsPageClient() {
                 <p className="mt-1 text-xs text-white/70">Practicing law in Las Vegas</p>
               </div>
               <div className="rounded-xl border border-white/10 bg-black/25 p-4">
-                <div className="text-lg font-semibold text-[#d4af37]">2,500+</div>
+                <div className="text-lg font-semibold text-[#d4af37]">5,000+</div>
                 <p className="mt-1 text-xs text-white/70">Clients represented</p>
               </div>
               <div className="rounded-xl border border-white/10 bg-black/25 p-4">

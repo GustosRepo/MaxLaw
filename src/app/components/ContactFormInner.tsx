@@ -105,11 +105,8 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
     <form onSubmit={handleFormSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6 [&_label]:leading-relaxed [&_input:not([type=checkbox])]:text-base [&_select]:text-base [&_textarea]:text-base" aria-label="Free consultation form">
       <h2 className="mb-2 text-2xl font-bold text-white">Tell us about your case</h2>
       <p className="mb-6 text-base leading-relaxed text-white/75">Complete the form below and our team will review your message.</p>
-      {formStatus === 'success' && (
-        <div className="mb-4 rounded-lg border border-blue-400/30 bg-[#0b2a4a] p-4 text-base text-blue-100">{formMessage}</div>
-      )}
       {formStatus === 'error' && (
-        <div className="mb-4 rounded-lg bg-red-900/20 border border-red-500/30 p-4 text-red-300">{formMessage}</div>
+        <div className="mb-4 rounded-lg bg-red-900/20 border border-red-500/30 p-4 text-red-300" role="alert">{formMessage}</div>
       )}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="md:col-span-2">
@@ -243,6 +240,11 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
         <button type="submit" disabled={formStatus === 'loading'} className="mt-3 w-full rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-4 text-lg font-bold text-[#0e0e0e] shadow-[0_8px_24px_rgba(212,175,55,0.25)] disabled:opacity-50 disabled:cursor-not-allowed">
           {formStatus === 'loading' ? 'Sending...' : 'Request a free consultation'}
         </button>
+        {formStatus === 'success' && (
+          <div className="rounded-lg border border-blue-400/30 bg-[#0b2a4a] p-4 text-base font-semibold text-blue-100 md:col-span-2" role="status" aria-live="polite">
+            {formMessage}
+          </div>
+        )}
       </div>
     </form>
   );

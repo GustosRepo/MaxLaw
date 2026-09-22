@@ -117,11 +117,11 @@ export default function AboutPage() {
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#d4af37]">Founder & Lead Attorney</p>
                 <h2 className="mt-2 text-3xl font-[var(--font-playfair)] font-bold text-white md:text-4xl">Marc A. Saggese, Esq.</h2>
                 <p className="mt-4 text-base leading-relaxed text-white/82">Marc Anthony Saggese founded The Law Offices of Saggese and Associates and has been practicing law in Las Vegas since 1999. The firm represents those facing criminal charges, as well as those who have experienced an injury in an accident.</p>
-                <p className="mt-3 text-base leading-relaxed text-white/78">Marc actively litigates cases, conducts jury trials and has represented more than 2,500 clients. He has also served as a pro tempore judge for the Las Vegas Municipal Court System, as well as a Small Claims Court judge and Traffic Court magistrate.</p>
+                <p className="mt-3 text-base leading-relaxed text-white/78">Marc actively litigates cases, conducts jury trials and has represented more than 5,000 clients. He has also served as a pro tempore judge for the Las Vegas Municipal Court System, as well as a Small Claims Court judge and Traffic Court magistrate.</p>
                 <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
                   <div className="kpi"><b>1999</b><span className="text-sm text-white/70">Practicing since</span></div>
-                  <div className="kpi"><b>2,500+</b><span className="text-sm text-white/70">Clients represented</span></div>
-                  <div className="kpi"><b>JAG</b><span className="text-sm text-white/70">Former Army Captain</span></div>
+                  <div className="kpi"><b>5,000+</b><span className="text-sm text-white/70">Clients represented</span></div>
+                  <div className="kpi"><b>25+</b><span className="text-sm text-white/70">Years experience</span></div>
                 </div>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                   <a href="tel:17027788883" className="inline-flex justify-center rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.2)]">Call (702) 778‑8883</a>
@@ -135,7 +135,7 @@ export default function AboutPage() {
           <div className="space-y-10 max-w-4xl mx-auto">
             <main className="space-y-8">
               <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6 text-center">
-                <div className="kpi"><b>2,500+</b><span className="text-white/70 text-sm">Clients represented</span></div>
+                <div className="kpi"><b>5,000+</b><span className="text-white/70 text-sm">Clients represented</span></div>
                 <div className="kpi"><b>1999</b><span className="text-white/70 text-sm">Practicing since</span></div>
                 <div className="kpi"><b>24/7</b><span className="text-white/70 text-sm">Case intake</span></div>
                 <div className="kpi"><b>Free</b><span className="text-white/70 text-sm">Initial consult</span></div>
@@ -144,7 +144,7 @@ export default function AboutPage() {
               <article className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-center">
                 <h2 className="text-3xl md:text-4xl font-[var(--font-playfair)] font-bold text-white mb-3 text-center">Firm Overview</h2>
                 <p className="text-white/80 mb-3">The Law Offices of Saggese and Associates was founded by Attorney Marc Anthony Saggese, who has been practicing law in Las Vegas since 1999. Our firm represents those facing criminal charges, as well as those who have experienced an injury in an accident.</p>
-                <p className="text-white/80 mb-3">Marc actively litigates cases, conducts jury trials and has represented more than 2,500 clients. In addition, for years he was a pro tempore judge for the Las Vegas Municipal Court System, as well as a Small Claims Court judge and Traffic Court magistrate.</p>
+                <p className="text-white/80 mb-3">Marc actively litigates cases, conducts jury trials and has represented more than 5,000 clients. In addition, for years he was a pro tempore judge for the Las Vegas Municipal Court System, as well as a Small Claims Court judge and Traffic Court magistrate.</p>
                 <h3 className="mt-6 text-2xl font-semibold">Media & Publications</h3>
                 <p className="text-white/80 mb-3">Marc has appeared on Fox and Friends, On the Record with Greta VanSusteren, Court TV and CBS&apos;s 48 Hours to provide legal insight and analysis. He is a weekly contributing writer for the Las Vegas Review Journal and has been profiled in the Las Vegas Review Journal and Las Vegas Magazine.</p>
                 <p className="text-white/80"><Link href="/about/marc-a-saggese" className="underline text-[#d4af37]">Learn more about Marc: Marc A. Saggese, Esq.</Link></p>

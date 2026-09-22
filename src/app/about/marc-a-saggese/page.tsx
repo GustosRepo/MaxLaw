@@ -100,7 +100,7 @@ export default function MarcSaggesePage() {
             <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
               <h2 className="text-2xl font-['Playfair_Display'] font-bold mb-3">Professional Highlights</h2>
               <ul className="text-sm text-white/90 list-disc list-inside">
-                <li>Practicing law since 1999; represented 2,500+ clients</li>
+                <li>Practicing law since 1999; represented 5,000+ clients</li>
                 <li>Pro tempore judge, Las Vegas Municipal Court; Small Claims Court judge; Traffic Court magistrate</li>
                 <li>Captain, JAG Corps, U.S. Army; litigation for U.S. DOJ</li>
                 <li>Featured on Fox, Court TV, CBS; weekly writer for Las Vegas Review‑Journal</li>

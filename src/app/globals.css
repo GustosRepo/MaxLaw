@@ -21,6 +21,15 @@ body {
   overflow-x: hidden;
 }
 
+/* Tailwind parses ambiguous font-[...] utilities as font-weight values. */
+.font-\[var\(--font-inter\)\] {
+  font-family: var(--font-inter);
+}
+
+.font-\[var\(--font-playfair\)\] {
+  font-family: var(--font-playfair);
+}
+
 /* Keep the primary conversion path obvious on every page. */
 a[href="/contact"] {
   border-color: rgba(212, 175, 55, 0.7);

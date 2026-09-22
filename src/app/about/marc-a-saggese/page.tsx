@@ -35,15 +35,15 @@ export default function MarcSaggesePage() {
             .card-hover:hover { transform:translateY(-6px); box-shadow:0 22px 60px rgba(0,0,0,0.6); }
           `}</style>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[220px_minmax(0,1fr)]">
             <div className="flex items-start justify-center md:justify-start">
-              <div className="relative rounded-2xl overflow-hidden w-40 md:w-48">
+              <div className="relative w-48 overflow-hidden rounded-2xl md:w-[220px]">
                 <div className="absolute inset-0 rounded-2xl blur-2xl" style={{ background: 'radial-gradient(ellipse at center, rgba(191,167,106,0.12), transparent 30%)' }} />
                 <Image src={MARC_HEADSHOT_SRC} alt="Marc A. Saggese, Esq." width={320} height={389} className="relative rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.6)] border border-[#bfa76a]/20 object-cover bg-[#0f1011]" />
               </div>
             </div>
 
-            <div className="md:col-span-2">
+            <div>
               <h1 className="text-2xl md:text-3xl font-serif font-bold text-[#bfa76a]">Marc A. Saggese, Esq.</h1>
               <div className="mt-2 mb-4">
                 <span className="inline-block w-full md:w-auto"><span className="accent-underline" /></span>
@@ -56,8 +56,10 @@ export default function MarcSaggesePage() {
                 <Link href="/contact" className="inline-block rounded-2xl border border-white/10 px-4 py-2 text-sm text-white/90">Request Consultation</Link>
                 <span className="w-full text-center text-xs text-white/70 md:w-auto md:ml-3">Free consultation • 1:1 attorney attention</span>
               </div>
+            </div>
+          </div>
 
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
                 <section className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/6 card-hover" aria-labelledby="bar-admissions-heading">
                   <h2 id="bar-admissions-heading" className="text-lg font-semibold text-white">Bar Admissions</h2>
                   <ul className="mt-3 space-y-2 text-sm leading-relaxed text-white/90 list-disc list-inside">
@@ -90,8 +92,6 @@ export default function MarcSaggesePage() {
                     ))}
                   </ul>
                 </section>
-              </div>
-            </div>
           </div>
         </section>
 

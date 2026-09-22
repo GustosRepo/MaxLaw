@@ -29,6 +29,7 @@
 - [x] Made the hero background full-width while constraining inner content
 - [x] Made the Saggese navbar text larger and bolder
 - [x] Changed the navbar and site typography to Times New Roman
+- [x] Corrected ambiguous Tailwind font utilities so typography classes apply font-family instead of invalid font-weight values
 - [x] Added the Saggese logo above the hero headline
 - [x] Adjusted hero headline sizing for the updated logo hierarchy
 

@@ -10,7 +10,7 @@ SMTP_PORT=587
 SMTP_USER=marc@maxlawnv.com
 CONTACT_FROM=marc@maxlawnv.com
 CONTACT_FROM_NAME=Saggese – Lawyers
-CONTACT_TO=marc@maxlawnv.com,steph@maxlawnv.com
+CONTACT_TO=marc@maxlawnv.com,steph@maxlawnv.com,Corrina@MaxLawNV.com
 ```
 
 **You just need to add the mailbox password!**
@@ -62,9 +62,10 @@ npm run dev
 # Submit test form
 # Fill out: Name, Email, Phone, Case Type, Message
 
-# Check both email inboxes:
+# Check all recipient inboxes:
 # ✅ marc@maxlawnv.com should receive email
 # ✅ steph@maxlawnv.com should receive email
+# ✅ Corrina@MaxLawNV.com should receive email
 ```
 
 ---
@@ -85,7 +86,7 @@ SMTP_USER = marc@maxlawnv.com
 SMTP_PASS = [the actual password]
 CONTACT_FROM = marc@maxlawnv.com
 CONTACT_FROM_NAME = Saggese – Lawyers
-CONTACT_TO = marc@maxlawnv.com,steph@maxlawnv.com
+CONTACT_TO = marc@maxlawnv.com,steph@maxlawnv.com,Corrina@MaxLawNV.com
 ```
 
 5. **Redeploy** (Vercel will auto-redeploy, or trigger manually)
@@ -103,11 +104,11 @@ Same thing, but:
 
 **Email will be sent:**
 - **FROM**: "Saggese – Lawyers" <marc@maxlawnv.com>
-- **TO**: marc@maxlawnv.com AND steph@maxlawnv.com
+- **TO**: marc@maxlawnv.com, steph@maxlawnv.com, AND Corrina@MaxLawNV.com
 - **SUBJECT**: [Website Contact] Personal Injury — John Doe
 - **BODY**: All form fields + message
 
-**Both Marc and Steph will receive every contact form submission!**
+**Marc, Steph, and Corrina will receive every contact form submission!**
 
 ---
 
@@ -128,11 +129,11 @@ Same thing, but:
   - SMTP_HOST must be `smtpout.secureserver.net`
   - SMTP_PORT must be `587` (not 465 or 25)
 
-### Only Marc receives email (Steph doesn't)
+### Only some recipients receive email
 - ❌ Wrong CONTACT_TO format
 - ✅ **Fix**: Must be comma-separated with NO SPACES:
   ```
-  CONTACT_TO=marc@maxlawnv.com,steph@maxlawnv.com
+  CONTACT_TO=marc@maxlawnv.com,steph@maxlawnv.com,Corrina@MaxLawNV.com
   ```
 
 ### Emails go to spam
@@ -145,7 +146,7 @@ Same thing, but:
 
 ## 🎯 Email Format Example
 
-When someone submits the contact form, both Marc and Steph will receive:
+When someone submits the contact form, Marc, Steph, and Corrina will receive:
 
 **Subject:**
 ```
@@ -193,7 +194,7 @@ legal representation. The other driver ran a red light...
 - ✅ Using GoDaddy SMTP (`smtpout.secureserver.net`)
 - ✅ Sending FROM: marc@maxlawnv.com
 - ✅ Display Name: "Saggese – Lawyers"
-- ✅ Sending TO: Marc AND Steph (both get every email)
+- ✅ Sending TO: Marc, Steph, and Corrina (all get every email)
 - ⏳ **Waiting for**: GoDaddy mailbox password
 
 **Once you add the password, everything is ready to go! 🚀**

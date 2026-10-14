@@ -10,6 +10,51 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/index.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/About-The-Firm/Marc-A-Saggese-Esq.html",
+        destination: "/about/marc-a-saggese",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/index.html",
+        destination: "/practice",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Drugs.html",
+        destination: "/criminal-defense/drugs",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Motorcycle-Accidents.html",
+        destination: "/practice/motorcycle-accidents",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Burglary.html",
+        destination: "/criminal-defense/burglary",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Forgery.html",
+        destination: "/criminal-defense/forgery",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Record-Sealing.html",
+        destination: "/criminal-defense/record-sealing",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Wrongful-Death.html",
+        destination: "/practice/wrongful-death",
+        permanent: true,
+      },
+      {
         source: "/criminal-defense/drug-offenses",
         destination: "/criminal-defense/drugs",
         permanent: true,

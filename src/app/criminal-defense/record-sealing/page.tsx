@@ -80,10 +80,6 @@ export default function RecordSealingPage() {
         serviceType="Las Vegas Drug Offenses Lawyer"
         description="Drug Offenses & expungement guidance—eligibility analysis & petition filing. Free consultation."
         keywords={['las vegas Drug Offenses lawyer','expungement attorney nevada']}
-        faqs={[
-          { question: 'How long before I can seal a record?', answer: 'Waiting periods depend on the offense and disposition—misdemeanors often shorter than felonies.' },
-          { question: 'Does sealing erase my record?', answer: 'Sealed records are hidden from most public checks but remain accessible to certain agencies.' }
-        ]}
       />
     </>
   )

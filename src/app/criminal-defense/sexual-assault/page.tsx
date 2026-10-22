@@ -33,25 +33,6 @@ export const metadata = {
 }
 
 export default function SexualAssaultPage() {
-  const faqs = [
-    {
-      question: 'What should I do if I learn I am under investigation?',
-      answer: 'Do not make any statements or attend interviews without counsel. Early legal intervention protects your rights and guides evidence strategy.'
-    },
-    {
-      question: 'How are sexual assault allegations defended?',
-      answer: 'We examine consent communications, forensic collection timing, potential contamination, digital messages, and motives for fabrication or exaggeration.'
-    },
-    {
-      question: 'Will my case go to trial?',
-      answer: 'Many cases resolve before trial through evidentiary challenges or negotiated outcomes, but we prepare each case as if it will be tried.'
-    },
-    {
-      question: 'Can false accusations be challenged?',
-      answer: 'Yes. We investigate inconsistencies, ulterior motives, prior statements, and objective digital or forensic evidence to expose weaknesses.'
-    }
-  ]
-
   return (
     <>
 
@@ -115,7 +96,6 @@ export default function SexualAssaultPage() {
         serviceType="Las Vegas Sexual Assault Defense Lawyer"
         description={description}
         keywords={keywords}
-        faqs={faqs}
       />
 
   {/* Footer removed */}

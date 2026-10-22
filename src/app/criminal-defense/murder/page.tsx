@@ -80,10 +80,6 @@ export default function MurderPage() {
         serviceType="Las Vegas Homicide & Murder Defense Lawyer"
         description="Homicide & murder defense—strategic forensic review & trial-focused advocacy. Free consultation."
         keywords={['las vegas murder defense lawyer','homicide defense attorney nevada']}
-        faqs={[
-          { question: 'When should a defense team get experts?', answer: 'Immediately—early forensic consultation preserves evidence and shapes strategy.' },
-          { question: 'Can homicide charges be reduced?', answer: 'Yes—issues with intent, causation or evidence can reduce charges (e.g., to manslaughter).' }
-        ]}
       />
     </>
   )

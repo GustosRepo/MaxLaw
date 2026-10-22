@@ -29,13 +29,6 @@ export const metadata = {
 }
 
 export default function TheftPage() {
-  const faqs = [
-    { question: 'What determines the severity of a theft charge?', answer: 'Primarily the alleged value involved, prior record, and circumstances. Early review of valuation evidence can reduce exposure.' },
-    { question: 'Can theft charges be reduced or dismissed?', answer: 'Yes. Diversion, restitution, charge negotiation, or evidentiary challenges (intent, ownership, identity) can lead to reduced or dismissed counts.' },
-    { question: 'Should I talk to store security or police?', answer: 'Do not provide statements beyond basic identification before consulting counsel—statements are often used to establish intent.' },
-    { question: 'Is restitution helpful?', answer: 'Timely restitution in appropriate cases can support negotiation for reduced charges or dismissal pathways.' }
-  ]
-
   return (
     <>
 
@@ -99,7 +92,6 @@ export default function TheftPage() {
         serviceType="Las Vegas Theft & Larceny Defense Lawyer"
         description={description}
         keywords={keywords}
-        faqs={faqs}
       />
 
   {/* Footer removed */}

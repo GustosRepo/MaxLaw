@@ -88,10 +88,6 @@ export default function BurglaryPage() {
         serviceType="Las Vegas Burglary Defense Lawyer"
         description="Burglary & property crime defense: challenge entry, intent & identification. Free consultation."
         keywords={['las vegas burglary lawyer','property crime defense nevada']}
-        faqs={[
-          { question: 'What is required for burglary?', answer: 'Generally unlawful entry plus intent to commit a theft or felony inside; intent can often be challenged.' },
-          { question: 'Can charges be reduced?', answer: 'Yes—weak evidence of entry or intent can lead to lesser charges or dismissal.' }
-        ]}
       />
     </>
   )

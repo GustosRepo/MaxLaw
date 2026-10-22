@@ -93,10 +93,6 @@ export default function DomesticViolencePage() {
         serviceType="Las Vegas Battery Domestic Violence Defense Lawyer"
         description="Battery Domestic Violence defense focusing on protection orders, credibility & evidence review. Free consultation."
         keywords={['las vegas Battery Domestic Violence lawyer','protection order hearing representation']}
-        faqs={[
-          { question: 'Will I automatically get a protection order?', answer: 'Temporary orders can issue quickly; hearings allow challenges—early representation matters.' },
-          { question: 'Can charges be dismissed?', answer: 'Inconsistencies, lack of evidence, or credibility issues can support dismissal or reduction.' }
-        ]}
       />
     </>
   )

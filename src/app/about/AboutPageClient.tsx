@@ -4,7 +4,8 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Breadcrumbs from '../components/Breadcrumbs'
-import StructuredData from '../components/StructuredData'
+import StructuredData, { legalServiceData } from '../components/StructuredData'
+import { createFaqPageData } from '@/lib/structured-data'
 import GoogleReviews from '../components/GoogleReviews';
 import { MARC_AWARDS, MARC_HEADSHOT_SRC, TOTAL_RECOVERED_DISPLAY } from '../../lib/constants';
 
@@ -20,13 +21,7 @@ export default function AboutPage() {
     <>
       <StructuredData 
         type="LegalService" 
-        data={{
-          name: "The Law Offices of Saggese & Associates",
-          description: "Experienced Las Vegas law firm specializing in injury and criminal defense cases.",
-          url: "https://www.maxlawnv.com/about",
-          areaServed: "Las Vegas, Nevada",
-          founder: "Marc A. Saggese"
-        }}
+        data={legalServiceData}
       />
       
       <style jsx>{`
@@ -276,26 +271,14 @@ function FAQ() {
   ];
   const [open, setOpen] = React.useState<number | null>(0);
 
-  // Create FAQ structured data
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.a
-      }
-    }))
-  };
+  const faqStructuredData = createFaqPageData(
+    'https://www.maxlawnv.com/about',
+    faqs.map(({ q, a }) => ({ question: q, answer: a })),
+  );
 
   return (
     <>
-      <script 
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
-      />
+      <StructuredData type="FAQPage" data={faqStructuredData} />
       <div className="space-y-3">
         {faqs.map((f, i) => (
           <div key={i} className="border border-white/6 rounded-lg overflow-hidden">

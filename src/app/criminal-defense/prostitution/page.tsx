@@ -83,10 +83,6 @@ export default function ProstitutionPage() {
         serviceType="Las Vegas Prostitution Defense Lawyer"
         description="Discreet prostitution defense—challenge entrapment, intent & evidence. Free consultation."
         keywords={['las vegas prostitution defense lawyer','solicitation defense attorney nevada']}
-        faqs={[
-          { question: 'Is entrapment a defense?', answer: 'If law enforcement induced conduct you were not otherwise predisposed to commit, entrapment may apply.' },
-          { question: 'Will this charge appear on background checks?', answer: 'Pending charges can appear; successful defense or negotiation can reduce long-term impact.' }
-        ]}
       />
     </>
   )

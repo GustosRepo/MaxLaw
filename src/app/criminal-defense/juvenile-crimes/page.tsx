@@ -80,10 +80,6 @@ export default function JuvenileCrimesPage() {
         serviceType="Las Vegas Juvenile Defense Lawyer"
         description="Juvenile defense prioritizing rehabilitation, diversion & Drug Offenses. Free consultation."
         keywords={['las vegas juvenile defense lawyer','juvenile diversion nevada']}
-        faqs={[
-          { question: 'Can juvenile records be sealed?', answer: 'Many juvenile adjudications can be sealed—timelines depend on the offense and completion of terms.' },
-          { question: 'Is diversion available?', answer: 'Frequently yes—counseling, education or informal supervision can replace formal adjudication.' }
-        ]}
       />
     </>
   )

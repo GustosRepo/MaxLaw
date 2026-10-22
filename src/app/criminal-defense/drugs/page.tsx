@@ -88,10 +88,6 @@ export default function DrugsPage() {
         serviceType="Las Vegas Drug Crimes Defense Lawyer"
         description="Defense for possession, distribution & trafficking—search, seizure & lab challenges. Free consultation."
         keywords={['las vegas drug crimes lawyer','drug possession defense nevada']}
-        faqs={[
-          { question: 'Can drug charges be dismissed?', answer: 'Yes—illegal searches, lab issues or weak possession evidence may lead to dismissal or reduction.' },
-          { question: 'Are diversion programs available?', answer: 'Many first-time offenders may qualify for diversion or treatment alternatives.' }
-        ]}
       />
     </>
   )

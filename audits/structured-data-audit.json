@@ -1,0 +1,1096 @@
+{
+  "audit_date": "2026-10-22",
+  "scope": {
+    "repository": "MaxLaw",
+    "next_version": "16.3.0",
+    "method": "Repository-wide JSON-LD/schema.org/microdata search plus before/after production builds and HTML extraction. All structured-data generators, imported shared constants and schema consumers reviewed. API handlers do not emit page JSON-LD.",
+    "html_pages": 42,
+    "routes_using_practice_generator": [
+      "/criminal-defense/bad-checks",
+      "/criminal-defense/burglary",
+      "/criminal-defense/domestic-violence",
+      "/criminal-defense/drugs",
+      "/criminal-defense/dui",
+      "/criminal-defense/forgery",
+      "/criminal-defense/juvenile-crimes",
+      "/criminal-defense/larceny",
+      "/criminal-defense/murder",
+      "/criminal-defense/prostitution",
+      "/criminal-defense/record-sealing",
+      "/criminal-defense/sexual-assault",
+      "/criminal-defense/theft",
+      "/practice",
+      "/practice/brain-and-spine-injury",
+      "/practice/car-accidents",
+      "/practice/cell-phone-related-accidents",
+      "/practice/commercial-vehicle-accidents",
+      "/practice/crosswalk-and-pedestrian-accidents",
+      "/practice/elder-abuse",
+      "/practice/excessive-force",
+      "/practice/insurance-settlements-and-checks",
+      "/practice/motorcycle-accidents",
+      "/practice/premises-liability",
+      "/practice/product-liability",
+      "/practice/truck-accidents",
+      "/practice/underinsured-and-uninsured-accidents",
+      "/practice/wrongful-death"
+    ],
+    "source_inventory": [
+      {
+        "file": "src/app/components/StructuredData.tsx",
+        "role": "Generic JSON-LD component; previously also the source of legalServiceData, attorneyData and organizationData."
+      },
+      {
+        "file": "src/app/practice/PracticeStructuredData.tsx",
+        "role": "Practice/service-page generator used by 28 routes."
+      },
+      {
+        "file": "src/app/about/AboutPageClient.tsx",
+        "role": "About business markup and separate FAQ accordion markup."
+      },
+      {
+        "file": "src/app/service-areas/page.tsx",
+        "role": "Coverage structured data."
+      },
+      {
+        "file": "src/app/components/Breadcrumbs.tsx",
+        "role": "BreadcrumbList generator; unchanged."
+      },
+      {
+        "file": "src/app/practice/car-accident-statistics/page.tsx",
+        "role": "WebPage schema with citations and topics."
+      },
+      {
+        "file": "src/app/page.tsx",
+        "role": "Homepage business/attorney schema consumer."
+      },
+      {
+        "file": "src/lib/constants.ts",
+        "role": "Existing business constants; unchanged."
+      },
+      {
+        "file": "src/lib/structured-data.ts",
+        "role": "New centralized schema data/builders/serializer."
+      }
+    ],
+    "unmodified_faq_content_sources": [
+      "src/app/practice/PracticePageExtras.tsx",
+      "src/app/practice/car-accidents/CarAccidentsPageClient.tsx"
+    ],
+    "visible_faq_routes": [
+      "/about",
+      "/practice/brain-and-spine-injury",
+      "/practice/car-accidents",
+      "/practice/crosswalk-and-pedestrian-accidents",
+      "/practice/premises-liability",
+      "/practice/product-liability",
+      "/practice/truck-accidents",
+      "/practice/wrongful-death"
+    ]
+  },
+  "schema_reference": {
+    "url": "https://schema.org/version/latest/schemaorg-current-https.jsonld",
+    "sha256": "0a4b8c4c910fc831ec8695196510973390906a5ee34dc6b862dfec4d21a12f74",
+    "retrieved_date": "2026-10-22",
+    "schema_site_version": "V30.1 (2026-09-16)",
+    "google_references": [
+      "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+      "https://developers.google.com/search/docs/appearance/structured-data/organization",
+      "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+      "https://developers.google.com/search/docs/appearance/structured-data/review-snippet",
+      "https://developers.google.com/search/updates"
+    ]
+  },
+  "findings": [
+    {
+      "id": "SD-01",
+      "classification": "confirmed vocabulary incompatibility",
+      "files": [
+        "src/app/components/StructuredData.tsx",
+        "src/app/practice/PracticeStructuredData.tsx",
+        "src/app/service-areas/page.tsx"
+      ],
+      "schema_types": [
+        "LegalService",
+        "LocalBusiness"
+      ],
+      "property_or_structure": "serviceType",
+      "reason": "serviceType has domain Service. LegalService is a subtype of LocalBusiness, not Service. Found on 30 page-level business entities.",
+      "recommended_correction": "Move practice and coverage descriptions to Service nodes with provider referencing the shared LegalService @id. Move the homepage business service types onto the existing service catalog.",
+      "implemented": true,
+      "affected_routes": [
+        "/",
+        "/criminal-defense/bad-checks",
+        "/criminal-defense/burglary",
+        "/criminal-defense/domestic-violence",
+        "/criminal-defense/drugs",
+        "/criminal-defense/dui",
+        "/criminal-defense/forgery",
+        "/criminal-defense/juvenile-crimes",
+        "/criminal-defense/larceny",
+        "/criminal-defense/murder",
+        "/criminal-defense/prostitution",
+        "/criminal-defense/record-sealing",
+        "/criminal-defense/sexual-assault",
+        "/criminal-defense/theft",
+        "/practice",
+        "/practice/brain-and-spine-injury",
+        "/practice/car-accidents",
+        "/practice/cell-phone-related-accidents",
+        "/practice/commercial-vehicle-accidents",
+        "/practice/crosswalk-and-pedestrian-accidents",
+        "/practice/elder-abuse",
+        "/practice/excessive-force",
+        "/practice/insurance-settlements-and-checks",
+        "/practice/motorcycle-accidents",
+        "/practice/premises-liability",
+        "/practice/product-liability",
+        "/practice/truck-accidents",
+        "/practice/underinsured-and-uninsured-accidents",
+        "/practice/wrongful-death",
+        "/service-areas"
+      ],
+      "references": [
+        "https://schema.org/serviceType",
+        "https://schema.org/LegalService"
+      ]
+    },
+    {
+      "id": "SD-02",
+      "classification": "confirmed unknown type",
+      "files": [
+        "src/app/practice/PracticeStructuredData.tsx"
+      ],
+      "schema_types": [
+        "ContactAction"
+      ],
+      "property_or_structure": "potentialAction.@type",
+      "reason": "ContactAction is absent from the current Schema.org vocabulary; it appeared on all 28 practice-generator routes.",
+      "recommended_correction": "Use CommunicateAction for the existing free-consultation contact action; retain the contact target URL.",
+      "implemented": true,
+      "affected_routes": [
+        "/criminal-defense/bad-checks",
+        "/criminal-defense/burglary",
+        "/criminal-defense/domestic-violence",
+        "/criminal-defense/drugs",
+        "/criminal-defense/dui",
+        "/criminal-defense/forgery",
+        "/criminal-defense/juvenile-crimes",
+        "/criminal-defense/larceny",
+        "/criminal-defense/murder",
+        "/criminal-defense/prostitution",
+        "/criminal-defense/record-sealing",
+        "/criminal-defense/sexual-assault",
+        "/criminal-defense/theft",
+        "/practice",
+        "/practice/brain-and-spine-injury",
+        "/practice/car-accidents",
+        "/practice/cell-phone-related-accidents",
+        "/practice/commercial-vehicle-accidents",
+        "/practice/crosswalk-and-pedestrian-accidents",
+        "/practice/elder-abuse",
+        "/practice/excessive-force",
+        "/practice/insurance-settlements-and-checks",
+        "/practice/motorcycle-accidents",
+        "/practice/premises-liability",
+        "/practice/product-liability",
+        "/practice/truck-accidents",
+        "/practice/underinsured-and-uninsured-accidents",
+        "/practice/wrongful-death"
+      ],
+      "references": [
+        "https://schema.org/CommunicateAction"
+      ]
+    },
+    {
+      "id": "SD-03",
+      "classification": "confirmed vocabulary incompatibility",
+      "files": [
+        "src/app/components/StructuredData.tsx"
+      ],
+      "schema_types": [
+        "Organization"
+      ],
+      "property_or_structure": "geo",
+      "reason": "geo has domain Place. A plain Organization does not inherit Place. This is one of the two homepage Organization property incompatibilities.",
+      "recommended_correction": "Keep the firm as the single, more specific LegalService entity, which inherits both LocalBusiness and Organization. Omit unverified coordinates as described in SD-10.",
+      "implemented": true,
+      "affected_routes": [
+        "/"
+      ],
+      "references": [
+        "https://schema.org/geo",
+        "https://developers.google.com/search/docs/appearance/structured-data/organization"
+      ]
+    },
+    {
+      "id": "SD-04",
+      "classification": "confirmed vocabulary incompatibility",
+      "files": [
+        "src/app/components/StructuredData.tsx"
+      ],
+      "schema_types": [
+        "Organization"
+      ],
+      "property_or_structure": "openingHours",
+      "reason": "openingHours applies to LocalBusiness or CivicStructure, not a plain Organization. This is the second homepage Organization property incompatibility.",
+      "recommended_correction": "Retain the existing Mon-Fri 08:00-17:00 hours on the single LegalService entity and remove the redundant Organization declaration.",
+      "implemented": true,
+      "affected_routes": [
+        "/"
+      ],
+      "references": [
+        "https://schema.org/openingHours",
+        "https://developers.google.com/search/docs/appearance/structured-data/organization"
+      ]
+    },
+    {
+      "id": "SD-05",
+      "classification": "confirmed vocabulary incompatibility",
+      "files": [
+        "src/app/service-areas/page.tsx"
+      ],
+      "schema_types": [
+        "LegalService"
+      ],
+      "property_or_structure": "provider",
+      "reason": "LegalService does not inherit a type in the domain of provider. The coverage description represents a service offered by the business.",
+      "recommended_correction": "Type the coverage entity as Service and link provider to the shared business @id, defined separately on the page.",
+      "implemented": true,
+      "affected_routes": [
+        "/service-areas"
+      ],
+      "references": [
+        "https://schema.org/provider"
+      ]
+    },
+    {
+      "id": "SD-06",
+      "classification": "confirmed entity modeling problem",
+      "files": [
+        "src/app/practice/PracticeStructuredData.tsx"
+      ],
+      "schema_types": [
+        "LegalService",
+        "FAQPage"
+      ],
+      "property_or_structure": "@type and mainEntity",
+      "reason": "20 entities combined a real law firm and its FAQ web page under the same node. Multiple @type values are valid JSON-LD syntax, but these are different real-world entities. The original Question and acceptedAnswer structures were already well formed.",
+      "recommended_correction": "Emit distinct LegalService, Service, and FAQPage or WebPage nodes with stable @ids. Keep mainEntity Question entries only on FAQPage.",
+      "implemented": true,
+      "affected_routes": [
+        "/criminal-defense/bad-checks",
+        "/criminal-defense/burglary",
+        "/criminal-defense/domestic-violence",
+        "/criminal-defense/drugs",
+        "/criminal-defense/dui",
+        "/criminal-defense/forgery",
+        "/criminal-defense/juvenile-crimes",
+        "/criminal-defense/larceny",
+        "/criminal-defense/murder",
+        "/criminal-defense/prostitution",
+        "/criminal-defense/record-sealing",
+        "/criminal-defense/sexual-assault",
+        "/criminal-defense/theft",
+        "/practice/brain-and-spine-injury",
+        "/practice/car-accidents",
+        "/practice/crosswalk-and-pedestrian-accidents",
+        "/practice/premises-liability",
+        "/practice/product-liability",
+        "/practice/truck-accidents",
+        "/practice/wrongful-death"
+      ],
+      "references": [
+        "https://schema.org/FAQPage",
+        "https://schema.org/mainEntity",
+        "https://schema.org/acceptedAnswer"
+      ]
+    },
+    {
+      "id": "SD-07",
+      "classification": "confirmed content mismatch",
+      "files": [
+        "src/app/criminal-defense/bad-checks/page.tsx",
+        "src/app/criminal-defense/burglary/page.tsx",
+        "src/app/criminal-defense/domestic-violence/page.tsx",
+        "src/app/criminal-defense/drugs/page.tsx",
+        "src/app/criminal-defense/dui/page.tsx",
+        "src/app/criminal-defense/forgery/page.tsx",
+        "src/app/criminal-defense/juvenile-crimes/page.tsx",
+        "src/app/criminal-defense/larceny/page.tsx",
+        "src/app/criminal-defense/murder/page.tsx",
+        "src/app/criminal-defense/prostitution/page.tsx",
+        "src/app/criminal-defense/record-sealing/page.tsx",
+        "src/app/criminal-defense/sexual-assault/page.tsx",
+        "src/app/criminal-defense/theft/page.tsx"
+      ],
+      "schema_types": [
+        "FAQPage"
+      ],
+      "property_or_structure": "mainEntity",
+      "reason": "All 13 criminal-defense pages supplied FAQ markup but did not render those questions or answers anywhere in their page content. This affected 30 Questions.",
+      "recommended_correction": "Remove only the unused FAQ props and schema-only FAQ arrays. Preserve all visible content. Retain FAQPage on the seven injury pages with visible FAQs and on About, whose answers are accessible through its accordion.",
+      "implemented": true,
+      "affected_routes": [
+        "/criminal-defense/bad-checks",
+        "/criminal-defense/burglary",
+        "/criminal-defense/domestic-violence",
+        "/criminal-defense/drugs",
+        "/criminal-defense/dui",
+        "/criminal-defense/forgery",
+        "/criminal-defense/juvenile-crimes",
+        "/criminal-defense/larceny",
+        "/criminal-defense/murder",
+        "/criminal-defense/prostitution",
+        "/criminal-defense/record-sealing",
+        "/criminal-defense/sexual-assault",
+        "/criminal-defense/theft"
+      ],
+      "references": [
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "id": "SD-08",
+      "classification": "confirmed duplicate and inconsistent identity",
+      "files": [
+        "src/app/components/StructuredData.tsx",
+        "src/app/practice/PracticeStructuredData.tsx",
+        "src/app/about/AboutPageClient.tsx",
+        "src/app/service-areas/page.tsx"
+      ],
+      "schema_types": [
+        "Organization",
+        "LegalService",
+        "Person"
+      ],
+      "property_or_structure": "@id, worksFor, provider, url",
+      "reason": "The homepage declared the same firm separately as LegalService, Organization and anonymous worksFor Organization. Practice pages described the same firm with different page URLs and no @id. About and service-areas introduced further partial anonymous firm entities.",
+      "recommended_correction": "Use https://www.maxlawnv.com/#organization for the firm everywhere and https://www.maxlawnv.com/about/marc-a-saggese#person for the attorney. Put page-specific URLs on Service and WebPage or FAQPage nodes. Keep one business definition per page; make worksFor and provider @id references.",
+      "implemented": true,
+      "affected_routes": [
+        "/",
+        "/about",
+        "/criminal-defense/bad-checks",
+        "/criminal-defense/burglary",
+        "/criminal-defense/domestic-violence",
+        "/criminal-defense/drugs",
+        "/criminal-defense/dui",
+        "/criminal-defense/forgery",
+        "/criminal-defense/juvenile-crimes",
+        "/criminal-defense/larceny",
+        "/criminal-defense/murder",
+        "/criminal-defense/prostitution",
+        "/criminal-defense/record-sealing",
+        "/criminal-defense/sexual-assault",
+        "/criminal-defense/theft",
+        "/practice",
+        "/practice/brain-and-spine-injury",
+        "/practice/car-accidents",
+        "/practice/cell-phone-related-accidents",
+        "/practice/commercial-vehicle-accidents",
+        "/practice/crosswalk-and-pedestrian-accidents",
+        "/practice/elder-abuse",
+        "/practice/excessive-force",
+        "/practice/insurance-settlements-and-checks",
+        "/practice/motorcycle-accidents",
+        "/practice/premises-liability",
+        "/practice/product-liability",
+        "/practice/truck-accidents",
+        "/practice/underinsured-and-uninsured-accidents",
+        "/practice/wrongful-death",
+        "/service-areas"
+      ],
+      "references": [
+        "https://developers.google.com/search/docs/appearance/structured-data/organization",
+        "https://developers.google.com/search/docs/appearance/structured-data/local-business"
+      ]
+    },
+    {
+      "id": "SD-09",
+      "classification": "confirmed missing Google local-business field",
+      "files": [
+        "src/app/about/AboutPageClient.tsx",
+        "src/app/service-areas/page.tsx"
+      ],
+      "schema_types": [
+        "LegalService",
+        "LocalBusiness"
+      ],
+      "property_or_structure": "address",
+      "reason": "About lacked an address in its business schema. The coverage entity and its nested provider also lacked an address. Google requires name and address for a local-business item.",
+      "recommended_correction": "Reuse the established firm name and PostalAddress in the single business definition on both pages; model coverage as Service, so it does not masquerade as another location.",
+      "implemented": true,
+      "affected_routes": [
+        "/about",
+        "/service-areas"
+      ],
+      "references": [
+        "https://developers.google.com/search/docs/appearance/structured-data/local-business"
+      ]
+    },
+    {
+      "id": "SD-10",
+      "classification": "confirmed conflicting data; precise location unverified",
+      "files": [
+        "src/app/components/StructuredData.tsx",
+        "src/app/practice/PracticeStructuredData.tsx",
+        "src/lib/constants.ts"
+      ],
+      "schema_types": [
+        "LegalService",
+        "GeoCoordinates"
+      ],
+      "property_or_structure": "geo.latitude and geo.longitude",
+      "reason": "The homepage generator used 36.1608364724385, -115.1462139236927; practice constants used approximate 36.1607, -115.1407. Both cannot identify exactly the same point. No verified coordinate source was available in the repository.",
+      "recommended_correction": "Omit optional geo from JSON-LD until coordinates are independently confirmed. Preserve the existing office address. Leave constants.ts unchanged because it is outside the schema-only correction.",
+      "implemented": true,
+      "affected_routes": [
+        "/",
+        "/criminal-defense/bad-checks",
+        "/criminal-defense/burglary",
+        "/criminal-defense/domestic-violence",
+        "/criminal-defense/drugs",
+        "/criminal-defense/dui",
+        "/criminal-defense/forgery",
+        "/criminal-defense/juvenile-crimes",
+        "/criminal-defense/larceny",
+        "/criminal-defense/murder",
+        "/criminal-defense/prostitution",
+        "/criminal-defense/record-sealing",
+        "/criminal-defense/sexual-assault",
+        "/criminal-defense/theft",
+        "/practice",
+        "/practice/brain-and-spine-injury",
+        "/practice/car-accidents",
+        "/practice/cell-phone-related-accidents",
+        "/practice/commercial-vehicle-accidents",
+        "/practice/crosswalk-and-pedestrian-accidents",
+        "/practice/elder-abuse",
+        "/practice/excessive-force",
+        "/practice/insurance-settlements-and-checks",
+        "/practice/motorcycle-accidents",
+        "/practice/premises-liability",
+        "/practice/product-liability",
+        "/practice/truck-accidents",
+        "/practice/underinsured-and-uninsured-accidents",
+        "/practice/wrongful-death"
+      ],
+      "references": [
+        "https://schema.org/geo",
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "id": "SD-11",
+      "classification": "confirmed biography mismatch",
+      "files": [
+        "src/app/components/StructuredData.tsx"
+      ],
+      "schema_types": [
+        "Person"
+      ],
+      "property_or_structure": "alumniOf.name",
+      "reason": "The attorney schema named UNLV William S. Boyd School of Law. The visible About page and attorney biography instead identify Columbus School of Law, The Catholic University of America, J.D. 1999.",
+      "recommended_correction": "Use the institution already identified in the visible biography. Add no degree, date or credential beyond existing content.",
+      "implemented": true,
+      "affected_routes": [
+        "/"
+      ],
+      "references": [
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "id": "SD-12",
+      "classification": "confirmed unsupported identity links",
+      "files": [
+        "src/app/components/StructuredData.tsx"
+      ],
+      "schema_types": [
+        "Organization",
+        "Person"
+      ],
+      "property_or_structure": "sameAs",
+      "reason": "The original firm sameAs list differed from visible site profiles and included an Avvo URL ending 1234567. Attorney profile links should identify the attorney rather than the firm.",
+      "recommended_correction": "Use the firm Facebook profile linked on the visible media page. Use the visible attorney LinkedIn and Avvo profiles on Person. Remove the unsupported company LinkedIn and old Facebook/placeholder Avvo links. These replacements are grounded in existing source links, not independent profile-ownership certification.",
+      "implemented": true,
+      "affected_routes": [
+        "/"
+      ],
+      "references": [
+        "https://schema.org/sameAs",
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "id": "SD-13",
+      "classification": "confirmed geographic classification mismatch",
+      "files": [
+        "src/app/service-areas/page.tsx"
+      ],
+      "schema_types": [
+        "City"
+      ],
+      "property_or_structure": "areaServed.@type",
+      "reason": "All 24 coverage labels were marked City, including districts, neighborhoods and communities such as Arts District and The Strip.",
+      "recommended_correction": "Use Place for the existing coverage labels. Do not add locations or imply additional offices.",
+      "implemented": true,
+      "affected_routes": [
+        "/service-areas"
+      ],
+      "references": [
+        "https://schema.org/areaServed"
+      ]
+    },
+    {
+      "id": "SD-14",
+      "classification": "explicit expected-value shape normalization",
+      "files": [
+        "src/app/about/AboutPageClient.tsx"
+      ],
+      "schema_types": [
+        "LegalService"
+      ],
+      "property_or_structure": "founder",
+      "reason": "founder expects a Person or Organization node. About supplied only a plain name string; textual fallback is not as explicit as a linked entity.",
+      "recommended_correction": "Reuse the shared business founder Person node with the attorney @id and existing name. This is a normalization of the expected shape, not an additional proven Semrush finding.",
+      "implemented": true,
+      "affected_routes": [
+        "/about"
+      ],
+      "references": [
+        "https://schema.org/founder"
+      ]
+    },
+    {
+      "id": "SD-15",
+      "classification": "explicit expected-value shape normalization",
+      "files": [
+        "src/app/practice/car-accident-statistics/page.tsx"
+      ],
+      "schema_types": [
+        "WebPage"
+      ],
+      "property_or_structure": "about",
+      "reason": "about expects Thing entities. The statistics page used topic-name strings. Schema.org textual fallback is permissive, so this is not claimed as a hard vocabulary error or confirmed Semrush finding.",
+      "recommended_correction": "Wrap the unchanged topic names in explicit Thing nodes. Preserve the visible page, citations and metadata.",
+      "implemented": true,
+      "affected_routes": [
+        "/practice/car-accident-statistics"
+      ],
+      "references": [
+        "https://schema.org/about"
+      ]
+    },
+    {
+      "id": "SD-16",
+      "classification": "latent unsupported-rating risk; not emitted in local baseline",
+      "files": [
+        "src/app/practice/PracticeStructuredData.tsx"
+      ],
+      "schema_types": [
+        "LegalService",
+        "AggregateRating"
+      ],
+      "property_or_structure": "aggregateRating",
+      "reason": "The shared generator could inject environment-derived ratings and review counts on every practice page without checking a visible rating summary or validating finite numeric values. No AggregateRating was emitted in the local baseline. Google does not recommend self-serving local-business ratings for review snippets.",
+      "recommended_correction": "Remove the conditional environment-based rating injection and unused rating props. Keep existing visible review components untouched. Do not invent or replace ratings.",
+      "implemented": true,
+      "affected_routes": [
+        "/criminal-defense/bad-checks",
+        "/criminal-defense/burglary",
+        "/criminal-defense/domestic-violence",
+        "/criminal-defense/drugs",
+        "/criminal-defense/dui",
+        "/criminal-defense/forgery",
+        "/criminal-defense/juvenile-crimes",
+        "/criminal-defense/larceny",
+        "/criminal-defense/murder",
+        "/criminal-defense/prostitution",
+        "/criminal-defense/record-sealing",
+        "/criminal-defense/sexual-assault",
+        "/criminal-defense/theft",
+        "/practice",
+        "/practice/brain-and-spine-injury",
+        "/practice/car-accidents",
+        "/practice/cell-phone-related-accidents",
+        "/practice/commercial-vehicle-accidents",
+        "/practice/crosswalk-and-pedestrian-accidents",
+        "/practice/elder-abuse",
+        "/practice/excessive-force",
+        "/practice/insurance-settlements-and-checks",
+        "/practice/motorcycle-accidents",
+        "/practice/premises-liability",
+        "/practice/product-liability",
+        "/practice/truck-accidents",
+        "/practice/underinsured-and-uninsured-accidents",
+        "/practice/wrongful-death"
+      ],
+      "references": [
+        "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+        "https://developers.google.com/search/docs/appearance/structured-data/review-snippet"
+      ]
+    },
+    {
+      "id": "SD-17",
+      "classification": "serialization hardening",
+      "files": [
+        "src/app/components/StructuredData.tsx",
+        "src/app/practice/PracticeStructuredData.tsx",
+        "src/app/about/AboutPageClient.tsx"
+      ],
+      "schema_types": [
+        "all JSON-LD types"
+      ],
+      "property_or_structure": "script serialization",
+      "reason": "The existing serializers used raw JSON.stringify without escaping less-than characters, contrary to the installed Next.js JSON-LD guide. No malformed current JSON syntax was found.",
+      "recommended_correction": "Centralize serialization and replace less-than characters with Unicode escapes. Reuse the FAQ builder on About and practice pages.",
+      "implemented": true,
+      "affected_routes": [],
+      "references": [
+        "node_modules/next/dist/docs/01-app/02-guides/json-ld.md"
+      ]
+    }
+  ],
+  "validation": {
+    "production_build": {
+      "command": "npm run build",
+      "status": "passed",
+      "typescript": "passed",
+      "generated_static_entries": 49
+    },
+    "lint": {
+      "command": "npx eslint src/lib/structured-data.ts src/app/components/StructuredData.tsx src/app/practice/PracticeStructuredData.tsx src/app/page.tsx src/app/service-areas/page.tsx src/app/about/AboutPageClient.tsx src/app/practice/car-accident-statistics/page.tsx src/app/criminal-defense/*/page.tsx",
+      "status": "passed"
+    },
+    "diff_whitespace": {
+      "command": "git diff --check",
+      "status": "passed"
+    },
+    "syntax": {
+      "baseline": "All 51 original JSON-LD blocks parsed successfully. Findings involved vocabulary, modeling, identity and content rather than malformed JSON syntax.",
+      "after": "All 51 final JSON-LD blocks parse successfully."
+    },
+    "vocabulary_and_regression": {
+      "command": "python3 scripts/validate-structured-data.py --vocabulary /tmp/maxlaw-schemaorg.jsonld --baseline /tmp/maxlaw-schema-baseline --report /tmp/maxlaw-final-validation.json",
+      "status": "passed",
+      "issues": [],
+      "checks": [
+        "Known Schema.org types and properties",
+        "Property domain compatibility including inherited types",
+        "Expected value shapes/ranges and local @id reference resolution",
+        "Consistent business facts and business @id on every structured business page",
+        "Google local-business required name and address",
+        "FAQPage mainEntity Question and acceptedAnswer Answer structures",
+        "Duplicate FAQ questions and FAQPage entities",
+        "FAQ questions/answers present in production page text",
+        "About collapsed answers match exact question/answer pairs in the shared accordion source",
+        "Breadcrumb ListItem shape, positions, names and URLs",
+        "Baseline comparison of all generated route filenames",
+        "Baseline comparison of rendered text including page titles",
+        "Baseline comparison of meta tags, canonical links and robots meta",
+        "Baseline equality of all 16 BreadcrumbList objects"
+      ]
+    },
+    "before_counts": {
+      "Answer": 53,
+      "BreadcrumbList": 16,
+      "City": 25,
+      "CollegeOrUniversity": 1,
+      "ContactAction": 28,
+      "EducationalOccupationalCredential": 1,
+      "FAQPage": 21,
+      "GeoCoordinates": 30,
+      "LegalService": 32,
+      "ListItem": 47,
+      "Offer": 5,
+      "OfferCatalog": 1,
+      "Organization": 2,
+      "Person": 2,
+      "PostalAddress": 31,
+      "Question": 53,
+      "Service": 5,
+      "State": 2,
+      "WebPage": 1,
+      "WebSite": 1,
+      "source_verified_collapsed_answers": 2
+    },
+    "after_counts": {
+      "Answer": 23,
+      "BreadcrumbList": 16,
+      "CollegeOrUniversity": 1,
+      "CommunicateAction": 28,
+      "EducationalOccupationalCredential": 1,
+      "FAQPage": 8,
+      "LegalService": 31,
+      "ListItem": 47,
+      "Offer": 186,
+      "OfferCatalog": 31,
+      "Person": 32,
+      "Place": 24,
+      "PostalAddress": 32,
+      "Question": 23,
+      "Service": 215,
+      "State": 31,
+      "Thing": 3,
+      "WebPage": 22,
+      "WebSite": 1,
+      "source_verified_collapsed_answers": 2
+    },
+    "final_html_inventory": [
+      {
+        "route": "/_global-error",
+        "scripts": 0,
+        "faq_pages": 0
+      },
+      {
+        "route": "/_not-found",
+        "scripts": 0,
+        "faq_pages": 0
+      },
+      {
+        "route": "/about/marc-a-saggese",
+        "scripts": 0,
+        "faq_pages": 0
+      },
+      {
+        "route": "/about",
+        "scripts": 3,
+        "faq_pages": 1
+      },
+      {
+        "route": "/contact",
+        "scripts": 0,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/bad-checks",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/burglary",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/domestic-violence",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/drugs",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/dui",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/forgery",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/juvenile-crimes",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/larceny",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/murder",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/prostitution",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/record-sealing",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/sexual-assault",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/criminal-defense/theft",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/disclaimer",
+        "scripts": 0,
+        "faq_pages": 0
+      },
+      {
+        "route": "/",
+        "scripts": 2,
+        "faq_pages": 0
+      },
+      {
+        "route": "/media",
+        "scripts": 0,
+        "faq_pages": 0
+      },
+      {
+        "route": "/plain-danger",
+        "scripts": 0,
+        "faq_pages": 0
+      },
+      {
+        "route": "/plain",
+        "scripts": 0,
+        "faq_pages": 0
+      },
+      {
+        "route": "/practice/brain-and-spine-injury",
+        "scripts": 2,
+        "faq_pages": 1
+      },
+      {
+        "route": "/practice/car-accident-statistics",
+        "scripts": 2,
+        "faq_pages": 0
+      },
+      {
+        "route": "/practice/car-accidents",
+        "scripts": 2,
+        "faq_pages": 1
+      },
+      {
+        "route": "/practice/cell-phone-related-accidents",
+        "scripts": 2,
+        "faq_pages": 0
+      },
+      {
+        "route": "/practice/commercial-vehicle-accidents",
+        "scripts": 2,
+        "faq_pages": 0
+      },
+      {
+        "route": "/practice/crosswalk-and-pedestrian-accidents",
+        "scripts": 2,
+        "faq_pages": 1
+      },
+      {
+        "route": "/practice/elder-abuse",
+        "scripts": 2,
+        "faq_pages": 0
+      },
+      {
+        "route": "/practice/excessive-force",
+        "scripts": 2,
+        "faq_pages": 0
+      },
+      {
+        "route": "/practice/insurance-settlements-and-checks",
+        "scripts": 2,
+        "faq_pages": 0
+      },
+      {
+        "route": "/practice/motorcycle-accidents",
+        "scripts": 2,
+        "faq_pages": 0
+      },
+      {
+        "route": "/practice/premises-liability",
+        "scripts": 2,
+        "faq_pages": 1
+      },
+      {
+        "route": "/practice/product-liability",
+        "scripts": 2,
+        "faq_pages": 1
+      },
+      {
+        "route": "/practice/truck-accidents",
+        "scripts": 2,
+        "faq_pages": 1
+      },
+      {
+        "route": "/practice/underinsured-and-uninsured-accidents",
+        "scripts": 2,
+        "faq_pages": 0
+      },
+      {
+        "route": "/practice/wrongful-death",
+        "scripts": 2,
+        "faq_pages": 1
+      },
+      {
+        "route": "/practice",
+        "scripts": 1,
+        "faq_pages": 0
+      },
+      {
+        "route": "/privacy-policy",
+        "scripts": 0,
+        "faq_pages": 0
+      },
+      {
+        "route": "/results",
+        "scripts": 0,
+        "faq_pages": 0
+      },
+      {
+        "route": "/service-areas",
+        "scripts": 2,
+        "faq_pages": 0
+      }
+    ],
+    "preserved_restrictions": {
+      "page_urls": true,
+      "canonical_tags": true,
+      "redirects": true,
+      "robots_directives": true,
+      "sitemap_configuration": true,
+      "page_titles": true,
+      "meta_descriptions": true,
+      "visible_page_content": true,
+      "deployed": false
+    }
+  },
+  "semrush_expected_resolution": {
+    "serviceType": "30 page-level business nodes no longer carry serviceType, including /practice/car-accidents, the homepage, all other practice/criminal-defense generator pages and /service-areas. serviceType now belongs to Service.",
+    "homepage_organization": "The two confirmed property incompatibilities, geo and openingHours on plain Organization, are eliminated; the duplicate Organization node is removed.",
+    "service_areas": "serviceType/provider no longer belong to LegalService; anonymous incomplete local-business providers are replaced with the shared complete business.",
+    "faq": "Business and FAQPage nodes are separated; 30 invisible Questions across 13 pages are removed. The remaining 8 FAQ pages contain 23 source-backed Questions.",
+    "additional": "Unknown ContactAction is replaced throughout 28 routes; unsupported identity links and biography mismatches are corrected.",
+    "count_caveat": "The Semrush export was not provided, so the approximate 35 invalid items cannot be mapped one-to-one to an actual crawl. Local audit issue counts are not Semrush item counts. Live Semrush will continue to show the deployed version until these changes are separately published and recrawled."
+  },
+  "remaining_issues_and_limits": [
+    {
+      "item": "No remaining issues detected by the local JSON-LD syntax, vocabulary, identity, FAQ and regression checks.",
+      "status": "passed_with_scope_limits"
+    },
+    {
+      "item": "Exact business coordinates remain unverified; optional geo is omitted rather than choosing between inconsistent values.",
+      "status": "optional_data_omitted"
+    },
+    {
+      "item": "About has two initially collapsed answers. Exact answer pairs and rendering from the same source array were inspected; browser interaction was not automated.",
+      "status": "source_verified"
+    },
+    {
+      "item": "Schema.org accepts textual fallback in some expected entity ranges. founder/about were normalized to explicit entities; these are not counted as proven Semrush failures.",
+      "status": "normalization"
+    },
+    {
+      "item": "Google retired FAQ rich results starting May 7, 2026 and removed the FAQ feature guide June 15, 2026. Valid FAQPage is retained as descriptive Schema.org data, without promising a Google FAQ rich result.",
+      "status": "current_google_limitation",
+      "reference": "https://developers.google.com/search/updates"
+    },
+    {
+      "item": "The hosted Schema Markup Validator and Google Rich Results Test were not run. Validation used the downloaded Schema.org vocabulary against actual local production HTML; no deployment or live recrawl was performed.",
+      "status": "external_validation_not_run"
+    }
+  ],
+  "reproduce": {
+    "download_vocabulary": "curl --fail --location https://schema.org/version/latest/schemaorg-current-https.jsonld --output /tmp/maxlaw-schemaorg.jsonld",
+    "build": "npm run build",
+    "validate": "python3 scripts/validate-structured-data.py --vocabulary /tmp/maxlaw-schemaorg.jsonld",
+    "baseline_note": "The before-build snapshot and full raw validation output are in /tmp for this session. The committed report preserves their findings, counts and final route inventory; normal future validation does not require the baseline."
+  },
+  "changed_files": [
+    {
+      "path": "audits/structured-data-audit.json",
+      "reason": "Record audit scope, confirmed issues, corrections, every changed file, validation evidence and remaining limitations."
+    },
+    {
+      "path": "scripts/validate-structured-data.py",
+      "reason": "Add a reusable production-HTML audit against Schema.org domains/ranges, entity identities, FAQs and breadcrumbs, with optional baseline text/metadata comparison."
+    },
+    {
+      "path": "src/app/about/AboutPageClient.tsx",
+      "reason": "Reuse consistent firm data, typed founder and the shared FAQ serializer/builder while preserving the existing accordion."
+    },
+    {
+      "path": "src/app/components/StructuredData.tsx",
+      "reason": "Use the shared data module and safe serializer; remove duplicated business/attorney data definitions and the redundant Organization export."
+    },
+    {
+      "path": "src/app/criminal-defense/bad-checks/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/burglary/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/domestic-violence/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/drugs/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/dui/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/forgery/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/juvenile-crimes/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/larceny/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/murder/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/prostitution/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/record-sealing/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/sexual-assault/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/criminal-defense/theft/page.tsx",
+      "reason": "Remove FAQ schema props/arrays for questions and answers absent from this page. Preserve all visible content and metadata."
+    },
+    {
+      "path": "src/app/page.tsx",
+      "reason": "Remove the redundant Organization script. Retain LegalService and Person scripts and all metadata."
+    },
+    {
+      "path": "src/app/practice/PracticeStructuredData.tsx",
+      "reason": "Separate business, Service and WebPage/FAQPage nodes; correct serviceType ownership and action type; remove unverified rating injection; share firm identity."
+    },
+    {
+      "path": "src/app/practice/car-accident-statistics/page.tsx",
+      "reason": "Represent existing about topics as explicit Thing nodes without changing topic names or visible content."
+    },
+    {
+      "path": "src/app/service-areas/page.tsx",
+      "reason": "Model coverage as Service, link its provider to the shared firm and classify coverage labels as Place."
+    },
+    {
+      "path": "src/lib/structured-data.ts",
+      "reason": "Centralize accurate firm and attorney data, stable entity @ids, service catalog, FAQ builder and safe JSON-LD serialization. Reconcile biography and social links with existing visible source content."
+    }
+  ]
+}

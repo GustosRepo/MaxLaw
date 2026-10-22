@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import HomeClient from './components/HomeClient';
-import StructuredData, { legalServiceData, attorneyData, organizationData } from './components/StructuredData';
+import StructuredData, { legalServiceData, attorneyData } from './components/StructuredData';
 
 export const metadata: Metadata = {
   title: {
@@ -44,7 +44,6 @@ export default function HomePage() {
     <>
       <StructuredData type="LegalService" data={legalServiceData} />
       <StructuredData type="Person" data={attorneyData} />
-      <StructuredData type="Organization" data={organizationData} />
       <HomeClient />
     </>
   );

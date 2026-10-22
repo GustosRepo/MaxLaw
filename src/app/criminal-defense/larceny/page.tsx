@@ -77,10 +77,6 @@ export default function LarcenyPage() {
         serviceType="Las Vegas Larceny & Theft Defense Lawyer"
         description="Larceny & theft defense—challenge intent, value & identification. Free consultation."
         keywords={['las vegas theft lawyer','larceny defense attorney nevada']}
-        faqs={[
-          { question: 'Can theft charges be reduced?', answer: 'Yes—value disputes, restitution or weak intent evidence can support reduction.' },
-          { question: 'What if property was returned?', answer: 'Return can mitigate penalties and aid negotiation, though it does not erase the charge automatically.' }
-        ]}
       />
     </>
   )

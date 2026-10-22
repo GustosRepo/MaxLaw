@@ -97,10 +97,6 @@ export default function DUIPage() {
         serviceType="Las Vegas DUI Defense Lawyer"
         description="Las Vegas DUI defense lawyer challenging stops, testing & DMV suspension. Free consultation."
         keywords={['las vegas dui lawyer','dui defense attorney nevada','dmv hearing dui las vegas']}
-        faqs={[
-          { question: 'How long do I have to request a DMV hearing?', answer: 'You typically have a very short window (often 7 days) after notice; act immediately to preserve driving rights.' },
-          { question: 'Can DUI charges be reduced?', answer: 'Yes—issues with stops, field sobriety, or testing can lead to reduction or dismissal.' }
-        ]}
       />
     </>
   )

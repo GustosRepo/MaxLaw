@@ -178,7 +178,7 @@ export default function CarAccidentStatsPage() {
           name: 'Las Vegas & Nevada Car Accident Statistics',
           url: `${SITE_URL}/practice/car-accident-statistics`,
           description: 'Sourced Nevada and Clark County crash fatality statistics, pedestrian and motorcycle trends, and official traffic-safety data sources for Las Vegas-area drivers.',
-          about: ['Las Vegas car accident statistics', 'Nevada crash fatality data', 'Clark County traffic fatalities'],
+          about: ['Las Vegas car accident statistics', 'Nevada crash fatality data', 'Clark County traffic fatalities'].map((name) => ({ '@type': 'Thing', name })),
           isPartOf: {
             '@type': 'WebSite',
             name: 'The Law Offices of Saggese & Associates',

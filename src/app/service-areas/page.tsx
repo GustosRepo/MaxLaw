@@ -1,5 +1,6 @@
 import React from 'react'
-import StructuredData from '../components/StructuredData'
+import StructuredData, { legalServiceData } from '../components/StructuredData'
+import { BUSINESS_ID } from '@/lib/structured-data'
 import Link from 'next/link'
 import {
   CRIMINAL_DEFENSE_REPRESENTATION_TYPES,
@@ -18,17 +19,19 @@ const AREAS = [
 
 export default function ServiceAreasPage() {
   const areaStructured = {
+    '@id': 'https://www.maxlawnv.com/service-areas#service',
     name: 'Service Areas – The Law Offices of Saggese & Associates',
     serviceType: ['Injury Law', 'Criminal Defense Law'],
-    areaServed: AREAS.map(a => ({ '@type': 'City', name: a })),
-    provider: { '@type': 'LegalService', name: 'The Law Offices of Saggese & Associates' },
+    areaServed: AREAS.map(a => ({ '@type': 'Place', name: a })),
+    provider: { '@id': BUSINESS_ID },
     url: 'https://www.maxlawnv.com/service-areas',
     description: 'Comprehensive legal representation across the Las Vegas Valley in injury and criminal defense matters.'
   }
 
   return (
     <main className="min-h-screen custom-bg bg-gradient-to-br from-[#0e0e0e] to-[#0f0f0f] text-white font-[var(--font-inter)] py-12">
-      <StructuredData type="LegalService" data={areaStructured} />
+      <StructuredData type="LegalService" data={legalServiceData} />
+      <StructuredData type="Service" data={areaStructured} />
       <div className="mx-auto max-w-5xl px-4 md:px-6">
         <header className="mb-10 text-center">
           <h1 className="text-3xl md:text-4xl font-[var(--font-playfair)] font-bold text-[#d4af37]">Areas We Serve</h1>

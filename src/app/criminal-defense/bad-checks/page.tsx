@@ -96,10 +96,6 @@ export default function BadChecksPage() {
         serviceType="Las Vegas Bad Check Defense Lawyer"
         description="Defense for bad check & negotiable instrument charges. Mitigate criminal exposure & pursue restitution solutions."
         keywords={['las vegas bad check lawyer','check fraud attorney nevada']}
-        faqs={[
-          { question: 'Will I face jail for a bad check?', answer: 'Many cases resolve via restitution or diversion—early legal intervention improves outcomes.' },
-          { question: 'Is restitution enough to dismiss?', answer: 'Often restitution plus negotiation can reduce or dismiss charges depending on history and facts.' }
-        ]}
       />
     </>
   )

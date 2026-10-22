@@ -77,10 +77,6 @@ export default function ForgeryPage() {
         serviceType="Las Vegas Forgery & Fraud Defense Lawyer"
         description="Forgery & fraud defense—challenge intent, provenance & chain of custody. Free consultation."
         keywords={['las vegas forgery lawyer','fraud defense attorney nevada']}
-        faqs={[
-          { question: 'How is intent proven in forgery?', answer: 'Prosecutors rely on circumstantial evidence—lack of clear intent can undermine the charge.' },
-          { question: 'Can forgery charges be reduced?', answer: 'Yes—weak provenance or cooperation may result in reduced charges or diversion.' }
-        ]}
       />
     </>
   )

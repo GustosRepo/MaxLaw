@@ -130,7 +130,7 @@ const StarIcon = ({ filled }: { filled: boolean }) => (
   </svg>
 );
 
-export default function GoogleReviews() {
+export default function GoogleReviews({ renderImmediately = false }: { renderImmediately?: boolean }) {
   const data = { rating: REVIEW_SUMMARY.rating, total: REVIEW_SUMMARY.total, reviews: REVIEWS };
   const [motionEnabled, setMotionEnabled] = React.useState(false);
   const [inView, setInView] = React.useState(false);
@@ -139,13 +139,13 @@ export default function GoogleReviews() {
     try { if (window.matchMedia('(min-width: 768px)').matches) setMotionEnabled(true); } catch { /* ignore */ }
   }, []);
   React.useEffect(() => {
-    if (!rootRef.current || inView) return;
+    if (renderImmediately || !rootRef.current || inView) return;
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } });
     }, { rootMargin: '120px' });
     obs.observe(rootRef.current);
     return () => obs.disconnect();
-  }, [inView]);
+  }, [inView, renderImmediately]);
   return (
   <div ref={rootRef} className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent p-6 md:p-8 md:backdrop-blur-sm min-h-[200px]">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
@@ -158,9 +158,9 @@ export default function GoogleReviews() {
         </h2>
         <div className="text-white/60 text-sm">{data.total}+ client reviews</div>
       </div>
-      {inView ? (
+      {renderImmediately || inView ? (
         <motion.ul
-          initial={motionEnabled ? 'hidden' : undefined}
+          initial={renderImmediately ? false : motionEnabled ? 'hidden' : undefined}
           whileInView={motionEnabled ? 'show' : undefined}
           viewport={motionEnabled ? { once: true, amount: 0.25 } : undefined}
           variants={motionEnabled ? containerVariants : undefined}

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FIRM_PHONE_DISPLAY, FIRM_PHONE_E164 } from "../../lib/constants";
 
 const NAV_LINKS = [
@@ -22,17 +23,17 @@ export default function Navbar() {
       <nav className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between px-4 py-0 md:px-6">
         <Link href="/" className="inline-flex items-center gap-2 md:gap-3" prefetch={false}>
           <span className="inline-flex items-center justify-center rounded-xl px-2.5 py-1 md:px-3.5 md:py-1.5 border border-[#d4af37]/60 bg-transparent shadow-[0_3px_12px_rgba(212,175,55,0.2)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/2026logo-sharp.png"
-              sizes="(min-width: 768px) 140px, 42vw"
+              sizes="(min-width: 768px) 162px, 130px"
               alt=""
               aria-hidden="true"
-              width={280}
+              width={300}
               height={100}
               fetchPriority="low"
+              loading="eager"
               decoding="async"
-              className="h-8 w-auto scale-[1.35] md:h-10"
+              className="aspect-[3/1] h-8 w-auto object-contain scale-[1.35] md:h-10"
             />
           </span>
           <span className="sr-only">The Law Offices of Saggese & Associates</span>

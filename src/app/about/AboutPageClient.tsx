@@ -178,7 +178,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-[var(--font-playfair)] font-bold mb-3">Case Types & Results</h3>
                 <div className="flex flex-wrap gap-2 mb-4 justify-center">
                   <Link href="/practice/car-accidents" className="badge hover:border-[#d4af37]/45 hover:text-[#d4af37]">Auto Accidents</Link>
-                  <span className="badge">Slip & Fall</span>
+                  <Link href="/practice/premises-liability" className="badge hover:border-[#d4af37]/45 hover:text-[#d4af37]">Slip &amp; Fall</Link>
                   <span className="badge">DUI Defense</span>
                   <span className="badge">Domestic Matters</span>
                   <span className="badge">Felonies & Misdemeanors</span>

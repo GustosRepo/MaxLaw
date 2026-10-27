@@ -5,7 +5,7 @@ import PracticeStructuredData from '../PracticeStructuredData'
 import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Premises Liability & Slip and Fall Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Premises Liability Lawyer | Saggese & Associates' },
   description: 'Las Vegas premises liability and slip-and-fall lawyer for unsafe property injuries, evidence preservation, medical documentation, and insurance claims.',
   keywords: [
     'las vegas premises liability lawyer',

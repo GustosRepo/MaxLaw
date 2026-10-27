@@ -96,7 +96,7 @@ export default function CarAccidentsPageClient() {
           <section className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
             <h2 className="text-xl font-semibold mb-4">Why Saggese & Associates</h2>
             <p className="text-white/80 mb-4">
-              Marc A. Saggese has practiced law in Las Vegas since 1999 and has represented more than 5,000 clients. The firm brings courtroom and trial experience to injury cases, with direct attention to the facts, medical documentation, and insurance issues that often shape the value of a claim.
+              <Link href="/about/marc-a-saggese" className="text-[#d4af37] underline-offset-4 hover:underline">Marc A. Saggese</Link> has practiced law in Las Vegas since 1999 and has represented more than 5,000 clients. The firm brings courtroom and trial experience to injury cases, with direct attention to the facts, medical documentation, and insurance issues that often shape the value of a claim.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-xl border border-white/10 bg-black/25 p-4">
@@ -150,6 +150,7 @@ export default function CarAccidentsPageClient() {
           <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
             <h3 className="text-lg font-semibold mb-4 text-[#bfa76a]">Related Practice Areas</h3>
             <ul className="space-y-2">
+              <li><Link href="/practice/brain-and-spine-injury" className="text-white/80 hover:text-[#d4af37] underline">Brain &amp; Spine Injury</Link></li>
               <li><Link href="/practice/motorcycle-accidents" className="text-white/80 hover:text-[#d4af37] underline">Motorcycle Accidents</Link></li>
               <li><Link href="/practice/truck-accidents" className="text-white/80 hover:text-[#d4af37] underline">Truck Accidents</Link></li>
               <li><Link href="/practice/underinsured-and-uninsured-accidents" className="text-white/80 hover:text-[#d4af37] underline">Uninsured & Underinsured Accidents</Link></li>

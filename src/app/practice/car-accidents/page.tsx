@@ -6,7 +6,7 @@ import PracticeStructuredData from '../PracticeStructuredData'
 const CarAccidentsPageClient = dynamic(() => import('./CarAccidentsPageClient'))
 
 export const metadata: Metadata = {
-  title: 'Las Vegas Car Accident Attorney | Saggese & Associates',
+  title: { absolute: 'Las Vegas Car Accident Attorney | Saggese & Associates' },
   description: 'Injured in a Las Vegas car accident and not at fault? Talk with a car accident attorney about medical treatment, insurance claims, and compensation.',
   keywords: ['Las Vegas car accident attorney','car accident attorney las vegas','car accident lawyer las vegas','Nevada auto accident attorney','car crash injury claim','Las Vegas injury law firm'],
   alternates: { canonical: `${SITE_URL}/practice/car-accidents` },

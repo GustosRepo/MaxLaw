@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
 import { FIRM_PHONE_DISPLAY, FIRM_PHONE_E164 } from '../../lib/constants';
 
@@ -9,16 +10,17 @@ export default function LiteNavbar() {
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/95 text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 py-0">
         <Link href="/" className="inline-flex min-w-0 flex-shrink-0 items-center" prefetch={false}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/2026logo-sharp.png"
-            sizes="42vw"
+            sizes="(min-width: 768px) 162px, 130px"
             alt=""
             aria-hidden="true"
-            width={280}
+            width={300}
             height={100}
+            loading="eager"
+            fetchPriority="low"
             decoding="async"
-            className="h-8 w-auto max-w-[42vw] scale-[1.35]"
+            className="aspect-[3/1] h-8 w-auto max-w-[42vw] object-contain scale-[1.35]"
           />
           <span className="sr-only">The Law Offices of Saggese & Associates</span>
         </Link>

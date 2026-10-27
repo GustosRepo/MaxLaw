@@ -3,11 +3,11 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-const GoogleReviews = dynamic(() => import('./GoogleReviews'), { loading: () => null });
-const AwardsSection = dynamic(() => import('./AwardsSection'), { loading: () => null });
-const MediaSection = dynamic(() => import('./MediaSection'), { loading: () => null });
-const ResultsSection = dynamic(() => import('./ResultsSection'), { loading: () => null });
-const MissionSection = dynamic(() => import('./MissionSection'), { loading: () => null });
+import GoogleReviews from './GoogleReviews';
+import AwardsSection from './AwardsSection';
+import MediaSection from './MediaSection';
+import ResultsSection from './ResultsSection';
+import MissionSection from './MissionSection';
 import {
   CRIMINAL_DEFENSE_CASE_TYPES,
   FIRM_ADDRESS_LINE1,
@@ -21,13 +21,13 @@ import {
   type CaseTopic,
 } from '../../lib/constants';
 import { useLiteMode } from './LiteModeContext';
-const PracticeCardsLite = dynamic(() => import('./PracticeCardsLite'), { loading: () => null });
-const ResultsSectionLite = dynamic(() => import('./ResultsSectionLite'), { loading: () => null });
-const AwardsSectionLite = dynamic(() => import('./AwardsSectionLite'), { loading: () => null });
-const ReviewsSectionLite = dynamic(() => import('./ReviewsSectionLite'), { loading: () => null });
-const AboutSectionLite = dynamic(() => import('./AboutSectionLite'), { loading: () => null });
+import PracticeCardsLite from './PracticeCardsLite';
+import ResultsSectionLite from './ResultsSectionLite';
+import AwardsSectionLite from './AwardsSectionLite';
+import ReviewsSectionLite from './ReviewsSectionLite';
+import AboutSectionLite from './AboutSectionLite';
 import HeroMediaLite from './HeroMediaLite';
-const ContactSectionLite = dynamic(() => import('./ContactSectionLite'), { loading: () => null });
+import ContactSectionLite from './ContactSectionLite';
 
 const ContactSectionClient = dynamic(() => import('./ContactSectionClient'), { ssr: false, loading: () => <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-white/60">Loading…</div> });
 
@@ -46,27 +46,20 @@ const Card: React.FC<React.PropsWithChildren<{ title: string; subtitle?: string;
   </div>
 );
  
-const TopicsAccordion: React.FC<{ title: string; topics: CaseTopic[] }> = ({ title, topics }) => {
-  const [open,setOpen]=React.useState(false);
-  return (
-    <div className="mt-4">
-      <button onClick={()=>setOpen(o=>!o)} className="flex w-full items-center justify-between rounded-xl border border-white/10 bg-black/30 px-4 py-2 text-sm font-semibold"><span>{open?`Hide ${title}`:`See ${title}`}</span><span className={`transition-transform ${open?'rotate-180':''}`}>▾</span></button>
-      {open && Array.isArray(topics) && topics.length > 0 && (
-        <ul className="mt-3 grid grid-cols-1 gap-2">
-          {topics.map((topic, idx) => {
-            const label = topic.label;
-            const href = topicHref(topic);
-            return (
-              <li key={`${label}-${idx}`}>
-                <Link href={href} className="block rounded-lg px-3 py-2 text-sm hover:bg-white/5">{label}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-    </div>
-  );
-};
+const TopicsAccordion: React.FC<{ title: string; topics: CaseTopic[] }> = ({ title, topics }) => (
+  <details className="group mt-4">
+    <summary className="flex cursor-pointer list-none items-center justify-between rounded-xl border border-white/10 bg-black/30 px-4 py-2 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+      <span>See {title}</span><span className="transition-transform group-open:rotate-180" aria-hidden>▾</span>
+    </summary>
+    <ul className="mt-3 grid grid-cols-1 gap-2">
+      {topics.map((topic, idx) => (
+        <li key={`${topic.label}-${idx}`}>
+          <Link href={topicHref(topic)} className="block rounded-lg px-3 py-2 text-sm hover:bg-white/5">{topic.label}</Link>
+        </li>
+      ))}
+    </ul>
+  </details>
+);
 
 type SkipConfig = {
   results: boolean;
@@ -81,12 +74,7 @@ type SkipConfig = {
 export default function HomeClient(){
   const { lite } = useLiteMode();
   const [safe,setSafe]=React.useState(false);
-  const [isMobile,setIsMobile]=React.useState(false);
-  const [defer,setDefer]=React.useState(true);
-  const [loadLiteSections,setLoadLiteSections]=React.useState(false);
-  const sentinelRef=React.useRef<HTMLDivElement|null>(null);
   const [skipSections,setSkipSections]=React.useState<SkipConfig>({results:false,awards:false,media:false,mission:false,reviews:false,about:false,contact:false});
-  const [visibleSections,setVisibleSections]=React.useState(0);
   const reviewSummary={rating:4.9,total:125};
   React.useEffect(()=>{
     try{
@@ -104,68 +92,7 @@ export default function HomeClient(){
       setSkipSections(nextSkip);
     }catch{}
   },[]);
-  React.useEffect(()=>{
-    if(typeof window==='undefined')return;
-    const updateViewport = () => setIsMobile(window.innerWidth < 768);
-    updateViewport();
-    window.addEventListener('resize',updateViewport);
-    return () => window.removeEventListener('resize',updateViewport);
-  },[]);
-
-  React.useEffect(()=>{
-    if(typeof window==='undefined')return;
-    if(lite || isMobile){
-      setDefer(true);
-      setVisibleSections(0);
-      return;
-    }
-    if(window.innerWidth>=768){
-      setDefer(false);
-      return;
-    }
-    let done=false;
-    const show=()=>{if(!done){done=true;setDefer(false);}};
-    const to=setTimeout(()=>{show();},3000);
-    let obs: IntersectionObserver | undefined;
-    if(sentinelRef.current&&'IntersectionObserver'in window){
-      obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){show();obs?.disconnect();}})},{rootMargin:'140px 0px 0px 0px'});
-      obs.observe(sentinelRef.current);
-    }
-    return()=>{
-      clearTimeout(to);
-      obs?.disconnect();
-    };
-  },[lite,isMobile]);
-
-  React.useEffect(()=>{
-    if(typeof window==='undefined')return;
-    const isLiteView = lite || isMobile;
-    if(!isLiteView){
-      setLoadLiteSections(false);
-      return;
-    }
-    let loaded=false;
-    const load=()=>{
-      if(loaded)return;
-      loaded=true;
-      setLoadLiteSections(true);
-      cleanup();
-    };
-    const timer=window.setTimeout(load,12000);
-    const cleanup=()=>{
-      window.removeEventListener('scroll',load);
-      window.removeEventListener('touchmove',load);
-      window.removeEventListener('wheel',load);
-      window.clearTimeout(timer);
-    };
-    window.addEventListener('scroll',load,{once:true,passive:true});
-    window.addEventListener('touchmove',load,{once:true,passive:true});
-    window.addEventListener('wheel',load,{once:true,passive:true});
-    return cleanup;
-  },[lite,isMobile]);
-
   const sectionQueue = React.useMemo(() => {
-    if(lite || isMobile) return [];
     const list: Array<{ key: string; node: React.ReactNode }> = [];
     if (!skipSections.about) {
       list.push({
@@ -206,7 +133,7 @@ export default function HomeClient(){
       list.push({
         key: 'mission',
         node: (
-          <Section id="mission" className="py-12">
+          <Section className="py-12">
             <div className="max-w-5xl text-center mx-auto">
               <Card title="Our Mission" subtitle="Client‑first representation">
                 <MissionSection />
@@ -223,7 +150,7 @@ export default function HomeClient(){
           <Section id="reviews" className="py-12">
             <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
               <h2 className="text-3xl font-bold text-center mb-6">Reviews</h2>
-              <GoogleReviews />
+              <GoogleReviews renderImmediately />
             </div>
           </Section>
         ),
@@ -250,38 +177,19 @@ export default function HomeClient(){
       });
     }
     return list;
-  }, [skipSections,lite,isMobile]);
+  }, [skipSections]);
 
-  React.useEffect(() => {
-    if(lite || isMobile){
-      setVisibleSections(0);
-      return;
-    }
-    if (defer) {
-      setVisibleSections(0);
-      return;
-    }
-    if (!sectionQueue.length) {
-      setVisibleSections(0);
-      return;
-    }
-    let cancelled = false;
-    let timeout: number | undefined;
-    const reveal = (index: number) => {
-      if (cancelled || index >= sectionQueue.length) return;
-      setVisibleSections(prev => (prev > index ? prev : index + 1));
-      if (index + 1 < sectionQueue.length) {
-        timeout = window.setTimeout(() => reveal(index + 1), 260);
-      }
-    };
-    const raf = window.requestAnimationFrame(() => reveal(0));
-    return () => {
-      cancelled = true;
-      if (timeout) window.clearTimeout(timeout);
-      window.cancelAnimationFrame(raf);
-    };
-  }, [defer, sectionQueue, lite, isMobile]);
-  const isLite = lite || isMobile;
+  // Both responsive presentations are prerendered. CSS chooses the visible one
+  // without waiting for viewport effects, interaction, or delayed section mounts.
+  const desktopClass = lite ? 'hidden' : 'hidden md:block';
+  const mobileClass = lite ? 'block' : 'md:hidden';
+  const mobileSections: Record<string, React.ReactNode> = {
+    about: <Section id="about-lite" className="py-10"><AboutSectionLite /></Section>,
+    results: <Section id="results-lite" className="py-10"><ResultsSectionLite /></Section>,
+    awards: <Section id="awards-lite" className="py-10"><AwardsSectionLite /></Section>,
+    reviews: <Section id="reviews-lite" className="py-10"><ReviewsSectionLite /></Section>,
+    contact: <Section id="contact-lite" className="py-10"><ContactSectionLite /></Section>,
+  };
   if (safe) {
     return (
       <main className="min-h-screen bg-[#080808] text-white flex items-center justify-center px-6">
@@ -317,7 +225,7 @@ export default function HomeClient(){
       <Section id="home" className="relative max-w-none px-0 overflow-hidden min-h-[calc(100dvh-57px)] md:min-h-[90dvh] flex items-stretch md:items-center pt-0 md:pt-16 pb-0">
         <div className="absolute inset-0">
           <HeroMediaLite />
-          {!isLite && <div className="absolute inset-0 hidden bg-black/45 md:block" />}
+          {!lite && <div className="absolute inset-0 hidden bg-black/45 md:block" />}
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[56%] bg-gradient-to-t from-black/90 via-black/55 to-transparent md:hidden" />
   <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-6 min-h-[calc(100dvh-57px)] md:min-h-[90dvh] flex items-end pb-[18vh] md:pb-0">
@@ -371,100 +279,52 @@ export default function HomeClient(){
           </div>
         </div>
       </Section>
-      {!isLite && <div ref={sentinelRef} className="h-1" aria-hidden />}
-
-      {defer && !isLite && (
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-6 py-10 space-y-8" aria-label="Loading below-fold content">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-sm text-white/60">Loading additional content…</div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3" aria-hidden>{Array.from({length:6}).map((_,i)=><div key={i} className="aspect-[5/6] animate-pulse rounded-xl border border-white/10 bg-white/[0.07]"/> )}</div>
-        </div>
-      )}
-
-      {isLite && loadLiteSections && (
-        <Section id="practice" className="py-10">
-          <PracticeCardsLite />
-        </Section>
-      )}
-
-      {isLite && loadLiteSections && (
-        <Section id="about-lite" className="py-10">
-          <AboutSectionLite />
-        </Section>
-      )}
-
-      {isLite && loadLiteSections && (
-        <Section id="results-lite" className="py-10">
-          <ResultsSectionLite />
-        </Section>
-      )}
-
-      {isLite && loadLiteSections && (
-        <Section id="awards-lite" className="py-10">
-          <AwardsSectionLite />
-        </Section>
-      )}
-
-      {isLite && loadLiteSections && (
-        <Section id="media-lite" className="py-10">
-          <MediaSection />
-        </Section>
-      )}
-
-      {isLite && loadLiteSections && (
-        <Section id="reviews-lite" className="py-10">
-          <ReviewsSectionLite />
-        </Section>
-      )}
-
-      {isLite && loadLiteSections && (
-        <Section id="contact-lite" className="py-10">
-          <ContactSectionLite />
-        </Section>
-      )}
-
-      {!defer && !isLite && (
-        <>
-          <Section id="practice" className="py-12">
-            {isLite ? (
-              <PracticeCardsLite />
-            ) : (
-              <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
-                <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
-                <div className="grid gap-6 md:grid-cols-2">
-                  <Card title="Injured and not at fault?" subtitle="Las Vegas Injury">
-                    We help injured Nevadans after car, motorcycle, and truck accidents pursue medical care and compensation.
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      <Link href="/practice/car-accidents" className="inline-flex rounded-xl border border-[#d4af37]/40 px-4 py-2 text-sm font-semibold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0e0e0e]">
-                        Car accident cases
-                      </Link>
-                      <Link href="/contact" className="inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">
-                        Request a free consultation
-                      </Link>
-                    </div>
-                    <TopicsAccordion title="Accident Topics" topics={PERSONAL_INJURY_CASE_TYPES} />
-                  </Card>
-                  <Card title="Arrested?" subtitle="Criminal Defense">
-                    Strategic, trial‑tested defense from arraignment through resolution.
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      <Link href="/criminal-defense/dui" className="inline-flex rounded-xl border border-[#d4af37]/40 px-4 py-2 text-sm font-semibold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0e0e0e]">
-                        DUI defense
-                      </Link>
-                      <Link href="/contact" className="inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">
-                        Request a free consultation
-                      </Link>
-                    </div>
-                    <TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_CASE_TYPES} />
-                  </Card>
+      <div className={mobileClass}>
+        <Section id="practice-lite" className="py-10"><PracticeCardsLite /></Section>
+      </div>
+      <div className={desktopClass}>
+        <Section id="practice" className="py-12">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold mb-6 text-center">Practice Areas</h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              <Card title="Injured and not at fault?" subtitle="Las Vegas Injury">
+                We help injured Nevadans after car, motorcycle, and truck accidents pursue medical care and compensation.
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Link href="/practice/car-accidents" className="inline-flex rounded-xl border border-[#d4af37]/40 px-4 py-2 text-sm font-semibold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0e0e0e]">
+                    Car accident cases
+                  </Link>
+                  <Link href="/contact" className="inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">
+                    Request a free consultation
+                  </Link>
                 </div>
-              </div>
-            )}
-          </Section>
-
-          {sectionQueue.slice(0, visibleSections).map(item => (
-            <React.Fragment key={item.key}>{item.node}</React.Fragment>
-          ))}
-        </>
-      )}
+                <TopicsAccordion title="Accident Topics" topics={PERSONAL_INJURY_CASE_TYPES} />
+              </Card>
+              <Card title="Arrested?" subtitle="Criminal Defense">
+                Strategic, trial‑tested defense from arraignment through resolution.
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Link href="/criminal-defense/dui" className="inline-flex rounded-xl border border-[#d4af37]/40 px-4 py-2 text-sm font-semibold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0e0e0e]">
+                    DUI defense
+                  </Link>
+                  <Link href="/contact" className="inline-flex rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">
+                    Request a free consultation
+                  </Link>
+                </div>
+                <TopicsAccordion title="Defense Topics" topics={CRIMINAL_DEFENSE_CASE_TYPES} />
+              </Card>
+            </div>
+          </div>
+        </Section>
+      </div>
+      {sectionQueue.map(item => item.key === 'media' ? (
+        <div key={item.key} className={`mx-auto w-full max-w-7xl px-4 py-10 md:px-6 ${lite ? '' : 'md:contents'}`}>
+          {item.node}
+        </div>
+      ) : (
+        <React.Fragment key={item.key}>
+          <div className={desktopClass}>{item.node}</div>
+          {mobileSections[item.key] && <div className={mobileClass}>{mobileSections[item.key]}</div>}
+        </React.Fragment>
+      ))}
     </main>
   );
 }

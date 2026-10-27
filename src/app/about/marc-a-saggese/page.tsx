@@ -50,6 +50,7 @@ export default function MarcSaggesePage() {
               </div>
 
               <p className="text-sm text-white/80 mb-4">Founder & Lead Attorney — The Law Offices of Saggese & Associates. Trial-ready representation in injury and criminal defense; individualized attention and seasoned courtroom experience.</p>
+              <p className="text-sm mb-4"><Link href="/practice/car-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">Car accident representation</Link></p>
 
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.2)]">Call (702) 778‑8883</a>

@@ -69,6 +69,21 @@ const nextConfig: NextConfig = {
         destination: "/practice/brain-and-spine-injury",
         permanent: true,
       },
+      {
+        source: "/Criminal-Defense/Bad-Checks.html",
+        destination: "/criminal-defense/bad-checks",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Premises-Liability.html",
+        destination: "/practice/premises-liability",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Product-Liability.html",
+        destination: "/practice/product-liability",
+        permanent: true,
+      },
     ];
   },
 };

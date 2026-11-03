@@ -1,6 +1,8 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import { trackLead } from '../../lib/analytics';
+import { validateContactForm } from '../../lib/contact-form';
 import {
   CRIMINAL_DEFENSE_CASE_TYPES,
   PERSONAL_INJURY_CASE_TYPES,
@@ -10,6 +12,7 @@ const ACCEPTED_CASE_TYPES = ['Injury', 'Criminal Defense'];
 
 interface ContactFormInnerProps {
   onSubmitSuccess?: () => void;
+  mode?: 'consultation' | 'press';
 }
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
@@ -34,6 +37,7 @@ type FormDataShape = {
   passengers: string;
   vehicleDamageSeverity: string;
   financialAbility: string;
+  company: string;
 };
 
 const INITIAL_FORM: FormDataShape = {
@@ -56,32 +60,42 @@ const INITIAL_FORM: FormDataShape = {
   passengers: '',
   vehicleDamageSeverity: '',
   financialAbility: '',
+  company: '',
 };
 
-export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerProps) {
-  const [formData, setFormData] = React.useState<FormDataShape>(INITIAL_FORM);
+export default function ContactFormInner({ onSubmitSuccess, mode = 'consultation' }: ContactFormInnerProps) {
+  const initialForm = { ...INITIAL_FORM, caseType: mode === 'press' ? 'Media / Press' : '' };
+  const [formData, setFormData] = React.useState<FormDataShape>(initialForm);
   const [formStatus, setFormStatus] = React.useState<FormStatus>('idle');
   const [formMessage, setFormMessage] = React.useState('');
+  const consentId = React.useId();
+  const caseTypeId = React.useId();
+  const sending = React.useRef(false);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!ACCEPTED_CASE_TYPES.includes(formData.caseType || '')) {
+    if (sending.current) return;
+    try { validateContactForm(formData); }
+    catch (error) {
       setFormStatus('error');
-      setFormMessage('We do not handle that matter. Please call for a referral or check our practice areas.');
+      setFormMessage(error instanceof Error ? error.message : 'Please check the form.');
       return;
     }
+    sending.current = true;
     setFormStatus('loading');
     try {
+      const body = JSON.stringify(formData);
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body,
       });
       const result = await response.json();
-      if (result.success) {
+      if (response.ok && result.success) {
         setFormStatus('success');
-        setFormMessage('Thank you! We\'ll reach out to you shortly.');
-        setFormData(INITIAL_FORM);
+        setFormMessage('Thank you! We have received your inquiry. Please call if you need urgent assistance.');
+        trackLead(mode, crypto.randomUUID());
+        setFormData(initialForm);
         onSubmitSuccess?.();
       } else {
         setFormStatus('error');
@@ -90,6 +104,8 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
     } catch {
       setFormStatus('error');
       setFormMessage('Failed to send message. Please try again.');
+    } finally {
+      sending.current = false;
     }
   };
 
@@ -102,16 +118,16 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6 [&_label]:leading-relaxed [&_input:not([type=checkbox])]:text-base [&_select]:text-base [&_textarea]:text-base" aria-label="Free consultation form">
-      <h2 className="mb-2 text-2xl font-bold text-white">Tell us about your case</h2>
+    <form onSubmit={handleFormSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6 [&_label]:leading-relaxed [&_input:not([type=checkbox])]:text-base [&_select]:text-base [&_textarea]:text-base" aria-label={mode === 'press' ? 'Press inquiry form' : 'Free consultation form'} aria-busy={formStatus === 'loading'}>
+      <h2 className="mb-2 text-2xl font-bold text-white">{mode === 'press' ? 'Send a press inquiry' : 'Tell us about your case'}</h2>
       <p className="mb-6 text-base leading-relaxed text-white/75">Complete the form below and our team will review your message.</p>
       {formStatus === 'error' && (
         <div className="mb-4 rounded-lg bg-red-900/20 border border-red-500/30 p-4 text-red-300" role="alert">{formMessage}</div>
       )}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="md:col-span-2">
-          <label htmlFor="caseType" className="block mb-2 text-lg font-bold text-white">What type of matter is this? <span className="text-[#d4af37]">*</span></label>
-          <select id="caseType" value={formData.caseType} onChange={(e) => setFormData(prev => ({ ...prev, caseType: e.target.value }))} required className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-3 text-base">
+        {mode !== 'press' && <div className="md:col-span-2">
+          <label htmlFor={caseTypeId} className="block mb-2 text-lg font-bold text-white">What type of matter is this? <span className="text-[#d4af37]">*</span></label>
+          <select id={caseTypeId} value={formData.caseType} onChange={(e) => setFormData(prev => ({ ...prev, caseType: e.target.value }))} required className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-3 text-base">
             <option value="">Select a case type</option>
             {ACCEPTED_CASE_TYPES.map(caseType => (
               <option key={caseType} value={caseType}>{caseType}</option>
@@ -120,7 +136,7 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
           {!ACCEPTED_CASE_TYPES.includes(formData.caseType || '') && formData.caseType !== '' && (
             <div className="mt-2 text-sm text-yellow-300">We do not handle this matter. Please call for a referral.</div>
           )}
-        </div>
+        </div>}
         {formData.caseType === 'Injury' && (
           <>
             <label className="text-base">Injury type
@@ -227,8 +243,8 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
           <textarea name="message" value={formData.message} onChange={handleInputChange} aria-required required rows={5} className="mt-1 w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Briefly describe your matter" />
         </label>
         <div className="flex items-start gap-2 md:col-span-2">
-          <input id="consent" name="consent" type="checkbox" checked={formData.consent} onChange={handleInputChange} className="mt-1" required />
-          <label htmlFor="consent" className="text-sm font-semibold leading-relaxed">
+          <input id={consentId} name="consent" type="checkbox" checked={formData.consent} onChange={handleInputChange} className="mt-1" required />
+          <label htmlFor={consentId} className="text-sm font-semibold leading-relaxed">
             I consent to being contacted by The Law Offices of Saggese &amp; Associates regarding my inquiry and agree to the{' '}
             <Link href="/privacy-policy" className="text-[#d4af37] underline underline-offset-2">Privacy Policy</Link>{' '}
             and{' '}
@@ -236,9 +252,9 @@ export default function ContactFormInner({ onSubmitSuccess }: ContactFormInnerPr
             <span className="mt-1 block text-white/60">Submitting this form does not establish an attorney-client relationship.</span>
           </label>
         </div>
-        <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden />
+        <input type="text" name="company" value={formData.company} onChange={handleInputChange} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden />
         <button type="submit" disabled={formStatus === 'loading'} className="mt-3 w-full rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-4 text-lg font-bold text-[#0e0e0e] shadow-[0_8px_24px_rgba(212,175,55,0.25)] disabled:opacity-50 disabled:cursor-not-allowed">
-          {formStatus === 'loading' ? 'Sending...' : 'Request a free consultation'}
+          {formStatus === 'loading' ? 'Sending...' : mode === 'press' ? 'Send press inquiry' : 'Request a free consultation'}
         </button>
         {formStatus === 'success' && (
           <div className="rounded-lg border border-blue-400/30 bg-[#0b2a4a] p-4 text-base font-semibold text-blue-100 md:col-span-2" role="status" aria-live="polite">

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import React from 'react';
+import CookiePreferencesButton from './CookiePreferencesButton';
 import { FIRM_PHONE_DISPLAY, FIRM_PHONE_E164 } from '../../lib/constants';
 
 export default function LiteFooter() {
@@ -16,6 +17,7 @@ export default function LiteFooter() {
           <Link href="/privacy-policy" className="hover:text-[#d4af37]">Privacy Policy</Link>
           <Link href="/disclaimer" className="hover:text-[#d4af37]">Disclaimer</Link>
           <Link href="/contact" className="hover:text-[#d4af37]">Contact</Link>
+          <CookiePreferencesButton />
         </div>
         <p>© {year} The Law Offices of Saggese &amp; Associates</p>
         <div className="flex flex-col items-center gap-2 text-white/40">

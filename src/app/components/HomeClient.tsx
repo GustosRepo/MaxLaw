@@ -22,9 +22,7 @@ import {
 } from '../../lib/constants';
 import { useLiteMode } from './LiteModeContext';
 import PracticeCardsLite from './PracticeCardsLite';
-import ResultsSectionLite from './ResultsSectionLite';
 import AwardsSectionLite from './AwardsSectionLite';
-import ReviewsSectionLite from './ReviewsSectionLite';
 import AboutSectionLite from './AboutSectionLite';
 import HeroMediaLite from './HeroMediaLite';
 import ContactSectionLite from './ContactSectionLite';
@@ -75,7 +73,6 @@ export default function HomeClient(){
   const { lite } = useLiteMode();
   const [safe,setSafe]=React.useState(false);
   const [skipSections,setSkipSections]=React.useState<SkipConfig>({results:false,awards:false,media:false,mission:false,reviews:false,about:false,contact:false});
-  const reviewSummary={rating:4.9,total:125};
   React.useEffect(()=>{
     try{
       const sp=new URLSearchParams(window.location.search);
@@ -148,9 +145,8 @@ export default function HomeClient(){
         key: 'reviews',
         node: (
           <Section id="reviews" className="py-12">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.05] md:backdrop-blur-sm p-8 md:p-10 max-w-6xl mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-6">Reviews</h2>
-              <GoogleReviews renderImmediately />
+            <div className="max-w-6xl mx-auto">
+              <GoogleReviews />
             </div>
           </Section>
         ),
@@ -185,9 +181,7 @@ export default function HomeClient(){
   const mobileClass = lite ? 'block' : 'md:hidden';
   const mobileSections: Record<string, React.ReactNode> = {
     about: <Section id="about-lite" className="py-10"><AboutSectionLite /></Section>,
-    results: <Section id="results-lite" className="py-10"><ResultsSectionLite /></Section>,
     awards: <Section id="awards-lite" className="py-10"><AwardsSectionLite /></Section>,
-    reviews: <Section id="reviews-lite" className="py-10"><ReviewsSectionLite /></Section>,
     contact: <Section id="contact-lite" className="py-10"><ContactSectionLite /></Section>,
   };
   if (safe) {
@@ -254,14 +248,9 @@ export default function HomeClient(){
                   priority
                 />
               </div>
-              <h1 className="hidden md:block font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[0.95] tracking-tight">
+              <h1 className="mx-auto max-w-[20rem] font-[var(--font-playfair)] text-lg font-bold leading-[1.12] tracking-tight md:mx-0 md:max-w-none md:text-5xl md:font-extrabold md:leading-[0.95]">
                 {FIRM_NAME}
-                <span className="block text-[0.55em] mt-4 text-[#d4af37] font-serif font-normal">Injury & Criminal Defense Attorneys</span>
-              </h1>
-              <h1 className="md:hidden mx-auto max-w-[20rem] font-[var(--font-playfair)] text-lg font-bold leading-[1.12] text-white">
-                <span className="block">The Law Offices of Saggese</span>
-                <span className="block">&amp; Associates</span>
-                <span className="block mt-3 text-[0.55em] text-[#d4af37] font-normal">Injury &amp; Criminal Defense Attorneys</span>
+                <span className="mt-3 block text-[0.55em] font-normal text-[#d4af37] md:mt-4">Injury &amp; Criminal Defense Attorneys</span>
               </h1>
               <p className="mx-auto mt-4 max-w-[19rem] text-sm leading-relaxed text-white/84 sm:max-w-2xl sm:text-lg md:mx-0 md:mt-6 md:max-w-xl md:text-2xl">
                 Injured and not at fault? Free consultation. No fee unless we win your injury case.
@@ -273,7 +262,7 @@ export default function HomeClient(){
               <div className="mx-auto mt-3 max-w-[19rem] text-center text-xs text-white/60 md:mx-0 md:max-w-none md:text-left md:text-sm">
                 Hurt in a crash? <Link href="/practice/car-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">Car accident cases</Link>
               </div>
-              <ul className="mx-auto mt-5 flex max-w-[19rem] flex-wrap justify-center gap-x-4 gap-y-2 text-[11px] text-white/66 md:mx-0 md:mt-8 md:max-w-none md:justify-start md:text-xs"><li>{TOTAL_RECOVERED_DISPLAY}*</li><li>25+ Years Experience</li><li>{reviewSummary.rating.toFixed(1)}★ ({reviewSummary.total}+ reviews)</li><li>24/7 Message Us</li></ul>
+              <ul className="mx-auto mt-5 flex max-w-[19rem] flex-wrap justify-center gap-x-4 gap-y-2 text-[11px] text-white/66 md:mx-0 md:mt-8 md:max-w-none md:justify-start md:text-xs"><li>{TOTAL_RECOVERED_DISPLAY}*</li><li>25+ Years Experience</li><li><a href="#reviews" className="underline underline-offset-2">Read client reviews</a></li><li>24/7 Message Us</li></ul>
               <p className="mt-2 text-[10px] text-white/35">*Past results don’t guarantee future outcomes.</p>
             </div>
           </div>
@@ -315,7 +304,7 @@ export default function HomeClient(){
           </div>
         </Section>
       </div>
-      {sectionQueue.map(item => item.key === 'media' ? (
+      {sectionQueue.map(item => ['media', 'results', 'reviews'].includes(item.key) ? (
         <div key={item.key} className={`mx-auto w-full max-w-7xl px-4 py-10 md:px-6 ${lite ? '' : 'md:contents'}`}>
           {item.node}
         </div>

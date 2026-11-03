@@ -128,7 +128,7 @@ export default function AboutPage() {
 
           {/* Main content unified centered column */}
           <div className="space-y-10 max-w-4xl mx-auto">
-            <main className="space-y-8">
+            <div className="space-y-8">
               <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6 text-center">
                 <div className="kpi"><b>5,000+</b><span className="text-white/70 text-sm">Clients represented</span></div>
                 <div className="kpi"><b>1999</b><span className="text-white/70 text-sm">Practicing since</span></div>
@@ -245,7 +245,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-[var(--font-playfair)] font-bold mb-4 text-center">Frequently Asked Questions</h3>
                 <FAQ />
               </div>
-            </main>
+            </div>
             <div className="rounded-2xl p-6 md:p-8 bg-gradient-to-r from-[#d4af37]/15 via-[#c5a467]/10 to-transparent border border-white/10 text-center">
               <div className="text-xl md:text-2xl font-semibold mb-2">Injured or facing charges? Get answers today.</div>
               <div className="text-white/80 mb-4">Free, confidential consultation — no strings attached.</div>

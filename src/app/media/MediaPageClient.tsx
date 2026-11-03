@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FEATURED_MEDIA_APPEARANCES } from '../../lib/constants'
+import ContactFormInner from '../components/ContactFormInner';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -144,7 +145,7 @@ export default function MediaPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <main className="md:col-span-2 space-y-6">
+            <div className="md:col-span-2 space-y-6">
               <div id="articles">
                 {/* Media article list using available images from /public/content */}
                 {(() => {
@@ -198,17 +199,11 @@ export default function MediaPage() {
                 <h2 className="text-2xl font-[var(--font-playfair)] font-bold mb-3">Press Inquiries</h2>
                 <p className="text-sm text-white/80">For media requests or interviews, contact the firm and we will respond promptly.</p>
               </div>
-            </main>
+            </div>
 
             <aside className="space-y-6">
               <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
-                <h3 className="text-base font-semibold mb-2">Short Contact</h3>
-                <p className="text-sm text-white/80 mb-3">Quick intake for media & press.</p>
-                <form onSubmit={(e) => { e.preventDefault(); alert('Thanks — we will be in touch.'); }} className="space-y-3">
-                  <input className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Name" />
-                  <input className="w-full rounded-xl border border-white/10 bg-neutral-900 px-3 py-2 text-sm" placeholder="Email" />
-                  <button className="w-full rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e]">Submit</button>
-                </form>
+                <ContactFormInner mode="press" />
               </div>
 
               <div className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg text-sm text-white/80">

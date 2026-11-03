@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { CONSENT_EVENT, getConsentChoice } from '../../lib/consent';
 
 const APEX_CHAT_SRC = "https://www.apexchat.net/scripts/invitation.ashx?company=maxlawnv";
 
@@ -21,20 +22,16 @@ export default function ApexChatLoader() {
       cleanup();
     };
 
-    const timer = window.setTimeout(loadChat, 10000);
+    const update = () => { if (getConsentChoice() === 'accepted') loadChat(); };
 
     const cleanup = () => {
-      window.removeEventListener("pointerdown", loadChat);
-      window.removeEventListener("keydown", loadChat);
-      window.removeEventListener("touchstart", loadChat);
-      window.removeEventListener("scroll", loadChat);
-      window.clearTimeout(timer);
+      window.removeEventListener(CONSENT_EVENT, update);
+      window.removeEventListener('storage', update);
     };
 
-    window.addEventListener("pointerdown", loadChat, { once: true, passive: true });
-    window.addEventListener("keydown", loadChat, { once: true });
-    window.addEventListener("touchstart", loadChat, { once: true, passive: true });
-    window.addEventListener("scroll", loadChat, { once: true, passive: true });
+    update();
+    window.addEventListener(CONSENT_EVENT, update);
+    window.addEventListener('storage', update);
 
     return cleanup;
   }, []);

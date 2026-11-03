@@ -1,5 +1,20 @@
 # Progress Checklist
 
+## SEO and site-quality fixes — November 3, 2026 (local)
+
+- [x] Correct Record Sealing headings/metadata/schema and nested main landmarks.
+- [x] Remove conflicting review totals/stale dates; share testimonial/result data.
+- [x] Improve footer contrast and prerender the consultation form.
+- [x] Connect the press form and retain small corrections to the existing SMTP delivery flow.
+- [x] Honor analytics/chat consent, provide preference controls and track successful consultations without contact/case data.
+- [x] Remove the extra backend infrastructure and restore production monitoring settings at the user's request.
+- [x] Retain dependency security patches.
+- [x] Verify the reduced change set: build, TypeScript, lint, 19 regression cases and structured-data validation pass.
+- [ ] Verify existing SMTP delivery and GA4 account events before release.
+- [ ] Deploy and verify the release; no deployment was performed during this work.
+
+The content/article roadmap remains in [NovGameplan.md](../NovGameplan.md). Article drafts and attorney approval are pending. The retained changes require no added storage service, database or scheduled job. Earlier checklist entries below are historical.
+
 ## Privacy / compliance updates
 - [x] Added a dedicated privacy policy page at /privacy-policy
 - [x] Added a legal disclaimer page at /disclaimer

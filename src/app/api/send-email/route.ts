@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { join } from 'node:path';
+import { ContactInputError, escapeHtml, validateContactForm, type ContactForm } from '../../../lib/contact-form';
 import {
   FIRM_ADDRESS_LINE1,
   FIRM_ADDRESS_LINE2,
@@ -10,35 +11,11 @@ import {
   SITE_URL,
 } from '../../../lib/constants';
 
-interface FormPayload {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone?: string;
-  message: string;
-  caseType?: string;
-  piSubtype?: string;
-  injurySeverity?: string;
-  medicalEstimate?: string;
-  atFault?: string;
-  otherDriverInsurance?: string;
-  wereYouInjured?: string;
-  injuryList?: string;
-  passengers?: string;
-  vehicleDamageSeverity?: string;
-  chargeName?: string;
-  arrested?: string;
-  financialAbility?: string;
-}
+type FormPayload = ContactForm;
 
-const ACCEPTED_CASE_TYPES = ['Injury', 'Personal Injury', 'Criminal Defense'];
 const EMAIL_LOGO_CID = 'saggese-logo@maxlawnv.com';
 const EMAIL_LOGO_PATH = join(process.cwd(), 'public', 'home-logo.png');
 const CONTACT_FROM_DISPLAY_NAME = 'Saggese – Lawyers';
-
-function normalizeCaseType(caseType: string) {
-  return caseType === 'Personal Injury' ? 'Injury' : caseType;
-}
 
 function buildPlainText(form: FormPayload) {
   const lines: string[] = [];
@@ -65,33 +42,24 @@ function buildPlainText(form: FormPayload) {
 }
 
 function buildHtml(form: FormPayload) {
-  const rows = (label: string, value?: string) => value ? `<tr><td style="padding:6px 8px;border:1px solid #eee;font-weight:600">${label}</td><td style="padding:6px 8px;border:1px solid #eee">${value}</td></tr>` : '';
+  const rows = (label: string, value?: string) => value ? `<tr><td style="padding:6px 8px;border:1px solid #eee;font-weight:600">${label}</td><td style="padding:6px 8px;border:1px solid #eee">${escapeHtml(value)}</td></tr>` : '';
   return `
     <div style="font-family:Arial,Helvetica,sans-serif;color:#111">
       <h2>New contact form submission</h2>
       <table style="border-collapse:collapse;width:100%;max-width:600px">${rows('Name', `${form.firstName || ''} ${form.lastName || ''}`)}${rows('Email', form.email)}${rows('Phone', form.phone)}${rows('Case type', form.caseType)}${rows('PI subtype', form.piSubtype)}${rows('Injury severity', form.injurySeverity)}${rows('Estimated medical bills', form.medicalEstimate)}${rows('At fault', form.atFault)}${rows('Other driver insurance', form.otherDriverInsurance)}${rows('Were you injured', form.wereYouInjured)}${rows('Injuries', form.injuryList)}${rows('Passengers', form.passengers)}${rows('Vehicle damage', form.vehicleDamageSeverity)}${rows('Charge', form.chargeName)}${rows('Arrested', form.arrested)}${rows('Financial ability', form.financialAbility)}</table>
       <h3 style="margin-top:18px">Message</h3>
-      <div style="white-space:pre-wrap;border:1px solid #eee;padding:12px;background:#fafafa">${(form.message || '')}</div>
+      <div style="white-space:pre-wrap;border:1px solid #eee;padding:12px;background:#fafafa">${escapeHtml(form.message || '')}</div>
     </div>
   `;
 }
 
 export async function POST(req: Request) {
   try {
-    const form = (await req.json()) as FormPayload;
-
-    if (!form || !form.firstName || !form.lastName || !form.email || !form.message) {
-      return NextResponse.json({ success: false, error: 'Missing required fields: firstName, lastName, email, or message' }, { status: 400 });
-    }
-
-    const caseType = form.caseType || '';
-    if (!ACCEPTED_CASE_TYPES.includes(caseType)) {
-      return NextResponse.json({ success: false, error: 'We do not handle that matter. Please call for a referral or check our practice areas.' }, { status: 422 });
-    }
+    const form = validateContactForm(await req.json());
 
     const TEST_EMAIL = process.env.TEST_EMAIL === 'true' || process.env.NODE_ENV === 'test';
 
-    const normalizedForm = { ...form, caseType: normalizeCaseType(caseType) };
+    const normalizedForm = form;
     const subject = `[Website Contact] ${normalizedForm.caseType} — ${form.firstName || ''} ${form.lastName || ''}`;
     const text = buildPlainText(normalizedForm);
     const html = buildHtml(normalizedForm);
@@ -126,19 +94,22 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       host,
       port,
-      secure: false,
-      requireTLS: true,
+      secure: port === 465,
+      requireTLS: port !== 465,
       auth: { user, pass },
-      tls: { rejectUnauthorized: false },
+      tls: { rejectUnauthorized: true },
     });
 
     const fromEmail = process.env.CONTACT_FROM || user;
     const from = `"${CONTACT_FROM_DISPLAY_NAME}" <${fromEmail}>`;
     const to = process.env.CONTACT_TO || user;
 
-    const info = await transporter.sendMail({ from, to, subject, text, html });
+    const info = await transporter.sendMail({
+      from, to, subject, text, html, replyTo: form.email,
+    });
+    if (!info.accepted?.length) throw new Error('Office notification was not accepted');
 
-    // Send confirmation to client
+    // A visitor confirmation failure must not invalidate a successful office notification.
     const clientSubject = 'Thank you for contacting The Law Offices of Saggese & Associates';
     const clientHtml = `
       <div style="font-family:Arial,Helvetica,sans-serif;color:#111;max-width:600px">
@@ -146,8 +117,8 @@ export async function POST(req: Request) {
           <img src="cid:${EMAIL_LOGO_CID}" alt="${FIRM_NAME}" width="220" style="display:block;max-width:220px;width:100%;height:auto" />
         </div>
         <h2 style="color:#d4af37;margin:0 0 14px">Thank You for Reaching Out</h2>
-        <p>Dear ${form.firstName || ''},</p>
-        <p>We have received your inquiry regarding <strong>${form.caseType || 'your legal matter'}</strong>. A member of our team will review your information and contact you shortly.</p>
+        <p>Dear ${escapeHtml(form.firstName || '')},</p>
+        <p>We have received your inquiry regarding <strong>${escapeHtml(form.caseType || 'your legal matter')}</strong>. A member of our team will review your information and contact you shortly.</p>
         <div style="margin-top:22px;padding-top:16px;border-top:1px solid #ddd;color:#333;font-size:14px;line-height:1.5">
           <strong>${FIRM_NAME}</strong><br />
           ${FIRM_ADDRESS_LINE1}<br />
@@ -159,23 +130,32 @@ export async function POST(req: Request) {
     `;
     const clientText = `Thank you for contacting The Law Offices of Saggese & Associates\n\nDear ${form.firstName || ''},\n\nWe have received your inquiry regarding ${form.caseType || 'your legal matter'}.\n\n${FIRM_NAME}\n${FIRM_ADDRESS_LINE1}\n${FIRM_ADDRESS_LINE2}\nPhone: ${FIRM_PHONE_DISPLAY}\nWebsite: ${SITE_URL}`;
 
-    await transporter.sendMail({
-      from,
-      to: form.email,
-      subject: clientSubject,
-      text: clientText,
-      html: clientHtml,
-      attachments: [{
-        filename: 'saggese-logo.png',
-        path: EMAIL_LOGO_PATH,
-        cid: EMAIL_LOGO_CID,
-      }],
-    });
+    try {
+      await transporter.sendMail({
+        from,
+        to: form.email,
+        subject: clientSubject,
+        text: clientText,
+        html: clientHtml,
+        attachments: [{
+          filename: 'saggese-logo.png',
+          path: EMAIL_LOGO_PATH,
+          cid: EMAIL_LOGO_CID,
+        }],
+      });
+    } catch {
+      console.error('Contact confirmation email failed after the office notification was accepted');
+    }
 
-    return NextResponse.json({ success: true, info });
+    return NextResponse.json({ success: true });
   } catch (err: unknown) {
-    console.error('app send-email error:', err);
-    const message = err instanceof Error ? err.message : String(err);
-    return NextResponse.json({ success: false, error: message }, { status: 500 });
+    if (err instanceof ContactInputError) {
+      return NextResponse.json({ success: false, error: err.message }, { status: err.status });
+    }
+    if (err instanceof SyntaxError) {
+      return NextResponse.json({ success: false, error: 'Please check the submitted form.' }, { status: 400 });
+    }
+    console.error('Contact form email failed');
+    return NextResponse.json({ success: false, error: 'Failed to send your inquiry. Please try again or call (702) 778-8883.' }, { status: 500 });
   }
 }

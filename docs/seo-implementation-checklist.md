@@ -1,12 +1,19 @@
 # Max Law SEO Implementation Checklist
 
 **Started:** 2026-08-20  
-**Last updated:** 2026-09-16
-**Strategy source:** `docs/seo3.md`  
+**Last updated:** 2026-11-03 — November content handoff added; historical Phase 1/2 checks below have not been rerun.
+
+**Current content strategy:** [November SEO gameplan](../NovGameplan.md), with [GEO plan](../NovGEOplan.md) alignment.
+
+**Historical strategy source:** `docs/seo3.md`
+
 **Audit sources:** `docs/seo-audit-2026-08-20.md`; current codebase audit on 2026-09-08
 
 ## Current Status
 
+-   November 3 scope correction: retain headings/schema, rendering, review consistency, footer contrast, consent/lead measurement and small existing-SMTP corrections. Extra backend infrastructure and monitoring overhaul removed; no new hosting/services setup is required. Live account/delivery checks and deployment remain pending.
+-   November 3: the next content cycle pairs the Car Accidents page with two supporting articles, followed by existing settlement-page improvements and statistics maintenance. Premises Liability follows this cycle. The Car Accident page draft is prepared; full article drafts, Marc's review, implementation and publication remain pending.
+-   The Phase 1/2 completion and QA statements below are historical records, not fresh validation of the November package or confirmation of its deployment.
 -   Phase 1 is complete for the approved technical SEO baseline and audit cleanup scope.
 -   TypeScript validation passes.
 -   ESLint validation passes.
@@ -21,7 +28,25 @@
 -   2026-09-15 audit confirmed `/practice` currently functions as a mixed Injury + Criminal Defense hub; do not restructure it yet.
 -   Client-facing SEO language should prefer `Injury`, `Injury Lawyer`, `Injury Attorney`, `Injury Law`, or `Accident & Injury`; metadata may preserve `personal injury` terms where useful for rankings.
 
-## Current Handoff: Progress, Waiting On, Next
+## Current Content Handoff — November 3, 2026
+
+The [November gameplan](../NovGameplan.md) is the current content tracker. Develop supporting articles alongside the main page review; approval and publication are separate from recording this plan.
+
+-   [x] Prepare the Car Accident service-page review draft (N03; gameplan Section 11).
+-   [x] Prioritize the first car accident package and align the SEO/GEO documentation.
+-   [ ] Review the two supporting article briefs with CODEWERX and Marc.
+-   [ ] Draft **How to Obtain a Car Accident Report in Las Vegas** (N05), with verified official request instructions.
+-   [ ] Draft **How Is Fault Determined in a Nevada Car Accident?** (N06), with reviewed evidence and shared-fault explanations.
+-   [ ] Gather Marc's practical input and legal/business confirmation; finalize approved page and article copy.
+-   [ ] Expand the existing **Insurance Settlements & Checks** page (N11); check **Car Accident Statistics** sources and refresh only when warranted (N12).
+-   [ ] Obtain pre-release GSC/analytics/lead evidence and record the baseline.
+-   [ ] Implement approved content and contextual links between articles and Car Accidents; add resource navigation/sitemap inclusion when approved destinations exist.
+-   [ ] Validate each implemented release, obtain deployment authorization and record actual go-live dates.
+-   [ ] Monitor relevant nonbranded queries, intended page indexing, article-to-service journeys where tracking is verified, and qualified inquiries.
+
+Premises Liability (N04) follows this car accident content cycle. Later medical-bill, uninsured-driver and visitor topics require client-question/search-demand evidence and an overlap check; use existing pages where they already own the topic. The retained SEO/site-quality fixes affect existing pages and measurement; it did not implement or publish these proposed articles. No fresh indexing or production-delivery pass is claimed.
+
+## Historical Phase 2 Handoff — September 16, 2026
 
 Progress as of 2026-09-16:
 

@@ -3,11 +3,13 @@
 **Prepared for:** CODEWERX LLC / The Law Offices of Saggese & Associates  
 **Audit date:** October 29, 2026 (America/Los_Angeles)  
 **Planning window:** November 2026  
+**Last planning update:** November 3, 2026 — aligned with the car accident package and retained SEO/site-quality fixes; the original platform audit has not been rerun.
+
 **Website:** https://www.maxlawnv.com  
 **Repository baseline:** `4ee3a34` (`fixed old redirects`)  
-**Status:** Read-only audit completed within available access; CODEWERX review, Marc's factual/legal confirmation and account/platform testing remain pending. No implementation or deployment authorized.
+**Status:** Original read-only audit complete; SEO/site-quality fixes retained locally after the user excluded extra backend infrastructure. Marc's factual/legal confirmation, account/platform testing and deployment remain pending.
 
-This document records the audit already reported in the conversation. Saving it does not constitute another production test or approval to change the website. The existing [November SEO gameplan](NovGameplan.md) remains the content-work tracker; this plan complements it without expanding its approved scope.
+This document records the October 29 audit and subsequent updates. Historical observations below describe that audit, not a fresh production verification. The [November SEO gameplan](NovGameplan.md) remains the content tracker. The November 3 retained fixes cover rendering, headings/schema, review consistency and consent-aware lead measurement. Existing SMTP remains in use; the extra backend expansion has been removed and adds no hosting requirements. It does not establish AI citations, legal review, completed article drafts or a production release.
 
 ## Progress tracker
 
@@ -18,6 +20,7 @@ This document records the audit already reported in the conversation. Saving it 
 - [x] Research accessible business/attorney profiles and competitor websites.
 - [x] Verify current official platform documentation and identify reporting limits.
 - [x] Prepare the evidence-based audit and proposed November actions.
+- [x] November 3: align content priorities with the Car Accidents page plus the report/fault articles, followed by existing settlement content and statistics maintenance; Premises Liability follows this cycle.
 - [ ] Complete CODEWERX review and select work items.
 - [ ] Obtain Marc's legal/factual confirmation and supporting records.
 - [ ] Complete the repeated consumer-platform query baseline.
@@ -43,9 +46,9 @@ The investigation confirmed:
 - Some external profiles list **Suite 201**, while the website lists **Suite 200C**.
 - Criminal-defense pages provide a starting point but leave important procedural and consultation questions unanswered.
 
-The November content strategy remains appropriate. Prioritize factual consistency, attorney-reviewed explanations and measurement before experimental GEO work.
+The November 3 content strategy pairs the Car Accidents page with two supporting articles: obtaining a Las Vegas crash report and understanding fault in a Nevada car accident. Develop these alongside page review, then improve existing settlement content and maintain statistics. Premises Liability follows that cycle. These are useful reader tasks and SEO opportunities; an AI citation or recommendation benefit remains unproven. Prioritize factual consistency, attorney-reviewed explanations and measurement before experimental GEO work.
 
-**The audit changed no repository files, installed no dependencies and performed no deployment.** This subsequent save creates `NovGEOplan.md` only; the existing `NovGameplan.md` is unchanged.
+**The original audit changed no repository files, installed no dependencies and performed no deployment.** The original save created this document. The November 3 planning update aligned the SEO documents; the later scope correction retained SEO/site-quality fixes and removed extra infrastructure. Neither constitutes a production release or a repeated consumer-platform audit.
 
 | Classification | Meaning |
 |---|---|
@@ -320,19 +323,19 @@ Effort estimates exclude Marc's review, account delays and deployment.
 | G03 | **P1** | Blanket Car Accident deadline statement | Finalize Marc-reviewed CA-02 correction already proposed in NovGameplan.md | 0.5–1 h after approval | Incorrect legal qualification | Approved text, source and rendered HTML |
 | G04 | **P2** | Unsubstantiated trust claims | Build evidence register for credentials, results, reviews, fees and service practices | 3–6 h | Confidentiality or misleading attribution | Marc-approved evidence/wording register |
 | G05 | **P2** | Actual AI and lead performance unknown | Inspect GSC/Bing/GA4 settings and validate successful-request/call tracking | 3–6 h | Misattribution or duplicate events | Account exports and controlled approved tests |
-| G06 | **P2** | Existing injury-page gaps | Continue Car Accident review; separately scope Premises improvements and useful existing-page links | Existing N03/N04 estimates; re-estimate approved implementation | Legal errors or repeated content | Approval, HTML, links and regression checks |
+| G06 | **P2** | Existing car accident and support-page gaps | Review N03 alongside the report/fault articles; then expand settlement content (N11) and maintain statistics (N12). Premises (N04) follows the cycle | Existing N03 estimate; re-estimate N11/N12 and approved implementation | Legal errors or repeated content | Approval, HTML, links, source checks and regression checks |
 | G07 | **P2** | Defense pages omit practical process answers | Brief DUI and Domestic Violence improvements first | 6–10 h combined | Legal inaccuracies or implied outcomes | Marc review and content/HTML checks |
 | G08 | **P2** | Some existing answers require interaction | Evaluate About answer rendering and contact fallback without redesign | 2–4 h | Layout/hydration regression | No-JS HTML plus mobile/browser testing |
 | G09 | **P3** | No reproducible consumer-platform baseline | Run the 80 query/platform combinations on repeated dates | 6–10 h initial sampling | Overinterpreting volatile answers | Archived answers, sources and settings |
-| G10 | **P3** | Distinct report/fault questions remain underserved | Continue separately approved resource research in the November plan | Existing N05/N06 estimates | Duplication, stale procedures or legal error | Approved intent/brief, primary sources and later performance |
+| G10 | **P2** | Distinct report/fault questions remain underserved | Develop the N05/N06 guides as first-cycle content alongside N03; connect approved guides to Car Accidents and resource navigation | Existing N05/N06 estimates; re-estimate after brief review | Duplication, stale procedures or legal error | Full approved drafts, current primary sources, contextual links and later performance |
 
-P1 identifies observed inconsistencies or overbroad wording; the correct replacement still requires verification. P2 identifies content/trust/measurement opportunities. P3 identifies monitoring or exploratory resource work, not established AI ranking factors.
+P1 identifies observed inconsistencies or overbroad wording; the correct replacement still requires verification. P2 identifies content/trust/measurement opportunities, including the first-cycle resources. P3 identifies exploratory monitoring. No priority label establishes an AI ranking factor.
 
 ### Proposed sequence
 
 1. **Before implementation:** resolve factual evidence, confirm account availability and collect a baseline.
-2. **November 2–6:** complete Car Accident review; authorize only accepted changes; separately scope Premises and defense briefs.
-3. **November 9–20:** proceed with distinct report/fault resources only after brief and legal approval.
+2. **November 2–6:** review the Car Accident page and report/fault article briefs; gather Marc's input and develop the articles alongside page review. Scope the settlement expansion and check statistics sources.
+3. **November 9–20:** target approved Car Accident and report/fault releases, followed by existing settlement improvements and warranted statistics maintenance. Full article drafts, source/legal checks and release approval remain pending. Premises follows this cycle; defense briefs remain separately scoped.
 4. **After each authorized release:** validate HTML/schema parity, links and mobile behavior; record actual go-live dates.
 5. **Month end:** compare completed reporting windows, keeping injury, criminal-defense and branded results separate.
 
@@ -344,16 +347,16 @@ All actions begin pending review. Enter actual owners, approvals and evidence as
 
 | Action | Proposed owner | Current status | Approval / evidence / next step |
 |---|---|---|---|
-| G01 Reviews | CODEWERX + Marc | Pending review | Obtain source/date before selecting replacement values |
+| G01 Reviews | CODEWERX + Marc | Conflicting aggregates and fixed relative dates removed locally; shared testimonial data | Original testimonial/result source and permission checks still require the firm; no new rating asserted |
 | G02 Business profiles | Account owner + Marc | Pending confirmation | Confirm suite and profile ownership; no external edits authorized |
 | G03 Deadline wording | CODEWERX + Marc | Draft available; approval pending | Review CA-02 in NovGameplan.md; do not duplicate the work item |
 | G04 Trust register | Marc + CODEWERX | Pending supporting records | Assemble claim-level evidence and permission |
-| G05 Measurement | Account owner + CODEWERX | Account access/data unavailable | Inspect settings before proposing instrumentation |
-| G06 Injury content | CODEWERX + Marc | Car draft prepared; implementation pending | Follow N03/N04 scope and approvals in NovGameplan.md |
+| G05 Measurement | Account owner + CODEWERX | Consent-gated page views and successful-SMTP consultation event implemented locally; account data unavailable | Verify generate_lead/key-event settings in GA4, existing SMTP delivery and lead attribution after deployment |
+| G06 Injury content | CODEWERX + Marc | Car draft prepared; settlement expansion/statistics checks pending | Follow N03/N11/N12 and the first cycle in NovGameplan.md; N04 Premises follows that cycle |
 | G07 Defense content | CODEWERX + Marc | Proposal only | Approve briefs before drafting or editing legal content |
 | G08 Existing content access | CODEWERX | Proposal only | Review scope and rendering tradeoffs |
 | G09 Platform baseline | CODEWERX / available Las Vegas tester | Not Tested | Follow Section 2; preserve exact answers/settings |
-| G10 Resources | CODEWERX + Marc | Separate brief approval pending | Follow N05/N06; no new route or article authorized |
+| G10 Resources | CODEWERX + Marc | First-cycle topics prioritized; full drafts and review pending | Follow N05/N06 in NovGameplan.md; the retained site-quality fixes do not publish or approve these articles |
 
 ## 11. Exact files that may require future changes
 
@@ -366,6 +369,10 @@ These are conditional scopes, **not implementation authorization**.
 | `src/app/components/ResultsSection.tsx`, `src/app/components/ResultsSectionLite.tsx`, and `src/app/results/page.tsx` | Apply approved outcome substantiation/corrections |
 | `src/app/practice/car-accidents/CarAccidentsPageClient.tsx` | Approved Sprint 1 content and contextual links |
 | `src/app/practice/car-accidents/page.tsx` | Only a necessary, approved matching FAQ-answer correction |
+| Future `/resources/las-vegas-car-accident-report` and `/resources/nevada-car-accident-fault` route files | Approved report/fault guides; exact files to be scoped before implementation |
+| Future resource index/navigation and `src/app/sitemap.ts` | Discoverability of approved new resources after implementation approval |
+| `src/app/practice/insurance-settlements-and-checks/page.tsx` | Approved expansion of the existing settlement/process content |
+| `src/app/practice/car-accident-statistics/page.tsx` | Source-verified maintenance when a substantive update is warranted |
 | `src/app/practice/premises-liability/page.tsx` | Separately approved content improvements |
 | `src/app/criminal-defense/dui/page.tsx` | Reviewed process, example and outcome wording |
 | `src/app/criminal-defense/domestic-violence/page.tsx` | Reviewed process and consultation guidance |
@@ -379,7 +386,7 @@ These are conditional scopes, **not implementation authorization**.
 | `src/app/components/GoogleAnalyticsLoader.tsx` and `src/app/components/ContactFormInner.tsx` | Separately approved measurement work |
 | `src/app/contact/ContactPageClient.tsx` | Only an approved form-access/fallback improvement |
 
-No present evidence requires changing `src/app/robots.ts`, sitemap routes, canonicals, redirects, shared schema identities or Brain & Spine metadata. External listing corrections would occur through authorized profile management, not repository edits.
+The proposed new resources will require deliberate sitemap inclusion and their own self-canonicals when implementation is authorized. No present evidence requires changing existing canonicals, `src/app/robots.ts`, redirects, shared schema identities or Brain & Spine metadata. External listing corrections would occur through authorized profile management, not repository edits.
 
 ## 12. Items requiring Marc's approval
 

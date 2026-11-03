@@ -19,7 +19,6 @@ export default function LayoutShell({ children }: LayoutShellProps) {
   const { lite, nav } = useLiteMode();
   const [isMobile, setIsMobile] = React.useState(false);
   const [isHydrated, setIsHydrated] = React.useState(false);
-  const [showCookieConsent, setShowCookieConsent] = React.useState(false);
 
   React.useEffect(() => {
     setIsHydrated(true);
@@ -29,11 +28,6 @@ export default function LayoutShell({ children }: LayoutShellProps) {
     update();
     mql.addEventListener('change', update);
     return () => mql.removeEventListener('change', update);
-  }, []);
-
-  React.useEffect(() => {
-    const timer = window.setTimeout(() => setShowCookieConsent(true), 3500);
-    return () => window.clearTimeout(timer);
   }, []);
 
   const header = React.useMemo(() => {
@@ -61,7 +55,7 @@ export default function LayoutShell({ children }: LayoutShellProps) {
       {header}
       {children}
       {footer}
-      {showCookieConsent && <CookieConsentBanner />}
+      <CookieConsentBanner />
     </ClientErrorBoundary>
   );
 }

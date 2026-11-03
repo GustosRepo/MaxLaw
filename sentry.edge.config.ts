@@ -5,7 +5,7 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = process.env.NODE_ENV === "production" && process.env.DISABLE_MONITORING !== "true";
 
 Sentry.init({
   dsn: "https://2b373f938c207b122845ae4fac7d180c@o4511536973545472.ingest.us.sentry.io/4511896211226624",

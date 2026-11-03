@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import LazyMap from './LazyMap';
+import ContactFormInner from './ContactFormInner';
 import {
   FIRM_ADDRESS_LINE1,
   FIRM_ADDRESS_LINE2,
@@ -10,51 +10,13 @@ import {
   FIRM_PHONE_E164,
 } from '../../lib/constants';
 
-const ContactFormInner = dynamic(() => import('./ContactFormInner'), {
-  ssr: false,
-  loading: () => (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-sm text-white/65">
-      Loading secure form…
-    </div>
-  ),
-});
-
 export default function ContactSectionClient() {
-  const [showForm, setShowForm] = React.useState(false);
   const [mapRevealed, setMapRevealed] = React.useState(false);
-
-  React.useEffect(() => {
-    try {
-      if (window.matchMedia('(min-width: 768px)').matches) {
-        setShowForm(true);
-      }
-    } catch {
-      /* ignore matchMedia failures */
-    }
-  }, []);
 
   return (
     <div className="mt-0 grid grid-cols-1 gap-8 md:grid-cols-3">
       <div className="md:col-span-2 space-y-4">
-        {!showForm && (
-          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-            <h3 className="text-lg font-semibold text-white">Quick Consultation Intake</h3>
-            <p className="mt-2 text-sm text-white/70">
-              Share a few details about your matter. It takes about two minutes and stays confidential.
-            </p>
-            <button
-              onClick={() => setShowForm(true)}
-              className="mt-4 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-3 text-sm font-semibold text-[#0e0e0e]"
-            >
-              Start the form
-            </button>
-          </div>
-        )}
-        {showForm && (
-          <React.Suspense fallback={null}>
-            <ContactFormInner />
-          </React.Suspense>
-        )}
+        <ContactFormInner />
       </div>
       <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/80 flex flex-col gap-4">
         <h3 className="text-base font-semibold">Contact Information</h3>

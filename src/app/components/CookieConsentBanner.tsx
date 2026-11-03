@@ -3,24 +3,34 @@
 import Link from 'next/link';
 import React from 'react';
 
-const STORAGE_KEY = 'maxlaw-cookie-consent';
-
-type ConsentChoice = 'accepted' | 'rejected';
+import { clearAnalyticsCookies, CONSENT_EVENT, getConsentChoice, PREFERENCES_EVENT, saveConsentChoice, type ConsentChoice } from '../../lib/consent';
 
 export default function CookieConsentBanner() {
   const [isVisible, setIsVisible] = React.useState(false);
-  const [hasMounted, setHasMounted] = React.useState(false);
 
   React.useEffect(() => {
-    setHasMounted(true);
-    const saved = window.localStorage.getItem(STORAGE_KEY) as ConsentChoice | null;
-    setIsVisible(!saved);
+    const update = () => setIsVisible(!getConsentChoice());
+    const open = () => setIsVisible(true);
+    update();
+    window.addEventListener(PREFERENCES_EVENT, open);
+    window.addEventListener(CONSENT_EVENT, update);
+    window.addEventListener('storage', update);
+    return () => {
+      window.removeEventListener(PREFERENCES_EVENT, open);
+      window.removeEventListener(CONSENT_EVENT, update);
+      window.removeEventListener('storage', update);
+    };
   }, []);
 
   const saveChoice = (choice: ConsentChoice) => {
-    if (!hasMounted) return;
-    window.localStorage.setItem(STORAGE_KEY, choice);
+    const previous = getConsentChoice();
+    saveConsentChoice(choice);
     setIsVisible(false);
+    if (choice === 'rejected') {
+      clearAnalyticsCookies();
+      // Unload already-running analytics/chat code when consent is withdrawn.
+      if (previous === 'accepted') window.location.reload();
+    }
   };
 
   if (!isVisible) return null;
@@ -31,7 +41,7 @@ export default function CookieConsentBanner() {
         <div className="max-w-3xl text-sm text-white/80">
           <p className="font-semibold text-white">Cookie preferences</p>
           <p className="mt-1">
-            We use cookies to help improve site performance and understand usage. You can accept or reject non-essential cookies at any time. See our{' '}
+            With your permission, we load analytics and live chat. You can change this choice using Cookie preferences in the footer. The contact form and phone links work either way. See our{' '}
             <Link href="/privacy-policy" className="text-[#d4af37] underline underline-offset-2">Privacy Policy</Link>.
           </p>
         </div>

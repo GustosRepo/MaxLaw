@@ -1,15 +1,9 @@
 import React from 'react';
+import { CASE_RESULTS } from '../../lib/client-proof';
 import { TOTAL_RECOVERED_DISPLAY } from '../../lib/constants';
 
-// Pure server component: static list of sample outcomes.
-// Avoid promises / data fetching for now; can be replaced with real data later.
 
-const results = [
-  { amount: '$6.9M', label: 'Negligent Foster Care' },
-  { amount: '$2.9M', label: 'Premises Liability' },
-  { amount: '$1.9M', label: 'Negligent training and Hiring' },
-  { amount: '$1.35M', label: 'Motorcycle Accident' },
-];
+
 
 export default function ResultsSection(){
   return (
@@ -19,7 +13,7 @@ export default function ResultsSection(){
         <strong className="text-[#d4af37]">{TOTAL_RECOVERED_DISPLAY}</strong>*
       </p>
       <ul className="mx-auto mt-8 max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {results.map(r => (
+        {CASE_RESULTS.map(r => (
           <li key={r.label} className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] p-4 text-center">
             <div className="text-xl font-bold text-[#d4af37]">{r.amount}</div>
             <div className="mt-1 text-[11px] uppercase tracking-wide text-white/60 leading-snug">{r.label}</div>

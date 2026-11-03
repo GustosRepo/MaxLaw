@@ -1,56 +1,33 @@
 "use client";
 
 import React from "react";
-
-const GA_ID = "G-1FSZHPMBHS";
-const GA_SRC = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+import { usePathname } from 'next/navigation';
+import { GA_ID, trackPageView } from '../../lib/analytics';
+import { clearAnalyticsCookies, CONSENT_EVENT, getConsentChoice } from '../../lib/consent';
 
 export default function GoogleAnalyticsLoader() {
+  const pathname = usePathname();
   React.useEffect(() => {
-    if (document.querySelector(`script[src="${GA_SRC}"]`)) return;
-
-    let loaded = false;
-
-    const loadAnalytics = () => {
-      if (loaded) return;
-      loaded = true;
-
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function gtag(...args: unknown[]) {
-        window.dataLayer?.push(args);
-      };
-      window.gtag("js", new Date());
-      window.gtag("config", GA_ID);
-
-      const script = document.createElement("script");
-      script.src = GA_SRC;
-      script.async = true;
-      document.head.appendChild(script);
-      cleanup();
+    const update = () => {
+      if (getConsentChoice() === 'accepted') trackPageView();
+      else {
+        window[`ga-disable-${GA_ID}`] = true;
+        document.querySelector('script[data-maxlaw-analytics]')?.remove();
+        clearAnalyticsCookies();
+      }
     };
-
-    const timer = window.setTimeout(loadAnalytics, 8000);
-
-    const cleanup = () => {
-      window.removeEventListener("pointerdown", loadAnalytics);
-      window.removeEventListener("keydown", loadAnalytics);
-      window.removeEventListener("touchstart", loadAnalytics);
-      window.clearTimeout(timer);
+    update();
+    window.addEventListener(CONSENT_EVENT, update);
+    const storageUpdate = () => {
+      if (getConsentChoice() !== 'accepted' && document.querySelector('script[data-maxlaw-analytics]')) window.location.reload();
+      else update();
     };
-
-    window.addEventListener("pointerdown", loadAnalytics, { once: true, passive: true });
-    window.addEventListener("keydown", loadAnalytics, { once: true });
-    window.addEventListener("touchstart", loadAnalytics, { once: true, passive: true });
-
-    return cleanup;
-  }, []);
+    window.addEventListener('storage', storageUpdate);
+    return () => {
+      window.removeEventListener(CONSENT_EVENT, update);
+      window.removeEventListener('storage', storageUpdate);
+    };
+  }, [pathname]);
 
   return null;
 }

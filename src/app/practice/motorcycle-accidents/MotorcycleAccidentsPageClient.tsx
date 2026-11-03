@@ -23,7 +23,7 @@ export default function MotorcycleAccidentsPageClient() {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <main className="md:col-span-2 space-y-6">
+        <div className="md:col-span-2 space-y-6">
           <article className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
             <h2 className="text-xl font-semibold mb-4">Fighting for Motorcyclists' Rights</h2>
             <p className="text-white/80 mb-4">
@@ -68,7 +68,7 @@ export default function MotorcycleAccidentsPageClient() {
               </p>
             </div>
           </article>
-        </main>
+        </div>
 
         <aside className="space-y-6">
           <div className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">

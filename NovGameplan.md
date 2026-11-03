@@ -3,11 +3,21 @@
 **Prepared for:** CODEWERX LLC / The Law Offices of Saggese & Associates  
 **Audit date:** October 29, 2026 (America/Los_Angeles)  
 **Planning window:** November 2026  
-**Status:** Sprint 1 Car Accident content proposal prepared for CODEWERX review; Marc's legal/factual approval and website implementation remain pending.  
-**Last progress update:** October 29, 2026 — drafting only; see [Sprint 1 proposal](#11-sprint-1--car-accident-content-proposal-drafting-only).  
-**Repository reviewed:** commit `4ee3a34` (`fixed old redirects`).
+**Status:** First content cycle prioritizes the Car Accidents page plus two supporting articles, followed by improvements to existing settlement content and maintenance of the statistics resource. Car page draft complete; article briefs outlined, full article drafts and Marc's review pending.
 
-This document is the requested record of the audit, progress and drafting work. Only `NovGameplan.md` is being created or updated. The latest Sprint 1 brief authorizes content drafting, not website implementation. No application, metadata, schema, canonical, redirect, robots, sitemap, image, homepage or Brain & Spine changes, new routes, or deployment are authorized by this drafting phase.
+**Last progress update:** November 3, 2026 — content strategy and SEO/site-quality fixes retained; extra backend infrastructure removed at the user's request. Supporting article drafts and publication remain pending.
+
+**Original audit baseline:** commit `4ee3a34` (`fixed old redirects`); the October 29 inventory and live checks below have not been rerun for this planning update.
+
+This document is the content-work tracker. Current scope is the car accident content package plus local SEO, rendering, consistency and conversion fixes. The user clarified that extra backend infrastructure is outside the client scope; that expansion has been removed. Section 11 preserves the existing Car Accident content draft; the two supporting articles have topic briefs in Section 5, not completed publication copy. Client/legal review and implementation of that proposed content remain pending. No deployment has been performed.
+
+### SEO and site-quality handoff — November 3
+
+Retained locally: aligned Record Sealing headings/metadata/schema, corrected heading and main-landmark markup, shared testimonial/result data, removed conflicting review totals and stale relative dates, improved footer contrast, prerendered the contact form and connected the press form. Consent-aware analytics records successful SMTP submissions without contact/case data. Existing SMTP delivery remains in place with small validation, HTML escaping, certificate and confirmation-error corrections. Dependency security patches are retained.
+
+The expanded storage, queue, retry scheduler/endpoint, persistent rate limits and submission deduplication have been removed. Production monitoring settings are restored; the test server has an opt-out to avoid sending diagnostics. The retained changes add no database, storage service, scheduler, credentials or hosting setup. Existing SMTP delivery and GA4 account configuration still need ordinary release verification, not a new infrastructure project.
+
+**Local verification after rollback:** production build, explicit TypeScript, ESLint and 19 SMTP/desktop/mobile regression cases pass. Structured-data validation reports no issues across 42 generated HTML pages / 51 JSON-LD blocks. These checks do not establish production indexing, rankings or qualified leads. No real inquiry was sent. Supporting article drafts and attorney review remain pending.
 
 ## Tracking board
 
@@ -21,13 +31,15 @@ Owners below are proposed responsibilities, not assignments already accepted. Ch
 | N03-D | Prepare the Car Accident proposal, placement plan and before/after comparison | CODEWERX | Completed as a review draft | Included in N03 planning range | Section 11 A–G; no application files changed |
 | N03-R | Review proposed copy and confirm legal/business claims | CODEWERX + Marc | Pending; no approval recorded | Review effort not yet agreed | Approved draft IDs, fee/intake answers and legal sign-off |
 | N03-I | Implement only the approved Car Accident copy | CODEWERX | Not authorized / not started | Re-estimate after review | Explicit implementation instruction, approved copy and release checks |
-| N04 | Strengthen Premises Liability in place | CODEWERX; Marc review | Later commercial work; outside the current Sprint 1 drafting scope | 4–6 h | Repetition removed; approved Nevada-specific explanations and practical evidence guidance |
-| N05 | Create crash-report resource if its brief is approved | CODEWERX; Marc review | Proposed, dependent on N02 | 5–7 h | Current official agency sources, separate request/filing explanations, working contextual links |
-| N06 | Create Nevada fault resource if its brief is approved | CODEWERX; Marc review | Proposed, dependent on N02/N03 | 6–9 h | Reviewed legal distinctions, evidence examples and nonduplicative commercial/resource boundaries |
+| N04 | Strengthen Premises Liability in place | CODEWERX; Marc review | Deferred until after the first car accident content cycle; separate review | 4–6 h | Repetition removed; approved Nevada-specific explanations and practical evidence guidance |
+| N05 | Draft and publish Las Vegas crash-report guide | CODEWERX; Marc review | First-cycle supporting article 1; topic brief outlined in Section 5, full draft pending | 5–7 h original planning range; re-estimate after brief review | Current official agency sources, distinct request workflow, approved copy and working contextual links |
+| N06 | Draft and publish Nevada car accident fault guide | CODEWERX; Marc review | First-cycle supporting article 2; topic brief outlined in Section 5, full draft pending | 6–9 h original planning range; re-estimate after brief review | Reviewed legal distinctions, evidence examples and nonduplicative commercial/resource boundaries |
 | N07 | Integrate resources into ordinary HTML navigation | CODEWERX | Dependent on approved publication | 2–4 h | Reciprocal links, appropriate resource index/breadcrumbs and approved sitemap inclusion |
 | N08 | Verify approved content releases | CODEWERX | Not run for this draft; pending implementation | 2–3 h | Build, TypeScript, ESLint, schema/content parity, HTML, link and mobile checks |
 | N09 | Monitor completed reporting windows | CODEWERX + account owner | Baseline unavailable | 0.5–1 h/week | Weekly log below; comparable query/page/device/location segments |
 | N10 | Review November outcomes and choose December work | CODEWERX + Marc | Planned, not scheduled | 1 h | Evidence-based continue/adjust/hold decision; no ranking promises |
+| N11 | Improve existing Insurance Settlements & Checks page | CODEWERX; Marc review | Follow the first two article drafts within the car accident content cycle; detailed draft pending | Re-estimate after scope review | Approved explanation of offers, releases, liens and payment process; contextual Car Accidents link; no duplicate generic settlement article |
+| N12 | Maintain existing Car Accident Statistics resource | CODEWERX | Source review pending; refresh only when verified data warrants it | Re-estimate after source check | Accurate source dates, geographic/metric distinctions and working references; no cosmetic freshness update |
 
 ### Completion checklist
 
@@ -40,6 +52,10 @@ Owners below are proposed responsibilities, not assignments already accepted. Ch
 - [x] Receive the Sprint 1 Car Accident drafting brief; no implementation authorization.
 - [x] Re-inspect both Car Accident source files and preserve the existing-content baseline.
 - [x] Check official Nevada references and prepare draft paragraphs, placements, comparison and review questions in Section 11.
+- [x] November 3: document a first content cycle combining N03, N05 and N06, followed by N11/N12; move Premises Liability after this cycle.
+- [ ] Review the report/fault article briefs with CODEWERX and Marc.
+- [ ] Prepare complete report-guide and fault-guide drafts with primary sources and Marc's practical input.
+- [ ] Prepare the existing settlement-page expansion and verify statistics sources.
 - [ ] Complete CODEWERX editorial review of the Sprint 1 proposal.
 - [ ] Obtain Marc's factual/legal review and source documentation.
 - [ ] Explicitly authorize implementation of the approved Car Accident draft.
@@ -54,7 +70,7 @@ Use **—** for unavailable data, not zero. A zero means a verified zero in the 
 
 | Review | Completed GSC date range | Pages/query cluster | Clicks / impressions / CTR / position | Semrush location/device | Organic landings | Tracked leads / qualified consultations | Changes, go-live dates and notes |
 |---|---|---|---|---|---|---|---|
-| Baseline, before first content change | — | Car; Premises; supporting resources | — | — | — | — | — |
+| Baseline, before first content change | — | Car; report/fault resources; settlements; statistics | — | — | — | — | — |
 | Week ending November 6 | — | — | — | — | — | — | — |
 | Week ending November 13 | — | — | — | — | — | — | — |
 | Week ending November 20 | — | — | — | — | — | — | — |
@@ -63,13 +79,15 @@ Use **—** for unavailable data, not zero. A zero means a verified zero in the 
 
 ## 1. Executive summary
 
-1. **Strengthen the commercial car page before commissioning a general accident article.** It already has a crash checklist, evidence discussion, negotiation/litigation process, attorney proof points and consultation FAQs. The useful gaps are a reviewed shared-fault explanation, qualified deadlines, loss documentation, actual fee/cost arrangements and practical local next steps.
-2. **Premises Liability is the second commercial priority.** It targets the appropriate service and already covers slip/fall, unsafe property, notice and evidence. Its introductions and investigation statements repeat, while legal context and concrete client decision support remain shallow. The supplied low KD estimates support investigation, not an easy-ranking promise.
-3. **Recommend two distinct resources, not three.** A police-report request guide answers a procedural task absent from the site; a fault guide answers an explanatory legal/evidence task. Merge the proposed general What to Do article's useful additions into the existing car page and postpone a standalone URL.
+1. **Build the first content cycle around Car Accidents and two supporting articles.** Strengthen the service page while developing a Las Vegas crash-report request guide and a Nevada car accident fault guide. The service page helps readers evaluate representation; the articles answer distinct practical and legal/evidence questions in depth. Article drafting can proceed alongside page review; publication depends on approval and verification.
+2. **Develop the existing supporting pages next within the car accident cycle.** Improve Insurance Settlements & Checks and maintain the sourced Car Accident Statistics resource. Premises Liability follows this cycle rather than displacing the first two supporting articles.
+3. **Make each article useful on its own and connect it to representation.** Include current official sources, local instructions where applicable and Marc's genuine practical insight. Keep short answers on the car page and link to detailed guides; link back where readers need help with a claim. Merge general What to Do improvements into the existing checklist for now. Further articles require distinct intent, demand/client-question evidence and an existing-page overlap check.
 4. **Preserve the work already done.** Homepage content is now prerendered; the commercial titles are corrected; homepage-to-services, car-to-brain/bio, bio-to-car and About-to-Premises links already exist. Do not spend this content sprint redoing technical fixes or adding equivalent links again.
 5. **Trust and measurement need evidence before stronger claims.** The site already contains credentials, results and testimonials, but their truth cannot be certified from source. Hero and review-widget totals differ. GA initialization is present, while an explicit successful-form lead conversion event was not found in repository code. Neither actual qualified lead volume nor account-level tracking configuration was available.
 
 **Business focus:** qualified Las Vegas-area car accident and injury consultations. Criminal defense remains an important secondary practice. Prefer Injury in editorial language without removing useful personal injury synonyms from the keyword strategy. Preserve the approved combined homepage positioning.
+
+**Success criteria:** relevant nonbranded search visibility, discovery/indexing of the intended pages, useful article-to-service journeys and qualified inquiries. Article count is a delivery measure, not evidence of ranking gains. This content cycle does not replace local-profile, reputation, earned-link or conversion work; those need their own evidence and scope.
 
 ## 2. Existing page inventory
 
@@ -244,6 +262,36 @@ Fully covered below means covered adequately for the current commercial overview
 
 ## 5. Proposed article decisions and competitive context
 
+### First car accident content cycle — revised November 3
+
+This is one coordinated content package. Develop the first two articles alongside review of the Car Accidents page; the existing Section 11 page draft is not the whole content strategy. Dates in Section 8 are targets, conditional on source verification, review and implementation approval.
+
+| Order | Content / intended reader task | Delivery | Current evidence / status |
+|---|---|---|---|
+| 1, alongside 2–3 | Car Accidents: evaluate representation and request a consultation | Improve `/practice/car-accidents`; concise fault, deadline, loss and consultation answers | Six draft topics already prepared in Section 11; Marc's review pending |
+| 2 | How to Obtain a Car Accident Report in Las Vegas: retrieve an existing record | New `/resources/las-vegas-car-accident-report` article | Topic brief below; full draft, fresh agency checks and review pending |
+| 3 | How Is Fault Determined in a Nevada Car Accident?: understand responsibility and evidence | New `/resources/nevada-car-accident-fault` article | Topic brief below; full draft and legal review pending |
+| 4 | Insurance Settlements & Checks: understand offers, releases, liens and payment steps | Expand `/practice/insurance-settlements-and-checks` | Existing page owns this topic; detailed expansion draft pending |
+| 5 | Car Accident Statistics: find reliable, contextual Nevada/Clark County data | Maintain `/practice/car-accident-statistics` | Existing sourced resource; current source check pending, update only if warranted |
+
+**Article quality and review:** each new guide needs a direct answer, clear steps or explanations, current primary references, applicable qualifications, and practical input from Marc. Record the source-check and actual review dates. Ask Marc for recurring client questions and workflow examples; use documented, permitted matters or explicitly hypothetical scenarios. Do not attribute invented experience to the firm.
+
+**Navigation:** give each approved article a descriptive informational title, a permanent HTML link from an appropriate resource index, a contextual link from the car page, and a natural route back to representation. Cross-link the report and fault guides where the reader's next question warrants it. Add links only when their destinations exist; see Section 6.
+
+**Existing support-page scope:** the settlement expansion should explain the stages and documents that can affect offers, releases, liens and disbursement, with Marc confirming the firm's role and any legal/tax qualifications. Do not promise payment dates or settlement amounts. For statistics, preserve the distinction between fatalities and crashes, Nevada and Clark County, and preliminary and final figures. Reuse the existing URLs.
+
+### Later article candidates — research before commissioning
+
+| Candidate question | First check / likely boundary |
+|---|---|
+| Who pays medical bills after a Nevada car accident? | Check GSC/search demand and Marc's intake questions; distinguish coverage/payment timing from the main page's loss overview and settlement liens |
+| What happens if the at-fault driver is uninsured or underinsured? | Assess and improve the existing UM/UIM page first; a new guide needs a separate reader task |
+| What should visitors do after an accident in Las Vegas? | Establish enough visitor-specific process questions to go beyond the proposed report guide and current checklist |
+
+These are research candidates, not completed keyword research, approved briefs or a commitment to new URLs. Select later work using client questions, query/page evidence, usefulness and overlap with existing content. Premises Liability remains the next separate commercial project after the first car accident cycle.
+
+**SEO rationale checked November 3:** Google's [helpful-content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) emphasizes original value, usefulness and credible expertise. Its [link guidance](https://developers.google.com/search/docs/crawling-indexing/links-crawlable) explains how contextual, crawlable links aid discovery and understanding. The package above is our editorial recommendation, not a Google-prescribed article count or ranking guarantee. No new keyword-volume or competitor-ranking analysis was run for this revision.
+
 ### Article 1 — What to Do After a Car Accident in Las Vegas
 
 **Proposed URL:** `/resources/what-to-do-after-car-accident-las-vegas`  
@@ -259,7 +307,7 @@ Fully covered below means covered adequately for the current commercial overview
 ### Article 2 — How Is Fault Determined in a Nevada Car Accident?
 
 **Proposed URL:** `/resources/nevada-car-accident-fault`  
-**Decision:** **Create after Marc approves the brief and legal explanation; second new-resource priority.**
+**Decision:** **First-cycle supporting article 2. Develop alongside Car Accident page review, then publish after brief, source and legal approval. Full draft not yet prepared.**
 
 - Existing overlap: car-page proof/insurance discussion, UM/UIM fault references, distracted-driving evidence, and pedestrian/truck-specific investigations.
 - Distinct intent: understand responsibility and a disputed claim, rather than choose a lawyer or retrieve a document.
@@ -272,7 +320,7 @@ Fully covered below means covered adequately for the current commercial overview
 ### Article 3 — How to Obtain a Car Accident Report in Las Vegas
 
 **Proposed URL:** `/resources/las-vegas-car-accident-report`  
-**Decision:** **Create after source/procedure review; first new-resource priority.**
+**Decision:** **First-cycle supporting article 1. Develop alongside Car Accident page review, then publish after source/procedure and applicable legal review. Full draft not yet prepared.**
 
 - Existing overlap: the car checklist and pedestrian/truck/statistics pages mention records and evidence. None supplies an agency-specific request workflow.
 - Distinct intent: obtain an existing record, not determine fault, file an insurance claim or hire counsel.
@@ -368,26 +416,28 @@ Trust evidence:
 
 The calendar is a proposed sequence, not a scheduled automation or authority to publish. Preserve existing URLs, corrected titles, homepage positioning and validated technical behavior.
 
-### Phase 1 — Existing commercial content: November 2–6
+### Phase 1 — Car page review and supporting-article development: November 2–6
 
 1. N01: capture a comparable pre-content baseline before any approved release.
 2. N02: obtain Marc's legal/factual input, fee terms and existing-claim confirmations.
 3. N03: the Car Accident review draft is complete in Section 11. Next are CODEWERX review, Marc's confirmation and a separate implementation instruction.
-4. N04: Premises Liability remains the next proposed commercial-content project; it is not part of the currently authorized Car Accident drafting task.
-5. Keep Brain & Spine's targeting stable; do not use its preliminary improvement as a reason for a broad rewrite.
-6. Publish only after approval and QA; record actual go-live dates if deployment is later authorized.
+4. N05/N06: review the two article briefs, gather Marc's practical input and begin full drafts after brief agreement. Their development need not wait for the car page to be published. Article drafts are still pending as of November 3.
+5. N11/N12: scope the existing settlement-page expansion and check statistics sources. Defer N04 Premises Liability until after this car accident cycle.
+6. Keep Brain & Spine's targeting stable; do not use its preliminary improvement as a reason for a broad rewrite.
+7. Publish only after approval and QA; record actual go-live dates if deployment is later authorized.
 
-**Purpose:** improve service-page usefulness and qualification before expanding the content footprint. Estimate: 10–14 h editorial/development, plus legal review and release QA.
+**Purpose:** develop a useful service page and distinct supporting articles as one car accident package. Re-estimate effort after brief review; original item-level estimates are retained on the tracking board and are not an agreed package budget.
 
-### Phase 2 — Distinct informational resources: November 9–20
+### Phase 2 — Review and release the first content package: November 9–20
 
 - November 9–13: proposed report guide after current official-source checks and Marc's review of legal-duty references.
 - November 16–20: proposed fault guide after legal approval and commercial/resource boundary review.
+- Complete the settlement-page expansion after the first two article drafts; publish only after review. Refresh statistics only if source checks support a substantive correction or update.
 - Do not create the general What to Do URL this month simply to reach three articles.
 - If approval/source evidence is delayed, postpone the dependent resource; do not fill the calendar with substitute SEO articles.
 - Use static/server-rendered resource content and clear informational titles. No fabricated authorship or review metadata.
 
-**Purpose:** address two real tasks absent from existing owned content. Estimate: report guide 5–7 h; fault guide 6–9 h; legal review separately.
+**Purpose:** publish two distinct guides connected to the main service page, then strengthen existing support content. Original article estimates: report guide 5–7 h; fault guide 6–9 h, with legal review separately. These dates remain targets; no article has been drafted or released by this planning update.
 
 ### Phase 3 — Linking and discovery: with each release; reconcile November 23–27
 
@@ -407,7 +457,7 @@ The calendar is a proposed sequence, not a scheduled automation or authority to 
 | Google Search Console | Clicks, impressions, CTR and average position by exact query group + page | Same completed dates, country, device and search type; separate branded/nonbranded and broad injury/car queries |
 | GSC Pages / URL Inspection | Intended landing-page selection, indexing and rendered content | Test homepage vs car association and new-resource discovery; do not infer Google processing from source code |
 | Semrush Position Tracking | Commercial query visibility by selected Las Vegas/Henderson location and device | Keep configuration consistent. US database volumes are not this local ranking baseline |
-| Organic landing-page analytics | Entrances/sessions and progression to service/contact pages | Compare like-for-like periods and annotations; account access/settings are required |
+| Organic landing-page analytics | Entrances/sessions, report/fault article-to-Car-Accidents visits and progression to contact | Compare like-for-like periods and annotations; account access/settings are required. Validate actual event coverage before claiming a measured article-to-lead contribution |
 | Conversions, where actually configured | Successful consultation submissions, tracked calls and qualified/booked consultations | Separate clicks from leads and leads from accepted/qualified matters; deduplicate and verify attribution |
 | Editorial maintenance | Broken official links, procedure changes, source dates and factual corrections | Recheck volatile agency information before publication and when it changes; no fake updated dates |
 
@@ -433,16 +483,18 @@ Use weekly numbers as early signals, not grounds for repeated title rewrites. Re
 
 Still needed externally: current GSC query/page exports and indexing results; Semrush tracking configuration; analytics/conversion account access; qualified-consultation attribution; Marc's factual/legal evidence; current agency procedure confirmation; and any proposed city-page demand evidence. Competitor traffic/authority estimates and causal explanations remain unverified.
 
-## 10. Future implementation — Car Accident approval scope
+## 10. Future implementation — page draft and content-package scope
 
-**Do not implement this sprint from the existence of this document.** The current brief authorizes the Car Accident proposal in Section 11 only. CODEWERX review and Marc's legal/factual confirmation do not, by themselves, substitute for a subsequent explicit instruction to change the website.
+**Content implementation remains pending.** The November 3 revision prioritizes the full content package in Section 5; it does not publish articles or approve their legal wording. The retained site-quality fixes are recorded in the handoff above and do not approve Section 11's legal additions. CODEWERX review and Marc's legal/factual confirmation do not, by themselves, substitute for an instruction to implement the proposed content or deploy website changes.
 
-| Exact file | Proposed first-sprint change | Preserve / acceptance criteria |
+| Exact file | Proposed service-page change | Preserve / acceptance criteria |
 |---|---|---|
 | `src/app/practice/car-accidents/CarAccidentsPageClient.tsx` | Improve the existing crash checklist; add approved concise fault, deadline/qualification and damages/documentation explanations; approved consultation preparation; contextually link the existing settlement and distracted-driving pages | Preserve title/H1, hero, URL, canonical, core process content, biography/Brain & Spine links and accurate existing FAQs; no new legal claims without review |
 | `src/app/practice/car-accidents/page.tsx` — conditional only | Synchronize an existing FAQ schema answer only if Marc approves a corresponding visible-answer correction | No title/canonical/identity/model change; do not touch this file merely to add unmarked narrative sections |
 
-**Not in the current Car Accident sprint:** Premises Liability implementation, a new general injury page, a new Injury/Criminal hub, new Henderson/Summerlin landing pages, the What to Do article URL, any additional blog/resource articles, Brain & Spine retargeting, Theft/Larceny consolidation, new case results, global metadata changes, shared schema changes, homepage changes, analytics implementation or deployment. N04 remains in the broader November backlog for separate approval.
+**Other planned package work:** N05/N06 introduce the report/fault resources and their necessary resource navigation, self-canonicals and sitemap inclusion after implementation approval. N11 expands the existing settlement page; N12 maintains existing statistics. Their exact files and release checks must be recorded when implementation is scoped; Section 11's two-file proposal does not cover these deliverables.
+
+**Outside the first car accident content cycle:** Premises Liability implementation, a new general injury page, a new Injury/Criminal hub, new Henderson/Summerlin landing pages, the general What to Do article URL, articles beyond the two selected guides, Brain & Spine retargeting, Theft/Larceny consolidation, new case results, global metadata/shared schema changes, homepage changes and analytics implementation. N04 follows this cycle as a separate project. Deployment remains pending authorization.
 
 ### First-sprint acceptance checklist
 
@@ -459,7 +511,7 @@ Still needed externally: current GSC query/page exports and indexing results; Se
 
 ## 11. Sprint 1 — Car Accident content proposal (drafting only)
 
-**Prepared:** October 29, 2026. **Review status:** complete proposal for CODEWERX review; no editorial or attorney approval recorded. **Implementation status:** not authorized / not started. The paragraphs below are proposed copy, not published changes. Approval of one draft does not approve the other drafts.
+**Prepared:** October 29, 2026. **Review status:** complete proposal for CODEWERX review; no editorial or attorney approval recorded. **Implementation status:** not authorized / not started. This is the service-page component of the broader first content cycle revised November 3 in Section 5; it is not a draft of either supporting article. The paragraphs below are proposed copy, not published changes. Approval of one draft does not approve the other drafts.
 
 ### A. Current page assessment
 
@@ -619,7 +671,7 @@ These are relevance, clarity and usefulness improvements, not a ranking or lead-
 | `src/app/practice/car-accidents/page.tsx` — conditional | Only synchronize a FAQ answer if its visible counterpart is approved for correction. Otherwise leave untouched. Preserve metadata, canonical, schema model and identities. Any necessary schema-answer correction must be explicitly included in implementation approval. |
 | `NovGameplan.md` | Record review decisions, approved draft IDs, actual implementation/validation evidence and later release dates. |
 
-No shared schema, homepage, Brain & Spine, redirect, sitemap, robots, navigation or other practice file is proposed. No new routes or articles are included.
+This service-page subproposal includes no shared schema, homepage, Brain & Spine, redirect, sitemap, robots, navigation or other practice files. The separate N05/N06 resource and N11/N12 support-page deliverables remain part of the broader Section 5 content package; they need their own drafts, approval and implementation scope.
 
 | Order | Next action | Current status / completion evidence |
 |---|---|---|
@@ -629,9 +681,9 @@ No shared schema, homepage, Brain & Spine, redirect, sitemap, robots, navigation
 | 4 | Capture N01's pre-release reporting baseline; implement only approved changes | Pending; baseline requires account data. Preserve the technical baseline and existing links. |
 | 5 | Run production build, TypeScript, ESLint and existing structured-data validation; inspect generated HTML, FAQ parity, titles/canonicals/IDs, links, mobile layout and hydration | Not run for this drafting task. Record actual results after implementation; confirm Brain & Spine remains unchanged. |
 | 6 | Obtain separate deployment authorization, release and record the actual go-live date | Not authorized / not performed. A planned November date is not a publication date. |
-| 7 | Monitor comparable completed reporting windows and choose later N04–N07 work | Pending release/data; broader backlog remains separately scoped. |
+| 7 | Coordinate N05/N06 article development, approved resource linking and N11/N12 support work; monitor completed windows | Article development can run alongside page review. N04 Premises follows the car accident cycle; all releases/data remain pending. |
 
-**Drafting verification:** This update is limited to `NovGameplan.md`. The production page, metadata and structured data were inspected as source, not regenerated. Build, TypeScript, ESLint, schema tests, responsive/hydration testing and new rendered-HTML checks are future implementation checks; no fresh pass is claimed here. The proposal is ready for CODEWERX review, not deployment.
+**Original October 29 drafting verification:** that drafting update was limited to `NovGameplan.md`. The production page, metadata and structured data were inspected as source, not regenerated. Build, TypeScript, ESLint, schema tests, responsive/hydration testing and new rendered-HTML checks are future implementation checks; no fresh pass is claimed here. The proposal is ready for CODEWERX review, not deployment. The November 3 strategy revision updates documentation only and does not revalidate the original audit or change the legal draft paragraphs.
 
 ## Appendix A — Exact metadata, headings, links and initial HTML
 
@@ -1026,4 +1078,6 @@ For each approved work item, record: owner, brief approval date, Marc's review e
 |---|---|---|---|---|
 | October 29, 2026 | Content audit and November plan | Inventory completed; strengthen Car/Premises; merge general checklist proposal; recommend report/fault resources subject to approval | Repository `4ee3a34`, existing build, 38 live page/title checks, supplied Semrush research and cited primary/competitor sources | Plan prepared; website unchanged |
 | October 29, 2026 | N03-D / Sprint 1 Car Accident proposal | Added complete A–G review proposal, six draft topics, exact placements, before/after comparison, source/review checklist, two conditional links and ordered next steps; split drafting, approval and implementation statuses | User's Sprint 1 drafting brief; inspected Car page sources/contact form; official sources and limitations recorded in Section 11 | Draft complete for CODEWERX review; Marc confirmation, implementation, validation and deployment pending |
+| November 3, 2026 | First car accident content cycle | Prioritized N03 plus the N05 report and N06 fault articles; added N11 settlement expansion and N12 statistics maintenance; deferred N04 Premises until after this cycle; aligned GEO/checklist handoffs | User requested the documentation update and revised client email; checked Google's helpful-content and internal-link guidance; no fresh keyword/account/live-site audit | Strategy documented; existing car draft retained; full article drafts, client/legal review, implementation and release remain pending |
+| November 3, 2026 | SEO/site-quality fixes and scope correction | Retained headings/schema/rendering, review consistency, consent/measurement and small existing-SMTP corrections; removed the extra backend expansion | User requested undoing extra work while preserving improvements relevant to SEO/site quality | Local changes only; no added production services or infrastructure setup; article approval and deployment pending |
 

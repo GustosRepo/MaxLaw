@@ -49,7 +49,7 @@ export default function ResultsPage() {
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <main className="md:col-span-2 space-y-6">
+            <div className="md:col-span-2 space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
                   { title: 'Multi-million dollar settlement', desc: 'Catastrophic injury settlement for a commercial vehicle collision.' },
@@ -69,7 +69,7 @@ export default function ResultsPage() {
                 <h2 className="text-2xl font-['Playfair_Display'] font-bold mb-3">Notes on Results</h2>
                 <p className="text-sm text-white/80">Past results are case-specific. We share representative matters so prospective clients can understand the firm’s experience. Contact us to discuss whether our experience fits your needs.</p>
               </div>
-            </main>
+            </div>
 
             <aside className="space-y-6">
               <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/8 shadow-lg text-center">

@@ -5,10 +5,10 @@ import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
   title: 'Las Vegas Record Sealing Lawyer | Saggese & Associates',
-  description: 'Drug Offenses & expungement guidance—eligibility analysis & petition filing. Free consultation (702) 778-8883.',
+  description: 'Record sealing guidance—eligibility analysis & petition filing. Free consultation (702) 778-8883.',
   keywords: [
-    'las vegas Drug Offenses lawyer',
-    'expungement attorney nevada',
+    'las vegas record sealing lawyer',
+    'record sealing attorney nevada',
     'seal criminal record las vegas'
   ],
   alternates: { canonical: `${SITE_URL}/criminal-defense/record-sealing` },
@@ -22,7 +22,7 @@ export default function RecordSealingPage() {
 
       <header className="mb-6">
         <div className="relative inline-block">
-          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Drug Offenses & Expungement</h1>
+          <h1 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#d4af37] mb-2">Las Vegas Record Sealing Lawyer</h1>
           <span className="accent-underline w-full rounded-full" aria-hidden />
         </div>
         <p className="text-white/75 mt-3">We help eligible clients clear or seal their records to reduce long-term barriers to employment, housing, and more.</p>
@@ -30,7 +30,7 @@ export default function RecordSealingPage() {
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
         <article className="md:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
-          <p className="mb-4 text-white/90 leading-relaxed">Sealing or expunging a criminal record can remove barriers to employment, housing, and licensing. Eligibility depends on the charge, disposition, and statutory waiting periods; we help clients determine the best path forward.</p>
+          <p className="mb-4 text-white/90 leading-relaxed">Sealing a criminal record can remove barriers to employment, housing, and licensing. Eligibility depends on the charge, disposition, and statutory waiting periods; we help clients determine the best path forward.</p>
 
           <h3 className="mt-4 text-lg font-semibold text-white">Process overview</h3>
           <ol className="list-decimal pl-5 text-white/80 mb-4">
@@ -54,7 +54,7 @@ export default function RecordSealingPage() {
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Outcome</div>
-              <div className="text-lg font-semibold text-[#d4af37]">Sealed / expunged</div>
+              <div className="text-lg font-semibold text-[#d4af37]">Record sealing</div>
             </div>
             <div className="rounded-lg bg-neutral-900 p-3 text-sm">
               <div className="text-xs text-white/75">Process time</div>
@@ -70,16 +70,16 @@ export default function RecordSealingPage() {
 
       <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg mb-8">
         <h3 className="text-lg font-semibold text-white mb-3">Next steps</h3>
-        <p className="text-white/80 leading-relaxed mb-3">Contact us for an eligibility review. We will explain the process and help file the necessary petitions to pursue sealing or expungement.</p>
+        <p className="text-white/80 leading-relaxed mb-3">Contact us for an eligibility review. We will explain the process and help file the necessary petitions to pursue record sealing.</p>
         <p className="text-white/80 leading-relaxed">Call our office at <a href="tel:17027788883" className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-3 py-1.5 text-sm font-bold text-[#0e0e0e] no-underline shadow-[0_8px_22px_rgba(212,175,55,0.18)]">702-778-8883</a> or submit the contact form.</p>
       </section>
 
   {/* Footer removed */}
       <PracticeStructuredData
         slug="/criminal-defense/record-sealing"
-        serviceType="Las Vegas Drug Offenses Lawyer"
-        description="Drug Offenses & expungement guidance—eligibility analysis & petition filing. Free consultation."
-        keywords={['las vegas Drug Offenses lawyer','expungement attorney nevada']}
+        serviceType="Las Vegas Record Sealing Lawyer"
+        description="Record sealing guidance—eligibility analysis & petition filing. Free consultation."
+        keywords={['las vegas record sealing lawyer','record sealing attorney nevada']}
       />
     </>
   )

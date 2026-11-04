@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { trackLead } from '../../lib/analytics';
 import { validateContactForm } from '../../lib/contact-form';
+import { getRecaptchaToken } from '../../lib/recaptcha-client';
 import {
   CRIMINAL_DEFENSE_CASE_TYPES,
   PERSONAL_INJURY_CASE_TYPES,
@@ -84,7 +85,8 @@ export default function ContactFormInner({ onSubmitSuccess, mode = 'consultation
     sending.current = true;
     setFormStatus('loading');
     try {
-      const body = JSON.stringify(formData);
+      const recaptchaToken = await getRecaptchaToken();
+      const body = JSON.stringify({ ...formData, recaptchaToken });
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -101,9 +103,9 @@ export default function ContactFormInner({ onSubmitSuccess, mode = 'consultation
         setFormStatus('error');
         setFormMessage(result.error || 'Failed to send message. Please try again.');
       }
-    } catch {
+    } catch (error) {
       setFormStatus('error');
-      setFormMessage('Failed to send message. Please try again.');
+      setFormMessage(error instanceof Error && error.message.startsWith('Spam verification') ? error.message : 'Failed to send message. Please try again or call (702) 778-8883.');
     } finally {
       sending.current = false;
     }
@@ -253,8 +255,13 @@ export default function ContactFormInner({ onSubmitSuccess, mode = 'consultation
           </label>
         </div>
         <input type="text" name="company" value={formData.company} onChange={handleInputChange} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden />
+        <p className="text-xs leading-relaxed text-white/60 md:col-span-2">
+          This form is protected by reCAPTCHA. Google’s{' '}
+          <a href="https://policies.google.com/privacy" className="underline">Privacy Policy</a> and{' '}
+          <a href="https://policies.google.com/terms" className="underline">Terms of Service</a> apply.
+        </p>
         <button type="submit" disabled={formStatus === 'loading'} className="mt-3 w-full rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-5 py-4 text-lg font-bold text-[#0e0e0e] shadow-[0_8px_24px_rgba(212,175,55,0.25)] disabled:opacity-50 disabled:cursor-not-allowed">
-          {formStatus === 'loading' ? 'Sending...' : mode === 'press' ? 'Send press inquiry' : 'Request a free consultation'}
+          {formStatus === 'loading' ? 'Verifying and sending...' : mode === 'press' ? 'Send press inquiry' : 'Request a free consultation'}
         </button>
         {formStatus === 'success' && (
           <div className="rounded-lg border border-blue-400/30 bg-[#0b2a4a] p-4 text-base font-semibold text-blue-100 md:col-span-2" role="status" aria-live="polite">

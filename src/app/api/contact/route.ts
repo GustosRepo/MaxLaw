@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { RecaptchaError, verifyRecaptcha } from '../../../lib/recaptcha-server';
 
 interface ContactFormData {
   firstName: string;
@@ -8,6 +9,7 @@ interface ContactFormData {
   phone?: string;
   message: string;
   consent: boolean;
+  recaptchaToken?: unknown;
 }
 
 export async function POST(request: NextRequest) {
@@ -47,6 +49,8 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    await verifyRecaptcha(data.recaptchaToken);
 
     // Configure Nodemailer with GoDaddy SMTP
     const smtpPort = Number(process.env.SMTP_PORT || '587');
@@ -104,6 +108,9 @@ Submitted on: ${new Date().toLocaleString('en-US', {
     return NextResponse.json({ success: true });
 
   } catch (error) {
+    if (error instanceof RecaptchaError) {
+      return NextResponse.json({ success: false, error: error.message }, { status: error.status });
+    }
     const errorMessage = error instanceof Error ? error.message : 'Unknown SMTP error';
     console.error('Contact form email failed', {
       error: errorMessage,

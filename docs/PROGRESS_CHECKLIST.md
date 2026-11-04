@@ -1,5 +1,16 @@
 # Progress Checklist
 
+## reCAPTCHA v3 spam protection — November 3, 2026 (local)
+
+- [x] Configure the supplied public site key locally and generate a fresh token on form submission.
+- [x] Require server verification before email on both `/api/send-email` and `/api/contact`, including legacy/direct POST requests.
+- [x] Check the expected action, allowed hostname and score (default minimum 0.5); block missing/failed verification and preserve the form on failure.
+- [x] Pass production build, lint, TypeScript and 27 mocked server/desktop/mobile regression cases. No real emails or Google verification requests were sent by tests.
+- [ ] Configure the private `RECAPTCHA_SECRET_KEY` locally and in the production hosting environment; private key was not present at the latest check.
+- [ ] Confirm the public key/domain registration in production, deploy and perform an authorized live form/delivery check.
+
+Setup: [README.md](../README.md#contact-form-spam-protection). The integration adds no storage, scheduled jobs or new dependencies. It is not active on the live website merely because these local checks pass.
+
 ## SEO and site-quality fixes — November 3, 2026 (local)
 
 - [x] Correct Record Sealing headings/metadata/schema and nested main landmarks.

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { join } from 'node:path';
 import { ContactInputError, escapeHtml, validateContactForm, type ContactForm } from '../../../lib/contact-form';
+import { RecaptchaError, verifyRecaptcha } from '../../../lib/recaptcha-server';
 import {
   FIRM_ADDRESS_LINE1,
   FIRM_ADDRESS_LINE2,
@@ -55,7 +56,9 @@ function buildHtml(form: FormPayload) {
 
 export async function POST(req: Request) {
   try {
-    const form = validateContactForm(await req.json());
+    const input: unknown = await req.json();
+    const form = validateContactForm(input);
+    await verifyRecaptcha((input as Record<string, unknown>).recaptchaToken);
 
     const TEST_EMAIL = process.env.TEST_EMAIL === 'true' || process.env.NODE_ENV === 'test';
 
@@ -149,6 +152,9 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
+    if (err instanceof RecaptchaError) {
+      return NextResponse.json({ success: false, error: err.message }, { status: err.status });
+    }
     if (err instanceof ContactInputError) {
       return NextResponse.json({ success: false, error: err.message }, { status: err.status });
     }

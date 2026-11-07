@@ -104,7 +104,6 @@
         "Searches: Sep 2026": ""
       }
     ],
-    "verified_location_scope": "United States, not Las Vegas",
     "network_and_language": "not stated in CSV; not inferred",
     "keyword_rows": 66,
     "numeric_volume_rows": 22,
@@ -119,11 +118,15 @@
     "monthly_column_count": 12,
     "limits": [
       "Fresh download, historical coverage ends September 2026.",
-      "Numeric values preserved as raw coarse US estimates; no exact range is reverse-engineered.",
+      "Numeric values preserved as raw coarse historical estimates with user-confirmed Las Vegas scope; no exact range is reverse-engineered.",
       "No monthly trend can be reconstructed from blank monthly cells.",
       "No organic keyword difficulty measurement is supplied.",
       "Close variants and summary rows are not summed into unique market demand."
-    ]
+    ],
+    "target_location": "Las Vegas, Nevada",
+    "target_location_provenance": "User confirmation in conversation; selected city not explicitly encoded in CSV",
+    "csv_segmentation_label": "United States",
+    "location_classification_correction": "Prior inference of national targeting from segmentation alone withdrawn; no replacement export required on that basis."
   },
   "gsc": {
     "filters": [
@@ -833,7 +836,7 @@
       "report retrieval": "A to B",
       "fault explanation": "A to B"
     },
-    "priority_basis": "Prioritize review of existing commercial exposure while localized demand remains unverified. No forecast of traffic or leads.",
+    "priority_basis": "Review existing commercial exposure using GSC and supplied historical Planner estimates with user-confirmed Las Vegas scope; no traffic or lead forecast.",
     "old_metric_columns": "All 15 original October 29 Semrush estimates retained separately and unchanged."
   }
 }

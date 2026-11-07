@@ -843,9 +843,14 @@
     "No hosting-account, domain, billing or campaign settings changed."
   ],
   "pending": [
-    "Las Vegas-only Keyword Planner historical export with populated monthly values if available.",
     "GSC query/page pairing and comparable period exports.",
     "Optional Windsor.ai installation/connection not confirmed.",
     "Report-request and fault resources remain later briefs."
-  ]
+  ],
+  "keyword_planner_location_correction": {
+    "target": "Las Vegas, Nevada",
+    "provenance": "User-confirmed",
+    "raw_segmentation": "United States",
+    "note": "Prior national-targeting inference withdrawn; no replacement export required on that basis."
+  }
 }

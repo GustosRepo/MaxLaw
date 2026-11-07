@@ -1,5 +1,7 @@
 # Max Law — November 7 SEO releases and existing-page improvements
 
+**Location correction — November 7:** The user confirms the supplied Keyword Planner file was exported for Las Vegas. The earlier nationwide classification inferred from its `United States` segmentation row is withdrawn: the CSV has no explicit selected-city field. Las Vegas is recorded as user-confirmed scope, with the raw label preserved separately. A repeat export is not required on that basis. Historical dates, raw estimates and missing values are unchanged.
+
 The user's “ok go” authorized the recommended release and next content cycle. Independent Nevada/medical source research remains authorized without waiting for Marc. No attorney review or authorship is attributed to him for this copy.
 
 ## Release record
@@ -92,8 +94,8 @@ Temporary local evidence is in `/tmp/maxlaw-p4`, including rendered comparison, 
 
 ## Remaining data and measurement
 
-The supplied Planner file remains **United States-wide, October 2025–September 2026**, with 22 numeric averages, 44 blanks and no populated monthly values. No current Las Vegas volumes are claimed. Use [the 74-phrase import](P3_KEYWORDS_FOR_PLANNER.csv) with Las Vegas as the sole location and the latest complete historical months available, including monthly values.
+The supplied Planner file remains **targeted to Las Vegas according to the user, October 2025–September 2026**, with 22 numeric averages, 44 blanks and no populated monthly values. The scope is recorded from the user’s confirmation, while the CSV’s original labels and historical dates are preserved. The [74-phrase import](P3_KEYWORDS_FOR_PLANNER.csv) remains available for an optional future refresh, not a required repeat.
 
-For query-to-page evidence, export the Pages tab after filtering each priority query, or the Queries tab after filtering each priority page. The existing full-period tables cannot supply that relationship. An optional Windsor.ai integration was found and suggested for GSC query/page access; it is not confirmed installed/connected. Its description does not establish access to Keyword Planner city-volume research, so it does not replace that localized export.
+For query-to-page evidence, export the Pages tab after filtering each priority query, or the Queries tab after filtering each priority page. The existing full-period tables cannot supply that relationship. An optional Windsor.ai integration was found and suggested for GSC query/page access; it is not confirmed installed/connected. Its description does not establish access to Keyword Planner city-volume research, so it is not being presented as a source of Keyword Planner metrics.
 
 The [account-data analysis](P3_ACCOUNT_DATA_REFRESH_2026-11-07.md) remains the pre-release baseline. Record the two actual release times separately. Compare completed post-release periods with equivalent earlier periods by page/query/device/country; a same-day ranking check cannot measure the impact. No ranking, traffic, lead or revenue improvement is claimed at release time.

@@ -1,9 +1,11 @@
 # Max Law — November 2026 SEO Gameplan
 
+**Location correction — November 7:** The user confirms the supplied Keyword Planner file was exported for Las Vegas. The earlier nationwide classification inferred from its `United States` segmentation row is withdrawn: the CSV has no explicit selected-city field. Las Vegas is recorded as user-confirmed scope, with the raw label preserved separately. A repeat export is not required on that basis. Historical dates, raw estimates and missing values are unchanged.
+
 **Prepared for:** CODEWERX LLC / The Law Offices of Saggese & Associates  
 **Audit date:** October 29, 2026 (America/Los_Angeles)  
 **Planning window:** November 2026  
-**Status:** The user authorized production release and the next content cycle. P1 migration fixes, P2 car/settlement improvements and the subsequent Brain & Spine Injury / Premises Liability updates are deployed and verified on maxlawnv.com. P3 competitive/account analysis is complete; Las Vegas volume validation and actual query-to-page relationships remain open. The report-request and fault article briefs remain planned for a later cycle.
+**Status:** The user authorized production release and the next content cycle. P1 migration fixes, P2 car/settlement improvements and the subsequent Brain & Spine Injury / Premises Liability updates are deployed and verified on maxlawnv.com. P3 competitive/account analysis is complete; Planner scope is user-confirmed as Las Vegas; actual query-to-page relationships remain open. The report-request and fault article briefs remain planned for a later cycle.
 
 **Last progress update:** November 7, 2026 — see [the production release notes](SEO_RELEASE_NOTES_2026-11-07.md). Commits `a83eac9` and `7b6b9d0` succeeded in both existing Vercel production projects; the custom domain passed read-only verification. All 68 redirect rules and 36 sitemap pages were verified in the first batch; both improved pages and retained car/settlement content passed final checks. Build, TypeScript, lint, 40 regressions and eight targeted browser cases pass. [P3 research](P3_COMPETITIVE_SEO_KEYWORD_ANALYSIS.md), [account analysis](P3_ACCOUNT_DATA_REFRESH_2026-11-07.md) and the [74-phrase map](P3_KEYWORD_MAP.csv) retain their dated evidence; no local volume or query-to-page relationship is inferred. Research/account files remain local.
 
@@ -18,7 +20,7 @@
 | Existing premises and brain/spine content | Source-backed improvements deployed in `7b6b9d0`; initial HTML, five FAQ pairs each and canonicals verified live. Actual query-to-page relationships still require data. |
 | Report-request and fault resources | Detailed briefs retained after existing-page review; no full drafts or new resource pages yet |
 | Account performance baseline | Supplied GSC dates verified; query/page tables are separate and cannot establish their relationship |
-| Las Vegas volume validation | Pending localized export; current Planner file is US-wide through September with blank monthly columns |
+| Las Vegas volume validation | Existing export accepted with user-confirmed Las Vegas scope; historical coverage through September; monthly values blank |
 | Production release / local rank and backlink data | Both releases verified live; controlled city rank tracking and backlink export remain unavailable |
 
 The user's later “ok go” to the recommendation including production release supersedes the earlier no-deployment status statements preserved below. The site was released through its existing GitHub/Vercel integration; no campaign, hosting-account or domain settings were changed. No real inquiry was sent.

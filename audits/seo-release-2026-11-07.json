@@ -1,0 +1,851 @@
+{
+  "date": "2026-11-07",
+  "authorization": "User authorized the recommendation including production release and existing-page improvements with ok go.",
+  "origin": "https://www.maxlawnv.com",
+  "deployments": [
+    {
+      "commit": "7b6b9d074cf9adc35c54713c6063f607a5c81fac",
+      "environment": "Production – maxlawprod",
+      "deployment_id": 7628092642,
+      "deployment_created_utc": "2026-11-07T22:42:17Z",
+      "latest_status": "success",
+      "status_created_utc": "2026-11-07T22:42:17Z",
+      "environment_url": "https://maxlawprod-buhw1usz1-maxlaws-projects.vercel.app",
+      "status_url": "https://api.github.com/repos/GustosRepo/MaxLaw/deployments/7628092642/statuses"
+    },
+    {
+      "commit": "7b6b9d074cf9adc35c54713c6063f607a5c81fac",
+      "environment": "Production – max-law",
+      "deployment_id": 7628092136,
+      "deployment_created_utc": "2026-11-07T22:42:14Z",
+      "latest_status": "success",
+      "status_created_utc": "2026-11-07T22:42:14Z",
+      "environment_url": "https://max-rmlfo3eo9-gustosrepos-projects.vercel.app",
+      "status_url": "https://api.github.com/repos/GustosRepo/MaxLaw/deployments/7628092136/statuses"
+    },
+    {
+      "commit": "a83eac9c2b8ff2437bdbfa9894d79b7719c09851",
+      "environment": "Production – maxlawprod",
+      "deployment_id": 7628053531,
+      "deployment_created_utc": "2026-11-07T22:38:17Z",
+      "latest_status": "success",
+      "status_created_utc": "2026-11-07T22:38:18Z",
+      "environment_url": "https://maxlawprod-r3lv5ywqs-maxlaws-projects.vercel.app",
+      "status_url": "https://api.github.com/repos/GustosRepo/MaxLaw/deployments/7628053531/statuses"
+    },
+    {
+      "commit": "a83eac9c2b8ff2437bdbfa9894d79b7719c09851",
+      "environment": "Production – max-law",
+      "deployment_id": 7628051229,
+      "deployment_created_utc": "2026-11-07T22:38:02Z",
+      "latest_status": "success",
+      "status_created_utc": "2026-11-07T22:38:03Z",
+      "environment_url": "https://max-hlv4co2n8-gustosrepos-projects.vercel.app",
+      "status_url": "https://api.github.com/repos/GustosRepo/MaxLaw/deployments/7628051229/statuses"
+    }
+  ],
+  "production_initial": {
+    "checked_at_utc": "2026-11-07T22:40:39.369900+00:00",
+    "phase": "initial",
+    "origin": "https://www.maxlawnv.com",
+    "sitemap_urls": 36,
+    "canonical_pages": [
+      {
+        "url": "https://www.maxlawnv.com",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com",
+        "title": "Las Vegas Injury Lawyer & Criminal Defense Attorney | Max Law"
+      },
+      {
+        "url": "https://www.maxlawnv.com/about",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/about",
+        "title": "About Our Las Vegas Law Firm | The Law Offices of Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice",
+        "title": "Las Vegas Injury & Criminal Defense Lawyers | Practice Areas | The Law Offices of Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/results",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/results",
+        "title": "Results — Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/media",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/media",
+        "title": "Media & Press | The Law Offices of Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/contact",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/contact",
+        "title": "Contact Our Las Vegas Law Firm | The Law Offices of Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/about/marc-a-saggese",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/about/marc-a-saggese",
+        "title": "Marc A. Saggese, Esq. | Las Vegas Trial Attorney | The Law Offices of Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/service-areas",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/service-areas",
+        "title": "Las Vegas Service Areas | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/brain-and-spine-injury",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/brain-and-spine-injury",
+        "title": "Las Vegas Brain & Spine Injury Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/car-accident-statistics",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/car-accident-statistics",
+        "title": "Las Vegas & Nevada Car Accident Statistics | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/car-accidents",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/car-accidents",
+        "title": "Las Vegas Car Accident Attorney | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/cell-phone-related-accidents",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/cell-phone-related-accidents",
+        "title": "Las Vegas Distracted Driving Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/commercial-vehicle-accidents",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/commercial-vehicle-accidents",
+        "title": "Las Vegas Commercial Vehicle Accident Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/crosswalk-and-pedestrian-accidents",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/crosswalk-and-pedestrian-accidents",
+        "title": "Las Vegas Pedestrian Accident Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/elder-abuse",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/elder-abuse",
+        "title": "Las Vegas Elder Abuse Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/excessive-force",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/excessive-force",
+        "title": "Las Vegas Excessive Force Injury Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/insurance-settlements-and-checks",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/insurance-settlements-and-checks",
+        "title": "Las Vegas Insurance Settlement Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/motorcycle-accidents",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/motorcycle-accidents",
+        "title": "Las Vegas Motorcycle Accident Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/premises-liability",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/premises-liability",
+        "title": "Las Vegas Premises Liability Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/product-liability",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/product-liability",
+        "title": "Las Vegas Product Liability Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/truck-accidents",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/truck-accidents",
+        "title": "Las Vegas Truck Accident Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/underinsured-and-uninsured-accidents",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/underinsured-and-uninsured-accidents",
+        "title": "Las Vegas Uninsured Motorist Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/wrongful-death",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/wrongful-death",
+        "title": "Las Vegas Wrongful Death Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/bad-checks",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/bad-checks",
+        "title": "Las Vegas Bad Check Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/burglary",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/burglary",
+        "title": "Las Vegas Burglary Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/domestic-violence",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/domestic-violence",
+        "title": "Las Vegas Battery Domestic Violence Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/drugs",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/drugs",
+        "title": "Las Vegas Drug Crimes Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/dui",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/dui",
+        "title": "Las Vegas DUI Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/forgery",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/forgery",
+        "title": "Las Vegas Forgery & Fraud Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/juvenile-crimes",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/juvenile-crimes",
+        "title": "Las Vegas Juvenile Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/larceny",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/larceny",
+        "title": "Las Vegas Larceny & Theft Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/murder",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/murder",
+        "title": "Las Vegas Homicide & Murder Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/prostitution",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/prostitution",
+        "title": "Las Vegas Prostitution Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/record-sealing",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/record-sealing",
+        "title": "Las Vegas Record Sealing Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/sexual-assault",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/sexual-assault",
+        "title": "Las Vegas Sexual Assault Defense Lawyer | Saggese & Associates"
+      },
+      {
+        "url": "https://www.maxlawnv.com/criminal-defense/theft",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/criminal-defense/theft",
+        "title": "Las Vegas Theft & Larceny Defense Lawyer | Saggese & Associates"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/index.html",
+        "destination": "/",
+        "status": 308
+      },
+      {
+        "source": "/About-The-Firm/Marc-A-Saggese-Esq.html",
+        "destination": "/about/marc-a-saggese",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/index.html",
+        "destination": "/practice",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Drugs.html",
+        "destination": "/criminal-defense/drugs",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Motorcycle-Accidents.html",
+        "destination": "/practice/motorcycle-accidents",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Burglary.html",
+        "destination": "/criminal-defense/burglary",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Forgery.html",
+        "destination": "/criminal-defense/forgery",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Record-Sealing.html",
+        "destination": "/criminal-defense/record-sealing",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Wrongful-Death.html",
+        "destination": "/practice/wrongful-death",
+        "status": 308
+      },
+      {
+        "source": "/criminal-defense/drug-offenses",
+        "destination": "/criminal-defense/drugs",
+        "status": 308
+      },
+      {
+        "source": "/criminal-defense/battery-domestic-violence",
+        "destination": "/criminal-defense/domestic-violence",
+        "status": 308
+      },
+      {
+        "source": "/practice/brain-spine-injury",
+        "destination": "/practice/brain-and-spine-injury",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Bad-Checks.html",
+        "destination": "/criminal-defense/bad-checks",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Premises-Liability.html",
+        "destination": "/practice/premises-liability",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Product-Liability.html",
+        "destination": "/practice/product-liability",
+        "status": 308
+      },
+      {
+        "source": "/About-The-Firm",
+        "destination": "/about",
+        "status": 308
+      },
+      {
+        "source": "/About-The-Firm/index.html",
+        "destination": "/about",
+        "status": 308
+      },
+      {
+        "source": "/Contact.html",
+        "destination": "/contact",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/DUI.html",
+        "destination": "/criminal-defense/dui",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Domestic-Violence.html",
+        "destination": "/criminal-defense/domestic-violence",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Juvenile-Crimes.html",
+        "destination": "/criminal-defense/juvenile-crimes",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Larceny.html",
+        "destination": "/criminal-defense/larceny",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Murder.html",
+        "destination": "/criminal-defense/murder",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Prostitution.html",
+        "destination": "/criminal-defense/prostitution",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Sexual-Assault.html",
+        "destination": "/criminal-defense/sexual-assault",
+        "status": 308
+      },
+      {
+        "source": "/Criminal-Defense/Theft.html",
+        "destination": "/criminal-defense/theft",
+        "status": 308
+      },
+      {
+        "source": "/Disclaimer.html",
+        "destination": "/disclaimer",
+        "status": 308
+      },
+      {
+        "source": "/Media.html",
+        "destination": "/media",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Brain-And-Spine-Injury.html",
+        "destination": "/practice/brain-and-spine-injury",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Car-Accident-Statistics.html",
+        "destination": "/practice/car-accident-statistics",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Car-Accidents.html",
+        "destination": "/practice/car-accidents",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Cell-Phone-Related-Accidents.html",
+        "destination": "/practice/cell-phone-related-accidents",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Commercial-Vehicle-Accidents.html",
+        "destination": "/practice/commercial-vehicle-accidents",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Crosswalk-And-Pedestrian-Accidents.html",
+        "destination": "/practice/crosswalk-and-pedestrian-accidents",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Elder-Abuse.html",
+        "destination": "/practice/elder-abuse",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Excessive-Force.html",
+        "destination": "/practice/excessive-force",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Insurance-Settlements-And-Checks.html",
+        "destination": "/practice/insurance-settlements-and-checks",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Truck-Accidents.html",
+        "destination": "/practice/truck-accidents",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Underinsured-And-Uninsured-Accidents.html",
+        "destination": "/practice/underinsured-and-uninsured-accidents",
+        "status": 308
+      },
+      {
+        "source": "/Privacy-Policy.html",
+        "destination": "/privacy-policy",
+        "status": 308
+      },
+      {
+        "source": "/about-marc-saggese.html",
+        "destination": "/about/marc-a-saggese",
+        "status": 308
+      },
+      {
+        "source": "/bad-checks.html",
+        "destination": "/criminal-defense/bad-checks",
+        "status": 308
+      },
+      {
+        "source": "/battery---domestic-violence.html",
+        "destination": "/criminal-defense/domestic-violence",
+        "status": 308
+      },
+      {
+        "source": "/burglary.html",
+        "destination": "/criminal-defense/burglary",
+        "status": 308
+      },
+      {
+        "source": "/car-accidents.html",
+        "destination": "/practice/car-accidents",
+        "status": 308
+      },
+      {
+        "source": "/dui.html",
+        "destination": "/criminal-defense/dui",
+        "status": 308
+      },
+      {
+        "source": "/elder-abuse.html",
+        "destination": "/practice/elder-abuse",
+        "status": 308
+      },
+      {
+        "source": "/excessive-force.html",
+        "destination": "/practice/excessive-force",
+        "status": 308
+      },
+      {
+        "source": "/forgery.html",
+        "destination": "/criminal-defense/forgery",
+        "status": 308
+      },
+      {
+        "source": "/juvenile-crimes.html",
+        "destination": "/criminal-defense/juvenile-crimes",
+        "status": 308
+      },
+      {
+        "source": "/larceny.html",
+        "destination": "/criminal-defense/larceny",
+        "status": 308
+      },
+      {
+        "source": "/marc-saggese-bio-page",
+        "destination": "/about/marc-a-saggese",
+        "status": 308
+      },
+      {
+        "source": "/motorcycle-accidents.html",
+        "destination": "/practice/motorcycle-accidents",
+        "status": 308
+      },
+      {
+        "source": "/murder.html",
+        "destination": "/criminal-defense/murder",
+        "status": 308
+      },
+      {
+        "source": "/phone/about-the-firm.html",
+        "destination": "/about",
+        "status": 308
+      },
+      {
+        "source": "/phone/index.html",
+        "destination": "/",
+        "status": 308
+      },
+      {
+        "source": "/phone/practice-areas.html",
+        "destination": "/practice",
+        "status": 308
+      },
+      {
+        "source": "/practice-areas",
+        "destination": "/practice",
+        "status": 308
+      },
+      {
+        "source": "/practice-areas/seal-your-records",
+        "destination": "/criminal-defense/record-sealing",
+        "status": 308
+      },
+      {
+        "source": "/premises-liability.html",
+        "destination": "/practice/premises-liability",
+        "status": 308
+      },
+      {
+        "source": "/product-liability.html",
+        "destination": "/practice/product-liability",
+        "status": 308
+      },
+      {
+        "source": "/prostitution.html",
+        "destination": "/criminal-defense/prostitution",
+        "status": 308
+      },
+      {
+        "source": "/record-sealing.html",
+        "destination": "/criminal-defense/record-sealing",
+        "status": 308
+      },
+      {
+        "source": "/sexual-assault.html",
+        "destination": "/criminal-defense/sexual-assault",
+        "status": 308
+      },
+      {
+        "source": "/theft.html",
+        "destination": "/criminal-defense/theft",
+        "status": 308
+      },
+      {
+        "source": "/wrongful-death.html",
+        "destination": "/practice/wrongful-death",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Car-Accidents.shtml",
+        "destination": "/practice/car-accidents",
+        "status": 308
+      },
+      {
+        "source": "/Personal-Injury/Disclaimer.html",
+        "destination": "/disclaimer",
+        "status": 308
+      }
+    ],
+    "retired_404s": [
+      {
+        "path": "/Woman-beaten-by-Match-com-predator-speaks-out.html",
+        "status": 404
+      },
+      {
+        "path": "/Site-Map.html",
+        "status": 404
+      },
+      {
+        "path": "/Personal-Injury/Medical-Malpractice.html",
+        "status": 404
+      },
+      {
+        "path": "/audit-nonexistent-7e14",
+        "status": 404
+      }
+    ],
+    "car_and_settlement_content_present": true,
+    "forms_submitted": false
+  },
+  "production_final": {
+    "checked_at_utc": "2026-11-07T22:43:13.546140+00:00",
+    "phase": "final",
+    "origin": "https://www.maxlawnv.com",
+    "sitemap_urls": 36,
+    "canonical_pages": [
+      {
+        "url": "https://www.maxlawnv.com/practice/brain-and-spine-injury",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/brain-and-spine-injury",
+        "faq_count": 5
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/premises-liability",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/premises-liability",
+        "faq_count": 5
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/car-accidents",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/car-accidents",
+        "faq_count": 3
+      },
+      {
+        "url": "https://www.maxlawnv.com/practice/insurance-settlements-and-checks",
+        "status": 200,
+        "canonical": "https://www.maxlawnv.com/practice/insurance-settlements-and-checks",
+        "faq_count": null
+      }
+    ],
+    "redirects": [],
+    "retired_404s": [],
+    "car_and_settlement_content_present": true,
+    "forms_submitted": false
+  },
+  "local_validation": {
+    "production_build": "passed",
+    "typescript": "passed",
+    "eslint": "passed",
+    "regressions": {
+      "count": 40,
+      "result": "passed"
+    },
+    "browser_cases": [
+      {
+        "route": "/practice/brain-and-spine-injury",
+        "device": "desktop",
+        "javaScriptEnabled": true,
+        "status": 200,
+        "title": "Las Vegas Brain & Spine Injury Lawyer | Saggese & Associates",
+        "canonical": "https://www.maxlawnv.com/practice/brain-and-spine-injury",
+        "faqPairs": 5,
+        "sourceLinks": [
+          "https://www.cdc.gov/traumatic-brain-injury/signs-symptoms/",
+          "https://medlineplus.gov/ency/article/000799.htm",
+          "https://medlineplus.gov/spinalcordinjuries.html",
+          "https://ag.nv.gov/uploadedfiles/agnvgov/content/issues/09292021_nv-jury-instructions-civil-2018-pdf-version.pdf#page=81"
+        ],
+        "noOverflow": true,
+        "noNestedMain": true
+      },
+      {
+        "route": "/practice/premises-liability",
+        "device": "desktop",
+        "javaScriptEnabled": true,
+        "status": 200,
+        "title": "Las Vegas Premises Liability Lawyer | Saggese & Associates",
+        "canonical": "https://www.maxlawnv.com/practice/premises-liability",
+        "faqPairs": 5,
+        "sourceLinks": [
+          "https://law.justia.com/cases/nevada/supreme-court/2012/128-nev-adv-op-no-71.html",
+          "https://www.leg.state.nv.us/NRS/NRS-651.html#NRS651Sec015",
+          "https://www.leg.state.nv.us/NRS/NRS-041.html#NRS041Sec141",
+          "https://law.justia.com/cases/nevada/supreme-court/1993/22617-1.html",
+          "https://www.leg.state.nv.us/NRS/NRS-011.html#NRS011Sec190",
+          "https://ag.nv.gov/uploadedfiles/agnvgov/content/issues/09292021_nv-jury-instructions-civil-2018-pdf-version.pdf#page=81"
+        ],
+        "noOverflow": true,
+        "noNestedMain": true
+      },
+      {
+        "route": "/practice/brain-and-spine-injury",
+        "device": "desktop",
+        "javaScriptEnabled": false,
+        "status": 200,
+        "title": "Las Vegas Brain & Spine Injury Lawyer | Saggese & Associates",
+        "canonical": "https://www.maxlawnv.com/practice/brain-and-spine-injury",
+        "faqPairs": 5,
+        "sourceLinks": [
+          "https://www.cdc.gov/traumatic-brain-injury/signs-symptoms/",
+          "https://medlineplus.gov/ency/article/000799.htm",
+          "https://medlineplus.gov/spinalcordinjuries.html",
+          "https://ag.nv.gov/uploadedfiles/agnvgov/content/issues/09292021_nv-jury-instructions-civil-2018-pdf-version.pdf#page=81"
+        ],
+        "noOverflow": true,
+        "noNestedMain": true
+      },
+      {
+        "route": "/practice/premises-liability",
+        "device": "desktop",
+        "javaScriptEnabled": false,
+        "status": 200,
+        "title": "Las Vegas Premises Liability Lawyer | Saggese & Associates",
+        "canonical": "https://www.maxlawnv.com/practice/premises-liability",
+        "faqPairs": 5,
+        "sourceLinks": [
+          "https://law.justia.com/cases/nevada/supreme-court/2012/128-nev-adv-op-no-71.html",
+          "https://www.leg.state.nv.us/NRS/NRS-651.html#NRS651Sec015",
+          "https://www.leg.state.nv.us/NRS/NRS-041.html#NRS041Sec141",
+          "https://law.justia.com/cases/nevada/supreme-court/1993/22617-1.html",
+          "https://www.leg.state.nv.us/NRS/NRS-011.html#NRS011Sec190",
+          "https://ag.nv.gov/uploadedfiles/agnvgov/content/issues/09292021_nv-jury-instructions-civil-2018-pdf-version.pdf#page=81"
+        ],
+        "noOverflow": true,
+        "noNestedMain": true
+      },
+      {
+        "route": "/practice/brain-and-spine-injury",
+        "device": "mobile",
+        "javaScriptEnabled": true,
+        "status": 200,
+        "title": "Las Vegas Brain & Spine Injury Lawyer | Saggese & Associates",
+        "canonical": "https://www.maxlawnv.com/practice/brain-and-spine-injury",
+        "faqPairs": 5,
+        "sourceLinks": [
+          "https://www.cdc.gov/traumatic-brain-injury/signs-symptoms/",
+          "https://medlineplus.gov/ency/article/000799.htm",
+          "https://medlineplus.gov/spinalcordinjuries.html",
+          "https://ag.nv.gov/uploadedfiles/agnvgov/content/issues/09292021_nv-jury-instructions-civil-2018-pdf-version.pdf#page=81"
+        ],
+        "noOverflow": true,
+        "noNestedMain": true
+      },
+      {
+        "route": "/practice/premises-liability",
+        "device": "mobile",
+        "javaScriptEnabled": true,
+        "status": 200,
+        "title": "Las Vegas Premises Liability Lawyer | Saggese & Associates",
+        "canonical": "https://www.maxlawnv.com/practice/premises-liability",
+        "faqPairs": 5,
+        "sourceLinks": [
+          "https://law.justia.com/cases/nevada/supreme-court/2012/128-nev-adv-op-no-71.html",
+          "https://www.leg.state.nv.us/NRS/NRS-651.html#NRS651Sec015",
+          "https://www.leg.state.nv.us/NRS/NRS-041.html#NRS041Sec141",
+          "https://law.justia.com/cases/nevada/supreme-court/1993/22617-1.html",
+          "https://www.leg.state.nv.us/NRS/NRS-011.html#NRS011Sec190",
+          "https://ag.nv.gov/uploadedfiles/agnvgov/content/issues/09292021_nv-jury-instructions-civil-2018-pdf-version.pdf#page=81"
+        ],
+        "noOverflow": true,
+        "noNestedMain": true
+      },
+      {
+        "route": "/practice/brain-and-spine-injury",
+        "device": "mobile",
+        "javaScriptEnabled": false,
+        "status": 200,
+        "title": "Las Vegas Brain & Spine Injury Lawyer | Saggese & Associates",
+        "canonical": "https://www.maxlawnv.com/practice/brain-and-spine-injury",
+        "faqPairs": 5,
+        "sourceLinks": [
+          "https://www.cdc.gov/traumatic-brain-injury/signs-symptoms/",
+          "https://medlineplus.gov/ency/article/000799.htm",
+          "https://medlineplus.gov/spinalcordinjuries.html",
+          "https://ag.nv.gov/uploadedfiles/agnvgov/content/issues/09292021_nv-jury-instructions-civil-2018-pdf-version.pdf#page=81"
+        ],
+        "noOverflow": true,
+        "noNestedMain": true
+      },
+      {
+        "route": "/practice/premises-liability",
+        "device": "mobile",
+        "javaScriptEnabled": false,
+        "status": 200,
+        "title": "Las Vegas Premises Liability Lawyer | Saggese & Associates",
+        "canonical": "https://www.maxlawnv.com/practice/premises-liability",
+        "faqPairs": 5,
+        "sourceLinks": [
+          "https://law.justia.com/cases/nevada/supreme-court/2012/128-nev-adv-op-no-71.html",
+          "https://www.leg.state.nv.us/NRS/NRS-651.html#NRS651Sec015",
+          "https://www.leg.state.nv.us/NRS/NRS-041.html#NRS041Sec141",
+          "https://law.justia.com/cases/nevada/supreme-court/1993/22617-1.html",
+          "https://www.leg.state.nv.us/NRS/NRS-011.html#NRS011Sec190",
+          "https://ag.nv.gov/uploadedfiles/agnvgov/content/issues/09292021_nv-jury-instructions-civil-2018-pdf-version.pdf#page=81"
+        ],
+        "noOverflow": true,
+        "noNestedMain": true
+      }
+    ],
+    "rendered_comparison": {
+      "html_resources": 42,
+      "jsonld_blocks": 51,
+      "route_metadata_and_h1_preserved": true,
+      "changed_jsonld_pages": [
+        "practice/brain-and-spine-injury.html",
+        "practice/premises-liability.html"
+      ],
+      "only_faq_entities_changed": true,
+      "changed_application_files": [
+        "src/app/practice/premises-liability/page.tsx",
+        "src/app/practice/brain-and-spine-injury/page.tsx"
+      ]
+    }
+  },
+  "scope_limits": [
+    "No production forms submitted or real inquiries sent.",
+    "No local volumes or query-to-page relationships inferred.",
+    "No new resources, city pages or synonym URLs created.",
+    "Account exports and research documents were excluded from public commits.",
+    "No hosting-account, domain, billing or campaign settings changed."
+  ],
+  "pending": [
+    "Las Vegas-only Keyword Planner historical export with populated monthly values if available.",
+    "GSC query/page pairing and comparable period exports.",
+    "Optional Windsor.ai installation/connection not confirmed.",
+    "Report-request and fault resources remain later briefs."
+  ]
+}

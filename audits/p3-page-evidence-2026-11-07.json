@@ -1,0 +1,440 @@
+{
+  "date": "2026-11-07",
+  "captured_utc": "2026-11-07T21:55:14.802529+00:00",
+  "method": "Read-only GET with curl --compressed -L --max-redirs 6; parse initial HTML. No form submission.",
+  "limits": [
+    "Per-page observations, not a whole competitor-site crawl.",
+    "Canonical declarations do not establish Google-selected canonicals.",
+    "Link-path counts include navigation/footer and are not backlink counts or contextual-only counts.",
+    "Titles reflect fetched HTML; provider search titles can be older/different."
+  ],
+  "pages": [
+    {
+      "id": "H01",
+      "url": "https://www.ruizlawnv.com/practice-areas/las-vegas/car-accidents/",
+      "effective_url": "https://www.ruizlawnv.com/practice-areas/las-vegas/car-accidents/",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Las Vegas Car Accident Lawyer | Bilingual, Free Consult",
+      "canonical": [
+        "https://www.ruizlawnv.com/practice-areas/las-vegas/car-accidents/"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 49,
+      "selected_related_internal_paths": [
+        "/about-us/",
+        "/attorney-referrals/",
+        "/attorneys/",
+        "/car-accident-evidence-checklist-nevada/",
+        "/contact-us/",
+        "/es/practice-areas/las-vegas/car-accidents/",
+        "/how-to-deal-with-an-insurance-adjuster-after-a-car-accident/",
+        "/nevada-car-accident-settlement-timeline/",
+        "/nevada-comparative-negligence-car-accidents/",
+        "/practice-areas/car-accidents/",
+        "/practice-areas/las-vegas/car-accidents/",
+        "/practice-areas/summerlin/car-accidents/",
+        "/who-pays-medical-bills-after-car-accident-nevada/"
+      ]
+    },
+    {
+      "id": "H02",
+      "url": "https://boyerlawyer.com/",
+      "effective_url": "https://boyerlawyer.com/",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Las Vegas Car Accident Attorney - Brian Boyer Injury Lawyer",
+      "canonical": [
+        "https://boyerlawyer.com/"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 86,
+      "selected_related_internal_paths": [
+        "/about-brian-boyer/",
+        "/boating-accident-attorney-nevada/",
+        "/boulder-city-car-accident-attorney/",
+        "/can-i-sue-for-a-car-accident-in-las-vegas/",
+        "/car-accident-attorney-henderson-nevada/",
+        "/car-accident-types/",
+        "/common-types-of-car-accident-injuries/",
+        "/contact-us/",
+        "/enterprise-car-accident-lawyer/",
+        "/establishing-fault-after-an-auto-accident/",
+        "/how-do-i-pay-for-a-car-accident-lawyer/",
+        "/las-vegas-aggressive-driving-attorney/",
+        "/las-vegas-bus-accident-attorney/",
+        "/las-vegas-fender-bender-attorney/",
+        "/las-vegas-hit-and-run-attorney/",
+        "/las-vegas-pedestrian-accident-attorney/",
+        "/las-vegas-rollover-accident-attorney/",
+        "/las-vegas-slip-and-fall-accident-attorney/",
+        "/las-vegas-t-bone-accident-attorney/",
+        "/las-vegas-truck-accident-attorney/"
+      ]
+    },
+    {
+      "id": "H03",
+      "url": "https://www.injuryattorneyvegas.com/auto-accidents",
+      "effective_url": "https://www.injuryattorneyvegas.com/auto-accidents",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Las Vegas Car Accident Lawyer | Clark Law Group",
+      "canonical": [
+        "https://www.injuryattorneyvegas.com/auto-accidents"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 28,
+      "selected_related_internal_paths": [
+        "/attorneys",
+        "/case-results",
+        "/contact",
+        "/henderson-car-accident-lawyer"
+      ]
+    },
+    {
+      "id": "H04",
+      "url": "https://thewinderlawfirm.com/las-vegas-personal-injury-lawyer/car-accident/",
+      "effective_url": "https://thewinderlawfirm.com/las-vegas-personal-injury-lawyer/car-accident/",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Las Vegas Car Accident Lawyer | Winder Law Firm",
+      "canonical": [
+        "https://thewinderlawfirm.com/las-vegas-personal-injury-lawyer/car-accident/"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 43,
+      "selected_related_internal_paths": [
+        "/about/",
+        "/about/attorney-aaron-a-winder/",
+        "/abuse-lawsuit/medical-malpractice/",
+        "/contact/",
+        "/las-vegas-personal-injury-lawyer/car-accident/",
+        "/las-vegas-personal-injury-lawyer/car-accident/commercial-vehicle/",
+        "/las-vegas-personal-injury-lawyer/car-accident/construction-zone/",
+        "/las-vegas-personal-injury-lawyer/car-accident/distracted-driving/",
+        "/las-vegas-personal-injury-lawyer/car-accident/fatal/",
+        "/las-vegas-personal-injury-lawyer/car-accident/hit-and-run/",
+        "/las-vegas-personal-injury-lawyer/car-accident/rear-end/",
+        "/las-vegas-personal-injury-lawyer/car-accident/reckless-driving/",
+        "/las-vegas-personal-injury-lawyer/car-accident/side-impact-collision/"
+      ]
+    },
+    {
+      "id": "H05",
+      "url": "https://naqvilaw.com/",
+      "effective_url": "https://naqvilaw.com/",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Las Vegas Personal Injury Lawyer - Voted #1 Injury Attorney",
+      "canonical": [
+        "https://naqvilaw.com/"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 41,
+      "selected_related_internal_paths": [
+        "/car-accidents/",
+        "/contact-us/",
+        "/henderson-personal-injury-attorney/",
+        "/las-vegas-aggressive-driving-attorney/",
+        "/las-vegas-bicycle-accident-attorney-2/",
+        "/las-vegas-car-accident-attorney/",
+        "/las-vegas-child-injury-attorney/",
+        "/las-vegas-drunk-driver-accident-attorney/",
+        "/las-vegas-fender-bender-attorney/",
+        "/las-vegas-hit-and-run-attorney/",
+        "/las-vegas-motorcycle-accident-attorney/",
+        "/las-vegas-personal-injury-attorney/",
+        "/las-vegas-product-liability-attorney/",
+        "/las-vegas-slip-and-fall-attorney/",
+        "/las-vegas-spine-injury-attorney/",
+        "/las-vegas-taxi-cab-accident-attorney/",
+        "/las-vegas-truck-accident-attorney/",
+        "/las-vegas-underinsured-uninsured-coverage-attorney/",
+        "/las-vegas-wrongful-death-attorney/",
+        "/northwest-las-vegas-personal-injury-attorney/"
+      ]
+    },
+    {
+      "id": "H06",
+      "url": "https://www.claggettlaw.com/las-vegas-car-accident-lawyer/",
+      "effective_url": "https://www.claggettlaw.com/las-vegas-car-accident-lawyer/",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Las Vegas Car Accident Lawyer - Claggett & Sykes Trial Lawyers",
+      "canonical": [
+        "https://www.claggettlaw.com/las-vegas-car-accident-lawyer/"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 116,
+      "selected_related_internal_paths": [
+        "/2020/12/02/do-i-have-to-file-a-police-report-after-a-minor-car-accident-in-las-vegas/",
+        "/2025/05/06/what-to-do-after-a-nevada-car-accident-thats-not-your-fault/",
+        "/2026/01/09/delayed-onset-injuries-after-a-nevada-car-crash-and-what-to-do-about-them/",
+        "/2026/06/29/what-happens-if-your-medical-bills-exceed-insurance-policy-limits-in-nevada/",
+        "/about-the-authors/",
+        "/about-us/",
+        "/attorney-referrals/",
+        "/attorney-solicitation/",
+        "/contact/",
+        "/las-vegas-appellate-court-attorneys/",
+        "/las-vegas-car-accident-lawyer/",
+        "/las-vegas-car-accident-lawyer/distracted-driving/",
+        "/las-vegas-car-accident-lawyer/drunk-driving/",
+        "/las-vegas-car-accident-lawyer/head-on-collisions/",
+        "/las-vegas-car-accident-lawyer/hit-and-run-accidents/",
+        "/las-vegas-car-accident-lawyer/page/2/",
+        "/las-vegas-car-accident-lawyer/page/3/",
+        "/las-vegas-car-accident-lawyer/page/9/",
+        "/las-vegas-car-accident-lawyer/rear-end-accidents/",
+        "/las-vegas-motorcycle-accident-attorney/"
+      ]
+    },
+    {
+      "id": "H07",
+      "url": "https://www.edbernstein.com/henderson-car-accident-lawyer/",
+      "effective_url": "https://www.edbernstein.com/henderson-car-accident-lawyer/",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Henderson Car Accident Lawyer | Ed Bernstein Injury Lawyers",
+      "canonical": [
+        "https://www.edbernstein.com/henderson-car-accident-lawyer/"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 62,
+      "selected_related_internal_paths": [
+        "/about-us/",
+        "/about-us/terms-and-conditions/",
+        "/attorneys/",
+        "/blog/category/medical/",
+        "/blog/uncategorized/where-car-accidents-occur-in-henderson/",
+        "/contact-us/",
+        "/henderson-car-accident-lawyer/",
+        "/las-vegas-car-accident-lawyer/",
+        "/las-vegas-distracted-driving-accident-attorney/",
+        "/las-vegas-hit-and-run-accident-attorney/",
+        "/results/"
+      ]
+    },
+    {
+      "id": "H08",
+      "url": "https://thesookiassianfirm.com/summerlin-personal-injury-lawyer",
+      "effective_url": "https://thesookiassianfirm.com/summerlin-personal-injury-lawyer",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Summerlin Personal Injury Lawyer | The Sookiassian Firm",
+      "canonical": [
+        "https://thesookiassianfirm.com/summerlin-personal-injury-lawyer"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 49,
+      "selected_related_internal_paths": [
+        "/about",
+        "/blog/dog-bite-reported-las-vegas-what-happens",
+        "/blog/what-to-do-after-car-accident-las-vegas",
+        "/car-accident-lawyer",
+        "/contact",
+        "/summerlin-car-accident-lawyer"
+      ]
+    },
+    {
+      "id": "H09",
+      "url": "https://www.fletcherfirmlasvegas.com/practice-areas/car-accidents/las-vegas-crash-report",
+      "effective_url": "https://www.fletcherfirmlasvegas.com/practice-areas/car-accidents/las-vegas-crash-report",
+      "http_status_chain": [
+        200
+      ],
+      "title": "How to Get a Las Vegas Crash Report | The Fletcher Firm",
+      "canonical": [
+        "https://www.fletcherfirmlasvegas.com/practice-areas/car-accidents/las-vegas-crash-report"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 21,
+      "selected_related_internal_paths": [
+        "/about",
+        "/accident-attorney/clark-county",
+        "/contact",
+        "/post/getting-a-police-report-for-an-auto-accident",
+        "/post/proving-fault-in-an-auto-accident",
+        "/practice-areas/car-accidents",
+        "/practice-areas/car-accidents/car-accident-visitor-las-vegas",
+        "/practice-areas/car-accidents/hit-and-run-car-accident-las-vegas",
+        "/practice-areas/car-accidents/las-vegas-crash-report",
+        "/practice-areas/car-accidents/nevada-dmv-sr-1-crash-report",
+        "/practice-areas/car-accidents/parking-lot-crash-las-vegas",
+        "/practice-areas/car-accidents/what-happens-after-a-car-accident-in-las-vegas",
+        "/practice-areas/car-accidents/wrongful-death-claim-after-fatal-crash-nevada",
+        "/practice-areas/drunk-driving-accidents/dui-crash-police-report-blood-test-records"
+      ]
+    },
+    {
+      "id": "H10",
+      "url": "https://www.fletcherfirmlasvegas.com/post/understanding-comparative-fault-in-nevada",
+      "effective_url": "https://www.fletcherfirmlasvegas.com/post/understanding-comparative-fault-in-nevada",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Nevada's 50 Percent Fault Rule | The Fletcher Firm",
+      "canonical": [
+        "https://www.fletcherfirmlasvegas.com/post/understanding-comparative-fault-in-nevada"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 29,
+      "selected_related_internal_paths": [
+        "/about",
+        "/contact",
+        "/post/understanding-comparative-fault-in-nevada",
+        "/practice-areas/car-accidents",
+        "/practice-areas/car-accidents/car-accident-lawsuit-steps-clark-county",
+        "/practice-areas/car-accidents/fast-settlement-offer-release-nevada",
+        "/practice-areas/car-accidents/intersection-right-of-way-crash-nevada",
+        "/practice-areas/car-accidents/las-vegas-crash-report",
+        "/practice-areas/car-accidents/nevada-minimum-insurance-25-50-20",
+        "/practice-areas/car-accidents/passenger-injury-claim-nevada",
+        "/practice-areas/car-accidents/pedestrian-hit-by-car-las-vegas",
+        "/practice-areas/car-accidents/rear-end-crash-las-vegas",
+        "/practice-areas/car-accidents/recorded-statement-insurance-nevada",
+        "/practice-areas/car-accidents/seat-belt-injury-claim-nevada",
+        "/practice-areas/car-accidents/underinsured-motorist-claim-nevada"
+      ]
+    },
+    {
+      "id": "H11",
+      "url": "https://naqvilaw.com/how-to-request-an-accident-report-in-nevada/",
+      "effective_url": "https://naqvilaw.com/how-to-request-an-accident-report-in-nevada/",
+      "http_status_chain": [
+        200
+      ],
+      "title": "How to Request an Accident Report in Nevada",
+      "canonical": [
+        "https://naqvilaw.com/how-to-request-an-accident-report-in-nevada/"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 44,
+      "selected_related_internal_paths": [
+        "/car-accidents/",
+        "/contact-us/",
+        "/file-car-accident-claim-without-police-report-nevada/",
+        "/henderson-personal-injury-attorney/",
+        "/how-to-request-an-accident-report-in-nevada/",
+        "/las-vegas-aggressive-driving-attorney/",
+        "/las-vegas-bicycle-accident-attorney-2/",
+        "/las-vegas-car-accident-attorney/",
+        "/las-vegas-child-injury-attorney/",
+        "/las-vegas-drunk-driver-accident-attorney/",
+        "/las-vegas-fender-bender-attorney/",
+        "/las-vegas-hit-and-run-attorney/",
+        "/las-vegas-motorcycle-accident-attorney/",
+        "/las-vegas-personal-injury-attorney/",
+        "/las-vegas-product-liability-attorney/",
+        "/las-vegas-slip-and-fall-attorney/",
+        "/las-vegas-spine-injury-attorney/",
+        "/las-vegas-taxi-cab-accident-attorney/",
+        "/las-vegas-truck-accident-attorney/",
+        "/las-vegas-underinsured-uninsured-coverage-attorney/"
+      ]
+    },
+    {
+      "id": "H12",
+      "url": "https://www.maxlawnv.com/",
+      "effective_url": "https://www.maxlawnv.com/",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Las Vegas Injury Lawyer & Criminal Defense Attorney | Max Law",
+      "canonical": [
+        "https://www.maxlawnv.com"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 25,
+      "selected_related_internal_paths": [
+        "/about",
+        "/about/marc-a-saggese",
+        "/contact",
+        "/practice/car-accidents",
+        "/results"
+      ]
+    },
+    {
+      "id": "H13",
+      "url": "https://www.maxlawnv.com/practice/car-accidents",
+      "effective_url": "https://www.maxlawnv.com/practice/car-accidents",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Las Vegas Car Accident Attorney | Saggese & Associates",
+      "canonical": [
+        "https://www.maxlawnv.com/practice/car-accidents"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 17,
+      "selected_related_internal_paths": [
+        "/about",
+        "/about/marc-a-saggese",
+        "/contact",
+        "/results"
+      ]
+    },
+    {
+      "id": "H14",
+      "url": "https://www.maxlawnv.com/practice/insurance-settlements-and-checks",
+      "effective_url": "https://www.maxlawnv.com/practice/insurance-settlements-and-checks",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Las Vegas Insurance Settlement Lawyer | Saggese & Associates | The Law Offices of Saggese & Associates",
+      "canonical": [
+        "https://www.maxlawnv.com/practice/insurance-settlements-and-checks"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 9,
+      "selected_related_internal_paths": [
+        "/about",
+        "/contact",
+        "/results"
+      ]
+    },
+    {
+      "id": "H15",
+      "url": "https://www.maxlawnv.com/service-areas",
+      "effective_url": "https://www.maxlawnv.com/service-areas",
+      "http_status_chain": [
+        200
+      ],
+      "title": "Las Vegas Service Areas | Saggese & Associates | The Law Offices of Saggese & Associates",
+      "canonical": [
+        "https://www.maxlawnv.com/service-areas"
+      ],
+      "declares_self_canonical": true,
+      "h1_element_count": 1,
+      "unique_same_site_link_paths": 17,
+      "selected_related_internal_paths": [
+        "/about",
+        "/contact",
+        "/practice/car-accidents",
+        "/results"
+      ]
+    }
+  ]
+}

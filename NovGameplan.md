@@ -3,13 +3,32 @@
 **Prepared for:** CODEWERX LLC / The Law Offices of Saggese & Associates  
 **Audit date:** October 29, 2026 (America/Los_Angeles)  
 **Planning window:** November 2026  
-**Status:** First content cycle prioritizes the Car Accidents page plus two supporting articles, followed by improvements to existing settlement content and maintenance of the statistics resource. Car page draft complete; article briefs outlined, full article drafts and Marc's review pending.
+**Status:** The user authorized production release and the next content cycle. P1 migration fixes, P2 car/settlement improvements and the subsequent Brain & Spine Injury / Premises Liability updates are deployed and verified on maxlawnv.com. P3 competitive/account analysis is complete; Las Vegas volume validation and actual query-to-page relationships remain open. The report-request and fault article briefs remain planned for a later cycle.
 
-**Last progress update:** November 3, 2026 — content strategy and SEO/site-quality fixes retained; extra backend infrastructure removed at the user's request. Supporting article drafts and publication remain pending.
+**Last progress update:** November 7, 2026 — see [the production release notes](SEO_RELEASE_NOTES_2026-11-07.md). Commits `a83eac9` and `7b6b9d0` succeeded in both existing Vercel production projects; the custom domain passed read-only verification. All 68 redirect rules and 36 sitemap pages were verified in the first batch; both improved pages and retained car/settlement content passed final checks. Build, TypeScript, lint, 40 regressions and eight targeted browser cases pass. [P3 research](P3_COMPETITIVE_SEO_KEYWORD_ANALYSIS.md), [account analysis](P3_ACCOUNT_DATA_REFRESH_2026-11-07.md) and the [74-phrase map](P3_KEYWORD_MAP.csv) retain their dated evidence; no local volume or query-to-page relationship is inferred. Research/account files remain local.
+
+### Current progress — November 7
+
+| Work | Current status |
+|---|---|
+| P1 migration redirects and initial-HTML practice links | Deployed in `a83eac9`; 68 rules and 36 canonical sitemap pages verified live |
+| P2 car and settlement improvements, metadata and sitemap corrections | Deployed in `a83eac9`; content present in initial production HTML |
+| P2 statistics source/methodology review | Deployed in `a83eac9`; source label corrected without inventing fresh dates |
+| P3 competitive research and keyword ownership | Competitive/account analysis complete; 74 phrases, reports, import template and three dated evidence files prepared |
+| Existing premises and brain/spine content | Source-backed improvements deployed in `7b6b9d0`; initial HTML, five FAQ pairs each and canonicals verified live. Actual query-to-page relationships still require data. |
+| Report-request and fault resources | Detailed briefs retained after existing-page review; no full drafts or new resource pages yet |
+| Account performance baseline | Supplied GSC dates verified; query/page tables are separate and cannot establish their relationship |
+| Las Vegas volume validation | Pending localized export; current Planner file is US-wide through September with blank monthly columns |
+| Production release / local rank and backlink data | Both releases verified live; controlled city rank tracking and backlink export remain unavailable |
+
+The user's later “ok go” to the recommendation including production release supersedes the earlier no-deployment status statements preserved below. The site was released through its existing GitHub/Vercel integration; no campaign, hosting-account or domain settings were changed. No real inquiry was sent.
+
+**November 7, 2026 — P2 scope update:** The user explicitly instructed us to use independent research into Nevada law and Las Vegas agency guidance rather than wait for Marc. That instruction supersedes the earlier attorney-review prerequisite for the general educational additions in this task; it does not establish that Marc reviewed or authored them. Current legal sources, conservative qualifications and source links replace that dependency. Firm-specific fee percentages, expense waivers, new results and new intake promises are not inferred from statutes. The previous Section 11 remains the historical proposal; the actual local changes and source register are recorded in `SEO_MIGRATION_AUDIT.md` under P2. The car and settlement pages have been improved in place and the build, TypeScript, lint and 40 regression tests pass; the two new resource articles remain a later content cycle. No deployment is authorized by this update.
+
 
 **Original audit baseline:** commit `4ee3a34` (`fixed old redirects`); the October 29 inventory and live checks below have not been rerun for this planning update.
 
-This document is the content-work tracker. Current scope is the car accident content package plus local SEO, rendering, consistency and conversion fixes. The user clarified that extra backend infrastructure is outside the client scope; that expansion has been removed. Section 11 preserves the existing Car Accident content draft; the two supporting articles have topic briefs in Section 5, not completed publication copy. Client/legal review and implementation of that proposed content remain pending. No deployment has been performed.
+This document preserves the earlier content-work tracker and proposals. The November 7 progress above, P3 report and migration audit supersede older status statements below. The user clarified that extra backend infrastructure is outside the client scope; that expansion has been removed. Section 11 preserves the earlier Car Accident draft, and Section 5 preserves the original article topics. Current independent-research authorization is recorded above; full article drafts and publication remain pending. No deployment has been performed.
 
 ### SEO and site-quality handoff — November 3
 
@@ -19,9 +38,9 @@ The expanded storage, queue, retry scheduler/endpoint, persistent rate limits an
 
 **Local verification after rollback:** production build, explicit TypeScript, ESLint and 19 SMTP/desktop/mobile regression cases pass. Structured-data validation reports no issues across 42 generated HTML pages / 51 JSON-LD blocks. These checks do not establish production indexing, rankings or qualified leads. No real inquiry was sent. Supporting article drafts and attorney review remain pending.
 
-## Tracking board
+## Historical tracking board — November 3
 
-Owners below are proposed responsibilities, not assignments already accepted. Check a delivery item only after its acceptance criteria and review are complete. Editorial/development estimates exclude Marc's review and are planning ranges, not a quote or ranking forecast.
+The following board and checklist preserve the November 3 proposal. Use the November 7 progress table and P3 report for current status, authorization and next actions. Owners below were proposed responsibilities, not assignments already accepted. Estimates were planning ranges, not a quote or ranking forecast.
 
 | ID | Deliverable | Proposed owner | Status | Estimated effort | Completion evidence |
 |---|---|---|---|---|---|

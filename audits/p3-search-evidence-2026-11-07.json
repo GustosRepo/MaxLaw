@@ -1,0 +1,414 @@
+{
+  "date": "2026-11-07",
+  "timezone": "America/Los_Angeles",
+  "limitations": [
+    "Results are research-provider responses, not verified Google organic ranks or local map packs.",
+    "No search volumes or keyword difficulty are measured by this search.",
+    "Result order is not reported as a Google position.",
+    "Array order is not a reported Google rank.",
+    "Results may include irrelevant geographies; those were excluded from the strategic analysis."
+  ],
+  "queries": [
+    {
+      "id": "K01",
+      "query": "car accident lawyer Las Vegas",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 35,
+      "observed_result_urls": [
+        "https://www.jasonbarruslaw.com/vehicle-accidents-lawyer",
+        "https://boyerlawyer.com/",
+        "https://www.cohanpllc.com/personal-injury/car-accidents/",
+        "https://moralesinjurylaw.com/car-accidents",
+        "https://www.injuryattorneyvegas.com/auto-accidents",
+        "https://lvaccident.com/practice-area/car-accidents/",
+        "https://bobapplelaw.com/",
+        "https://www.ruizlawnv.com/practice-areas/las-vegas/car-accidents/",
+        "https://springberglaw.com/practice-areas/motor-vehicle-accidents/",
+        "https://paulpaddalaw.com/our-services/las-vegas-car-accident-lawyer",
+        "https://www.lvlawfirm.com/personal-injury/car-accidents/",
+        "https://thewinderlawfirm.com/las-vegas-personal-injury-lawyer/car-accident/"
+      ]
+    },
+    {
+      "id": "K02",
+      "query": "personal injury lawyer Las Vegas",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 34,
+      "observed_result_urls": [
+        "https://www.bedfordlawgroup.com/las-vegas-personal-injury-attorney-shawn-azizzadeh-bedford-law-group/",
+        "https://bornandraisedlaw.com/",
+        "https://www.ruizlawnv.com/practice-areas/personal-injury/",
+        "https://naqvilaw.com/",
+        "https://cpklaw.com/",
+        "https://parkeinjury.com/",
+        "https://www.ruizlawnv.com/practice-areas/las-vegas/personal-injury/",
+        "https://www.injuryattorneyvegas.com/",
+        "https://anthonypaglia.com/",
+        "https://nwogbelaw.com/",
+        "https://www.ericwoodslaw.com/",
+        "https://www.nvpilaw.com/"
+      ]
+    },
+    {
+      "id": "K03",
+      "query": "injury lawyer near me Las Vegas",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 30,
+      "observed_result_urls": [
+        "https://www.hennessandhaight.com/contact-us/",
+        "https://www.ruizlawnv.com/",
+        "https://www.bernsteinslaw.com/",
+        "https://aprilinjurylaw.com/contact/",
+        "https://ratingsnearme.com/las-vegas-nv/injury-lawyer-near-me",
+        "https://hansenharmon.com/",
+        "https://thesookiassianfirm.com/",
+        "https://aprilinjurylaw.com/",
+        "https://www.ahlanderinjurylaw.com/",
+        "https://www.lawyers.com/injuries/las-vegas/nevada/law-firms/",
+        "https://realvegasmagazine.com/wp-content/uploads/Gio-Nina.pdf",
+        "https://cpklaw.com/"
+      ]
+    },
+    {
+      "id": "K04",
+      "query": "car accident lawyer Henderson Nevada",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 30,
+      "observed_result_urls": [
+        "https://www.avvo.com/motor-vehicle-accident-lawyer/nv/henderson.html",
+        "https://www.avvo.com/car-accidents-lawyer/nv/henderson.html",
+        "https://www.martindale.com/automobile-accidents-lawyers/henderson/nevada/",
+        "https://www.avvo.com/truck-accident-lawyer/nv/henderson.html",
+        "https://www.edbernstein.com/henderson-car-accident-lawyer/",
+        "https://carcrashlawyernevada.com/contact-us/",
+        "https://www.lawyers.com/motor-vehicle-accidents/henderson/nevada/law-firms/",
+        "https://www.ruizlawnv.com/",
+        "https://www.mendezsanchezlaw.com/car-accident-lawyer/henderson",
+        "https://joneswilson.com/cases/car-accident",
+        "https://www.egletlaw.com/henderson-car-accident-lawyer/",
+        "https://www.lawyers.com/automobile-accidents/henderson/nevada/law-firms/"
+      ]
+    },
+    {
+      "id": "K05",
+      "query": "Summerlin car accident lawyer",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 32,
+      "observed_result_urls": [
+        "https://www.ruizlawnv.com/practice-areas/summerlin/car-accidents/",
+        "https://www.egletlaw.com/summerlin-car-accident-lawyer/",
+        "https://attorneys.superlawyers.com/motor-vehicle-accidents/nevada/summerlin/",
+        "https://www.edbernstein.com/summerlin-car-accident-lawyer/",
+        "https://www.ruizlawnv.com/practice-areas/summerlin/personal-injury/",
+        "https://paulpaddalaw.com/our-services/summerlin-car-accident-lawyer/",
+        "https://www.dlgteam.com/summerlin/car-accident-lawyer/",
+        "https://carcrashlawyernevada.com/contact-us/",
+        "https://blakefriedmanlaw.com/summerlin-car-accident-lawyer/",
+        "https://marathonlawgroup.com/summerlin-car-accident-lawyer/",
+        "https://www.dlgteam.com/service-areas/summerlin-car-accident-lawyer/",
+        "https://www.corenalaw.com/summerlin/car-accident-lawyer/"
+      ]
+    },
+    {
+      "id": "K06",
+      "query": "Las Vegas car accident police report how to get",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 29,
+      "observed_result_urls": [
+        "https://www.lvmpd.com/about/bureaus/records-and-fingerprint-bureau/requesting-report-copies-with-lvmpd",
+        "https://www.lvmpd.com/about/bureaus/records-and-fingerprint-bureau/frequently-asked-questions",
+        "https://www.lvmpd.com/about/bureaus/records-and-fingerprint-bureau/requesting-report-copies-with-lvmpd/requesting-a-report-attorneys",
+        "https://www.lvmpd.com/services/online-services",
+        "https://www.fletcherfirmlasvegas.com/practice-areas/car-accidents/las-vegas-crash-report",
+        "https://bdinjurylawgroup.com/blog/las-vegas-police-report-after-accident/",
+        "https://www.sellouklaw.com/las-vegas-car-accident-report",
+        "https://dmv.nv.gov/pdfforms/sr1.pdf",
+        "https://www.lvmpd.com/i-want-to/file/public-records",
+        "https://gallagherlipshutz.com/blog/how-to-get-car-crash-report-las-vegas/",
+        "https://www.acelawgroup.com/blog/2024/06/how-to-file-a-police-report-in-las-vegas/",
+        "https://www.lvmpd.com/home/showpublisheddocument/628/638308013626700000"
+      ]
+    },
+    {
+      "id": "K07",
+      "query": "Nevada car accident fault 50 percent",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 28,
+      "observed_result_urls": [
+        "https://law.justia.com/cases/nevada/supreme-court/1998/28359-1.html",
+        "https://ariski.com/claims/car/nevada/",
+        "https://www.fletcherfirmlasvegas.com/practice-areas/car-accidents/nevada-car-accident-laws-quick-facts",
+        "https://www.fletcherfirmlasvegas.com/post/understanding-comparative-fault-in-nevada",
+        "https://www.fletcherfirmlasvegas.com/practice-areas/car-accidents",
+        "https://doi.nv.gov/uploadedFiles/doi.nv.gov/Content/News_and_Notices/CG%20to%20Auto%20Insurance%20Rates%202026%20-%20Final.pdf",
+        "https://www.epubs.nsla.nv.gov/statepubs/epubs/210576-2024-03.pdf",
+        "https://epubs.nsla.nv.gov/statepubs/epubs/210576-2021-10.pdf",
+        "https://vanlawfirm.com/faqs/",
+        "https://thatcarhitme.com/guides/legal/settlement-values/nevada/average-car-accident-settlement-nv",
+        "https://www.dot.nv.gov/Home/ShowDocument?id=112",
+        "https://caselaw.findlaw.com/court/nv-supreme-court/1086971.html"
+      ]
+    },
+    {
+      "id": "K08",
+      "query": "who pays medical bills after car accident Nevada",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 21,
+      "observed_result_urls": [
+        "https://doi.nv.gov/uploadedFiles/doi.nv.gov/Content/News_and_Notices/CG%20to%20Auto%20Insurance%20Rates%202026%20-%20Terms%20Sheet.pdf",
+        "https://doi.nv.gov/uploadedFiles/doi.nv.gov/Content/Consumers/Automobile_Insurance/2024_Auto_Guide_FINAL.pdf",
+        "https://www.ruizlawnv.com/who-pays-medical-bills-after-car-accident-nevada/",
+        "https://doi.nv.gov/uploadedfiles/doinvgov/_public-documents/Consumers/9828A.pdf",
+        "https://epubs.nsla.nv.gov/statepubs/epubs/484275-2024.pdf",
+        "https://parkeinjury.com/blog/who-pays-medical-bills-after-a-car-accident-in-nevada/",
+        "https://doi.nv.gov/uploadedFiles/doi.nv.gov/Content/Consumers/Automobile_Insurance/2021%20Auto%20Guide%20-%20%20Final.pdf",
+        "https://epubs.nsla.nv.gov/statepubs/epubs/484275-2014-15.pdf",
+        "https://www.ericwoodslaw.com/faqs/nevada-auto-insurance-faq/",
+        "https://shouselawdev.wpengine.com/nv/personal-injury/damages/medical-bills/",
+        "https://doi.nv.gov/NDI/Templates/BlogPostPage.aspx?blogid=4148&id=57042",
+        "https://www.fletcherfirmlasvegas.com/practice-areas/car-accidents/passenger-injury-claim-nevada"
+      ]
+    },
+    {
+      "id": "K09",
+      "query": "Nevada car accident settlement check how long",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 25,
+      "observed_result_urls": [
+        "https://www.ruizlawnv.com/nevada-car-accident-settlement-timeline/",
+        "https://www.sellouklaw.com/blog/car-accident-settlement-timeline-nevada",
+        "https://www.mattdionlaw.com/auto-accidents/frequently-asked-questions-about-nevada-auto-accident-settlements/",
+        "https://injurysage.com/states/nevada",
+        "https://www.acelawgroup.com/blog/2025/11/why-is-my-car-accident-settlement-taking-so-long/",
+        "https://vanlawfirm.com/blog/5-key-factors-that-determine-how-long-a-car-accident-case-takes/",
+        "https://legalclarity.org/how-long-does-it-take-to-get-a-settlement-check-from-a-car-accident/",
+        "https://carcrashlawyernevada.com/las-vegas-car-accident-attorneys/how-long-does-it-take-to-get-paid/",
+        "https://www.ladahlaw.com/blog/how-long-does-a-car-accident-settlement-take-in-las-vegas/",
+        "https://www.fletcherfirmlasvegas.com/practice-areas/car-accidents/settlement-check-liens-payout-nevada",
+        "https://www.dlgteam.com/blog/how-long-will-my-car-accident-case-take-to-settle/",
+        "https://jcogburnlaw.com/blog/how-long-does-it-take-to-get-a-personal-injury-settlement-check-in-nevada/"
+      ]
+    },
+    {
+      "id": "K10",
+      "query": "Las Vegas car accident tourist visitor lawyer",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 29,
+      "observed_result_urls": [
+        "https://cameronlawlv.com/paradise-personal-injury-lawyer/car-accidents",
+        "https://www.hoflandlaw.com/practice-areas/personal-injury/tourist-injuries/",
+        "https://thesookiassianfirm.com/blog/injured-visiting-las-vegas-car-accident",
+        "https://paulpaddalaw.com/our-services/las-vegas-strip-car-accident-lawyer/",
+        "https://www.rodneyokano.com/blog/car-accidents/what-to-do-if-injured-in-a-car-accident-as-a-tourist-in-las-vegas",
+        "https://cml-main.webflow.io/paradise-personal-injury-lawyer/car-accidents",
+        "https://lvaccident.com/blog/injured-in-a-las-vegas-car-accident-while-visiting-your-legal-rights-as-a-tourist/",
+        "https://www.bernsteinslaw.com/blog/what-to-do-if-youre-hit-by-a-tourist-driver-in-las-vegas/",
+        "https://www.corenalaw.com/car-accidents/vegas-tourist-car-accident-guide/",
+        "https://www.kochandbrim.com/las-vegas-car-accident-lawyer/",
+        "https://www.musluskylaw.com/practice-area/out-of-state-clients",
+        "https://www.drummondfirm.com/tourist-accident-lawyer-las-vegas/"
+      ]
+    },
+    {
+      "id": "K11",
+      "query": "Las Vegas uninsured motorist accident lawyer",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 28,
+      "observed_result_urls": [
+        "https://paulpaddalaw.com/our-services/las-vegas-car-accident-lawyer/uninsured-driver-accidents/",
+        "https://willoughbyshulman.com/uninsured-or-under-insured-motorist-claims/",
+        "https://www.bandalawgrouplv.com/uninsured-and-underinsured-motorist",
+        "https://www.maxlawnv.com/practice/underinsured-and-uninsured-accidents",
+        "https://moralesinjurylaw.com/underinsured-uninsured-claims",
+        "https://www.injuryattorneyvegas.com/uninsured-motorist-claims",
+        "https://lvaccident.com/practice-area/uninsured-underinsured-accidents/",
+        "https://www.ralphaschwartzpc.com/personal-injury/uninsured-underinsured-motorist-accidents/",
+        "https://lvattorneys.com/practice-areas/underinsured-uninsured/",
+        "https://www.kochandbrim.com/uninsured-underinsured-motorists/",
+        "https://bencrump.com/areas-we-serve/las-vegas-nv/car-accident-lawyer/uninsured-car/",
+        "https://moralesinjurylaw.com/car-accidents"
+      ]
+    },
+    {
+      "id": "K12",
+      "query": "Las Vegas truck accident lawyer",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 34,
+      "observed_result_urls": [
+        "https://www.ruizlawnv.com/practice-areas/truck-accidents/",
+        "https://www.ericwoodslaw.com/practice-areas/truck-accidents-2/index.html",
+        "https://www.jonremmel.com/practice-areas/commercial-truck-accidents/",
+        "https://moralesinjurylaw.com/truck-accidents",
+        "https://naqvilaw.com/las-vegas-truck-accident-attorney/",
+        "https://templeinjurylaw.com/truck-accident-lawyer/",
+        "https://www.hoflandlaw.com/practice-areas/personal-injury/commercial-vehicle-accidents/",
+        "https://www.lassoinjurylaw.com/truck-accidents",
+        "https://www.galliher-law.com/las-vegas-truck-accident-lawyer/",
+        "https://acelakhani.com/services/trucking-accidents/",
+        "https://www.solistorreslaw.com/trucking-accidents",
+        "https://seegmillerlaw.com/practice-areas/semi-truck-accidents/"
+      ]
+    },
+    {
+      "id": "K13",
+      "query": "Las Vegas injury lawyer",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 37,
+      "observed_result_urls": [
+        "https://realvegasmagazine.com/wp-content/uploads/Sam-H.pdf",
+        "https://www.hennessandhaight.com/contact-us/",
+        "https://www.maxlawnv.com/",
+        "https://realvegasmagazine.com/wp-content/uploads/Amanda-Laub.pdf",
+        "https://www.ruizlawnv.com/",
+        "https://www.lassoinjurylaw.com/",
+        "https://anthonypaglia.com/",
+        "https://www.bernsteinslaw.com/",
+        "https://willoughbyshulman.com/contact-us/",
+        "https://lachinjurylaw.com/",
+        "https://www.ahlanderinjurylaw.com/",
+        "https://www.ruizlawnv.com/practice-areas/las-vegas/personal-injury/"
+      ]
+    },
+    {
+      "id": "K14",
+      "query": "Henderson personal injury lawyer",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 33,
+      "observed_result_urls": [
+        "https://www.ruizlawnv.com/practice-areas/henderson/",
+        "https://www.ruizlawnv.com/practice-areas/henderson/personal-injury/",
+        "https://www.ruizlawnv.com/",
+        "https://www.egletlaw.com/henderson-personal-injury-lawyer/",
+        "https://www.justia.com/lawyers/personal-injury/nevada/henderson",
+        "https://www.forthepeople.com/office-locations/nevada/henderson/",
+        "https://marshallinjurylaw.com/",
+        "https://accidentlawyerhenderson.com/contact/",
+        "https://www.dlgteam.com/henderson/",
+        "https://richardharrislaw.com/locations/henderson/",
+        "https://www.kochandbrim.com/henderson-personal-injury-lawyers/",
+        "https://accidentlawyerhenderson.com/contact/consultation/"
+      ]
+    },
+    {
+      "id": "K15",
+      "query": "Summerlin personal injury lawyer",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 30,
+      "observed_result_urls": [
+        "https://thesookiassianfirm.com/",
+        "https://thesookiassianfirm.com/summerlin-personal-injury-lawyer",
+        "https://www.ruizlawnv.com/practice-areas/summerlin/personal-injury/",
+        "https://attorneys.superlawyers.com/personal-injury-plaintiff/nevada/summerlin/",
+        "https://www.shookandstone.com/summerlin/personal-injury-lawyer/",
+        "https://www.egletlaw.com/summerlin-personal-injury-lawyer/",
+        "https://www.kochandbrim.com/summerlin-personal-injury-lawyer/",
+        "https://paulpaddalaw.com/our-services/summerlin-personal-injury-attorney/",
+        "https://www.ruizlawnv.com/practice-areas/summerlin/",
+        "https://campionelawpa.com/summerlin-personal-injury-lawyer/",
+        "https://www.edbernstein.com/summerlin-personal-injury-lawyer/",
+        "https://paulpowell.com/summerlin/"
+      ]
+    },
+    {
+      "id": "K16",
+      "query": "Las Vegas premises liability lawyer",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 32,
+      "observed_result_urls": [
+        "https://www.egletlaw.com/las-vegas-premises-liability-lawyer/",
+        "https://www.askadamskutner.com/premises-liability/",
+        "https://www.claggettlaw.com/practice-areas/premises-liability/",
+        "https://paulpowell.com/premises-liability/",
+        "https://www.hennessandhaight.com/las-vegas-premises-liability-attorneys/",
+        "https://www.injuryattorneyvegas.com/slip-and-fall",
+        "https://cartercullen.com/las-vegas-premises-liability-lawyer/",
+        "https://www.bernsteinslaw.com/practice-areas/las-vegas-premises-liability-lawyers/",
+        "https://www.gazdatadayon.com/premises-liability-attorneys-las-vegas-nv/",
+        "https://wilson.gjassets.com/content/uploads/pdf/kevin-a-brown.pdf",
+        "https://www.sellouklaw.com/practice-areas/premises-liability-lawyer-las-vegas",
+        "https://www.lassoinjurylaw.com/premises-liability"
+      ]
+    },
+    {
+      "id": "K17",
+      "query": "Las Vegas motorcycle accident lawyer",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 33,
+      "observed_result_urls": [
+        "https://www.ralphaschwartzpc.com/personal-injury/motorcycle-accident/",
+        "https://www.ruizlawnv.com/practice-areas/las-vegas/motorcycle-accidents/",
+        "https://www.ruizlawnv.com/practice-areas/motorcycle-accidents/",
+        "https://paulpowell.com/las-vegas/motorcycle-accident-lawyer/",
+        "https://moralesinjurylaw.com/motorcycle-accidents",
+        "https://nwogbelaw.com/practice-areas/motorcycle-accidents/",
+        "https://www.jonremmel.com/practice-areas/motorcycle-accident-attorney/",
+        "https://www.lassoinjurylaw.com/motorcycle-accidents",
+        "https://lvaccident.com/practice-area/motorcycle-accidents/",
+        "https://lvattorneys.com/practice-areas/motorcycle-accidents/",
+        "https://valientemott.com/las-vegas-motorcycle-accident-lawyer/",
+        "https://www.nvpilaw.com/las-vegas-motorcycle-accident-attorney/"
+      ]
+    },
+    {
+      "id": "K18",
+      "query": "Las Vegas brain injury lawyer",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 33,
+      "observed_result_urls": [
+        "https://www.avvo.com/brain-injury-lawyer/nv/las_vegas.html",
+        "https://www.torklaw.com/las-vegas/brain-injury-lawyer/",
+        "https://www.ruizlawnv.com/practice-areas/brain-injuries/",
+        "https://attorneys.superlawyers.com/brain-injury/nevada/las-vegas/",
+        "https://www.jonremmel.com/practice-areas/brain-injury-attorney/",
+        "https://www.trenchaklaw.com/brain-injury/",
+        "https://paulpowell.com/medical-malpractice/traumatic-brain-injuries/",
+        "https://www.ruizlawnv.com/practice-areas/las-vegas/brain-injuries/",
+        "https://www.morrisinjurylaw.com/practice-areas/brain-injuries/",
+        "https://www.galliher-law.com/las-vegas-head-and-spinal-injury-lawyer/",
+        "https://kaplanlawgroup.com/brain-injury-claims/",
+        "https://www.lassoinjurylaw.com/personal-injury/traumatic-brain-injury"
+      ]
+    },
+    {
+      "id": "K19",
+      "query": "Las Vegas car accident statistics",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 33,
+      "observed_result_urls": [
+        "https://templeinjurylaw.com/las-vegas-crash-data-statistics/",
+        "https://www.dlgteam.com/las-vegas-car-accidents-statistics/",
+        "https://gps-temp.unm.edu/tru/reports/community-reports/2024/cities/city_las-vegas.pdf",
+        "https://www.fletcherfirmlasvegas.com/practice-areas/car-accidents/car-crash-data-clark-county",
+        "https://gps.unm.edu/tru/reports/community-reports/2024/cities/city_las-vegas.pdf",
+        "https://www.maxlawnv.com/practice/car-accident-statistics",
+        "https://gps.unm.edu/tru/reports/community-reports/2023/cities/city_las-vegas.pdf",
+        "https://archive.leg.state.nv.us/Session/83rd2025/Exhibits/Senate/JUD/SJUD1267H.pdf",
+        "https://www.sellouklaw.com/las-vegas-car-crash-data",
+        "https://www.makeroadssafe.org/las-vegas-road-safety-overview/",
+        "https://theschnitzerlawfirm.com/car-accident-statistics-in-nevada-and-how-to-stay-safe-in-2022/",
+        "https://www.reviewjournal.com/local/traffic/positive-trend-2025-sees-lowest-traffic-death-count-in-nevada-since-2021-3605054/"
+      ]
+    },
+    {
+      "id": "K20",
+      "query": "how much does a car accident lawyer cost Nevada",
+      "method": "research web search; not localized Google rank tracking",
+      "raw_result_records": 23,
+      "observed_result_urls": [
+        "https://setcalc.com/guides/nevada-car-accident-lawyer",
+        "https://www.meeshamoultonlaw.com/journal/car-accident-lawyer-fees",
+        "https://setcalc.com/guides/reno-car-accident-lawyer",
+        "https://www.dearlegal.com/locations/nevada/car-accident",
+        "https://localattorneyfees.com/car-accidents/reno-nv",
+        "https://www.fletcherfirmlasvegas.com/practice-areas/car-accidents/car-accident-case-costs-clark-county",
+        "https://setcalc.com/guides/las-vegas-car-accident-lawyer",
+        "https://www.acelawgroup.com/blog/2025/02/what-are-the-fees-of-car-accident-lawyers-in-las-vegas/",
+        "https://www.cardenaslawgroup.com/blog/what-are-the-typical-fees-for-hiring-an-injury-lawyer-in-las-vegas",
+        "https://blakefriedmanlaw.com/how-much-does-a-car-accident-lawyer-cost/",
+        "https://baylawinjury.com/henderson-car-accident-lawyer/",
+        "https://www.acelawgroup.com/blog/when-to-hire-a-car-accident-lawyer/"
+      ]
+    }
+  ],
+  "method": "Research-provider web searches; up to 12 standard result URLs per query, excluding separate news/social/video blocks. Not localized Google rank tracking."
+}

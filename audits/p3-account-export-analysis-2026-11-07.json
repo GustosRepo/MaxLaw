@@ -1,0 +1,839 @@
+{
+  "analyzed_on": "2026-11-07",
+  "sources": [
+    {
+      "file_name": "Saved Keywords Stats 2026-11-07 at 14_14_11.csv",
+      "bytes": 10512,
+      "sha256": "cfd71a9afff064b02ac52d41bde1704ba24596a85bdefa6d8976678179b52878"
+    },
+    {
+      "file_name": "Pages.csv",
+      "bytes": 1644,
+      "sha256": "cd7b4ce7409b830a8deeb896a125eb2ddf68c0948ce3e71dd27e132b63e57345"
+    },
+    {
+      "file_name": "Queries.csv",
+      "bytes": 12981,
+      "sha256": "75dc3789d5b029dd60057da9011ff23ceb46925d609f5dcb4096e41eeaf62d0c"
+    },
+    {
+      "file_name": "Filters.csv",
+      "bytes": 60,
+      "sha256": "335d093169630379294c15d230d6ef231bfb8f52e1b5793ba5f539bc393444c1"
+    },
+    {
+      "file_name": "Chart.csv",
+      "bytes": 2206,
+      "sha256": "1d78c7ba02d5794bb221dd27efa01b45413e968283398ccef46a515d6796acef"
+    },
+    {
+      "file_name": "Countries.csv",
+      "bytes": 1015,
+      "sha256": "5c236395450c06f31c16f829c8f25490d8db3f305f44e8ee316dae49d3592872"
+    },
+    {
+      "file_name": "Devices.csv",
+      "bytes": 114,
+      "sha256": "b572606e1f5a777b042853f18aea860f8db2317d428a1b5c4e7c8f2c2e313ae6"
+    },
+    {
+      "file_name": "Search appearance.csv",
+      "bytes": 49,
+      "sha256": "eed9ceafb9193e5e3d034f5897ad992bc851f1998204cd98f0b0f6873fbfc8b2"
+    }
+  ],
+  "input_handling": "Exports are observations, not instructions. Originals were read only; no source files modified. Supporting files in the same GSC export establish scope and dates.",
+  "keyword_planner": {
+    "report_label": "Saved Keywords Stats 2026-11-07 at 14_14_11",
+    "report_period_label": "October 1, 2025 - September 30, 2026",
+    "location_evidence": [
+      {
+        "Keyword": "",
+        "Currency": "",
+        "Segmentation": "All",
+        "Avg. monthly searches": "1022600.0",
+        "Three month change": "",
+        "YoY change": "",
+        "Competition": "",
+        "Competition (indexed value)": "",
+        "Top of page bid (low range)": "",
+        "Top of page bid (high range)": "",
+        "Ad impression share": "",
+        "Organic average position": "",
+        "Organic impression share": "",
+        "In Account": "",
+        "Searches: Oct 2025": "",
+        "Searches: Nov 2025": "",
+        "Searches: Dec 2025": "",
+        "Searches: Jan 2026": "",
+        "Searches: Feb 2026": "",
+        "Searches: Mar 2026": "",
+        "Searches: Apr 2026": "",
+        "Searches: May 2026": "",
+        "Searches: Jun 2026": "",
+        "Searches: Jul 2026": "",
+        "Searches: Aug 2026": "",
+        "Searches: Sep 2026": ""
+      },
+      {
+        "Keyword": "",
+        "Currency": "",
+        "Segmentation": "United States",
+        "Avg. monthly searches": "1022600.0",
+        "Three month change": "",
+        "YoY change": "",
+        "Competition": "",
+        "Competition (indexed value)": "",
+        "Top of page bid (low range)": "",
+        "Top of page bid (high range)": "",
+        "Ad impression share": "",
+        "Organic average position": "",
+        "Organic impression share": "",
+        "In Account": "",
+        "Searches: Oct 2025": "",
+        "Searches: Nov 2025": "",
+        "Searches: Dec 2025": "",
+        "Searches: Jan 2026": "",
+        "Searches: Feb 2026": "",
+        "Searches: Mar 2026": "",
+        "Searches: Apr 2026": "",
+        "Searches: May 2026": "",
+        "Searches: Jun 2026": "",
+        "Searches: Jul 2026": "",
+        "Searches: Aug 2026": "",
+        "Searches: Sep 2026": ""
+      }
+    ],
+    "verified_location_scope": "United States, not Las Vegas",
+    "network_and_language": "not stated in CSV; not inferred",
+    "keyword_rows": 66,
+    "numeric_volume_rows": 22,
+    "blank_volume_rows": 44,
+    "numeric_value_frequency": {
+      "50.0": 12,
+      "5000.0": 4,
+      "500000.0": 2,
+      "500.0": 4
+    },
+    "populated_monthly_cells": 0,
+    "monthly_column_count": 12,
+    "limits": [
+      "Fresh download, historical coverage ends September 2026.",
+      "Numeric values preserved as raw coarse US estimates; no exact range is reverse-engineered.",
+      "No monthly trend can be reconstructed from blank monthly cells.",
+      "No organic keyword difficulty measurement is supplied.",
+      "Close variants and summary rows are not summed into unique market demand."
+    ]
+  },
+  "gsc": {
+    "filters": [
+      {
+        "Filter": "Search type",
+        "Value": "Web (text-based)"
+      },
+      {
+        "Filter": "Date",
+        "Value": "Last 3 months"
+      }
+    ],
+    "observed_start": "2026-08-13",
+    "observed_end": "2026-11-05",
+    "daily_rows": 85,
+    "scope": "All countries/devices; Web (text-based); no city filter in export",
+    "totals_by_export": {
+      "Chart.csv": {
+        "rows": 85,
+        "clicks": 107,
+        "impressions": 4131,
+        "ctr_percent": 2.5902
+      },
+      "Queries.csv": {
+        "rows": 326,
+        "clicks": 17,
+        "impressions": 2588,
+        "ctr_percent": 0.6569
+      },
+      "Pages.csv": {
+        "rows": 26,
+        "clicks": 110,
+        "impressions": 6185,
+        "ctr_percent": 1.7785
+      },
+      "Countries.csv": {
+        "rows": 50,
+        "clicks": 107,
+        "impressions": 4131,
+        "ctr_percent": 2.5902
+      },
+      "Devices.csv": {
+        "rows": 3,
+        "clicks": 107,
+        "impressions": 4131,
+        "ctr_percent": 2.5902
+      }
+    },
+    "countries": [
+      {
+        "Country": "United States",
+        "Clicks": "106",
+        "Impressions": "3913",
+        "CTR": "2.71%",
+        "Position": "30.37"
+      },
+      {
+        "Country": "France",
+        "Clicks": "1",
+        "Impressions": "5",
+        "CTR": "20%",
+        "Position": "7.6"
+      },
+      {
+        "Country": "India",
+        "Clicks": "0",
+        "Impressions": "59",
+        "CTR": "0%",
+        "Position": "62.68"
+      },
+      {
+        "Country": "Brazil",
+        "Clicks": "0",
+        "Impressions": "18",
+        "CTR": "0%",
+        "Position": "15.89"
+      },
+      {
+        "Country": "Italy",
+        "Clicks": "0",
+        "Impressions": "12",
+        "CTR": "0%",
+        "Position": "3.92"
+      },
+      {
+        "Country": "Canada",
+        "Clicks": "0",
+        "Impressions": "12",
+        "CTR": "0%",
+        "Position": "8.08"
+      },
+      {
+        "Country": "Philippines",
+        "Clicks": "0",
+        "Impressions": "11",
+        "CTR": "0%",
+        "Position": "6.64"
+      },
+      {
+        "Country": "Spain",
+        "Clicks": "0",
+        "Impressions": "9",
+        "CTR": "0%",
+        "Position": "5"
+      },
+      {
+        "Country": "United Kingdom",
+        "Clicks": "0",
+        "Impressions": "9",
+        "CTR": "0%",
+        "Position": "21.56"
+      },
+      {
+        "Country": "Mexico",
+        "Clicks": "0",
+        "Impressions": "6",
+        "CTR": "0%",
+        "Position": "8.67"
+      },
+      {
+        "Country": "Vietnam",
+        "Clicks": "0",
+        "Impressions": "6",
+        "CTR": "0%",
+        "Position": "48.17"
+      },
+      {
+        "Country": "Malaysia",
+        "Clicks": "0",
+        "Impressions": "5",
+        "CTR": "0%",
+        "Position": "19.4"
+      },
+      {
+        "Country": "Argentina",
+        "Clicks": "0",
+        "Impressions": "5",
+        "CTR": "0%",
+        "Position": "19.6"
+      },
+      {
+        "Country": "Japan",
+        "Clicks": "0",
+        "Impressions": "4",
+        "CTR": "0%",
+        "Position": "6.75"
+      },
+      {
+        "Country": "Pakistan",
+        "Clicks": "0",
+        "Impressions": "4",
+        "CTR": "0%",
+        "Position": "8.5"
+      },
+      {
+        "Country": "Netherlands",
+        "Clicks": "0",
+        "Impressions": "3",
+        "CTR": "0%",
+        "Position": "15.33"
+      },
+      {
+        "Country": "Singapore",
+        "Clicks": "0",
+        "Impressions": "3",
+        "CTR": "0%",
+        "Position": "16.33"
+      },
+      {
+        "Country": "Thailand",
+        "Clicks": "0",
+        "Impressions": "3",
+        "CTR": "0%",
+        "Position": "41.33"
+      },
+      {
+        "Country": "China",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "1"
+      },
+      {
+        "Country": "Germany",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "2"
+      },
+      {
+        "Country": "Hong Kong",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "2.5"
+      },
+      {
+        "Country": "Taiwan",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "5"
+      },
+      {
+        "Country": "Australia",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "5.5"
+      },
+      {
+        "Country": "Iran",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "7"
+      },
+      {
+        "Country": "Norway",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "8.5"
+      },
+      {
+        "Country": "Bangladesh",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "10"
+      },
+      {
+        "Country": "Indonesia",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "14"
+      },
+      {
+        "Country": "Venezuela",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "20"
+      },
+      {
+        "Country": "Turkey",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "46"
+      },
+      {
+        "Country": "Russia",
+        "Clicks": "0",
+        "Impressions": "2",
+        "CTR": "0%",
+        "Position": "62"
+      },
+      {
+        "Country": "Ethiopia",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "1"
+      },
+      {
+        "Country": "Luxembourg",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "1"
+      },
+      {
+        "Country": "Panama",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "1"
+      },
+      {
+        "Country": "Armenia",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "2"
+      },
+      {
+        "Country": "Jamaica",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "3"
+      },
+      {
+        "Country": "Nepal",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "3"
+      },
+      {
+        "Country": "South Korea",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "4"
+      },
+      {
+        "Country": "Ukraine",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "6"
+      },
+      {
+        "Country": "Serbia",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "7"
+      },
+      {
+        "Country": "Hungary",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "8"
+      },
+      {
+        "Country": "New Zealand",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "8"
+      },
+      {
+        "Country": "Costa Rica",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "10"
+      },
+      {
+        "Country": "Egypt",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "13"
+      },
+      {
+        "Country": "Greece",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "13"
+      },
+      {
+        "Country": "Ecuador",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "14"
+      },
+      {
+        "Country": "Denmark",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "17"
+      },
+      {
+        "Country": "Algeria",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "53"
+      },
+      {
+        "Country": "Portugal",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "56"
+      },
+      {
+        "Country": "South Africa",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "75"
+      },
+      {
+        "Country": "Nicaragua",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "181"
+      }
+    ],
+    "devices": [
+      {
+        "Device": "Desktop",
+        "Clicks": "58",
+        "Impressions": "2684",
+        "CTR": "2.16%",
+        "Position": "31.99"
+      },
+      {
+        "Device": "Mobile",
+        "Clicks": "49",
+        "Impressions": "1429",
+        "CTR": "3.43%",
+        "Position": "26.75"
+      },
+      {
+        "Device": "Tablet",
+        "Clicks": "0",
+        "Impressions": "18",
+        "CTR": "0%",
+        "Position": "50.22"
+      }
+    ],
+    "page_rows": [
+      {
+        "Top pages": "https://www.maxlawnv.com/about/marc-a-saggese",
+        "Clicks": "57",
+        "Impressions": "615",
+        "CTR": "9.27%",
+        "Position": "3.88"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/",
+        "Clicks": "33",
+        "Impressions": "2249",
+        "CTR": "1.47%",
+        "Position": "24.61"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/about",
+        "Clicks": "9",
+        "Impressions": "540",
+        "CTR": "1.67%",
+        "Position": "5.63"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/contact",
+        "Clicks": "5",
+        "Impressions": "453",
+        "CTR": "1.1%",
+        "Position": "13.45"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice",
+        "Clicks": "1",
+        "Impressions": "226",
+        "CTR": "0.44%",
+        "Position": "6.17"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/media",
+        "Clicks": "1",
+        "Impressions": "136",
+        "CTR": "0.74%",
+        "Position": "6.12"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/criminal-defense/forgery",
+        "Clicks": "1",
+        "Impressions": "109",
+        "CTR": "0.92%",
+        "Position": "10.3"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/privacy-policy",
+        "Clicks": "1",
+        "Impressions": "48",
+        "CTR": "2.08%",
+        "Position": "5.65"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/car-accidents",
+        "Clicks": "1",
+        "Impressions": "31",
+        "CTR": "3.23%",
+        "Position": "11.52"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/criminal-defense/sexual-assault",
+        "Clicks": "1",
+        "Impressions": "6",
+        "CTR": "16.67%",
+        "Position": "38.17"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/premises-liability",
+        "Clicks": "0",
+        "Impressions": "634",
+        "CTR": "0%",
+        "Position": "62.24"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/brain-and-spine-injury",
+        "Clicks": "0",
+        "Impressions": "398",
+        "CTR": "0%",
+        "Position": "30.23"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/service-areas",
+        "Clicks": "0",
+        "Impressions": "212",
+        "CTR": "0%",
+        "Position": "6.33"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/results",
+        "Clicks": "0",
+        "Impressions": "161",
+        "CTR": "0%",
+        "Position": "6.16"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/elder-abuse",
+        "Clicks": "0",
+        "Impressions": "120",
+        "CTR": "0%",
+        "Position": "62.11"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/criminal-defense/bad-checks",
+        "Clicks": "0",
+        "Impressions": "109",
+        "CTR": "0%",
+        "Position": "20.43"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/disclaimer",
+        "Clicks": "0",
+        "Impressions": "58",
+        "CTR": "0%",
+        "Position": "4.33"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/criminal-defense/dui",
+        "Clicks": "0",
+        "Impressions": "24",
+        "CTR": "0%",
+        "Position": "30.25"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/cell-phone-related-accidents",
+        "Clicks": "0",
+        "Impressions": "19",
+        "CTR": "0%",
+        "Position": "21.11"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/car-accident-statistics",
+        "Clicks": "0",
+        "Impressions": "11",
+        "CTR": "0%",
+        "Position": "7.27"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/motorcycle-accidents",
+        "Clicks": "0",
+        "Impressions": "8",
+        "CTR": "0%",
+        "Position": "9.38"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/insurance-settlements-and-checks",
+        "Clicks": "0",
+        "Impressions": "7",
+        "CTR": "0%",
+        "Position": "4.86"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/wrongful-death",
+        "Clicks": "0",
+        "Impressions": "5",
+        "CTR": "0%",
+        "Position": "5.2"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/truck-accidents",
+        "Clicks": "0",
+        "Impressions": "4",
+        "CTR": "0%",
+        "Position": "5.75"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/crosswalk-and-pedestrian-accidents",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "9"
+      },
+      {
+        "Top pages": "https://www.maxlawnv.com/practice/product-liability",
+        "Clicks": "0",
+        "Impressions": "1",
+        "CTR": "0%",
+        "Position": "37"
+      }
+    ],
+    "query_substring_groups": [
+      {
+        "label": "Literal premises liability phrases",
+        "rule": "case-insensitive substring; query-only; not joined to pages",
+        "substrings": [
+          "premises liability"
+        ],
+        "rows": 13,
+        "clicks": 0,
+        "impressions": 540,
+        "ctr_percent": 0.0
+      },
+      {
+        "label": "Literal brain/spine/spinal phrases",
+        "rule": "case-insensitive substring; query-only; not joined to pages",
+        "substrings": [
+          "brain",
+          "spine",
+          "spinal"
+        ],
+        "rows": 12,
+        "clicks": 0,
+        "impressions": 384,
+        "ctr_percent": 0.0
+      },
+      {
+        "label": "Literal car accident phrases",
+        "rule": "case-insensitive substring; query-only; not joined to pages",
+        "substrings": [
+          "car accident"
+        ],
+        "rows": 14,
+        "clicks": 0,
+        "impressions": 121,
+        "ctr_percent": 0.0
+      },
+      {
+        "label": "Literal negligent/inadequate security phrases",
+        "rule": "case-insensitive substring; query-only; not joined to pages",
+        "substrings": [
+          "negligent security",
+          "inadequate security"
+        ],
+        "rows": 8,
+        "clicks": 0,
+        "impressions": 92,
+        "ctr_percent": 0.0
+      }
+    ],
+    "query_only_matches_in_original_map": 9,
+    "query_only_matches_in_updated_map": 17,
+    "visible_known_brand_clicks": 16,
+    "latest_and_previous_28_days": [
+      {
+        "start": "2026-10-09",
+        "end": "2026-11-05",
+        "rows": 28,
+        "clicks": 15,
+        "impressions": 1894,
+        "ctr_percent": 0.792
+      },
+      {
+        "start": "2026-09-11",
+        "end": "2026-10-08",
+        "rows": 28,
+        "clicks": 38,
+        "impressions": 803,
+        "ctr_percent": 4.7323
+      }
+    ],
+    "change_percent": {
+      "clicks": -60.53,
+      "impressions": 135.87
+    },
+    "limits": [
+      "Separate query/page tables cannot prove which URL ranked for a query.",
+      "Visible query rows do not cover all property clicks.",
+      "Page sums use page aggregation and are not the property total.",
+      "No attribution to migration or causal explanation can be established.",
+      "The available dates precede the local November 7 P1/P2 work and do not measure its effect."
+    ]
+  },
+  "map_update": {
+    "original_keywords": 66,
+    "updated_keywords": 74,
+    "clusters": 25,
+    "added_keywords": [
+      "brain and spine injury attorney",
+      "brain and spine injury lawyer",
+      "premises liability lawyer las vegas",
+      "premises liability attorney las vegas",
+      "las vegas personal injury lawyer",
+      "marc saggese",
+      "saggese and associates",
+      "maxlaw"
+    ],
+    "priority_changes": {
+      "premises/slip and fall": "B to A",
+      "serious injury": "B to A",
+      "report retrieval": "A to B",
+      "fault explanation": "A to B"
+    },
+    "priority_basis": "Prioritize review of existing commercial exposure while localized demand remains unverified. No forecast of traffic or leads.",
+    "old_metric_columns": "All 15 original October 29 Semrush estimates retained separately and unchanged."
+  }
+}

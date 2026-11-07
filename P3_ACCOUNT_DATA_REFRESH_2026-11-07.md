@@ -1,5 +1,7 @@
 # Max Law — account export analysis, November 7, 2026
 
+**Current work order:** [SEO Priority Plan](SEO_PRIORITY_PLAN.md) is the concise current reference. Earlier priorities below preserve the research history. The active keyword-map priorities are 1 (car accidents), 2 (brain/spine), 3 (premises), Maintain and Later.
+
 **Location correction — November 7:** The user confirms the supplied Keyword Planner file was exported for Las Vegas. The earlier nationwide classification inferred from its `United States` segmentation row is withdrawn: the CSV has no explicit selected-city field. Las Vegas is recorded as user-confirmed scope, with the raw label preserved separately. A repeat export is not required on that basis. Historical dates, raw estimates and missing values are unchanged.
 
 Subsequent work: the user authorized production release and focused existing-page improvements. Those releases are now verified in [the release notes](SEO_RELEASE_NOTES_2026-11-07.md). The figures and validation below preserve the earlier account-analysis snapshot; they do not measure the effect of the new content or establish a query-to-page relationship.

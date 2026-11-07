@@ -1,5 +1,7 @@
 # Max Law — P3 competitive SEO and keyword analysis
 
+**Current work order:** [SEO Priority Plan](SEO_PRIORITY_PLAN.md) is the concise current reference. Earlier priorities below preserve the research history. The active keyword-map priorities are 1 (car accidents), 2 (brain/spine), 3 (premises), Maintain and Later.
+
 **Location correction — November 7:** The user confirms the supplied Keyword Planner file was exported for Las Vegas. The earlier nationwide classification inferred from its `United States` segmentation row is withdrawn: the CSV has no explicit selected-city field. Las Vegas is recorded as user-confirmed scope, with the raw label preserved separately. A repeat export is not required on that basis. Historical dates, raw estimates and missing values are unchanged.
 
 Research date: November 7, 2026, America/Los_Angeles. Scope: Las Vegas and nearby Nevada injury searches, with car accidents as the first content focus. This is the competitive and keyword research phase, following the local P1 migration fixes and P2 content improvements. No application changes or deployment were performed in P3.
@@ -61,7 +63,7 @@ Across the sample, consultation offers, trial experience and personal attorney a
 
 ## Keyword ownership and priorities
 
-In the CSV, **A, B and C are content priorities, not migration phases**. A means the next commercial/support focus; B means an existing or secondary opportunity to evaluate after that focus; C means conditional later work. A does not promise high volume or low competition. A blank metric means unknown, not zero.
+The A/B/C letters in this research-era table are historical, not migration phases. They are preserved in the CSV as `research_priority_at_account_analysis`. The active `priority` column now follows [SEO_PRIORITY_PLAN.md](SEO_PRIORITY_PLAN.md): 1 car accidents, 2 brain/spine, 3 premises, Maintain and Later. A blank metric means unknown, not zero.
 
 The table summarizes all 25 clusters; the CSV contains the individual variants and provenance. These are preferred editorial owners, not claims that Google will always choose that URL.
 

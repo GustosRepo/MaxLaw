@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Bad Check Defense Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Bad Check Defense Lawyer | Saggese & Associates' },
   description: 'Defense for bad check & negotiable instrument charges. Mitigate criminal exposure & pursue restitution solutions.',
   keywords: [
     'las vegas bad check lawyer',

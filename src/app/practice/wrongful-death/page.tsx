@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { PracticeBreadcrumbs, PracticeFaqSection, type PracticeFaq } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Wrongful Death Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Wrongful Death Lawyer | Saggese & Associates' },
   description: 'Compassionate Las Vegas wrongful death attorneys pursuing justice & financial security for families. Free consultation – call (702) 778‑8883.',
   alternates: { canonical: `${SITE_URL}/practice/wrongful-death` },
   openGraph: {

@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas DUI Defense Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas DUI Defense Lawyer | Saggese & Associates' },
   description: 'Las Vegas DUI defense lawyer challenging stops, testing & DMV suspension. Free consultation (702) 778-8883.',
   keywords: [
     'las vegas dui lawyer',

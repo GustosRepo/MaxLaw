@@ -5,7 +5,7 @@ import PracticeStructuredData from '../PracticeStructuredData'
 import { PracticeBreadcrumbs, PracticeFaqSection, type PracticeFaq } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Product Liability Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Product Liability Lawyer | Saggese & Associates' },
   description: 'Las Vegas product liability lawyer handling defective product, design, manufacturing & warning defect claims. Free consultation (702) 778‑8883.',
   keywords: [
     'las vegas product liability lawyer',

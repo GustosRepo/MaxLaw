@@ -8,7 +8,7 @@ export default defineConfig({
   reporter: 'list',
   use: { baseURL: 'http://127.0.0.1:3100', trace: 'retain-on-failure' },
   projects: [
-    { name: 'server', testMatch: '**/contact-server.spec.ts' },
+    { name: 'server', testMatch: ['**/contact-server.spec.ts', '**/seo-migration.spec.ts'] },
     { name: 'desktop', testMatch: '**/website.spec.ts', use: { ...devices['Desktop Chrome'] } },
     { name: 'mobile', testMatch: '**/website.spec.ts', use: { ...devices['iPhone 13'], defaultBrowserType: 'chromium' } },
   ],

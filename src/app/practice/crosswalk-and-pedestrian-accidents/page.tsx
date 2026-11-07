@@ -5,7 +5,7 @@ import PracticeStructuredData from '../PracticeStructuredData'
 import { PracticeBreadcrumbs, PracticeFaqSection, type PracticeFaq } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Pedestrian Accident Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Pedestrian Accident Lawyer | Saggese & Associates' },
   description: 'Las Vegas pedestrian & crosswalk accident lawyer protecting injured pedestrians. Free consultation (702) 778‑8883.',
   keywords: [
     'las vegas pedestrian accident lawyer',

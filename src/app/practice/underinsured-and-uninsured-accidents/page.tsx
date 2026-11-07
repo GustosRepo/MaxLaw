@@ -5,7 +5,7 @@ import PracticeStructuredData from '../PracticeStructuredData'
 import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Uninsured Motorist Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Uninsured Motorist Lawyer | Saggese & Associates' },
   description: 'Las Vegas uninsured & underinsured motorist (UM/UIM) accident lawyer helping maximize recovery when coverage is limited. Free consultation (702) 778‑8883.',
   keywords: [
     'las vegas uninsured motorist lawyer',

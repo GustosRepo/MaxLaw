@@ -5,7 +5,7 @@ import PracticeStructuredData from '../PracticeStructuredData'
 import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Excessive Force Injury Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Excessive Force Injury Lawyer | Saggese & Associates' },
   description: 'Injured by excessive force? We investigate, preserve evidence & pursue accountability. Free consultation (702) 778-8883.',
   keywords: [
     'las vegas excessive force lawyer',

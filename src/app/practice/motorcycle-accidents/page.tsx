@@ -4,7 +4,7 @@ import PracticeStructuredData from '../PracticeStructuredData'
 import MotorcycleAccidentsPageClient from './MotorcycleAccidentsPageClient'
 
 export const metadata: Metadata = {
-  title: 'Las Vegas Motorcycle Accident Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Motorcycle Accident Lawyer | Saggese & Associates' },
   description: 'Las Vegas motorcycle crash & injury lawyers — helmet law knowledge, severe injury claims & insurer negotiation. Free consultation (702) 778‑8883.',
   keywords: ['Las Vegas motorcycle accident lawyer','Nevada motorcycle attorney','motorcycle crash injury claim'],
   alternates: { canonical: `${SITE_URL}/practice/motorcycle-accidents` },

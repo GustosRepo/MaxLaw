@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Drug Crimes Defense Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Drug Crimes Defense Lawyer | Saggese & Associates' },
   description: 'Defense for possession, distribution & trafficking—search, seizure & lab challenges. Free consult (702) 778-8883.',
   keywords: [
     'las vegas drug crimes lawyer',

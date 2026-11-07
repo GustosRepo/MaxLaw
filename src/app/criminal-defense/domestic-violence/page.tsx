@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Battery Domestic Violence Defense Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Battery Domestic Violence Defense Lawyer | Saggese & Associates' },
   description: 'Battery Domestic Violence defense focusing on protection orders, credibility & evidence review. Free consult (702) 778-8883.',
   keywords: [
     'las vegas Battery Domestic Violence lawyer',

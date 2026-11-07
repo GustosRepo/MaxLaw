@@ -84,6 +84,272 @@ const nextConfig: NextConfig = {
         destination: "/practice/product-liability",
         permanent: true,
       },
+      // Verified historical equivalents from SEO_MIGRATION_AUDIT.md (P1).
+      {
+        source: "/About-The-Firm",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/About-The-Firm/index.html",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/Contact.html",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/DUI.html",
+        destination: "/criminal-defense/dui",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Domestic-Violence.html",
+        destination: "/criminal-defense/domestic-violence",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Juvenile-Crimes.html",
+        destination: "/criminal-defense/juvenile-crimes",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Larceny.html",
+        destination: "/criminal-defense/larceny",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Murder.html",
+        destination: "/criminal-defense/murder",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Prostitution.html",
+        destination: "/criminal-defense/prostitution",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Sexual-Assault.html",
+        destination: "/criminal-defense/sexual-assault",
+        permanent: true,
+      },
+      {
+        source: "/Criminal-Defense/Theft.html",
+        destination: "/criminal-defense/theft",
+        permanent: true,
+      },
+      {
+        source: "/Disclaimer.html",
+        destination: "/disclaimer",
+        permanent: true,
+      },
+      {
+        source: "/Media.html",
+        destination: "/media",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Brain-And-Spine-Injury.html",
+        destination: "/practice/brain-and-spine-injury",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Car-Accident-Statistics.html",
+        destination: "/practice/car-accident-statistics",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Car-Accidents.html",
+        destination: "/practice/car-accidents",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Cell-Phone-Related-Accidents.html",
+        destination: "/practice/cell-phone-related-accidents",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Commercial-Vehicle-Accidents.html",
+        destination: "/practice/commercial-vehicle-accidents",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Crosswalk-And-Pedestrian-Accidents.html",
+        destination: "/practice/crosswalk-and-pedestrian-accidents",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Elder-Abuse.html",
+        destination: "/practice/elder-abuse",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Excessive-Force.html",
+        destination: "/practice/excessive-force",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Insurance-Settlements-And-Checks.html",
+        destination: "/practice/insurance-settlements-and-checks",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Truck-Accidents.html",
+        destination: "/practice/truck-accidents",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Underinsured-And-Uninsured-Accidents.html",
+        destination: "/practice/underinsured-and-uninsured-accidents",
+        permanent: true,
+      },
+      {
+        source: "/Privacy-Policy.html",
+        destination: "/privacy-policy",
+        permanent: true,
+      },
+      {
+        source: "/about-marc-saggese.html",
+        destination: "/about/marc-a-saggese",
+        permanent: true,
+      },
+      {
+        source: "/bad-checks.html",
+        destination: "/criminal-defense/bad-checks",
+        permanent: true,
+      },
+      {
+        source: "/battery---domestic-violence.html",
+        destination: "/criminal-defense/domestic-violence",
+        permanent: true,
+      },
+      {
+        source: "/burglary.html",
+        destination: "/criminal-defense/burglary",
+        permanent: true,
+      },
+      {
+        source: "/car-accidents.html",
+        destination: "/practice/car-accidents",
+        permanent: true,
+      },
+      {
+        source: "/dui.html",
+        destination: "/criminal-defense/dui",
+        permanent: true,
+      },
+      {
+        source: "/elder-abuse.html",
+        destination: "/practice/elder-abuse",
+        permanent: true,
+      },
+      {
+        source: "/excessive-force.html",
+        destination: "/practice/excessive-force",
+        permanent: true,
+      },
+      {
+        source: "/forgery.html",
+        destination: "/criminal-defense/forgery",
+        permanent: true,
+      },
+      {
+        source: "/juvenile-crimes.html",
+        destination: "/criminal-defense/juvenile-crimes",
+        permanent: true,
+      },
+      {
+        source: "/larceny.html",
+        destination: "/criminal-defense/larceny",
+        permanent: true,
+      },
+      {
+        source: "/marc-saggese-bio-page",
+        destination: "/about/marc-a-saggese",
+        permanent: true,
+      },
+      {
+        source: "/motorcycle-accidents.html",
+        destination: "/practice/motorcycle-accidents",
+        permanent: true,
+      },
+      {
+        source: "/murder.html",
+        destination: "/criminal-defense/murder",
+        permanent: true,
+      },
+      {
+        source: "/phone/about-the-firm.html",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/phone/index.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/phone/practice-areas.html",
+        destination: "/practice",
+        permanent: true,
+      },
+      {
+        source: "/practice-areas",
+        destination: "/practice",
+        permanent: true,
+      },
+      {
+        source: "/practice-areas/seal-your-records",
+        destination: "/criminal-defense/record-sealing",
+        permanent: true,
+      },
+      {
+        source: "/premises-liability.html",
+        destination: "/practice/premises-liability",
+        permanent: true,
+      },
+      {
+        source: "/product-liability.html",
+        destination: "/practice/product-liability",
+        permanent: true,
+      },
+      {
+        source: "/prostitution.html",
+        destination: "/criminal-defense/prostitution",
+        permanent: true,
+      },
+      {
+        source: "/record-sealing.html",
+        destination: "/criminal-defense/record-sealing",
+        permanent: true,
+      },
+      {
+        source: "/sexual-assault.html",
+        destination: "/criminal-defense/sexual-assault",
+        permanent: true,
+      },
+      {
+        source: "/theft.html",
+        destination: "/criminal-defense/theft",
+        permanent: true,
+      },
+      {
+        source: "/wrongful-death.html",
+        destination: "/practice/wrongful-death",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Car-Accidents.shtml",
+        destination: "/practice/car-accidents",
+        permanent: true,
+      },
+      {
+        source: "/Personal-Injury/Disclaimer.html",
+        destination: "/disclaimer",
+        permanent: true,
+      },
     ];
   },
 };

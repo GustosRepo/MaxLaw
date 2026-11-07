@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Homicide & Murder Defense Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Homicide & Murder Defense Lawyer | Saggese & Associates' },
   description: 'Homicide & murder defense—strategic forensic review & trial-focused advocacy. Free consult (702) 778-8883.',
   keywords: [
     'las vegas murder defense lawyer',

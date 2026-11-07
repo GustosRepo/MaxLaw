@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Prostitution Defense Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Prostitution Defense Lawyer | Saggese & Associates' },
   description: 'Discreet prostitution defense—challenge entrapment, intent & evidence. Free consultation (702) 778-8883.',
   keywords: [
     'las vegas prostitution defense lawyer',

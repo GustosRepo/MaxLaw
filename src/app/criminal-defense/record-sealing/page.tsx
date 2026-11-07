@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Record Sealing Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Record Sealing Lawyer | Saggese & Associates' },
   description: 'Record sealing guidance—eligibility analysis & petition filing. Free consultation (702) 778-8883.',
   keywords: [
     'las vegas record sealing lawyer',

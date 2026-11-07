@@ -124,6 +124,59 @@ test('main pages render without overflow, duplicate headings, nested main or bro
   expect(errors).toEqual([]);
 });
 
+test('practice directory links to every retained criminal service', async ({ page }) => {
+  await page.goto('/practice');
+  for (const slug of ['bad-checks', 'burglary', 'domestic-violence', 'drugs', 'dui', 'forgery', 'juvenile-crimes', 'larceny', 'murder', 'prostitution', 'record-sealing', 'sexual-assault', 'theft']) {
+    await expect(page.locator(`main a[href="/criminal-defense/${slug}"]`).last()).toBeVisible();
+  }
+});
+
+test('practice disclosure supports keyboard, outside click and accurate active links', async ({ page }) => {
+  await page.goto('/criminal-defense/record-sealing');
+  const disclosure = page.locator('details').filter({ has: page.locator('nav[aria-label="Practice areas"]') });
+  const summary = disclosure.locator('summary');
+  const navigation = disclosure.getByRole('navigation', { name: 'Practice areas' });
+  await expect(summary).toHaveText('Record Sealing▾');
+  await expect(navigation).toBeHidden();
+  await summary.focus();
+  await page.keyboard.press('Enter');
+  await expect(navigation).toBeVisible();
+  await expect(navigation.getByRole('link', { name: 'Record Sealing', exact: true })).toHaveAttribute('aria-current', 'page');
+  await page.keyboard.press('Escape');
+  await expect(navigation).toBeHidden();
+  await expect(summary).toBeFocused();
+  await summary.click();
+  // The open panel intentionally overlays the heading; use uncovered page chrome.
+  await page.mouse.click(4, 4);
+  await expect(navigation).toBeHidden();
+  await summary.click();
+  await navigation.getByRole('link', { name: 'Car Accidents', exact: true }).click();
+  await expect(page).toHaveURL(/\/practice\/car-accidents$/);
+  await expect(summary).toHaveText('Car Accidents▾');
+  await expect(navigation).toBeHidden();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
+
+test('practice navigation and core content work without JavaScript', async ({ page }) => {
+  const context = await page.context().browser()!.newContext({ javaScriptEnabled: false, viewport: page.viewportSize()! });
+  try {
+    await context.route('**/*', route => new URL(route.request().url()).hostname === '127.0.0.1'
+      ? route.continue() : route.fulfill({ status: 200, body: '' }));
+    const noJs = await context.newPage();
+    await noJs.goto('http://127.0.0.1:3100/practice/car-accidents');
+    await expect(noJs.locator('h1')).toHaveText('Las Vegas Car Accident Attorney');
+    await expect(noJs.getByRole('heading', { name: 'How the Firm Builds a Car Accident Claim' })).toBeVisible();
+    const navigation = noJs.getByRole('navigation', { name: 'Practice areas' });
+    await noJs.locator('summary').click();
+    const recordSealing = navigation.getByRole('link', { name: 'Record Sealing', exact: true });
+    await expect(recordSealing).toBeVisible();
+    await recordSealing.click();
+    await expect(noJs.locator('h1')).toHaveText('Las Vegas Record Sealing Lawyer');
+  } finally {
+    await context.close();
+  }
+});
+
 test('analytics errors cannot turn an accepted inquiry into a submission failure', async ({ page }) => {
   await page.goto('/contact');
   await page.getByRole('button', { name: 'Accept', exact: true }).click();

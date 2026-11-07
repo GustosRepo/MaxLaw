@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { TOTAL_RECOVERED_DISPLAY } from '../../lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Results — Saggese & Associates',
+  title: { absolute: 'Results — Saggese & Associates' },
   description: 'Representative results and outcomes for The Law Offices of Saggese & Associates. Past results do not guarantee future outcomes.',
   alternates: { canonical: 'https://www.maxlawnv.com/results' },
   openGraph: {

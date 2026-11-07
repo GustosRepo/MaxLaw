@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -38,25 +38,29 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
     { href: '/criminal-defense/bad-checks', label: 'Bad Checks' },
     { href: '/criminal-defense/murder', label: 'Murder' },
     { href: '/criminal-defense/juvenile-crimes', label: 'Juvenile Crimes' },
+    { href: '/criminal-defense/record-sealing', label: 'Record Sealing' },
   ]
 
   const allLinks = [...personalInjuryLinks, ...criminalDefenseLinks]
 
-  const [menuOpen, setMenuOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement | null>(null)
-  const buttonRef = useRef<HTMLButtonElement | null>(null)
-  const current = allLinks.find((l) => l.href === pathname) || allLinks[0]
+  const dropdownRef = useRef<HTMLDetailsElement | null>(null)
+  const summaryRef = useRef<HTMLElement | null>(null)
+  const current = allLinks.find((l) => l.href === pathname)
+
+  const closeMenu = () => {
+    if (dropdownRef.current) dropdownRef.current.open = false
+  }
 
   useEffect(() => {
     function onDoc(e: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setMenuOpen(false)
+        dropdownRef.current.open = false
       }
     }
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        setMenuOpen(false)
-        buttonRef.current?.focus()
+      if (e.key === 'Escape' && dropdownRef.current?.open) {
+        dropdownRef.current.open = false
+        summaryRef.current?.focus()
       }
     }
     document.addEventListener('click', onDoc)
@@ -69,21 +73,17 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
 
   return (
     <div className={className + ' w-full flex justify-center px-4 md:px-0'}>
-      <div className="relative" ref={dropdownRef}>
-        <button
-          ref={buttonRef}
-          aria-haspopup="true"
-            aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="w-full sm:min-w-[240px] flex justify-between items-center px-4 py-3 rounded-xl bg-white/7 md:backdrop-blur border border-white/10 hover:bg-white/12 transition"
+      <details className="group relative" ref={dropdownRef}>
+        <summary
+          ref={summaryRef}
+          className="w-full sm:min-w-[240px] flex cursor-pointer list-none justify-between items-center px-4 py-3 rounded-xl bg-white/7 md:backdrop-blur border border-white/10 hover:bg-white/12 transition [&::-webkit-details-marker]:hidden"
         >
-          <span className="font-semibold text-sm tracking-wide">{current.label}</span>
-          <span className={`ml-2 text-white/70 transition-transform ${menuOpen ? 'rotate-180' : ''}`}>▾</span>
-        </button>
+          <span className="font-semibold text-sm tracking-wide">{current?.label ?? 'Browse practice areas'}</span>
+          <span className="ml-2 text-white/70 transition-transform group-open:rotate-180" aria-hidden>▾</span>
+        </summary>
 
-        {menuOpen && (
-          <div
-            role="menu"
+          <nav
+            aria-label="Practice areas"
             className="absolute left-1/2 top-full -translate-x-1/2 mt-3 w-screen max-w-xl rounded-2xl border border-white/10 bg-[#121212]/96 md:backdrop-blur-xl shadow-[0_10px_40px_-18px_rgba(0,0,0,0.65)] overflow-hidden z-50 ring-1 ring-black/40 max-h-[70vh] overflow-y-auto"
           >
             <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
@@ -94,9 +94,9 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
                     <li key={l.href}>
                       <Link
                         href={l.href}
-                        role="menuitem"
+                        aria-current={pathname === l.href ? 'page' : undefined}
                         className={`block px-3 py-2 rounded-md text-sm hover:bg-white/10 hover:text-white/90 transition ${(pathname === l.href) ? 'bg-white/10 text-white' : 'text-white/80'}`}
-                        onClick={() => setMenuOpen(false)}
+                        onClick={closeMenu}
                       >
                         {l.label}
                       </Link>
@@ -111,9 +111,9 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
                     <li key={l.href}>
                       <Link
                         href={l.href}
-                        role="menuitem"
+                        aria-current={pathname === l.href ? 'page' : undefined}
                         className={`block px-3 py-2 rounded-md text-sm hover:bg-white/10 hover:text-white/90 transition ${(pathname === l.href) ? 'bg-white/10 text-white' : 'text-white/80'}`}
-                        onClick={() => setMenuOpen(false)}
+                        onClick={closeMenu}
                       >
                         {l.label}
                       </Link>
@@ -122,9 +122,8 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
                 </ul>
               </div>
             </div>
-          </div>
-        )}
-      </div>
+          </nav>
+      </details>
     </div>
   )
 }

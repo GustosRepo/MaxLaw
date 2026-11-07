@@ -5,7 +5,7 @@ import PracticeStructuredData from '../PracticeStructuredData'
 import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Elder Abuse Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Elder Abuse Lawyer | Saggese & Associates' },
   description: 'Las Vegas elder abuse & nursing home neglect lawyer protecting seniors from physical, emotional & financial abuse. Free consultation (702) 778‑8883.',
   keywords: [
     'las vegas elder abuse lawyer',

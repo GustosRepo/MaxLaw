@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from '../../practice/PracticeStructuredData'
 
 export const metadata = {
-  title: 'Las Vegas Forgery & Fraud Defense Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Forgery & Fraud Defense Lawyer | Saggese & Associates' },
   description: 'Forgery & fraud defense—challenge intent, provenance & chain of custody. Free consultation (702) 778-8883.',
   keywords: [
     'las vegas forgery lawyer',

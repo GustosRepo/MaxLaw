@@ -5,7 +5,7 @@ import StructuredData from '../../components/StructuredData'
 import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas & Nevada Car Accident Statistics | Saggese & Associates',
+  title: { absolute: 'Las Vegas & Nevada Car Accident Statistics | Saggese & Associates' },
   description: 'Review sourced Nevada and Clark County crash fatality statistics, pedestrian and motorcycle trends, and official traffic-safety data sources for Las Vegas-area drivers.',
   keywords: [
     'las vegas car accident statistics',
@@ -39,7 +39,12 @@ const sourceLinks = [
   {
     name: 'NHTSA FARS Encyclopedia',
     href: 'https://www-fars.nhtsa.dot.gov/States/StatesCrashesAndAllVictims.aspx',
-    description: 'Finalized statewide 2024 Nevada fatality figures.',
+    description: 'Statewide 2024 Nevada fatality figures from the FARS Annual Report File, subject to revision.',
+  },
+  {
+    name: 'NHTSA Traffic Safety Facts Annual Report Tables',
+    href: 'https://cdan.dot.gov/tsftables/tsfar.htm',
+    description: 'Explains that the 2024 FARS Annual Report File is not yet final.',
   },
   {
     name: 'Nevada Department of Transportation Crash Data and Tools',
@@ -88,16 +93,16 @@ export default function CarAccidentStatsPage() {
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-xl font-semibold text-white">2024 Nevada Traffic Fatalities</h2>
-              <p className="mt-2 text-sm leading-relaxed text-white/75">NHTSA FARS provides finalized statewide fatal-crash and fatality data. The figures below are final 2024 Nevada fatality counts from FARS.</p>
+              <p className="mt-2 text-sm leading-relaxed text-white/75">The figures below are 2024 Nevada fatality counts from NHTSA&apos;s FARS Annual Report File (ARF). This covers a full year but is subject to revision when the final file is released.</p>
             </div>
-            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[#d4af37]">Final FARS data</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[#d4af37]">FARS Annual Report File</div>
           </div>
           <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {nevadaFatalityStats.map((stat) => (
               <StatCard key={stat.label} value={stat.value} label={stat.label} detail="Nevada, 2024" />
             ))}
           </div>
-          <p className="mt-4 text-xs leading-relaxed text-white/60">Source: NHTSA FARS Encyclopedia, 2024 Nevada statewide data.</p>
+          <p className="mt-4 text-xs leading-relaxed text-white/60">Source: NHTSA FARS Encyclopedia, 2024 Nevada statewide Annual Report File.</p>
         </article>
 
         <article className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
@@ -131,7 +136,7 @@ export default function CarAccidentStatsPage() {
         <article className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg card-hover">
           <h2 className="text-xl font-semibold text-white">Understanding the Data</h2>
           <div className="mt-3 space-y-3 text-sm leading-relaxed text-white/80">
-            <p>NHTSA FARS is the federal system for finalized fatal-crash and fatality data. Nevada OTS reports are useful for more current state and local context, including Clark County reporting.</p>
+            <p>NHTSA FARS is the federal fatal-crash reporting system. Its Annual Report File is later replaced by a final file with additional information and possible revisions. The 2024 figures shown here are from the Annual Report File. Nevada OTS reports provide a separate state and local reporting source, including Clark County figures.</p>
             <p>Preliminary state-reported totals may change when data is finalized. Fatality statistics also do not represent all crashes, all injuries, all insurance claims, or all people affected by collisions.</p>
           </div>
         </article>

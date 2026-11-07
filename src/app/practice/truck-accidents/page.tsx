@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { PracticeBreadcrumbs, PracticeFaqSection, type PracticeFaq } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Truck Accident Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Truck Accident Lawyer | Saggese & Associates' },
   description: 'Las Vegas truck accident lawyer for semi-truck, tractor-trailer, 18-wheeler, and large commercial truck crash claims. Free consultation.',
   alternates: { canonical: `${SITE_URL}/practice/truck-accidents` },
   openGraph: {

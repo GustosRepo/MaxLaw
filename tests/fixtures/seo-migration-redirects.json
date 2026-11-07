@@ -1,0 +1,274 @@
+[
+  {
+    "source": "/index.html",
+    "destination": "/"
+  },
+  {
+    "source": "/About-The-Firm/Marc-A-Saggese-Esq.html",
+    "destination": "/about/marc-a-saggese"
+  },
+  {
+    "source": "/Criminal-Defense/index.html",
+    "destination": "/practice"
+  },
+  {
+    "source": "/Criminal-Defense/Drugs.html",
+    "destination": "/criminal-defense/drugs"
+  },
+  {
+    "source": "/Personal-Injury/Motorcycle-Accidents.html",
+    "destination": "/practice/motorcycle-accidents"
+  },
+  {
+    "source": "/Criminal-Defense/Burglary.html",
+    "destination": "/criminal-defense/burglary"
+  },
+  {
+    "source": "/Criminal-Defense/Forgery.html",
+    "destination": "/criminal-defense/forgery"
+  },
+  {
+    "source": "/Criminal-Defense/Record-Sealing.html",
+    "destination": "/criminal-defense/record-sealing"
+  },
+  {
+    "source": "/Personal-Injury/Wrongful-Death.html",
+    "destination": "/practice/wrongful-death"
+  },
+  {
+    "source": "/criminal-defense/drug-offenses",
+    "destination": "/criminal-defense/drugs"
+  },
+  {
+    "source": "/criminal-defense/battery-domestic-violence",
+    "destination": "/criminal-defense/domestic-violence"
+  },
+  {
+    "source": "/practice/brain-spine-injury",
+    "destination": "/practice/brain-and-spine-injury"
+  },
+  {
+    "source": "/Criminal-Defense/Bad-Checks.html",
+    "destination": "/criminal-defense/bad-checks"
+  },
+  {
+    "source": "/Personal-Injury/Premises-Liability.html",
+    "destination": "/practice/premises-liability"
+  },
+  {
+    "source": "/Personal-Injury/Product-Liability.html",
+    "destination": "/practice/product-liability"
+  },
+  {
+    "source": "/About-The-Firm",
+    "destination": "/about"
+  },
+  {
+    "source": "/About-The-Firm/index.html",
+    "destination": "/about"
+  },
+  {
+    "source": "/Contact.html",
+    "destination": "/contact"
+  },
+  {
+    "source": "/Criminal-Defense/DUI.html",
+    "destination": "/criminal-defense/dui"
+  },
+  {
+    "source": "/Criminal-Defense/Domestic-Violence.html",
+    "destination": "/criminal-defense/domestic-violence"
+  },
+  {
+    "source": "/Criminal-Defense/Juvenile-Crimes.html",
+    "destination": "/criminal-defense/juvenile-crimes"
+  },
+  {
+    "source": "/Criminal-Defense/Larceny.html",
+    "destination": "/criminal-defense/larceny"
+  },
+  {
+    "source": "/Criminal-Defense/Murder.html",
+    "destination": "/criminal-defense/murder"
+  },
+  {
+    "source": "/Criminal-Defense/Prostitution.html",
+    "destination": "/criminal-defense/prostitution"
+  },
+  {
+    "source": "/Criminal-Defense/Sexual-Assault.html",
+    "destination": "/criminal-defense/sexual-assault"
+  },
+  {
+    "source": "/Criminal-Defense/Theft.html",
+    "destination": "/criminal-defense/theft"
+  },
+  {
+    "source": "/Disclaimer.html",
+    "destination": "/disclaimer"
+  },
+  {
+    "source": "/Media.html",
+    "destination": "/media"
+  },
+  {
+    "source": "/Personal-Injury/Brain-And-Spine-Injury.html",
+    "destination": "/practice/brain-and-spine-injury"
+  },
+  {
+    "source": "/Personal-Injury/Car-Accident-Statistics.html",
+    "destination": "/practice/car-accident-statistics"
+  },
+  {
+    "source": "/Personal-Injury/Car-Accidents.html",
+    "destination": "/practice/car-accidents"
+  },
+  {
+    "source": "/Personal-Injury/Cell-Phone-Related-Accidents.html",
+    "destination": "/practice/cell-phone-related-accidents"
+  },
+  {
+    "source": "/Personal-Injury/Commercial-Vehicle-Accidents.html",
+    "destination": "/practice/commercial-vehicle-accidents"
+  },
+  {
+    "source": "/Personal-Injury/Crosswalk-And-Pedestrian-Accidents.html",
+    "destination": "/practice/crosswalk-and-pedestrian-accidents"
+  },
+  {
+    "source": "/Personal-Injury/Elder-Abuse.html",
+    "destination": "/practice/elder-abuse"
+  },
+  {
+    "source": "/Personal-Injury/Excessive-Force.html",
+    "destination": "/practice/excessive-force"
+  },
+  {
+    "source": "/Personal-Injury/Insurance-Settlements-And-Checks.html",
+    "destination": "/practice/insurance-settlements-and-checks"
+  },
+  {
+    "source": "/Personal-Injury/Truck-Accidents.html",
+    "destination": "/practice/truck-accidents"
+  },
+  {
+    "source": "/Personal-Injury/Underinsured-And-Uninsured-Accidents.html",
+    "destination": "/practice/underinsured-and-uninsured-accidents"
+  },
+  {
+    "source": "/Privacy-Policy.html",
+    "destination": "/privacy-policy"
+  },
+  {
+    "source": "/about-marc-saggese.html",
+    "destination": "/about/marc-a-saggese"
+  },
+  {
+    "source": "/bad-checks.html",
+    "destination": "/criminal-defense/bad-checks"
+  },
+  {
+    "source": "/battery---domestic-violence.html",
+    "destination": "/criminal-defense/domestic-violence"
+  },
+  {
+    "source": "/burglary.html",
+    "destination": "/criminal-defense/burglary"
+  },
+  {
+    "source": "/car-accidents.html",
+    "destination": "/practice/car-accidents"
+  },
+  {
+    "source": "/dui.html",
+    "destination": "/criminal-defense/dui"
+  },
+  {
+    "source": "/elder-abuse.html",
+    "destination": "/practice/elder-abuse"
+  },
+  {
+    "source": "/excessive-force.html",
+    "destination": "/practice/excessive-force"
+  },
+  {
+    "source": "/forgery.html",
+    "destination": "/criminal-defense/forgery"
+  },
+  {
+    "source": "/juvenile-crimes.html",
+    "destination": "/criminal-defense/juvenile-crimes"
+  },
+  {
+    "source": "/larceny.html",
+    "destination": "/criminal-defense/larceny"
+  },
+  {
+    "source": "/marc-saggese-bio-page",
+    "destination": "/about/marc-a-saggese"
+  },
+  {
+    "source": "/motorcycle-accidents.html",
+    "destination": "/practice/motorcycle-accidents"
+  },
+  {
+    "source": "/murder.html",
+    "destination": "/criminal-defense/murder"
+  },
+  {
+    "source": "/phone/about-the-firm.html",
+    "destination": "/about"
+  },
+  {
+    "source": "/phone/index.html",
+    "destination": "/"
+  },
+  {
+    "source": "/phone/practice-areas.html",
+    "destination": "/practice"
+  },
+  {
+    "source": "/practice-areas",
+    "destination": "/practice"
+  },
+  {
+    "source": "/practice-areas/seal-your-records",
+    "destination": "/criminal-defense/record-sealing"
+  },
+  {
+    "source": "/premises-liability.html",
+    "destination": "/practice/premises-liability"
+  },
+  {
+    "source": "/product-liability.html",
+    "destination": "/practice/product-liability"
+  },
+  {
+    "source": "/prostitution.html",
+    "destination": "/criminal-defense/prostitution"
+  },
+  {
+    "source": "/record-sealing.html",
+    "destination": "/criminal-defense/record-sealing"
+  },
+  {
+    "source": "/sexual-assault.html",
+    "destination": "/criminal-defense/sexual-assault"
+  },
+  {
+    "source": "/theft.html",
+    "destination": "/criminal-defense/theft"
+  },
+  {
+    "source": "/wrongful-death.html",
+    "destination": "/practice/wrongful-death"
+  },
+  {
+    "source": "/Personal-Injury/Car-Accidents.shtml",
+    "destination": "/practice/car-accidents"
+  },
+  {
+    "source": "/Personal-Injury/Disclaimer.html",
+    "destination": "/disclaimer"
+  }
+]

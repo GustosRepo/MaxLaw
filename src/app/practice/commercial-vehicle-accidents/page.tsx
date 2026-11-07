@@ -5,7 +5,7 @@ import PracticeStructuredData from '../PracticeStructuredData'
 import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Commercial Vehicle Accident Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Commercial Vehicle Accident Lawyer | Saggese & Associates' },
   description: 'Las Vegas commercial vehicle accident lawyer handling bus, van & fleet crashes with multi-party liability. Free consultation (702) 778‑8883.',
   keywords: [
     'las vegas commercial vehicle accident lawyer',

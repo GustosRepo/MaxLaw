@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { PracticeBreadcrumbs, PracticeFaqSection, type PracticeFaq } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Brain & Spine Injury Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Brain & Spine Injury Lawyer | Saggese & Associates' },
   description: 'Traumatic brain & spinal cord injury attorneys in Las Vegas — life‑care planning, medical experts & full compensation pursuit. Free consultation.',
   alternates: { canonical: `${SITE_URL}/practice/brain-and-spine-injury` },
   openGraph: {

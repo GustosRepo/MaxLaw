@@ -5,7 +5,7 @@ import PracticeStructuredData from '../PracticeStructuredData'
 import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
 export const metadata = {
-  title: 'Las Vegas Distracted Driving Lawyer | Saggese & Associates',
+  title: { absolute: 'Las Vegas Distracted Driving Lawyer | Saggese & Associates' },
   description: 'Las Vegas distracted driving & cell phone accident lawyer preserving evidence to prove negligence. Free consultation (702) 778‑8883.',
   keywords: [
     'las vegas distracted driving lawyer',

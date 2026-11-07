@@ -15,7 +15,7 @@ const keywords = [
 ]
 
 export const metadata = {
-  title,
+  title: { absolute: title },
   description,
   keywords,
   alternates: { canonical: 'https://www.maxlawnv.com/criminal-defense/theft' },

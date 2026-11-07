@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return allPages.map((path) => ({
     url: `${baseUrl}${path}`,
-    lastModified: new Date(),
+    // Omit lastModified until reliable per-page content dates are available.
     changeFrequency: path === '' ? 'weekly' : 'monthly',
     priority: getPriority(path),
   }))

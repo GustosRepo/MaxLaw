@@ -8,7 +8,7 @@ import {
 } from '../../lib/constants'
 
 export const metadata = {
-  title: 'Las Vegas Service Areas | Saggese & Associates',
+  title: { absolute: 'Las Vegas Service Areas | Saggese & Associates' },
   description: 'Law firm serving Las Vegas Valley communities including Summerlin, Henderson, North Las Vegas, Spring Valley, Paradise, Enterprise & more. Injury & criminal defense.',
   alternates: { canonical: 'https://www.maxlawnv.com/service-areas' }
 }

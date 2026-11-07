@@ -43,6 +43,11 @@ export default function CarAccidentsPageClient() {
               <li>Be careful with recorded statements before you understand your rights</li>
             </ul>
 
+            <h3 className="text-lg font-semibold mb-3">Records After a Las Vegas Crash</h3>
+            <p className="text-white/80 mb-4">
+              Start with the agency named on your incident paperwork. Use the official <a href="https://www.lvmpd.com/about/bureaus/records-and-fingerprint-bureau/requesting-report-copies-with-lvmpd" className="text-[#d4af37] underline">LVMPD report-copy guidance</a> or <a href="https://www.nhp.nv.gov/crashes-citations/crash-report-request/" className="text-[#d4af37] underline">Nevada State Police crash-report instructions</a> for a crash that agency handled. Requesting an existing report is separate from reporting a crash or notifying an insurer. If you were visiting Las Vegas, keep copies of available photos, treatment records, witness details, and insurance correspondence together after returning home. Note possible camera locations promptly; footage may not be available or retained.
+            </p>
+
             <h3 className="text-lg font-semibold mb-3">Common Types of Car Accidents We Handle</h3>
             <ul className="list-disc list-inside text-white/80 space-y-2 mb-4">
               <li>Rear-end collisions</li>
@@ -51,7 +56,7 @@ export default function CarAccidentsPageClient() {
               <li>Multi-vehicle accidents</li>
               <li>Hit and run accidents</li>
               <li>Drunk driving accidents</li>
-              <li>Distracted driving crashes</li>
+              <li><Link href="/practice/cell-phone-related-accidents" className="text-[#d4af37] underline">Distracted driving crashes</Link></li>
               <li>Rollover accidents</li>
             </ul>
 
@@ -63,10 +68,15 @@ export default function CarAccidentsPageClient() {
               Insurance adjusters may ask for a recorded statement early. That request can feel routine, but it may affect how fault, injuries, and treatment are evaluated later. We help clients understand what information is needed, what should be documented, and when a claim should be prepared for negotiation or litigation.
             </p>
 
+            <h3 className="text-lg font-semibold mb-3">When Fault Is Disputed</h3>
+            <p className="text-white/80 mb-4">
+              A dispute over fault does not automatically end an injury claim. Under <a href="https://www.leg.state.nv.us/NRS/NRS-041.html#NRS041Sec141" className="text-[#d4af37] underline">Nevada&apos;s comparative-negligence statute</a>, when that rule applies, an injured person&apos;s negligence must not exceed the negligence of the defendant, or combined defendants, from whom recovery is sought. A qualifying recovery is reduced by the injured person&apos;s share of negligence. Multiple-party cases and exceptions require individual analysis. Photos, witness accounts, and other evidence matter; an insurer&apos;s initial fault assessment is not a court judgment.
+            </p>
+
             <div className="bg-gradient-to-r from-[#d4af37]/10 to-[#c5a467]/10 border border-[#d4af37]/20 rounded-lg p-4">
               <h4 className="font-semibold text-[#d4af37] mb-2">Free Consultation Available</h4>
               <p className="text-white/80 text-sm">
-                Don't wait to seek legal help. Nevada's statute of limitations for injury claims is two years from the date of the accident.
+                <a href="https://www.leg.state.nv.us/NRS/NRS-011.html#NRS011Sec190" className="text-[#d4af37] underline">NRS 11.190(4)(e)</a> generally sets a two-year filing period for personal-injury actions based on another person&apos;s wrongful act or neglect. The starting date, the type of claim, and statutory exceptions can change the analysis. Insurance-policy claims and cases involving government parties can raise separate issues. Seek advice about your circumstances promptly; do not assume treatment or insurance discussions extend a filing deadline.
               </p>
             </div>
           </article>
@@ -84,13 +94,19 @@ export default function CarAccidentsPageClient() {
               </div>
               <div>
                 <h3 className="text-base font-semibold text-[#bfa76a]">Insurance Negotiation</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/80">We prepare the claim around fault, injuries, treatment, lost income, and other losses before negotiating with the insurance company.</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/80">We prepare the claim around fault, injuries, treatment, lost income, and other losses before negotiating with the insurance company. For information about reviewing an offer and handling settlement proceeds, see our <Link href="/practice/insurance-settlements-and-checks" className="text-[#d4af37] underline">settlement offers and disbursement</Link> page.</p>
               </div>
               <div>
                 <h3 className="text-base font-semibold text-[#bfa76a]">Litigation Readiness</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/80">When a case cannot be resolved fairly, the firm prepares for litigation with a trial-ready approach shaped by the facts and available evidence.</p>
               </div>
             </div>
+          </section>
+
+          <section className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
+            <h2 className="text-xl font-semibold mb-4">Compensation and Supporting Records</h2>
+            <p className="text-white/80 mb-4">Depending on liability and the evidence, an injury claim may include reasonable medical expenses, lost earnings, future medical needs or reduced earning capacity, and pain and suffering. Future losses require support; they are not assumed from the fact that a crash occurred. Each case turns on its own injuries, causation, and proof.</p>
+            <p className="text-white/80 mb-4">Keep treatment records, bills, pay records, and information about missed work or everyday limitations. Repair estimates can help document a separate vehicle-damage issue. A lawyer can explain which losses fit the claim and whether medical or other expert evidence is needed. These possible categories do not establish a settlement value or guarantee a recovery.</p>
           </section>
 
           <section className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
@@ -116,6 +132,13 @@ export default function CarAccidentsPageClient() {
           </section>
 
           <section className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
+            <h2 className="text-xl font-semibold mb-4">Preparing for a Car Accident Consultation</h2>
+            <p className="text-white/80 mb-4">Write down the crash date and location, the agencies involved, and the main questions you want answered. Identify the photos, incident number, insurance letters, treatment records, and work information you already have, as well as records still missing. Ask which additional documents would be useful and how to provide sensitive records securely.</p>
+            <h3 className="text-lg font-semibold mb-3">Attorney Fees and Case Expenses</h3>
+            <p className="text-white/80">Attorney fees and case expenses are different. Nevada&apos;s written contingency-agreement rules address fee calculations, expense deductions, and expense responsibility if there is no recovery. Review the written terms for your matter before agreeing to representation.</p>
+          </section>
+
+          <section className="rounded-2xl p-6 bg-gradient-to-br from-white/3 to-transparent border border-white/8 shadow-lg">
             <h2 className="text-xl font-semibold mb-4">Car Accident Questions</h2>
             <div className="space-y-5">
               <div>
@@ -131,6 +154,17 @@ export default function CarAccidentsPageClient() {
                 <p className="mt-2 text-sm leading-relaxed text-white/80">The initial consultation is free. For injury cases, there is no fee unless the firm wins or resolves your case.</p>
               </div>
             </div>
+          </section>
+
+          <section className="rounded-2xl p-6 border border-white/8">
+            <h2 className="text-lg font-semibold mb-3">Legal and Local Resources</h2>
+            <ul className="list-disc pl-5 space-y-2 text-sm text-white/80">
+              <li><a href="https://www.leg.state.nv.us/NRS/NRS-041.html#NRS041Sec141" className="text-[#d4af37] underline">NRS 41.141: comparative negligence</a></li>
+              <li><a href="https://www.leg.state.nv.us/NRS/NRS-011.html" className="text-[#d4af37] underline">NRS Chapter 11: filing periods and exceptions</a></li>
+              <li><a href="https://www.leg.state.nv.us/CourtRules/RPC.html" className="text-[#d4af37] underline">Nevada Rules of Professional Conduct, Rule 1.5: fees and expenses</a></li>
+              <li><a href="https://ag.nv.gov/uploadedfiles/agnvgov/content/issues/09292021_nv-jury-instructions-civil-2018-pdf-version.pdf" className="text-[#d4af37] underline">Nevada civil jury instructions, 2018 edition: damages examples</a></li>
+            </ul>
+            <p className="mt-3 text-xs text-white/60">General information; the law and deadlines that apply depend on the particular claim.</p>
           </section>
         </div>
 

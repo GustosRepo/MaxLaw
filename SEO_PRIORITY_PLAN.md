@@ -2,7 +2,9 @@
 
 November 7, 2026
 
-**Keep car accidents as the main commercial focus, with brain and spine injury second and premises liability third.** All three pages are updated and live. The next work is to measure those releases and address specific problems revealed by the results.
+**Keep car accidents first, premises liability and slip-and-fall second, and brain/spine as a secondary opportunity.** All three pages are updated and live. The next work is to measure those releases and address specific problems revealed by the results.
+
+The [client playbook](docs/seo3.md#client-priority-update) explicitly records Marc's confirmation that car accidents are the number-one priority. Its [injury work sequence](docs/seo3.md) gives premises/slip-and-fall a dedicated workstream before the remaining commercial pages, which include brain/spine. The order below follows that strategy. It does not attribute a separate explicit number-two statement to Marc.
 
 This is the current work order. Earlier audits preserve the history and evidence; this plan replaces their earlier priority lists. The [keyword map](P3_KEYWORD_MAP.csv) assigns every one of the 74 phrases to a preferred page and uses the priorities below.
 
@@ -11,8 +13,8 @@ This is the current work order. Earlier audits preserve the history and evidence
 | Priority | Main keyword family | Existing page | Why it has this priority |
 |---|---|---|---|
 | 1 | car accident lawyer las vegas; las vegas car accident lawyer; car accident attorney las vegas; auto accident attorney las vegas; related word-order and lawyer/attorney variants | [/practice/car-accidents](https://www.maxlawnv.com/practice/car-accidents) | The stated business focus is car accident inquiries. The supplied Planner estimates and some GSC observations support this family, but do not predict leads. |
-| 2 | brain injury lawyer las vegas; traumatic brain injury lawyer las vegas; brain and spine injury attorney; brain and spine injury lawyer; las vegas spinal cord injury lawyer | [/practice/brain-and-spine-injury](https://www.maxlawnv.com/practice/brain-and-spine-injury) | The existing page has exposure without clicks, and related combined brain/spine queries also receive impressions. |
-| 3 | las vegas premises liability lawyer; premises liability lawyer las vegas; las vegas premises liability attorney; slip and fall lawyer las vegas; related attorney and word-order variants | [/practice/premises-liability](https://www.maxlawnv.com/practice/premises-liability) | The existing page and relevant premises queries receive impressions without clicks. Keep premises and slip/fall variants on this page. |
+| 2 | las vegas premises liability lawyer; premises liability lawyer las vegas; las vegas premises liability attorney; slip and fall lawyer las vegas; related attorney and word-order variants | [/practice/premises-liability](https://www.maxlawnv.com/practice/premises-liability) | An established dedicated workstream in the playbook, with observed search exposure. Keep premises and slip/fall variants on this page. |
+| 3 | brain injury lawyer las vegas; traumatic brain injury lawyer las vegas; brain and spine injury attorney; brain and spine injury lawyer; las vegas spinal cord injury lawyer | [/practice/brain-and-spine-injury](https://www.maxlawnv.com/practice/brain-and-spine-injury) | Monitor the completed improvements as a secondary opportunity. Existing impressions support attention but do not establish a higher client business priority. |
 
 These are preferred destinations for the keyword families. The supplied query and page tables do not establish which URL appeared for each query. The strongest combined brain/spine queries also lack a geographic qualifier, so their impressions do not establish Las Vegas search volume.
 
@@ -25,14 +27,14 @@ The page baseline below covers **August 13 through November 5**, before the Nove
 | Page | Impressions | Clicks |
 |---|---:|---:|
 | Car Accidents | 31 | 1 |
-| Brain and Spine Injury | 398 | 0 |
 | Premises Liability | 634 | 0 |
+| Brain and Spine Injury | 398 | 0 |
 
 These are observed page totals, not monthly market demand or proof that any particular keyword ranked on that page. They support monitoring the existing pages; they do not prove why clicks were low.
 
 ## Keep supporting pages in place
 
-The homepage retains broad injury and firm searches. Marc's biography retains named-attorney searches. The expanded settlement page supports the car page. Other existing practice pages, service-area information and the statistics resource retain their current owners in the map and have **Maintain** priority.
+Broad injury, injury lawyer near me and injury attorney remain approved client targets, with the homepage as the broad service owner. Marc's biography retains named-attorney searches. The expanded settlement page supports the car page. Other existing practice pages, service-area information and the statistics resource retain their current owners in the map and have **Maintain** status. Maintain describes the current work status of an existing page; these approved searches continue to be monitored.
 
 The crash-report and fault guides remain **Later** briefs. New Henderson/Summerlin pages and broader regional expansion also remain later decisions. Keyword wording alone is not a reason to add a page. Existing Henderson/Summerlin variants keep their current service-page owners.
 

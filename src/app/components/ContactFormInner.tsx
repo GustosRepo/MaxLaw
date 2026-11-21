@@ -74,6 +74,7 @@ export default function ContactFormInner({ onSubmitSuccess, mode = 'consultation
   const sending = React.useRef(false);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
+    // Cancel in the capture phase before analytics listeners on the form can read its action URL.
     e.preventDefault();
     if (sending.current) return;
     try { validateContactForm(formData); }
@@ -120,7 +121,7 @@ export default function ContactFormInner({ onSubmitSuccess, mode = 'consultation
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6 [&_label]:leading-relaxed [&_input:not([type=checkbox])]:text-base [&_select]:text-base [&_textarea]:text-base" aria-label={mode === 'press' ? 'Press inquiry form' : 'Free consultation form'} aria-busy={formStatus === 'loading'}>
+    <form onSubmitCapture={handleFormSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6 [&_label]:leading-relaxed [&_input:not([type=checkbox])]:text-base [&_select]:text-base [&_textarea]:text-base" aria-label={mode === 'press' ? 'Press inquiry form' : 'Free consultation form'} aria-busy={formStatus === 'loading'}>
       <h2 className="mb-2 text-2xl font-bold text-white">{mode === 'press' ? 'Send a press inquiry' : 'Tell us about your case'}</h2>
       <p className="mb-6 text-base leading-relaxed text-white/75">Complete the form below and our team will review your message.</p>
       {formStatus === 'error' && (

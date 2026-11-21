@@ -32,17 +32,58 @@ test.beforeEach(async ({ page }) => {
 
 test('Reject blocks analytics/chat and contact remains usable', async ({ page }) => {
   await page.goto('/contact');
+  const analyticsAndChat = page.locator('script[src*="googletagmanager"],script[src*="analytics.ahrefs.com"],script[src*="apexchat"]');
   await page.getByRole('button', { name: 'Reject', exact: true }).click();
   await expect(page.getByRole('form', { name: 'Free consultation form' })).toBeVisible();
-  expect(await page.locator('script[src*="googletagmanager"],script[src*="apexchat"]').count()).toBe(0);
+  await expect(analyticsAndChat).toHaveCount(0);
   await page.reload();
   await expect(page.getByRole('button', { name: 'Reject', exact: true })).toHaveCount(0);
-  expect(await page.locator('script[src*="googletagmanager"],script[src*="apexchat"]').count()).toBe(0);
+  await expect(analyticsAndChat).toHaveCount(0);
   await page.route('**/api/send-email', route => route.fulfill({ json: { success: true, submissionId: 'accepted-test' } }));
   const form = await fillInquiry(page);
   await form.getByRole('button', { name: 'Request a free consultation' }).click();
   await expect(form.getByRole('status')).toContainText('received your inquiry');
   expect(await page.evaluate(() => window.dataLayer?.length || 0)).toBe(0);
+});
+
+test('Ahrefs loads with consent and reports only the page path', async ({ page, baseURL }) => {
+  const src = 'https://analytics.ahrefs.com/analytics.js';
+  const script = page.locator(`head script[src="${src}"]`);
+  const pageViews: string[] = [];
+  await page.route(src, route => route.fulfill({
+    contentType: 'application/javascript',
+    body: `
+      const tracker = document.currentScript;
+      window.AhrefsAnalytics = {
+        sendEvent(name) {
+          if (name === 'pageview') fetch('/mock-ahrefs', { method: 'POST', body: tracker.dataset.pageLocation });
+        },
+      };
+    `,
+  }));
+  await page.route('**/mock-ahrefs', route => {
+    pageViews.push(route.request().postData() ?? '');
+    return route.fulfill({ status: 204 });
+  });
+
+  await page.goto('/contact?email=visitor@example.test#intake');
+  await expect(page.getByRole('button', { name: 'Accept', exact: true })).toBeVisible();
+  await expect(script).toHaveCount(0);
+  await page.getByRole('button', { name: 'Accept', exact: true }).click();
+  await expect(script).toHaveCount(1);
+  await expect(script).toHaveAttribute('async', '');
+  await expect(script).toHaveAttribute('data-key', 'qFRUo4ZbMGsk8I3K4KP+IA');
+  await expect(script).toHaveAttribute('data-no-pageview-auto', '');
+  await expect.poll(() => pageViews).toEqual([`${baseURL}/contact`]);
+
+  const privacyLink = page.getByRole('form', { name: 'Free consultation form' }).getByRole('link', { name: 'Privacy Policy', exact: true });
+  await privacyLink.first().click();
+  await expect.poll(() => pageViews).toEqual([`${baseURL}/contact`, `${baseURL}/privacy-policy`]);
+  await expect(script).toHaveCount(1);
+
+  await page.getByRole('button', { name: 'Cookie preferences', exact: true }).click();
+  await page.getByRole('button', { name: 'Reject', exact: true }).click();
+  await expect(script).toHaveCount(0);
 });
 
 test('accepted consent tracks only successful inquiries without personal data', async ({ page }) => {
@@ -56,7 +97,13 @@ test('accepted consent tracks only successful inquiries without personal data', 
     return route.fulfill({ status: calls === 1 ? 503 : 200, json: calls === 1 ? { success: false, error: 'Please retry.' } : { success: true, submissionId: 'accepted-test' } });
   });
   const form = await fillInquiry(page);
+  await form.evaluate(element => {
+    element.addEventListener('submit', event => {
+      element.dataset.submitPrevented = String(event.defaultPrevented);
+    }, { once: true });
+  });
   await form.getByRole('button', { name: 'Request a free consultation' }).click();
+  await expect(form).toHaveAttribute('data-submit-prevented', 'true');
   await expect(form.getByRole('alert')).toContainText('Please retry');
   await expect(form.getByLabel('First name')).toHaveValue('Test');
   let events = await page.evaluate(() => (window.dataLayer || []).map(item => Array.from(item as ArrayLike<unknown>)));

@@ -3,6 +3,7 @@ import "./globals.css";
 import LayoutShell from './components/LayoutShell';
 import { LiteModeProvider } from './components/LiteModeContext';
 import ApexChatLoader from './components/ApexChatLoader';
+import AhrefsAnalyticsLoader from './components/AhrefsAnalyticsLoader';
 import GoogleAnalyticsLoader from './components/GoogleAnalyticsLoader';
 
 // Using standard Google Fonts via CSS to avoid Turbopack/next/font dev-time issues
@@ -96,6 +97,7 @@ export default function RootLayout({
           </LayoutShell>
         </LiteModeProvider>
         <GoogleAnalyticsLoader />
+        <AhrefsAnalyticsLoader />
         <ApexChatLoader />
       </body>
     </html>

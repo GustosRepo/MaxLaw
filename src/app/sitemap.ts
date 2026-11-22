@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next'
 import fs from 'fs'
 import path from 'path'
+import { BECKMAN_MEDIA_PATH } from '../lib/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.maxlawnv.com'
-  const mainPages = ['', '/about', '/practice', '/results', '/media', '/contact', '/about/marc-a-saggese', '/service-areas'];
+  const mainPages = ['', '/about', '/practice', '/results', '/media', BECKMAN_MEDIA_PATH, '/contact', '/about/marc-a-saggese', '/service-areas'];
 
   const discover = (segment: string) => {
     const root = path.join(process.cwd(), 'src', 'app', segment);

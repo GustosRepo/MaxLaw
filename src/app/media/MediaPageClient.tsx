@@ -4,7 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FEATURED_MEDIA_APPEARANCES } from '../../lib/constants'
+import { BECKMAN_MEDIA_PATH, BECKMAN_MEDIA_TITLE, FEATURED_MEDIA_APPEARANCES } from '../../lib/constants'
 import ContactFormInner from '../components/ContactFormInner';
 
 const fadeUp = {
@@ -152,7 +152,7 @@ export default function MediaPage() {
                   const availableImages = ['/content/boston-marathon.jpg', '/content/match.png', '/content/dui.png', '/content/car_accident.png','/content/car-accident2.png','/content/will.png','/content/drinking.png','/content/texting.png'] as const;
                   const articles = [
                     { title: 'ASK A LAWYER — Should The Boston Marathon Bomber be Sentenced to Death?', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-should-the-boston-marathon-bomber-be-sentenced-to-death/', excerpt: 'How does a state sentence a terrorist to death when that state no longer has the death penalty?' },
-                    { title: 'Ninth Circuit Takes New Look at Duty to Warn in Match Gone Bad', link: 'https://www.reviewjournal.com/news/after-surviving-nearly-fatal-attack-woman-sues-match-com/', excerpt: 'It has been seven years since Mary Kay Beckman was brutally stabbed and left for dead by a man she met on Match.com.' },
+                    { title: BECKMAN_MEDIA_TITLE, link: BECKMAN_MEDIA_PATH, excerpt: 'Reporting on Mary Kay Beckman’s 2013 lawsuit, Marc Saggese’s role, and the later Ninth Circuit appeal.' },
                     { title: 'DUI Checkpoints – Are They Legal and What are Your Rights?', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-dui-checkpoints-are-they-legal-and-what-are-your-rights/', excerpt: 'They go by a number of different names: DUI checkpoints, administrative roadblocks, mobile checkpoints...' },
                     { title: 'Everything You Need to Know About Car Insurance', link: 'https://www.reviewjournal.com/life/ask-a-lawyer-everything-you-need-to-know-about-car-insurance/', excerpt: 'Practical guidance on car insurance coverage and claims.' },
                     { title: "What to Do If You're In A Car Accident", link: 'https://www.reviewjournal.com/life/ask-a-lawyer-what-to-do-if-youre-in-a-car-accident/', excerpt: 'Steps to take immediately after a collision to protect your claim.', internalHref: '/practice/car-accidents', internalLabel: 'Car accident representation' },
@@ -162,6 +162,7 @@ export default function MediaPage() {
                   ];
                   return articles.map((a, i) => {
                     const img = availableImages[i % availableImages.length];
+                    const isInternal = a.link.startsWith('/');
                     return (
                       <div key={a.title} className="rounded-2xl p-4 bg-gradient-to-br from-white/3 to-transparent border border-white/8 mb-4">
                         <div className="media-wrap">
@@ -176,17 +177,23 @@ export default function MediaPage() {
                             />
                           </div>
                           <div className="media-info text-white/80">
-                            <h3 className="text-lg font-semibold">{a.title}</h3>
-                            <h4 className="text-sm mt-1 text-white/70"><a className="current" href={a.link} target="_blank" rel="noreferrer">Original Article</a></h4>
+                            <h3 className="text-lg font-semibold">
+                              {isInternal ? (
+                                <Link href={a.link} className="text-[#d4af37] underline underline-offset-4">{a.title}</Link>
+                              ) : a.title}
+                            </h3>
+                            {!isInternal && <h4 className="text-sm mt-1 text-white/70"><a className="current" href={a.link} target="_blank" rel="noreferrer">Original Article</a></h4>}
                             <p className="mt-2">{a.excerpt}</p>
-                            <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2">
-                              <a href={a.link} target="_blank" rel="noreferrer" className="underline inline-block">Read More</a>
-                              {a.internalHref && (
-                                <Link href={a.internalHref} className="text-[#d4af37] underline underline-offset-4">
-                                  {a.internalLabel}
-                                </Link>
-                              )}
-                            </div>
+                            {!isInternal && (
+                              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2">
+                                <a href={a.link} target="_blank" rel="noreferrer" className="underline inline-block">Read More</a>
+                                {a.internalHref && (
+                                  <Link href={a.internalHref} className="text-[#d4af37] underline underline-offset-4">
+                                    {a.internalLabel}
+                                  </Link>
+                                )}
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>

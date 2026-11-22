@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import redirects from './fixtures/seo-migration-redirects.json';
 
 const origin = 'https://www.maxlawnv.com';
+const beckmanPath = '/Woman-beaten-by-Match-com-predator-speaks-out.html';
 const discoveryGaps = [
   'bad-checks', 'juvenile-crimes', 'larceny', 'prostitution', 'record-sealing', 'sexual-assault',
 ];
@@ -54,7 +55,7 @@ test('legacy matching preserves queries, case variants and documented slash norm
 
 test('uncertain, retired and unrelated URLs remain genuine 404s', async ({ request }) => {
   for (const path of [
-    '/Woman-beaten-by-Match-com-predator-speaks-out.html', '/Site-Map.html',
+    '/Site-Map.html',
     '/Personal-Injury/Medical-Malpractice.html', '/practice/medical-malpractice',
     '/Personal-Injury/index.html', '/Personal-Injury/Types-Of-Accidents.html',
     '/Ask-a-Lawyer.html', '/assault.html', '/probation-violation.html',
@@ -64,6 +65,21 @@ test('uncertain, retired and unrelated URLs remain genuine 404s', async ({ reque
     const response = await request.get(path, { maxRedirects: 0 });
     expect(response.status(), path).toBe(404);
   }
+});
+
+test('the media card links to the restored Beckman coverage at its original URL', async ({ request }) => {
+  const media = await request.get('/media');
+  expect(media.status()).toBe(200);
+  expect(await media.text()).toMatch(/<a\b[^>]*href="\/Woman-beaten-by-Match-com-predator-speaks-out\.html"[^>]*>Media Coverage of Beckman v\. Match\.com<\/a>/);
+
+  const article = await request.get(beckmanPath, { maxRedirects: 0 });
+  expect(article.status()).toBe(200);
+  expect(article.headers()['x-robots-tag'] ?? '').not.toMatch(/noindex/i);
+  const html = await article.text();
+  expect(html).toMatch(/<h1\b[^>]*>Media Coverage of Beckman v\. Match\.com<\/h1>/);
+  expect(html).toMatch(/<meta name="robots" content="index, follow"/);
+  expect(html).toMatch(/<a\b[^>]*href="https:\/\/www\.reviewjournal\.com\/\?p=510782"[^>]*>[^<]*original lawsuit coverage<\/a>/);
+  expect(html).toMatch(/<a\b[^>]*href="https:\/\/www\.courthousenews\.com\/ninth-circuit-takes-new-look-at-duty-to-warn-in-match-gone-bad\/"[^>]*>[^<]*appellate coverage<\/a>/);
 });
 
 test('practice navigation links exist in initial HTML before interaction', async ({ request }) => {
@@ -85,13 +101,15 @@ test('sitemap contains only direct canonical public pages', async ({ request }) 
   const xml = await response.text();
   expect(xml).not.toContain('<lastmod>');
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
-  expect(urls).toHaveLength(36);
+  expect(urls).toHaveLength(37);
+  expect(urls).toContain(`${origin}${beckmanPath}`);
   expect(new Set(urls).size).toBe(urls.length);
   const titles = new Set<string>();
   for (const url of urls) {
     expect(url.startsWith(origin)).toBe(true);
     const path = new URL(url).pathname;
-    expect(path).not.toMatch(/\.html$|^\/plain|^\/api\//);
+    expect(path).not.toMatch(/^\/plain|^\/api\//);
+    if (path.endsWith('.html')) expect(path).toBe(beckmanPath);
     const target = await request.get(path, { maxRedirects: 0 });
     expect(target.status(), path).toBe(200);
     const html = await target.text();

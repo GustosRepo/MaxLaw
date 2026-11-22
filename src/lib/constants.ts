@@ -100,6 +100,9 @@ export const FEATURED_MEDIA_APPEARANCES = [
   { network: 'ABC', program: '20/20: In an Instant' },
 ];
 
+export const BECKMAN_MEDIA_PATH = '/Woman-beaten-by-Match-com-predator-speaks-out.html';
+export const BECKMAN_MEDIA_TITLE = 'Media Coverage of Beckman v. Match.com';
+
 // Encoded for URLs / map queries
 export const FIRM_ADDRESS_QUERY = encodeURIComponent(FIRM_ADDRESS_FULL);
 

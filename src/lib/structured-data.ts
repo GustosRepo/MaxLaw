@@ -5,11 +5,13 @@ import {
   FIRM_STATE,
   FIRM_ZIP,
   FIRM_PHONE_E164,
+  MARC_HEADSHOT_SRC,
   SITE_URL,
 } from './constants'
 
 export const BUSINESS_ID = `${SITE_URL}/#organization`
 export const ATTORNEY_ID = `${SITE_URL}/about/marc-a-saggese#person`
+export const WEBSITE_ID = `${SITE_URL}/#website`
 
 export function serializeJsonLd(data: Record<string, unknown>): string {
   return JSON.stringify(data).replace(/</g, '\\u003c')
@@ -23,6 +25,7 @@ export function createFaqPageData(
     '@type': 'FAQPage',
     '@id': `${url}#webpage`,
     url,
+    isPartOf: { '@id': WEBSITE_ID },
     mainEntity: faqs.map(({ question, answer }) => ({
       '@type': 'Question',
       name: question,
@@ -88,6 +91,7 @@ export const attorneyData = {
   jobTitle: 'Attorney',
   description: 'Experienced Las Vegas attorney specializing in injury and criminal defense law',
   url: `${SITE_URL}/about/marc-a-saggese`,
+  image: `${SITE_URL}${MARC_HEADSHOT_SRC}`,
   telephone: FIRM_PHONE_E164,
   email: 'info@maxlawnv.com',
   worksFor: { '@id': BUSINESS_ID },

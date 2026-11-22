@@ -19,7 +19,7 @@
 
 The driver who caused a crash may be responsible for your injury losses, but that does not mean the driver’s insurer will pay each medical bill as it arrives. While the claim is being evaluated, payment may involve your health insurance, purchased medical payments coverage, a provider arrangement or your own funds. Which options apply depends on the available benefits and the facts of the claim.
 
-Start by identifying what coverage you have and asking how each provider is billing you. A pending accident claim does not, by itself, put every bill on hold.
+If the hospital sends a bill while the auto insurer is still investigating, call the provider’s billing office and ask which insurer has received the bill, whether it is pending or denied, and what amount the provider says you owe now. Ask for an itemized statement and compare it with any explanation of benefits from your insurer.
 
 ## Separate treatment bills from the injury claim
 
@@ -78,6 +78,8 @@ Tell your attorney about benefits that paid for care and any repayment correspon
 ## A simple way to track bills while your claim is pending
 
 Create a list with one row for each provider or account. Record the treatment date, amount billed, insurer contacted, response, payments and the balance being questioned. Keep related documents together rather than forwarding a bill without its explanation of benefits.
+
+If you receive separate statements from an emergency department, radiology provider or ambulance service, log each under its own account number. A payment or denial for one statement may leave the others outstanding. Ask each billing office what it has on file before assuming every charge went through the same insurer.
 
 Useful questions include:
 

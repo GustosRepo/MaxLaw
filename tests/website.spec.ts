@@ -173,9 +173,17 @@ test('main pages render without overflow, duplicate headings, nested main or bro
 
 test('practice directory links to every retained criminal service', async ({ page }) => {
   await page.goto('/practice');
-  for (const slug of ['bad-checks', 'burglary', 'domestic-violence', 'drugs', 'dui', 'forgery', 'juvenile-crimes', 'larceny', 'murder', 'prostitution', 'record-sealing', 'sexual-assault', 'theft']) {
-    await expect(page.locator(`main a[href="/criminal-defense/${slug}"]`).last()).toBeVisible();
+  const slugs = ['bad-checks', 'burglary', 'domestic-violence', 'drugs', 'dui', 'forgery', 'juvenile-crimes', 'larceny', 'murder', 'prostitution', 'record-sealing', 'sexual-assault', 'theft'];
+  for (const slug of slugs) await expect(page.locator(`main a[href="/criminal-defense/${slug}"]`).last()).toBeVisible();
+
+  await page.getByRole('link', { name: 'Las Vegas criminal defense overview', exact: true }).click();
+  await expect(page).toHaveURL(/\/criminal-defense$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Las Vegas Criminal Defense');
+  const services = page.getByRole('region', { name: 'Criminal defense services' });
+  for (const slug of slugs) {
+    await expect(services.locator(`a[href="/criminal-defense/${slug}"]`)).toBeVisible();
   }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 
 test('practice disclosure supports keyboard, outside click and accurate active links', async ({ page }) => {
@@ -219,6 +227,11 @@ test('practice navigation and core content work without JavaScript', async ({ pa
     await expect(recordSealing).toBeVisible();
     await recordSealing.click();
     await expect(noJs.locator('h1')).toHaveText('Las Vegas Record Sealing Lawyer');
+    await noJs.goto('http://127.0.0.1:3100/about');
+    await noJs.getByText('Do you offer free consultations?', { exact: true }).click();
+    await expect(noJs.getByText('Yes — we provide free initial consultations to discuss your case and options.', { exact: true })).toBeVisible();
+    await noJs.getByText('How do I schedule a consultation?', { exact: true }).click();
+    await expect(noJs.getByText('Call our office at (702) 778‑8883 or use the contact form to request an appointment.', { exact: true })).toBeVisible();
   } finally {
     await context.close();
   }

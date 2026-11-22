@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { MARC_AWARDS, MARC_HEADSHOT_SRC } from "../../../lib/constants";
+import StructuredData, { attorneyData } from "../../components/StructuredData";
+import { WEBSITE_ID } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Marc A. Saggese, Esq. | Las Vegas Trial Attorney",
@@ -27,6 +29,12 @@ export const metadata: Metadata = {
 export default function MarcSaggesePage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0e0e0e] to-[#111215] text-white font-[var(--font-inter)] pb-16">
+      <StructuredData type="ProfilePage" data={{
+        '@id': `${attorneyData.url}#webpage`,
+        url: attorneyData.url,
+        isPartOf: { '@id': WEBSITE_ID },
+        mainEntity: { '@type': 'Person', ...attorneyData },
+      }} />
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <section className="rounded-3xl bg-gradient-to-br from-white/3 to-transparent border border-white/8 p-6 md:p-10 shadow-lg mt-8">
           <style>{`
@@ -50,7 +58,11 @@ export default function MarcSaggesePage() {
               </div>
 
               <p className="text-sm text-white/80 mb-4">Founder & Lead Attorney — The Law Offices of Saggese & Associates. Trial-ready representation in injury and criminal defense; individualized attention and seasoned courtroom experience.</p>
-              <p className="text-sm mb-4"><Link href="/practice/car-accidents" className="text-[#d4af37] underline-offset-4 hover:underline">Car accident representation</Link></p>
+              <ul className="mb-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#d4af37]">
+                <li><Link href="/practice/car-accidents" className="underline underline-offset-4">Car accident representation</Link></li>
+                <li><Link href="/criminal-defense" className="underline underline-offset-4">Criminal defense representation</Link></li>
+                <li><Link href="/media" className="underline underline-offset-4">Media coverage and appearances</Link></li>
+              </ul>
 
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <a href="tel:17027788883" className="inline-block rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#c5a467] px-4 py-2 text-sm font-semibold text-[#0e0e0e] shadow-[0_10px_30px_rgba(212,175,55,0.2)]">Call (702) 778‑8883</a>

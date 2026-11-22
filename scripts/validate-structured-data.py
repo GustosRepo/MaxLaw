@@ -7,8 +7,7 @@ Run after npm run build:
 
 Optional --baseline compares visible text, metadata and breadcrumbs against a
 previous build's HTML directory. This is a vocabulary/content regression check,
-not Google's hosted Rich Results Test. About's client accordion is checked
-against its shared question/answer source when answers are initially collapsed.
+not Google's hosted Rich Results Test. FAQ answers must be in the initial HTML.
 """
 import argparse
 from collections import Counter, defaultdict
@@ -114,16 +113,14 @@ def audit(args):
     vocab = Vocabulary(args.vocabulary)
     issues, pages, counts = [], [], Counter()
     firm_definitions = []
-    accordion_source = (ROOT / 'src/app/about/AboutPageClient.tsx').read_text()
-    accordion_pairs = set(re.findall(r"\{ q: '([^']+)', a: '([^']+)' \}", accordion_source))
 
     def issue(route, category, message):
         issues.append({'route': route, 'category': category, 'message': message})
 
-    html_files = sorted(args.html_dir.rglob('*.html'))
+    html_files = sorted(path for path in args.html_dir.rglob('*.html') if path.is_file())
     if not html_files:
         raise ValueError(f'No production HTML found in {args.html_dir}; run npm run build first')
-    if args.baseline and {p.relative_to(args.html_dir) for p in html_files} != {p.relative_to(args.baseline) for p in args.baseline.rglob('*.html')}:
+    if args.baseline and {p.relative_to(args.html_dir) for p in html_files} != {p.relative_to(args.baseline) for p in args.baseline.rglob('*.html') if p.is_file()}:
         issue('*', 'regression', 'Production HTML route inventory changed')
 
     for path in html_files:
@@ -209,10 +206,7 @@ def audit(args):
                     if normal(question) not in page.visible_text:
                         issue(route, 'content', f'FAQ question absent from page: {question}')
                     if normal(text) not in page.visible_text:
-                        if route == '/about' and (question, text) in accordion_pairs:
-                            counts['source_verified_collapsed_answers'] += 1
-                        else:
-                            issue(route, 'content', f'FAQ answer absent from page: {question}')
+                        issue(route, 'content', f'FAQ answer absent from page: {question}')
             if 'BreadcrumbList' in types:
                 items = node.get('itemListElement', [])
                 if len(items) < 2 or any(item.get('@type') != 'ListItem' or item.get('position') != i or not item.get('name') or not str(item.get('item', '')).startswith('https://www.maxlawnv.com') for i, item in enumerate(items, 1)):

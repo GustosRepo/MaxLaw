@@ -8,6 +8,7 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
   const pathname = usePathname() || ''
 
   const personalInjuryLinks = [
+    { href: '/practice#injury-law', label: 'All injury practice areas' },
     { href: '/practice/car-accidents', label: 'Car Accidents' },
     { href: '/practice/car-accident-statistics', label: 'Car Accident Statistics' },
     { href: '/practice/cell-phone-related-accidents', label: 'Cell Phone-Related Accidents' },
@@ -26,6 +27,7 @@ export default function PracticeNav({ className = '' }: { className?: string }) 
   ]
 
   const criminalDefenseLinks = [
+    { href: '/criminal-defense', label: 'Criminal Defense Overview' },
     { href: '/criminal-defense/dui', label: 'DUI' },
     { href: '/criminal-defense/prostitution', label: 'Prostitution' },
     { href: '/criminal-defense/larceny', label: 'Larceny' },

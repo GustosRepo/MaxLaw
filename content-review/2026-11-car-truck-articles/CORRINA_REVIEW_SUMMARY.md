@@ -2,9 +2,9 @@
 
 Prepared for **Corrina, Marc Saggese’s assistant**, on November 13, 2026.
 
-**All five complete drafts are ready for review. Nothing has been published, deployed or implemented. Existing website pages and article routes have not been modified. No draft is marked as reviewed or approved by Corrina or Marc.**
+**November 21 editorial update** — This packet now includes six proposed articles. The Markdown article files are the current review copy, and the Word packets capture the November 13 versions. Attorney review and publication status are recorded separately.
 
-The primary strategy reference is [MAXLAW_CAR_TRUCK_ACCIDENT_CONTENT_AUDIT.md](../../MAXLAW_CAR_TRUCK_ACCIDENT_CONTENT_AUDIT.md). The five articles answer separate informational questions and support the existing car/truck practice pages. They do not propose competing lawyer/attorney landing pages.
+The primary strategy reference is [MAXLAW_CAR_TRUCK_ACCIDENT_CONTENT_AUDIT.md](../../MAXLAW_CAR_TRUCK_ACCIDENT_CONTENT_AUDIT.md). The articles answer separate informational questions and support the car and truck practice pages.
 
 ## How to use this packet
 
@@ -12,7 +12,13 @@ Each article file contains editorial SEO metadata, a complete proposed public ar
 
 Corrina can collect edits and coordinate Marc’s legal review. Administrative review and attorney review should be recorded separately. Approval of a draft for the next phase does not itself authorize deployment. Public author/reviewer attribution and publication dates remain unassigned.
 
-## The five articles
+## Recommended release order
+
+**Start with the rear-end collision guide (06).** Max Law received one click on its current car accident page in the 16-month Search Console export and was absent from both Google AI answers tested for an unbranded rear-end lawyer question. Six of the eight firms in the AI Overview were cited through dedicated rear-end pages. That comparison supports choosing a more specific first topic. It does not establish why Google selected any firm.
+
+Follow with **the crash report guide (01)** and **the medical bills guide (02)**. These support the reader’s next tasks after a crash. Link the guides from the car accident practice page once the relevant destinations are live. Track impressions and clicks for each page in Search Console, and repeat the same rear-end prompt in Google AI Mode, ChatGPT Search, and Gemini.
+
+## The six articles
 
 | Draft | Purpose | Principal authorities referenced |
 | --- | --- | --- |
@@ -21,6 +27,7 @@ Corrina can collect edits and coordinate Marc’s legal review. Administrative r
 | [03 — What Evidence Matters After a Las Vegas Truck Accident?](03-las-vegas-truck-accident-evidence.md) | Explain record types, possible custodians, retention categories and lawful preservation/production distinctions. | NRS 706.171/NAC 706.2472; 49 CFR 395.8, 395.22, 396.3 and 390.15; NRCP 34, 37(e), 45 |
 | [04 — Who May Be Liable After a Nevada Truck Accident?](04-nevada-truck-accident-liability.md) | Explain why driver, carrier, maintenance, loading and product roles may warrant investigation without presuming liability. | NRS 41.130/.141 and 11.190; Nevada carrier framework; 49 CFR 390.11, 391.11, 396.3, 393.100, 395.3, 392.3 and 387.9 |
 | [05 — Rental Car Accident in Las Vegas: Insurance and Next Steps](05-las-vegas-rental-car-accidents.md) | Help renters, passengers and people hit by rentals organize coverage documents, demands and visitor questions. | NRS 482.305, .3153, .3155, .31555; 49 U.S.C. § 30106; NRS Chapter 484E, 14.070 and 11.190 |
+| [06 — What to Do After a Rear-End Collision in Las Vegas](06-las-vegas-rear-end-collision.md) | Explain how to document the order of impacts, respond to fault disputes, and prepare for insurer calls. | NRS 484B.127 and 41.141; official LVMPD and Nevada State Police records guidance |
 
 ## Research refresh and material limits
 
@@ -99,6 +106,6 @@ Decision: ☐ Revise ☐ Hold ☐ Approve for next-phase planning. Reviewer/date
 
 Completed in preparation of this packet: full-article drafting, proofreading for clarity and unsupported promises, comparison of subject boundaries, official-source checks with disclosed limits, existing-destination checks and metadata/link consistency review. These are editorial/research checks, not attorney approval or a claim that inaccessible sources were fully verified.
 
-Final checks confirmed all six requested files, one public H1 per article, separate reviewer sections, working local packet links and consistent Markdown tables. Direct checks of the 11 cited Nevada Legislature/court-rule and GPO base pages returned 200, with no missing cited section anchors. Federal regulation links were checked through the web reader. No identical substantive public sentences of 20 or more words were found across the five drafts. Blocked source access and federal rental-code currency remain the specific qualifications described above.
+The November 13 checks covered the original five articles. They confirmed one public H1 per article, separate reviewer sections, and working local packet links. The 11 cited Nevada Legislature, court-rule, and GPO pages returned 200 with the expected anchors, and federal regulation links were checked through the web reader. The access and federal rental-code qualifications above apply to that original review.
 
 All approval boxes above are intentionally blank. The next phase is website implementation only after the required review and separate implementation authorization. This packet has not been emailed or otherwise sent to anyone, and **nothing has been published**.

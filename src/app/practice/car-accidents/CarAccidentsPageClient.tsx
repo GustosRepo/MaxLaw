@@ -31,7 +31,7 @@ export default function CarAccidentsPageClient() {
               When you're injured in a car accident, you need an attorney who understands how crashes, medical care, insurance coverage, and fault disputes affect your claim. At The Law Offices of Saggese & Associates, we help injured Las Vegas drivers and passengers understand their options after a serious collision.
             </p>
             <p className="text-white/80 mb-4">
-              The best calls for the firm are from people who were hurt and were not at fault. If that describes your crash, call for a free consultation before giving detailed statements to insurance companies or signing paperwork you do not fully understand.
+              If you were injured in a Las Vegas crash and the other driver’s insurer is calling or disputing fault, we can review the records you have, explain what the insurer is asking for, and discuss your options in a <Link href="/contact" className="text-[#d4af37] underline">free consultation</Link>.
             </p>
             
             <h3 className="text-lg font-semibold mb-3">What to Do After a Las Vegas Crash</h3>

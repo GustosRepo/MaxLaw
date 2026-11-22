@@ -19,7 +19,7 @@
 
 To get a Las Vegas car accident report, start with the agency that investigated the crash. Look at the officer’s card, incident paperwork or report number, then use that agency’s official records page. A Las Vegas mailing address alone does not tell you which department has the report.
 
-Getting a copy can help you organize an insurance claim, identify the drivers involved and check what was recorded. You can request records yourself. If you were injured, you can also speak with an attorney about how the report fits into the broader claim.
+If the other driver’s insurer asks for a report you don’t have yet, keep the incident number and ask which records it needs and where to send them. If you were injured, an attorney can help you understand how the report fits into your claim.
 
 ## Which agency has your crash report?
 
@@ -85,6 +85,8 @@ A disagreement about how the crash occurred may require more than a records corr
 ## What can a crash report establish?
 
 A police report can help identify people, vehicles, observations and investigative leads. It does not replace a full examination of fault, injuries or insurance coverage. Whether a particular statement can be used in court is a separate legal question.
+
+In a rear-end crash with three cars, check whether the report describes the order of impacts or simply lists the vehicles involved. If you remember two impacts, write down their order as you recall it and save any photos or video alongside the report. Those details can help an investigator work out whether your car struck the one ahead before or after it was hit from behind.
 
 For someone returning home after visiting Las Vegas, keep the report and incident number with photos, treatment records and insurance correspondence. For a commercial truck crash, a public report may be only one part of the evidence; carrier logs, maintenance information and vehicle data may require separate steps. Max Law’s [truck accident representation page](https://www.maxlawnv.com/practice/truck-accidents) explains the firm’s work on those claims.
 

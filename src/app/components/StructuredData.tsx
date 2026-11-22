@@ -3,7 +3,7 @@ import { serializeJsonLd } from '@/lib/structured-data'
 export { legalServiceData, attorneyData } from '@/lib/structured-data'
 
 interface StructuredDataProps {
-  type: 'LegalService' | 'Service' | 'Person' | 'Organization' | 'BreadcrumbList' | 'FAQPage' | 'WebPage'
+  type: 'LegalService' | 'Service' | 'Person' | 'Organization' | 'BreadcrumbList' | 'FAQPage' | 'WebPage' | 'WebSite' | 'ProfilePage'
   data: Record<string, unknown>
 }
 

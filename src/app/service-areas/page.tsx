@@ -4,6 +4,7 @@ import { BUSINESS_ID } from '@/lib/structured-data'
 import Link from 'next/link'
 import {
   CRIMINAL_DEFENSE_REPRESENTATION_TYPES,
+  FIRM_ADDRESS_FULL,
   PERSONAL_INJURY_REPRESENTATION_TYPES,
 } from '../../lib/constants'
 
@@ -36,7 +37,7 @@ export default function ServiceAreasPage() {
         <header className="mb-10 text-center">
           <h1 className="text-3xl md:text-4xl font-[var(--font-playfair)] font-bold text-[#d4af37]">Areas We Serve</h1>
           <div className="mt-3 mx-auto w-40 h-1.5 bg-gradient-to-r from-[#d4af37] to-[#c5a467] rounded-full" />
-          <p className="mt-4 text-white/80 max-w-2xl mx-auto text-sm">We provide injury and criminal defense representation throughout the greater Las Vegas Valley. Below is a representative list of communities we regularly serve. If you do not see your area listed, contact us — we likely cover it.</p>
+          <p className="mt-4 text-white/80 max-w-2xl mx-auto text-sm">From our Las Vegas office, we represent clients in injury and criminal defense matters across the Las Vegas Valley.</p>
         </header>
 
         <section className="rounded-2xl p-6 md:p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 shadow-lg">
@@ -46,12 +47,14 @@ export default function ServiceAreasPage() {
               <li key={a} className="px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white/85 hover:bg-white/10 transition">{a}</li>
             ))}
           </ul>
-          <p className="mt-6 text-xs text-white/50">Listing for SEO/service disclosure purposes – we handle cases statewide as permitted by admission.</p>
+          <p className="mt-6 text-sm text-white/80">
+            Our office is at {FIRM_ADDRESS_FULL}. <Link href="/contact" className="text-[#d4af37] underline underline-offset-4">Get office directions</Link>.
+          </p>
         </section>
 
         <section className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/10">
-            <h3 className="text-lg font-semibold mb-3">Injury Representation</h3>
+            <h2 className="text-lg font-semibold mb-3"><Link href="/practice#injury-law" className="text-[#d4af37] underline underline-offset-4">Injury Representation</Link></h2>
             <ul className="grid grid-cols-1 gap-2 text-sm text-white/80 sm:grid-cols-2">
               {PERSONAL_INJURY_REPRESENTATION_TYPES.map((caseType) => (
                 <li key={caseType.label} className="rounded-lg border border-white/10 bg-black/20 px-3 py-2">
@@ -67,10 +70,14 @@ export default function ServiceAreasPage() {
             </ul>
           </div>
           <div className="rounded-2xl p-6 bg-gradient-to-br from-white/4 to-transparent border border-white/10">
-            <h3 className="text-lg font-semibold mb-3">Criminal Defense</h3>
+            <h2 className="text-lg font-semibold mb-3"><Link href="/criminal-defense" className="text-[#d4af37] underline underline-offset-4">Criminal Defense</Link></h2>
             <ul className="grid grid-cols-1 gap-2 text-sm text-white/80 sm:grid-cols-2">
               {CRIMINAL_DEFENSE_REPRESENTATION_TYPES.map((caseType) => (
-                <li key={caseType.label} className="rounded-lg border border-white/10 bg-black/20 px-3 py-2">{caseType.label}</li>
+                <li key={caseType.label} className="rounded-lg border border-white/10 bg-black/20 px-3 py-2">
+                  {caseType.href ? (
+                    <Link href={caseType.href} className="hover:text-[#d4af37] hover:underline">{caseType.label}</Link>
+                  ) : caseType.label}
+                </li>
               ))}
             </ul>
           </div>

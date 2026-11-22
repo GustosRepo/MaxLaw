@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Breadcrumbs from '../components/Breadcrumbs'
@@ -269,8 +268,6 @@ function FAQ() {
     { q: 'Do you offer free consultations?', a: 'Yes — we provide free initial consultations to discuss your case and options.' },
     { q: 'How do I schedule a consultation?', a: 'Call our office at (702) 778‑8883 or use the contact form to request an appointment.' },
   ];
-  const [open, setOpen] = React.useState<number | null>(0);
-
   const faqStructuredData = createFaqPageData(
     'https://www.maxlawnv.com/about',
     faqs.map(({ q, a }) => ({ question: q, answer: a })),
@@ -281,13 +278,13 @@ function FAQ() {
       <StructuredData type="FAQPage" data={faqStructuredData} />
       <div className="space-y-3">
         {faqs.map((f, i) => (
-          <div key={i} className="border border-white/6 rounded-lg overflow-hidden">
-            <button onClick={() => setOpen(open === i ? null : i)} className="w-full flex items-center justify-between px-4 py-3">
+          <details key={f.q} name="about-faq" open={i === 0} className="group overflow-hidden rounded-lg border border-white/6">
+            <summary className="flex w-full cursor-pointer list-none items-center justify-between px-4 py-3 text-left [&::-webkit-details-marker]:hidden">
               <span className="font-medium">{f.q}</span>
-              <span className={`ml-4 transition-transform ${open === i ? 'rotate-180' : 'rotate-0'}`}>▾</span>
-            </button>
-            {open === i && <div className="px-4 pb-4 text-white/80">{f.a}</div>}
-          </div>
+              <span className="ml-4 transition-transform group-open:rotate-180" aria-hidden="true">▾</span>
+            </summary>
+            <div className="px-4 pb-4 text-white/80">{f.a}</div>
+          </details>
         ))}
       </div>
     </>

@@ -12,9 +12,11 @@ export default function PracticeCardsLite() {
   const injuryPreview = PERSONAL_INJURY_CASE_TYPES.slice(0, 5);
   const defensePreview = CRIMINAL_DEFENSE_CASE_TYPES.slice(0, 4);
 
-  const renderPreview = (title: string, topics: CaseTopic[], allTopics: CaseTopic[]) => (
+  const renderPreview = (title: string, overviewHref: string, topics: CaseTopic[], allTopics: CaseTopic[]) => (
     <div className="rounded-xl border border-white/15 bg-black/40 p-4">
-      <h3 className="text-base font-semibold text-white">{title}</h3>
+      <h3 className="text-base font-semibold text-white">
+        <Link href={overviewHref} className="text-[#d4af37] underline underline-offset-4">{title}</Link>
+      </h3>
       <ul className="mt-2 space-y-1 text-base text-white/70">
         {topics.map(topic => (
           <li key={topic.label}>
@@ -44,12 +46,11 @@ export default function PracticeCardsLite() {
   return (
     <section className="mx-auto w-full max-w-5xl space-y-6 px-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-2xl font-semibold text-white">Accident & Injury Help</h2>
-        <p className="text-sm text-white/70">Clear next steps for injured, not-at-fault accident victims.</p>
+        <h2 className="text-2xl font-semibold text-white">Injury & Criminal Defense</h2>
       </div>
       <div className="grid grid-cols-1 gap-4">
-        {renderPreview('Injury', injuryPreview, PERSONAL_INJURY_CASE_TYPES)}
-        {renderPreview('Criminal Defense', defensePreview, CRIMINAL_DEFENSE_CASE_TYPES)}
+        {renderPreview('Injury Practice Areas', '/practice#injury-law', injuryPreview, PERSONAL_INJURY_CASE_TYPES)}
+        {renderPreview('Criminal Defense Overview', '/criminal-defense', defensePreview, CRIMINAL_DEFENSE_CASE_TYPES)}
         <div className="rounded-xl border border-white/15 bg-black/40 p-4">
           <h3 className="text-base font-semibold text-white">Need Help Now?</h3>
           <div className="mt-3 grid grid-cols-1 gap-2">

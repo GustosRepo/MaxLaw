@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { SITE_URL } from '@/lib/constants'
+import { CRIMINAL_DEFENSE_PAGES, SITE_URL } from '@/lib/constants'
 import PracticeStructuredData from './PracticeStructuredData'
 
 export const metadata = {
@@ -40,7 +40,7 @@ export default function PracticePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <section className="md:col-span-2 space-y-6">
-              <div>
+              <div id="injury-law" className="scroll-mt-24">
                 <h2 className="text-xl font-['Playfair_Display'] font-bold text-[#bfa76a] mb-4">Injury Law</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 {[
@@ -73,22 +73,11 @@ export default function PracticePage() {
 
               <div>
                 <h2 className="text-xl font-['Playfair_Display'] font-bold text-[#bfa76a] mb-4">Criminal Defense</h2>
+                <p className="mb-4 text-sm text-white/80">
+                  Visit our <Link href="/criminal-defense" className="text-[#d4af37] underline underline-offset-4">Las Vegas criminal defense overview</Link> for court lookup and consultation preparation.
+                </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-{[
-  { title: 'DUI Defense', href: '/criminal-defense/dui', desc: 'DUI - Driving Under the Influence defense and license protection.' },
-  { title: 'Domestic Violence', href: '/criminal-defense/domestic-violence', desc: 'Battery Domestic Violence and related charges.' },
-  { title: 'Drug Offenses', href: '/criminal-defense/drugs', desc: 'Drug related offenses and controlled substance cases.' },
-  { title: 'Homicide & Murder', href: '/criminal-defense/murder', desc: 'Homicide and serious criminal charges.' },
-  { title: 'Theft', href: '/criminal-defense/theft', desc: 'Defense for shoplifting, theft, and property-related charges.' },
-  { title: 'Larceny', href: '/criminal-defense/larceny', desc: 'Larceny allegations involving property value, identity, and intent.' },
-  { title: 'Burglary', href: '/criminal-defense/burglary', desc: 'Burglary allegations and related property offenses.' },
-  { title: 'Forgery', href: '/criminal-defense/forgery', desc: 'Forgery, fraud, and disputed document allegations.' },
-  { title: 'Bad Checks', href: '/criminal-defense/bad-checks', desc: 'Bad-check allegations and related financial offenses.' },
-  { title: 'Juvenile Crimes', href: '/criminal-defense/juvenile-crimes', desc: 'Defense for young people facing juvenile allegations.' },
-  { title: 'Prostitution', href: '/criminal-defense/prostitution', desc: 'Prostitution and related criminal allegations.' },
-  { title: 'Sexual Assault', href: '/criminal-defense/sexual-assault', desc: 'Defense for sexual assault allegations.' },
-  { title: 'Record Sealing', href: '/criminal-defense/record-sealing', desc: 'Eligibility review and petitions to seal criminal records.' },
-].map((p) => (
+{CRIMINAL_DEFENSE_PAGES.map((p) => (
   <Link key={p.title} href={p.href}>
     <div className="block rounded-2xl p-5 bg-gradient-to-br from-white/3 to-transparent border border-white/8 card-hover">
       <h3 className="text-lg font-semibold text-white">{p.title}</h3>

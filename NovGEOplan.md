@@ -3,13 +3,30 @@
 **Prepared for:** CODEWERX LLC / The Law Offices of Saggese & Associates  
 **Audit date:** October 29, 2026 (America/Los_Angeles)  
 **Planning window:** November 2026  
-**Last planning update:** November 3, 2026 — aligned with the car accident package and retained SEO/site-quality fixes; the original platform audit has not been rerun.
+**Last planning update:** November 21, 2026 — refreshed the sitewide crawl baseline and implemented the first visibility fixes in the repository.
 
 **Website:** https://www.maxlawnv.com  
 **Repository baseline:** `4ee3a34` (`fixed old redirects`)  
-**Status:** Original read-only audit complete; SEO/site-quality fixes retained locally after the user excluded extra backend infrastructure. Marc's factual/legal confirmation, account/platform testing and deployment remain pending.
+**Status:** Sitewide crawl baseline refreshed. The November 21 changes are in the repository. Account measurements, consumer-platform testing, and deployment of this patch remain pending.
 
 This document records the October 29 audit and subsequent updates. Historical observations below describe that audit, not a fresh production verification. The [November SEO gameplan](NovGameplan.md) remains the content tracker. The November 3 retained fixes cover rendering, headings/schema, review consistency and consent-aware lead measurement. Existing SMTP remains in use; the extra backend expansion has been removed and adds no hosting requirements. It does not establish AI citations, legal review, completed article drafts or a production release.
+
+## November 21 sitewide update
+
+All 37 URLs in the live sitemap returned HTTP 200 with self-referencing canonicals, a single H1 and no `noindex` directive. Each URL was linked from at least one sitemap page. Sample requests using Googlebot, Bingbot, OAI-SearchBot and PerplexityBot names also returned 200 for `robots.txt` and the checked pages. Search indexing, actual crawler traffic and visibility inside AI answers still require platform evidence.
+
+The live site had two gaps the repository now addresses. `/criminal-defense` returned 404 even though the sitemap listed 13 criminal defense services, and two About answers appeared in structured data without appearing in the initial page content. The new [criminal defense overview](src/app/criminal-defense/page.tsx) links to all 13 services, the firm’s lead attorney, the official District Court Finder and consultation prep. The homepage, practice directory and service-areas page now link to clear starting points for both injury and defense. The [About disclosures](src/app/about/AboutPageClient.tsx) work without JavaScript. Homepage and attorney profile structured data link the Max Law site, existing firm identity and Marc Saggese’s biography. [Google site names](https://developers.google.com/search/docs/appearance/site-names), [Google AI optimization guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
+
+### Visibility checks in priority order
+
+| Check | Evidence to record |
+|---|---|
+| Google Search Console eligibility | Confirm the property’s Search generative AI inclusion setting. Inspect Google’s indexed and selected canonical URLs for the homepage, practice index, attorney bio, Car Accidents, DUI and Domestic Violence. Inspect `/criminal-defense` once the patch is live. [Search generative AI control](https://support.google.com/webmasters/answer/16908024) |
+| Google and Bing baseline | Export the most recent complete 28-day window. Save Google Search clicks and impressions by page and query, Google generative AI impressions by page where the report is available, and Bing AI citations by page and grounding query. Keep branded, injury and criminal defense queries separate. [Google generative AI report](https://support.google.com/webmasters/answer/16984139), [Bing AI Performance](https://www.bing.com/webmasters/help/ai-performance-9f8e7d6c) |
+| Answers and referrals | Repeat the query matrix below, preserving answers and links. Record cited URLs and known AI referrals separately. Compare equivalent 28-day windows after deployment and record which pages changed. [OpenAI publisher guidance](https://help.openai.com/en/articles/12627856) |
+| Next content priorities | Use the baseline to pick one injury query cluster and one defense cluster with real demand. Continue the reviewed car-accident guides, and prioritize DUI and domestic violence coverage that answers practical local questions with attorney-reviewed wording and primary sources. |
+
+The available Search Console session showed setup and had no Max Law property to inspect. Keep the reported low visibility as a working observation until the first account and prompt baseline is recorded. Use search impressions, linked AI citations and attributed inquiries as separate measures.
 
 ## Progress tracker
 
@@ -21,6 +38,7 @@ This document records the October 29 audit and subsequent updates. Historical ob
 - [x] Verify current official platform documentation and identify reporting limits.
 - [x] Prepare the evidence-based audit and proposed November actions.
 - [x] November 3: align content priorities with the Car Accidents page plus the report/fault articles, followed by existing settlement content and statistics maintenance; Premises Liability follows this cycle.
+- [x] November 21: check all live sitemap URLs and prepare the sitewide discovery, firm identity and initial-HTML changes.
 - [ ] Complete CODEWERX review and select work items.
 - [ ] Obtain Marc's legal/factual confirmation and supporting records.
 - [ ] Complete the repeated consumer-platform query baseline.
@@ -354,7 +372,7 @@ All actions begin pending review. Enter actual owners, approvals and evidence as
 | G05 Measurement | Account owner + CODEWERX | Consent-gated page views and successful-SMTP consultation event implemented locally; account data unavailable | Verify generate_lead/key-event settings in GA4, existing SMTP delivery and lead attribution after deployment |
 | G06 Injury content | CODEWERX + Marc | Car draft prepared; settlement expansion/statistics checks pending | Follow N03/N11/N12 and the first cycle in NovGameplan.md; N04 Premises follows that cycle |
 | G07 Defense content | CODEWERX + Marc | Proposal only | Approve briefs before drafting or editing legal content |
-| G08 Existing content access | CODEWERX | Proposal only | Review scope and rendering tradeoffs |
+| G08 Existing content access | CODEWERX | All existing About answers now render in initial HTML with native disclosures | Verify deployment and keep answers in sync with structured data |
 | G09 Platform baseline | CODEWERX / available Las Vegas tester | Not Tested | Follow Section 2; preserve exact answers/settings |
 | G10 Resources | CODEWERX + Marc | First-cycle topics prioritized; full drafts and review pending | Follow N05/N06 in NovGameplan.md; the retained site-quality fixes do not publish or approve these articles |
 
@@ -401,7 +419,7 @@ The proposed new resources will require deliberate sitemap inclusion and their o
 - Correct office suite, service coverage and business hours.
 - Any author/reviewer attribution and review date.
 
-**Readiness:** The audit supports CODEWERX review and targeted verification. Consumer-platform visibility, account metrics and several firm facts remain unresolved. No implementation or deployment has been authorized or performed.
+**Readiness:** The November 21 patch is ready for technical review. Consumer-platform visibility, account metrics and several firm facts remain unresolved. Record the live release date after deployment.
 
 ## Evidence and change log
 
@@ -417,3 +435,4 @@ Raw audit evidence was retained at the following temporary local paths. These ar
 |---|---|---|---|
 | October 29, 2026 | Read-only GEO audit completed and reported | Repository baseline, production HTML/headers, existing validator and cited public sources | Findings prepared; consumer-platform and account data unavailable |
 | October 29, 2026 | Saved audit as `NovGEOplan.md`; added progress and action tracking | User requested this Markdown file | Documentation only; website and NovGameplan.md unchanged |
+| November 21, 2026 | Refreshed the sitewide crawl baseline and implemented the first visibility fixes | 37 live sitemap URLs checked, plus four crawler-name samples | Repository patch prepared for review. Baseline account exports and deployment pending |

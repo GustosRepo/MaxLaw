@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/constants'
+import { WEBSITE_ID } from '@/lib/structured-data'
 import StructuredData from '../../components/StructuredData'
 import { PracticeBreadcrumbs } from '../PracticePageExtras'
 
@@ -184,11 +185,7 @@ export default function CarAccidentStatsPage() {
           url: `${SITE_URL}/practice/car-accident-statistics`,
           description: 'Sourced Nevada and Clark County crash fatality statistics, pedestrian and motorcycle trends, and official traffic-safety data sources for Las Vegas-area drivers.',
           about: ['Las Vegas car accident statistics', 'Nevada crash fatality data', 'Clark County traffic fatalities'].map((name) => ({ '@type': 'Thing', name })),
-          isPartOf: {
-            '@type': 'WebSite',
-            name: 'The Law Offices of Saggese & Associates',
-            url: SITE_URL
-          },
+          isPartOf: { '@id': WEBSITE_ID },
           citation: sourceLinks.map((source) => source.href)
         }}
       />

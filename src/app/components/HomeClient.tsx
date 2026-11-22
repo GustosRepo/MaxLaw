@@ -278,6 +278,7 @@ export default function HomeClient(){
             <div className="grid gap-6 md:grid-cols-2">
               <Card title="Injured and not at fault?" subtitle="Las Vegas Injury">
                 We help injured Nevadans after car, motorcycle, and truck accidents pursue medical care and compensation.
+                <p className="mt-2"><Link href="/practice#injury-law" className="text-[#d4af37] underline underline-offset-4">See all injury practice areas</Link></p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <Link href="/practice/car-accidents" className="inline-flex rounded-xl border border-[#d4af37]/40 px-4 py-2 text-sm font-semibold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0e0e0e]">
                     Car accident cases
@@ -290,6 +291,7 @@ export default function HomeClient(){
               </Card>
               <Card title="Arrested?" subtitle="Criminal Defense">
                 Strategic, trial‑tested defense from arraignment through resolution.
+                <p className="mt-2"><Link href="/criminal-defense" className="text-[#d4af37] underline underline-offset-4">Explore Las Vegas criminal defense</Link></p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <Link href="/criminal-defense/dui" className="inline-flex rounded-xl border border-[#d4af37]/40 px-4 py-2 text-sm font-semibold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0e0e0e]">
                     DUI defense

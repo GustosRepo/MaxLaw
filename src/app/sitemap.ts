@@ -5,7 +5,7 @@ import { BECKMAN_MEDIA_PATH } from '../lib/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.maxlawnv.com'
-  const mainPages = ['', '/about', '/practice', '/results', '/media', BECKMAN_MEDIA_PATH, '/contact', '/about/marc-a-saggese', '/service-areas'];
+  const mainPages = ['', '/about', '/practice', '/criminal-defense', '/results', '/media', BECKMAN_MEDIA_PATH, '/contact', '/about/marc-a-saggese', '/service-areas'];
 
   const discover = (segment: string) => {
     const root = path.join(process.cwd(), 'src', 'app', segment);
@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 function getPriority(path: string): number {
   if (path === '') return 1.0
-  if (path === '/practice' || path === '/contact') return 0.9
+  if (path === '/practice' || path === '/criminal-defense' || path === '/contact') return 0.9
   if (path === '/about' || path === '/results' || path === '/media') return 0.8
   if (path.startsWith('/practice/') || path.startsWith('/criminal-defense/')) return 0.7
   return 0.6

@@ -1,6 +1,7 @@
 import { SITE_URL } from '@/lib/constants'
 import {
   BUSINESS_ID,
+  WEBSITE_ID,
   createFaqPageData,
   legalServiceData,
   serializeJsonLd,
@@ -33,6 +34,7 @@ export default function PracticeStructuredData({
           '@type': 'WebPage',
           '@id': `${url}#webpage`,
           url,
+          isPartOf: { '@id': WEBSITE_ID },
           mainEntity: { '@id': serviceId },
         }),
     name: serviceType,

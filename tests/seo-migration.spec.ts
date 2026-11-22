@@ -59,7 +59,7 @@ test('uncertain, retired and unrelated URLs remain genuine 404s', async ({ reque
     '/Personal-Injury/Medical-Malpractice.html', '/practice/medical-malpractice',
     '/Personal-Injury/index.html', '/Personal-Injury/Types-Of-Accidents.html',
     '/Ask-a-Lawyer.html', '/assault.html', '/probation-violation.html',
-    '/possession-of-controlled-substance.html', '/criminal-defense',
+    '/possession-of-controlled-substance.html',
     '/audit-nonexistent-7e14', '/Personal-Injury/Car-AccidentsXhtml',
   ]) {
     const response = await request.get(path, { maxRedirects: 0 });
@@ -83,7 +83,7 @@ test('the media card links to the restored Beckman coverage at its original URL'
 });
 
 test('practice navigation links exist in initial HTML before interaction', async ({ request }) => {
-  for (const path of ['/practice', '/practice/car-accidents', '/criminal-defense/record-sealing']) {
+  for (const path of ['/practice', '/practice/car-accidents', '/criminal-defense', '/criminal-defense/record-sealing']) {
     const response = await request.get(path);
     expect(response.status()).toBe(200);
     const html = await response.text();
@@ -95,14 +95,27 @@ test('practice navigation links exist in initial HTML before interaction', async
   }
 });
 
+test('both practice overviews are linked from the homepage and service areas', async ({ request }) => {
+  for (const path of ['/', '/service-areas']) {
+    const response = await request.get(path);
+    expect(response.status()).toBe(200);
+    const html = await response.text();
+    expect(html).toMatch(/<a\b[^>]*href="\/criminal-defense"/);
+    expect(html).toMatch(/<a\b[^>]*href="\/practice#injury-law"/);
+  }
+  const practice = await request.get('/practice');
+  expect(await practice.text()).toMatch(/id="injury-law"/);
+});
+
 test('sitemap contains only direct canonical public pages', async ({ request }) => {
   const response = await request.get('/sitemap.xml');
   expect(response.status()).toBe(200);
   const xml = await response.text();
   expect(xml).not.toContain('<lastmod>');
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
-  expect(urls).toHaveLength(37);
+  expect(urls).toHaveLength(38);
   expect(urls).toContain(`${origin}${beckmanPath}`);
+  expect(urls).toContain(`${origin}/criminal-defense`);
   expect(new Set(urls).size).toBe(urls.length);
   const titles = new Set<string>();
   for (const url of urls) {

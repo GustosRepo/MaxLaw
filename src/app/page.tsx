@@ -1,19 +1,23 @@
 import type { Metadata } from 'next';
 import HomeClient from './components/HomeClient';
 import StructuredData, { legalServiceData, attorneyData } from './components/StructuredData';
+import { FIRM_NAME, SITE_URL } from '@/lib/constants';
+import { BUSINESS_ID, WEBSITE_ID } from '@/lib/structured-data';
+
+const description = 'Saggese & Associates represents clients in personal injury and criminal defense matters in Las Vegas. Request a free initial consultation.';
 
 export const metadata: Metadata = {
   title: {
     absolute: 'Las Vegas Injury Lawyer & Criminal Defense Attorney | Max Law',
   },
-  description: 'Talk with a Las Vegas injury lawyer about car accidents and other injury claims. Free consultation. No fee unless we win.',
+  description,
   keywords: 'injury lawyer las vegas, injury law firm las vegas, injury attorney las vegas, car accident attorney las vegas, car accident lawyer las vegas, injury lawyer near me, lawyer las vegas',
   alternates: { canonical: 'https://www.maxlawnv.com/' },
   openGraph: {
     type: 'website',
     url: 'https://www.maxlawnv.com/',
     title: 'Las Vegas Injury Lawyer & Criminal Defense Attorney | Max Law',
-    description: 'Talk with a Las Vegas injury lawyer about car accidents and other injury claims. Free consultation. No fee unless we win.',
+    description,
     images: [
       {
     url: 'https://www.maxlawnv.com/home-logo.png?v=2',
@@ -26,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Las Vegas Injury Lawyer & Criminal Defense Attorney',
-    description: 'Talk with a Las Vegas injury lawyer about car accidents and other injury claims. Free consultation. No fee unless we win.',
+    description,
   images: ['https://www.maxlawnv.com/home-logo.png?v=2'],
   },
   icons: {
@@ -44,6 +48,13 @@ export default function HomePage() {
     <>
       <StructuredData type="LegalService" data={legalServiceData} />
       <StructuredData type="Person" data={attorneyData} />
+      <StructuredData type="WebSite" data={{
+        '@id': WEBSITE_ID,
+        url: `${SITE_URL}/`,
+        name: 'Max Law',
+        alternateName: FIRM_NAME,
+        publisher: { '@id': BUSINESS_ID },
+      }} />
       <HomeClient />
     </>
   );

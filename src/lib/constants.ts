@@ -67,6 +67,22 @@ export const CRIMINAL_DEFENSE_REPRESENTATION_TYPES = CRIMINAL_DEFENSE_CASE_TYPES
   (item) => item.label !== 'Other / Not Sure',
 );
 
+export const CRIMINAL_DEFENSE_PAGES = [
+  { title: 'DUI Defense', href: '/criminal-defense/dui', desc: 'DUI - Driving Under the Influence defense and license protection.' },
+  { title: 'Domestic Violence', href: '/criminal-defense/domestic-violence', desc: 'Battery Domestic Violence and related charges.' },
+  { title: 'Drug Offenses', href: '/criminal-defense/drugs', desc: 'Drug related offenses and controlled substance cases.' },
+  { title: 'Homicide & Murder', href: '/criminal-defense/murder', desc: 'Homicide and serious criminal charges.' },
+  { title: 'Theft', href: '/criminal-defense/theft', desc: 'Defense for shoplifting, theft, and property-related charges.' },
+  { title: 'Larceny', href: '/criminal-defense/larceny', desc: 'Larceny allegations involving property value, identity, and intent.' },
+  { title: 'Burglary', href: '/criminal-defense/burglary', desc: 'Burglary allegations and related property offenses.' },
+  { title: 'Forgery', href: '/criminal-defense/forgery', desc: 'Forgery, fraud, and disputed document allegations.' },
+  { title: 'Bad Checks', href: '/criminal-defense/bad-checks', desc: 'Bad-check allegations and related financial offenses.' },
+  { title: 'Juvenile Crimes', href: '/criminal-defense/juvenile-crimes', desc: 'Defense for young people facing juvenile allegations.' },
+  { title: 'Prostitution', href: '/criminal-defense/prostitution', desc: 'Prostitution and related criminal allegations.' },
+  { title: 'Sexual Assault', href: '/criminal-defense/sexual-assault', desc: 'Defense for sexual assault allegations.' },
+  { title: 'Record Sealing', href: '/criminal-defense/record-sealing', desc: 'Eligibility review and petitions to seal criminal records.' },
+];
+
 export const MARC_AWARDS = [
   '2026 Platinum Client Champion, Martindale-Hubbell Attorney Ratings',
   '2025 Platinum Client Champion, Martindale-Hubbell Attorney Ratings',

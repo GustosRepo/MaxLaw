@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import { TOTAL_RECOVERED_DISPLAY } from '@/lib/constants'
+import { rearEndCollisionGuide } from '@/lib/resources'
 
 export default function CarAccidentsPageClient() {
   const breadcrumbItems = [
@@ -42,6 +43,9 @@ export default function CarAccidentsPageClient() {
               <li>Save names and phone numbers for witnesses when possible</li>
               <li>Be careful with recorded statements before you understand your rights</li>
             </ul>
+            <p className="text-white/80 mb-4">
+              If you were hit from behind, read <Link href={rearEndCollisionGuide.path} className="text-[#d4af37] underline">what to do after a rear-end collision in Las Vegas</Link> for tips on documenting the order of impacts and handling insurer calls.
+            </p>
 
             <h3 className="text-lg font-semibold mb-3">Records After a Las Vegas Crash</h3>
             <p className="text-white/80 mb-4">

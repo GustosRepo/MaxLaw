@@ -113,9 +113,11 @@ test('sitemap contains only direct canonical public pages', async ({ request }) 
   const xml = await response.text();
   expect(xml).not.toContain('<lastmod>');
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
-  expect(urls).toHaveLength(38);
+  expect(urls).toHaveLength(40);
   expect(urls).toContain(`${origin}${beckmanPath}`);
   expect(urls).toContain(`${origin}/criminal-defense`);
+  expect(urls).toContain(`${origin}/resources`);
+  expect(urls).toContain(`${origin}/resources/rear-end-collision-las-vegas`);
   expect(new Set(urls).size).toBe(urls.length);
   const titles = new Set<string>();
   for (const url of urls) {
@@ -139,6 +141,27 @@ test('sitemap contains only direct canonical public pages', async ({ request }) 
   const robots = await request.get('/robots.txt');
   expect(robots.status()).toBe(200);
   expect(await robots.text()).toContain(`Sitemap: ${origin}/sitemap.xml`);
+});
+
+test('the rear-end guide is discoverable and sourced in initial HTML', async ({ request }) => {
+  const path = '/resources/rear-end-collision-las-vegas';
+  for (const source of ['/resources', '/practice/car-accidents']) {
+    const response = await request.get(source);
+    expect(await response.text()).toContain(`href="${path}"`);
+  }
+
+  const article = await request.get(path);
+  expect(article.status()).toBe(200);
+  const html = await article.text();
+  expect(html).toMatch(/<h1\b[^>]*>What to Do After a Rear-End Collision in Las Vegas<\/h1>/);
+  expect(html).toContain('href="/practice/car-accidents"');
+  expect(html).toContain('href="https://www.leg.state.nv.us/NRS/NRS-484B.html#NRS484BSec127"');
+  expect(html).toContain('href="https://www.leg.state.nv.us/NRS/NRS-041.html#NRS041Sec141"');
+  const structuredData = [...html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/g)]
+    .map(([, json]) => JSON.parse(json));
+  const blogPosting = structuredData.find(node => node['@type'] === 'BlogPosting');
+  expect(blogPosting?.url).toBe(`${origin}${path}`);
+  expect(html.toLowerCase()).toContain(`datetime="${blogPosting.datePublished}"`);
 });
 
 test('diagnostics remain noindexed while verification and public pages stay accessible', async ({ request }) => {

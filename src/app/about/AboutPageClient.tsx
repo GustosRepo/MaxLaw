@@ -141,6 +141,7 @@ export default function AboutPage() {
                 <p className="text-white/80 mb-3">Marc actively litigates cases, conducts jury trials and has represented more than 5,000 clients. In addition, for years he was a pro tempore judge for the Las Vegas Municipal Court System, as well as a Small Claims Court judge and Traffic Court magistrate.</p>
                 <h3 className="mt-6 text-2xl font-semibold">Media & Publications</h3>
                 <p className="text-white/80 mb-3">Marc has appeared on Fox and Friends, On the Record with Greta VanSusteren, Court TV and CBS&apos;s 48 Hours to provide legal insight and analysis. He is a weekly contributing writer for the Las Vegas Review Journal and has been profiled in the Las Vegas Review Journal and Las Vegas Magazine.</p>
+                <p className="mb-3"><Link href="/media" className="text-[#d4af37] underline underline-offset-4">Media &amp; Press</Link></p>
                 <p className="text-white/80"><Link href="/about/marc-a-saggese" className="underline text-[#d4af37]">Learn more about Marc: Marc A. Saggese, Esq.</Link></p>
               </article>
 

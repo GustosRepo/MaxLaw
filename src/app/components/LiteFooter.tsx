@@ -16,6 +16,7 @@ export default function LiteFooter() {
           <Link href="/practice" className="hover:text-[#d4af37]">Practice</Link>
           <Link href="/results" className="hover:text-[#d4af37]">Results</Link>
           <Link href={RESOURCES_PATH} className="hover:text-[#d4af37]">Resources</Link>
+          <Link href="/media" className="hover:text-[#d4af37]">Media &amp; Press</Link>
           <Link href="/privacy-policy" className="hover:text-[#d4af37]">Privacy Policy</Link>
           <Link href="/disclaimer" className="hover:text-[#d4af37]">Disclaimer</Link>
           <Link href="/contact" className="hover:text-[#d4af37]">Contact</Link>

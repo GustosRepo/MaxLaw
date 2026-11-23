@@ -10,6 +10,7 @@ export default function Footer() {
         <p className="text-sm text-white/60">© {new Date().getFullYear()} The Law Offices of Saggese & Associates. All rights reserved.</p>
         <div className="flex items-center gap-4 text-sm text-white/70 flex-wrap justify-center md:justify-end">
           <Link href={RESOURCES_PATH} className="hover:text-white/90">Resources</Link>
+          <Link href="/media" className="hover:text-white/90">Media &amp; Press</Link>
           <Link href="/privacy-policy" className="hover:text-white/90">Privacy Policy</Link>
           <Link href="/disclaimer" className="hover:text-white/90">Disclaimer</Link>
           <Link href="/contact" className="hover:text-white/90">Contact</Link>

@@ -171,6 +171,30 @@ test('main pages render without overflow, duplicate headings, nested main or bro
   expect(errors).toEqual([]);
 });
 
+test('the main navigation opens Resources and About and the footer link to Media', async ({ page, isMobile }) => {
+  await page.goto('/about');
+  const mainNav = page.getByRole('navigation', { name: 'Main navigation' });
+  const resources = mainNav.getByRole('link', { name: 'Resources', exact: true });
+  const media = { name: 'Media & Press', exact: true };
+  await expect(page.getByRole('main').getByRole('link', media)).toHaveAttribute('href', '/media');
+  await expect(page.getByRole('contentinfo').getByRole('link', media)).toHaveAttribute('href', '/media');
+  if (isMobile) {
+    await expect(mainNav.locator('a[href="tel:+17027788883"]')).toBeVisible();
+    const menu = mainNav.locator('summary');
+    await menu.click();
+    await expect(resources).toBeVisible();
+    await menu.press('Escape');
+    await expect(resources).toHaveCount(0);
+    await expect(menu).toBeFocused();
+    await menu.press('Enter');
+  }
+  await expect(resources).toHaveAttribute('href', '/resources');
+  await resources.click();
+  await expect(page).toHaveURL(/\/resources$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Legal Resources');
+  if (isMobile) await expect(resources).toHaveCount(0);
+});
+
 test('practice directory links to every retained criminal service', async ({ page }) => {
   await page.goto('/practice');
   const slugs = ['bad-checks', 'burglary', 'domestic-violence', 'drugs', 'dui', 'forgery', 'juvenile-crimes', 'larceny', 'murder', 'prostitution', 'record-sealing', 'sexual-assault', 'theft'];
@@ -222,7 +246,7 @@ test('practice navigation and core content work without JavaScript', async ({ pa
     await expect(noJs.locator('h1')).toHaveText('Las Vegas Car Accident Attorney');
     await expect(noJs.getByRole('heading', { name: 'How the Firm Builds a Car Accident Claim' })).toBeVisible();
     const navigation = noJs.getByRole('navigation', { name: 'Practice areas' });
-    await noJs.locator('summary').click();
+    await noJs.locator('details').filter({ has: noJs.locator('nav[aria-label="Practice areas"]') }).locator('summary').click();
     const recordSealing = navigation.getByRole('link', { name: 'Record Sealing', exact: true });
     await expect(recordSealing).toBeVisible();
     await recordSealing.click();

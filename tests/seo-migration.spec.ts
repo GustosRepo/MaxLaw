@@ -113,10 +113,11 @@ test('sitemap contains only direct canonical public pages', async ({ request }) 
   const xml = await response.text();
   expect(xml).not.toContain('<lastmod>');
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
-  expect(urls).toHaveLength(40);
+  expect(urls).toHaveLength(41);
   expect(urls).toContain(`${origin}${beckmanPath}`);
   expect(urls).toContain(`${origin}/criminal-defense`);
   expect(urls).toContain(`${origin}/resources`);
+  expect(urls).toContain(`${origin}/resources/las-vegas-car-accident-report`);
   expect(urls).toContain(`${origin}/resources/rear-end-collision-las-vegas`);
   expect(new Set(urls).size).toBe(urls.length);
   const titles = new Set<string>();

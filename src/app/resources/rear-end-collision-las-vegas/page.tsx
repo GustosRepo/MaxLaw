@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FIRM_NAME, SITE_URL } from '@/lib/constants'
-import { RESOURCES_PATH, rearEndCollisionGuide } from '@/lib/resources'
+import { RESOURCES_PATH, carAccidentReportGuide, rearEndCollisionGuide } from '@/lib/resources'
 import { BUSINESS_ID, serializeJsonLd } from '@/lib/structured-data'
 import Breadcrumbs from '../../components/Breadcrumbs'
 
-const { path, title, description, publishedDate, publishedLabel } = rearEndCollisionGuide
+const { path, title, description, date, dateLabel } = rearEndCollisionGuide
 const canonical = `${SITE_URL}${path}`
 const photo = {
   src: '/content/car-accident2.png',
@@ -42,7 +42,7 @@ const articleData = {
   headline: title,
   description,
   image: photoUrl,
-  datePublished: publishedDate,
+  datePublished: date,
   publisher: { '@type': 'Organization', '@id': BUSINESS_ID, name: FIRM_NAME, url: SITE_URL },
 }
 
@@ -60,7 +60,7 @@ export default function RearEndCollisionPage() {
           <h1 className="text-4xl leading-tight font-bold text-[#d4af37] md:text-5xl">{title}</h1>
           <p className="mt-4 text-sm text-white/70">
             Published by {FIRM_NAME} <span aria-hidden="true">·</span>{' '}
-            <time dateTime={publishedDate}>{publishedLabel}</time>
+            <time dateTime={date}>{dateLabel}</time>
           </p>
         </header>
 
@@ -99,7 +99,7 @@ export default function RearEndCollisionPage() {
               <li><strong className="text-white">The order of events.</strong> Write down what you remember while it’s fresh. If you felt two impacts, record which came first and where your vehicle was in relation to the others. Mark details you’re unsure about.</li>
               <li><strong className="text-white">Photos and video.</strong> If you can do so safely, take photos of the damage, lane markings, vehicle positions, and nearby signs. Export dashcam video before the device records over it and keep the original file. Note where you saw any nearby cameras and when the crash happened so you can ask the operator whether footage exists.</li>
               <li>
-                <strong className="text-white">The incident number.</strong> Start with the agency listed on the officer’s paperwork. Follow that agency’s instructions for requesting a copy.{' '}
+                <strong className="text-white">The incident number.</strong> Start with the agency listed on the officer’s paperwork. See <Link href={carAccidentReportGuide.path} className={linkClass}>how to get a Las Vegas car accident report</Link> for request steps and what to have ready.{' '}
                 <a href="https://www.lvmpd.com/about/bureaus/records-and-fingerprint-bureau/requesting-report-copies-with-lvmpd" className={linkClass}>LVMPD report copies</a>{' · '}
                 <a href="https://www.nhp.nv.gov/crashes-citations/crash-report-request/" className={linkClass}>Nevada State Police crash reports</a>
               </li>

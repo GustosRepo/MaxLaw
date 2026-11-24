@@ -193,6 +193,12 @@ test('the main navigation opens Resources and About and the footer link to Media
   await expect(page).toHaveURL(/\/resources$/);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Legal Resources');
   if (isMobile) await expect(resources).toHaveCount(0);
+
+  await page.getByRole('link', { name: 'How to Get a Las Vegas Car Accident Report', exact: true }).click();
+  await expect(page).toHaveURL(/\/resources\/las-vegas-car-accident-report$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('How to Get a Las Vegas Car Accident Report');
+  await expect(page.getByRole('link', { name: 'Nevada DMV Form SR-1 (PDF)' })).toHaveAttribute('href', 'https://dmv.nv.gov/pdfforms/sr1.pdf');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 
 test('practice directory links to every retained criminal service', async ({ page }) => {

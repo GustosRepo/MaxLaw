@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import { TOTAL_RECOVERED_DISPLAY } from '@/lib/constants'
-import { rearEndCollisionGuide } from '@/lib/resources'
+import { carAccidentReportGuide, rearEndCollisionGuide } from '@/lib/resources'
 
 export default function CarAccidentsPageClient() {
   const breadcrumbItems = [
@@ -49,7 +49,7 @@ export default function CarAccidentsPageClient() {
 
             <h3 className="text-lg font-semibold mb-3">Records After a Las Vegas Crash</h3>
             <p className="text-white/80 mb-4">
-              Start with the agency named on your incident paperwork. Use the official <a href="https://www.lvmpd.com/about/bureaus/records-and-fingerprint-bureau/requesting-report-copies-with-lvmpd" className="text-[#d4af37] underline">LVMPD report-copy guidance</a> or <a href="https://www.nhp.nv.gov/crashes-citations/crash-report-request/" className="text-[#d4af37] underline">Nevada State Police crash-report instructions</a> for a crash that agency handled. Requesting an existing report is separate from reporting a crash or notifying an insurer. If you were visiting Las Vegas, keep copies of available photos, treatment records, witness details, and insurance correspondence together after returning home. Note possible camera locations promptly; footage may not be available or retained.
+              Start with the agency named on your incident paperwork. Use the official <a href="https://www.lvmpd.com/about/bureaus/records-and-fingerprint-bureau/requesting-report-copies-with-lvmpd" className="text-[#d4af37] underline">LVMPD report-copy guidance</a> or <a href="https://www.nhp.nv.gov/crashes-citations/crash-report-request/" className="text-[#d4af37] underline">Nevada State Police crash-report instructions</a> for a crash that agency handled. Our guide to <Link href={carAccidentReportGuide.path} className="text-[#d4af37] underline">getting a Las Vegas car accident report</Link> explains what to have ready and when Nevada DMV Form SR-1 may apply. If you were visiting Las Vegas, keep copies of available photos, treatment records, witness details, and insurance correspondence together after returning home. Note possible camera locations promptly; footage may not be available or retained.
             </p>
 
             <h3 className="text-lg font-semibold mb-3">Common Types of Car Accidents We Handle</h3>

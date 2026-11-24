@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import fs from 'fs'
 import path from 'path'
 import { BECKMAN_MEDIA_PATH } from '../lib/constants'
-import { RESOURCES_PATH, rearEndCollisionGuide } from '../lib/resources'
+import { RESOURCES_PATH, resourceGuides } from '../lib/resources'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.maxlawnv.com'
@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const personalInjuryAreas = discover('practice');
   const criminalDefenseAreas = discover('criminal-defense');
-  const allPages = [...mainPages, ...personalInjuryAreas, ...criminalDefenseAreas, RESOURCES_PATH, rearEndCollisionGuide.path];
+  const allPages = [...mainPages, ...personalInjuryAreas, ...criminalDefenseAreas, RESOURCES_PATH, ...resourceGuides.map(guide => guide.path)];
 
   return allPages.map((path) => ({
     url: `${baseUrl}${path}`,
